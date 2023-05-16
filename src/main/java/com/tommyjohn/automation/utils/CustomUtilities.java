@@ -43,6 +43,7 @@ public class CustomUtilities {
 	public static BufferedReader reader;
 	public static Properties properties;
 	public static final String propertiesFilePath = "src/main/resources/configuration.properties";
+	
 	//	public static ATUTestRecorder recorder;
 
 	/**
@@ -63,10 +64,9 @@ public class CustomUtilities {
 
 		if (browser.equalsIgnoreCase("chrome"))
 		{
-			// System.setProperty("webdriver.chrome.driver"
-			// ,"src\\main\\resources\\chromedriver.exe");
-			// System.setProperty("webdriver.chrome.driver" ,"/tmp/chromedriver.exe");
-			System.setProperty("webdriver.chrome.driver", properties.getProperty("chromeDriverPath"));
+			System.setProperty("webdriver.chrome.driver" ,"src\\main\\resources\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver" ,"/tmp/chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver", properties.getProperty("chromeDriverPath"));
 			ChromeOptions chromeOptions = new ChromeOptions();
 			//chromeOptions.addArguments("--headless");
 			chromeOptions.addArguments("--window-size=1280,800");
@@ -79,6 +79,7 @@ public class CustomUtilities {
 			chromeOptions.addArguments("--ignore-certificate-errors");
 			chromeOptions.addArguments("--no-default-browser-check");
 			chromeOptions.addArguments("--disable-popup-blocking");
+			chromeOptions.addArguments("--remote-allow-origins=*");
 			chromeOptions.setAcceptInsecureCerts(true);
 
 
@@ -239,6 +240,7 @@ public class CustomUtilities {
 		}
 
 	}
+	
 
 	public static void takessiffailed(String mname) throws Exception
 	{

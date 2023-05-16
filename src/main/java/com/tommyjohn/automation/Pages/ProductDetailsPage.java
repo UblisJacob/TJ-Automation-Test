@@ -144,5 +144,24 @@ public class ProductDetailsPage extends ProductDetailsPageComponents{
 		new HomePageComponents(driver).navigateToAllUnderwearInMenCategory();
 		ErrorMessagewithMaxQTYonPDP();
 	}
-		
+
+//	public void verifyImageGallery() throws Exception {
+//				new ProductDetailsPageComponents(driver).verifyImageGallery();
+//	}
+//	public void viewImageGallery() throws Exception {
+//		new ProductDetailsPageComponents(driver).viewImageGallery();
+//	}
+	public void verifyOnImageBadging() throws Exception {
+		new ProductDetailsPageComponents(driver).verifyOnImageBadging();
+	}
+//	public void verifySecondaryBadging() throws Exception {
+//		new ProductDetailsPageComponents(driver).verifySecondaryBadging();
+//	}
+//	public void verifySecondaryBadging() throws Exception {
+//		new ProductDetailsPageComponents(driver).verifySecondaryBadging();
+//	}
+//	public void verifySelectedColorSwatch() throws Exception {
+//	new ProductDetailsPageComponents(driver).verifySelectedColorSwatch();
+//}
+	//
 	}

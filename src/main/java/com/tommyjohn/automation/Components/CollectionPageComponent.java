@@ -2,6 +2,10 @@ package com.tommyjohn.automation.Components;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,6 +25,11 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
@@ -34,6 +43,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.asserts.SoftAssert;
 
+import com.google.common.collect.Table.Cell;
 import com.tommyjohn.automation.PageLocators.CollectionPageLocator;
 import com.tommyjohn.automation.PageLocators.FlyCartPageLocator;
 import com.tommyjohn.automation.PageLocators.ProductDetailsPageLocators;
@@ -52,15 +62,17 @@ public class CollectionPageComponent extends CollectionPageLocator {
 	SoftAssert softAssert = new SoftAssert();
 	String text;
 	String Selected_size;
+	private Workbook workbook;
 
 	public String navigateToProductDetailsPage() throws Exception {
 		String text = null;
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,250)");
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT_HEAD_LINE_TEXT));
+		driver.get("https://tommyjohn.com/collections/womens-underwear");
+		//JavascriptExecutor js = (JavascriptExecutor) driver;
+		//js.executeScript("window.scrollBy(0,250)");
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT));
 		// get text and click on the first product
-		text = driver.findElement(FIRST_PRODUCT_IMAGE).getAttribute("alt");
+		text = driver.findElement(FIRST_PRODUCT).getAttribute("alt");
 		//text= driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT).getText();
 		WebElement el = driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT);
 		JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -69,6 +81,38 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		Reporter.log(driver.getCurrentUrl());
 		//text = driver.findElement(ProductDetailsPageLocators.PRODUCT_TITLE).getText();
 		return text;
+	}
+	
+	public String navigateToRandomPDP() throws IOException {
+		File src = new File("C:\\Users\\Kritika Bhat\\git\\TJ_Automation_test\\src\\main\\resources\\PLPs.xlsx"); 		
+		InputStream fis = new FileInputStream(src);
+		//InputStream inputstream = new FileInputStream(src);
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		XSSFSheet sheet = workbook.getSheet("PLPs");
+		int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
+		int randomIndex = (int) (Math.random() * rowCount) + 1;
+		XSSFRow row = sheet.getRow(randomIndex);
+		XSSFCell cell = row.getCell(0);  // Assuming the URLs are in the first column (column index 0)
+		String url = cell.getStringCellValue();
+		String newurl = "https://tommyjohn.com" + url;
+		
+		driver.get(newurl);
+		System.out.println(newurl);
+		
+		
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT));
+		// get text and click on the first product
+		text = driver.findElement(FIRST_PRODUCT).getAttribute("alt");
+		//text= driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT).getText();
+		WebElement el = driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", el);
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
+//		Reporter.log(driver.getCurrentUrl());
+//		text = driver.findElement(ProductDetailsPageLocators.PRODUCT_TITLE).getText();
+		 return text;
+
 	}
 
 	@SuppressWarnings("static-access")

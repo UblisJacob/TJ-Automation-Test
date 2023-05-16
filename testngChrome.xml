@@ -5,7 +5,8 @@
 	<listeners>
 		<listener class-name="TestScenario.ListenerClass"></listener>
 	</listeners>
-	
+
+
 	
 	<test thread-count="1" name="NavigationFlow" verbose="1"
 		parallel="tests">
@@ -15,6 +16,8 @@
 		</classes>
 	</test>
 
+
+<!-- 
 	<test thread-count="1" name="HomePageTests" verbose="1"
 		parallel="tests">
 		<parameter name="browser" value="chrome" />
@@ -180,7 +183,7 @@
 		</classes>
 	</test> 
 
-<!-- 	<test thread-count="1" name="VerifyHeapEvents" -->
+<!	<test thread-count="1" name="VerifyHeapEvents" -->
 <!-- 		verbose="1" parallel="tests"> -->
 <!-- 		<classes> -->
 <!-- 			<class name="TestScenario.ValidateHeapEvents" /> -->

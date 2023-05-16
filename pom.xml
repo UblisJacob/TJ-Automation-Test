@@ -1,17 +1,12 @@
-
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.tommyjohn.automation</groupId>
 	<artifactId>shopify-script</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
 	<name>shopify-qa-automation-script</name>
 	<url>http://maven.apache.org</url>
-
 	<properties>
 		<main-class>com.tommyjohn.automation.MainClass</main-class>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,15 +15,7 @@
 		<maven-jar-plugin.version>3.0.2</maven-jar-plugin.version>
 		<maven-shade-plugin.version>3.1.0</maven-shade-plugin.version>
 	</properties>
-
-
-
-
-
 	<dependencies>
-
-
-
 		<!-- https://mvnrepository.com/artifact/net.lightbody.bmp/browsermob-proxy -->
 		<dependency>
 			<groupId>net.lightbody.bmp</groupId>
@@ -41,16 +28,11 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
-
-
 		<dependency>
 			<groupId>com.jcraft</groupId>
 			<artifactId>jzlib</artifactId>
 			<version>1.1.3</version>
-
 		</dependency>
-
 <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
 <dependency>
     <groupId>com.google.guava</groupId>
@@ -58,29 +40,27 @@
     <version>16.0.1</version>
 </dependency>
 
+<dependency>
+  <groupId>org.seleniumhq.selenium</groupId>
+  <artifactId>selenium-http-jdk-client</artifactId>
+  <version>4.8.1</version>
+</dependency>
 	<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
 <dependency>
     <groupId>com.google.guava</groupId>
     <artifactId>guava</artifactId>
     <version>31.1-jre</version>
 </dependency>
-
-
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>2.8.6</version>
-
 		</dependency>
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.7.25</version>
-
 		</dependency>
-
-
 		<!-- <dependency> -->
 		<!-- <groupId>atu.testng.reports.ATUReports</groupId> -->
 		<!-- <artifactId>ATUReporter_Selenium_testNG</artifactId> -->
@@ -88,7 +68,6 @@
 		<!-- <scope>system</scope> -->
 		<!-- <systemPath>${basedir}/libs/ATUReporter_Selenium_testNG_5.1.1.jar</systemPath> -->
 		<!-- </dependency> -->
-
 		<!-- <dependency> -->
 		<!-- <groupId>atu.testng.reports.ATUReports</groupId> -->
 		<!-- <artifactId>ATUTestRecorder</artifactId> -->
@@ -96,17 +75,12 @@
 		<!-- <scope>system</scope> -->
 		<!-- <systemPath>${basedir}/libs/ATUTestRecorder_2.1.jar</systemPath> -->
 		<!-- </dependency> -->
-
-
-
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<version>2.6</version>
 		</dependency>
-
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -125,8 +99,6 @@
     <artifactId>selenium-java</artifactId>
     <version>4.1.1</version>
 </dependency>
-
-
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
@@ -135,69 +107,54 @@
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-
 			<version>2.11.2</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
 			<version>3.9</version>
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
 			<groupId>javax.mail</groupId>
 			<artifactId>mail</artifactId>
 			<version>1.4.7</version>
 		</dependency>
-
 		<!-- Extent Report dependency -->
 		<dependency>
 			<groupId>com.relevantcodes</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>2.41.1</version>
-
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.9</version>
-
 		</dependency>
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 			<version>2.2.2</version>
-
 		</dependency>
 		<dependency>
 			<groupId>asm</groupId>
 			<artifactId>asm-util</artifactId>
 			<version>3.3.1</version>
-
 		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
 			<version>5.0.9</version>
 		</dependency>
-
-
 <!-- https://mvnrepository.com/artifact/com.github.hxbkx/ExcelUtils -->
 <dependency>
     <groupId>com.github.hxbkx</groupId>
     <artifactId>ExcelUtils</artifactId>
     <version>1.4.2</version>
 </dependency>
-
-
-
 	</dependencies>
-
 <pluginRepositories>
        <pluginRepository>
           <id>qmetrytestmanager-mvn-repo</id>
@@ -209,8 +166,6 @@
           </releases>
        </pluginRepository>
     </pluginRepositories>
-
-
 	<build>
 		<defaultGoal>install</defaultGoal>
 	
@@ -224,9 +179,6 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
-
-
 	
           <plugin>
              <groupId>org.apache.maven.plugins</groupId>
@@ -245,12 +197,7 @@
                    </goals>
                 </execution>
              </executions>
-             
           </plugin>
-          
-          
-      
-
 			<!-- Post-Man plugin -->
 			<plugin>
 				<groupId>ch.fortysix</groupId>
@@ -277,7 +224,7 @@
                                     <p>Hello!</p>
                                     <p>Automation Suite Triggered!</p>
                                     <p>Attached html file contains the test result status</p>
-                                    <p>Please download and view the report for proper formatting</p> 
+                                    <p>Please download and view the report for proper formatting</p>
                                     ]]>
 							</htmlMessage>
 							<!-- host -->
@@ -307,7 +254,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
@@ -320,4 +266,4 @@
 			</plugin>
 		</plugins>
 	</build>
-</project>                         
+</project>
