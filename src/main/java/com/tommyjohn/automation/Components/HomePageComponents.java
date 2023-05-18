@@ -1373,8 +1373,8 @@ public class HomePageComponents extends HomePageLocators {
 	public void navigateToAllUnderwearInMenCategory() throws Exception {
 		driver.get("https://www.tommyjohn.com/collections/mens-underwear");
 		Thread.sleep(5000);
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,250)");
+		//JavascriptExecutor jse = (JavascriptExecutor)driver;
+		//jse.executeScript("window.scrollBy(0,250)");
 	}
 
 	//navigate to Button down shirts

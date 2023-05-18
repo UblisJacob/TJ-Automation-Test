@@ -1,5 +1,6 @@
 package com.tommyjohn.automation.Components;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -2266,6 +2267,219 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 		}
 	}
+	public void verifyImageGallery() throws Exception {
+		new HomePageComponents(driver).navigateToBraCategory();
+		
+		SoftAssert softAssert = new SoftAssert();
+		
+		//navigate to PDP
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT));
+		
+		WebElement el = driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", el);
+		
+		Thread.sleep(3000);
+		allElements = driver.findElements(IMG_CAROUSEL);
+		elementsCount = allElements.size();
+		System.out.println("Image Element count :: "+elementsCount);
+		
+		if(elementsCount > 1)
+		{
+			for(int i=1;i<elementsCount;i++)
+			{
+				
+				String imagegallery = null;
+				String mainimage = null;
+				
+				imagegallery = driver.findElement(By.cssSelector(".slick-list.draggable>div>div:nth-child("+i+")")).getAttribute("data-slide-id");
+				driver.findElement(By.cssSelector(".slick-list.draggable>div>div:nth-child("+i+")>img")).click();
+				Thread.sleep(3000);
+				
+				mainimage = driver.findElement(By.cssSelector(".pdpImageSlidesWrapper>div>div>div>div:nth-child("+i+").slick-active")).getAttribute("data-slide-id");
+				System.out.println(imagegallery);
+				System.out.println(mainimage);
+				if(!imagegallery.contentEquals(mainimage))	
+				{
+					System.out.println("Image caraousel does not change");						
+				}else
+					System.out.println("Image carousel changes");
+			
+			}
+		}
+		Reporter.log("Image gallery changes with main image");
+		
+		softAssert.assertAll();
+	}
+
+	
+	public void viewImageGallery() throws Exception {
+		String thumbnail;
+		SoftAssert softAssert = new SoftAssert();
+		new HomePageComponents(driver).navigateToAllUnderwearInMenCategory();
+		
+		//navigate to PDP
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT));
+		
+		WebElement el = driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", el);
+		
+		Thread.sleep(3000);
+		allElements = driver.findElements(IMG_CAROUSEL);
+		elementsCount = allElements.size();
+		System.out.println("Image Element count :: "+elementsCount);
+		
+		if(elementsCount > 1) 
+		{	
+			for(int i=1;i<=elementsCount;i++) 
+			{
+				thumbnail = driver.findElement(By.cssSelector(".slick-list.draggable>div>div:nth-child("+i+")")).getAttribute("data-slide-id");
+				driver.findElement(By.cssSelector(".slick-list.draggable>div>div:nth-child("+i+")>img")).click();
+				Thread.sleep(3000);
+				System.out.println(thumbnail);
+			}
+		}
+			Reporter.log("New Image is visible");
+		
+		softAssert.assertAll();
+		
+	}
+	
+	
+	public void verifyOnImageBadging() throws Exception {
+		
+		SoftAssert softAssert = new SoftAssert();
+		new HomePageComponents(driver).navigateToNewArrivalsInWomenCategory();
+		
+		//navigate to PDP
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT));
+		Thread.sleep(3000);
+		WebElement el = driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", el);
+		
+		WebElement allElements = (WebElement) driver.findElement(IMAGE_BADGING);
+		try{
+			if(!(allElements).isDisplayed())
+				throw new Exception("Badging is not displayed on PDP.");
+			else {
+				System.out.println("Badging is displayed on PDP.");
+				Reporter.log("Badge is displayed on PDP.");
+			}
+		}
+		catch(Exception e){
+			System.out.println("Badging is not applicable for this product.");
+		}
+		
+		softAssert.assertAll();
+	}
+		
+	public void verifySecondaryBadging() throws Exception {
+		
+		SoftAssert softAssert = new SoftAssert();
+		new HomePageComponents(driver).navigateToAllMensPacksInPacksCategory();
+		
+		//navigate to PDP
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT));
+		Thread.sleep(3000);
+		WebElement el = driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", el);
+		
+		
+		WebElement allElements;
+		allElements = (WebElement) driver.findElement(SECONDARY_BADGING);
+//		System.out.println(allElements);
+		try{
+			if(!(allElements).isDisplayed())
+				throw new Exception("Badging is not displayed on PDP.");
+			else {
+				System.out.println("Badging is displayed on PDP.");
+				Reporter.log("Badge is displayed on PDP.");
+			}
+		}
+		catch(Exception e){
+			System.out.println("Badging is not applicable for this product.");
+		}
+		
+		softAssert.assertAll();
+	}
+	
+		public void verifySelectedColorSwatch() throws Exception {
+			String colornew;
+			SoftAssert softAssert = new SoftAssert();
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			new HomePageComponents(driver).navigateToAllUnderwearInMenCategory();
+			//new HomePageComponents(driver).navigateToAllPantiesInWomenCategory();
+			
+			//navigate to PDP
+			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT));
+			Thread.sleep(3000);
+			WebElement el = driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT);
+			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			executor.executeScript("arguments[0].click();", el);	
+			
+			Thread.sleep(3000);
+			allElements = driver.findElements(ALL_COLOR_LIST);
+			
+			elementsCount = allElements.size();
+			System.out.println("Color Element count :: "+elementsCount);
+			if(elementsCount > 1)
+			{
+				for(int i=1;i<=elementsCount;i++)
+				{
+						String imagecolor = null;
+						WebElement elemen = driver.findElement(By.cssSelector(".product-option__color-swatches-wrapper>ul>li:nth-child(" + i + ") > label"));
+						elemen.click();
+						jse.executeScript("arguments[0].click();", elemen);
+						String colortext = driver.findElement(COLOR_TEXT).getText();
+						
+						List<WebElement> activesizes = driver.findElements(ACTIVE_SIZES);
+						int num= activesizes.size();
+						List<WebElement> inactivesizes = driver.findElements(INACTIVE_SIZES);
+						int num1= inactivesizes.size();
+						
+						if(num>1)
+							System.out.println("Active Sizes: " +num );
+						else
+							System.out.println("Out of Stock Sizes:" + num1);
+						
+						colornew = driver.findElement(By.cssSelector(".product-option__color-swatches-wrapper > ul  > li:nth-child("+ i +") > label")).getAttribute("aria-label");
+						imagecolor = driver.findElement(IMAGE_COLOR).getAttribute("data-color-handle");
+						System.out.println(colortext);
+						System.out.println(colornew);
+												
+						System.out.println("===========");
+						Thread.sleep(3000);
+						
+						//gallery will also update to color product
+						if(imagecolor.contentEquals(colortext))	
+						{
+							//Thread.sleep(5000);
+							//wait.until(ExpectedConditions.visibilityOfElementLocated(COLOR_TEXT));
+							System.out.println("expected is: "+driver.findElement(COLOR_TEXT).getText()+" Actual is: "+imagecolor);
+							softAssert.assertEquals(driver.findElement(COLOR_TEXT).getText().equalsIgnoreCase(imagecolor), true, "Color not changing");
+						}
+						
+						//sizes getting updated
+						
+						
+						
+						Reporter.log("Colors are present and changing correctly");
+						
+						
+				}
+				
+				
+			}
+			
+		}
 }
 
 

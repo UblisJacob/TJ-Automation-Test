@@ -5,7 +5,7 @@
 	<listeners>
 		<listener class-name="TestScenario.ListenerClass"></listener>
 	</listeners>
-	
+<!--	
 	<test name="MegaCollectionTests" >
 		<parameter name="browser" value="chrome" />
 		<classes>
@@ -13,7 +13,14 @@
 
 		</classes>
 	</test>
-	
+ -->	
+	<test thread-count="1" name="ProductPageTests" verbose="1"
+		parallel="tests">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestModules.ValidatePDP" />
+		</classes>
+	</test>
 	
 	
 

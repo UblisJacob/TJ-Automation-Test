@@ -2,6 +2,8 @@ package com.tommyjohn.automation.Components;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,6 +24,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
@@ -73,6 +77,38 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		// text =
 		// driver.findElement(ProductDetailsPageLocators.PRODUCT_TITLE).getText();
 		return text;
+	}
+	
+	public String navigateToRandomPDP() throws IOException {
+		File src = new File("C:\\Users\\Kritika Bhat\\git\\TJ_Automation_test\\src\\main\\resources\\PLPs.xlsx"); 		
+		InputStream fis = new FileInputStream(src);
+		//InputStream inputstream = new FileInputStream(src);
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		XSSFSheet sheet = workbook.getSheet("PLPs");
+		int rowCount = sheet.getLastRowNum() - sheet.getFirstRowNum();
+		int randomIndex = (int) (Math.random() * rowCount) + 1;
+		XSSFRow row = sheet.getRow(randomIndex);
+		XSSFCell cell = row.getCell(0);  // Assuming the URLs are in the first column (column index 0)
+		String url = cell.getStringCellValue();
+		String newurl = "https://tommyjohn.com" + url;
+		
+		driver.get(newurl);
+		System.out.println(newurl);
+		
+		
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT));
+		// get text and click on the first product
+		text = driver.findElement(FIRST_PRODUCT).getAttribute("alt");
+		//text= driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT).getText();
+		WebElement el = driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", el);
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
+//		Reporter.log(driver.getCurrentUrl());
+//		text = driver.findElement(ProductDetailsPageLocators.PRODUCT_TITLE).getText();
+		 return text;
+
 	}
 
 	@SuppressWarnings("static-access")

@@ -11,8 +11,27 @@ public class ProductDetailsPageLocators {
 	public static By PRODUCT_TITLE_1 = By.xpath("//div[@class='multi-pdp-title-wrap desktop-view desktop']//h1");//changed
 	//	public static By PRODUCT_PRICE = By.cssSelector("div.product-info__inner-top > span > span:nth-child(2)");
 	public static By PRODUCT_PRICE = By.cssSelector("div.multi-pdp-title-wrap.desktop-view > div.product-info__price-wrap >span > span:nth-child(2)");
-
-
+	
+	// image carousels
+	public static By IMG_CAROUSEL = By.cssSelector("div.pdpVerticalSlides>div>div>div");
+	
+	//first product on PDP
+	public static By FIRST_PRODUCT = By.cssSelector(".product-item");
+	public static By FIRST_PRODUCT_HEAD_LINE_TEXT = By.cssSelector(".product-meta__title");
+		
+	//image badging
+	public static By IMAGE_BADGING = By.cssSelector(".pdpImageSlidesWrapper>div:nth-child(2)");
+	
+	//Secondary Badging
+	public static By SECONDARY_BADGING = By.cssSelector("div.multi-pdp-title-wrap.desktop-view.desktop>div:nth-child(2)>span");
+	
+	//image color
+	public static By IMAGE_COLOR = By.cssSelector(".product-gallery.pdp-client-side-container.product-gallery-container>div>div:nth-child(2)>div>div>div>div.slick-active");
+	
+	public static By ACTIVE_SIZES = By.cssSelector(".option-swatch__option>li");
+	public static By INACTIVE_SIZES = By.cssSelector(".option-swatch__option>li>.option-swatch__input.unavailable.email-when-in-stock");
+	
+	
 	public static By AFTERPAY_DIV = By.cssSelector(".multi-pdp-title-wrap.desktop-view>span>.afterpay-paragraph");
     public static By SECOND_VERTICAL_IMAGE = By.cssSelector(".slick-vertical > div > div > div:nth-child(2)>img");
 
