@@ -148,6 +148,30 @@ public class ProductDetailsPage extends ProductDetailsPageComponents{
 		new ProductDetailsPageComponents(driver).verifyImageGallery();
 	}
 		
+	public void navigateToBraCategory() throws Exception {
+
+		new HomePageComponents(driver).navigateToBraCategory();
+	
+	}
+	
+	public void navigateToAllUnderwearInMenCategory() throws Exception {
+
+		new HomePageComponents(driver).navigateToAllUnderwearInMenCategory();
+	
+	}
+	
+	public void navigateToNewArrivalsInWomenCategory() throws Exception {
+
+		new HomePageComponents(driver).navigateToNewArrivalsInWomenCategory();
+	
+	}
+	public void navigateToAllMensPacksInPacksCategory() throws Exception {
+
+		new HomePageComponents(driver).navigateToAllMensPacksInPacksCategory();
+	
+	}
+		
+		
 	public void viewImageGallery() throws Exception {
 		new ProductDetailsPageComponents(driver).viewImageGallery();
 	}
@@ -163,6 +187,39 @@ public class ProductDetailsPage extends ProductDetailsPageComponents{
 	public void verifySelectedColorSwatch() throws Exception {
 		new ProductDetailsPageComponents(driver).verifySelectedColorSwatch();
 	}
+	public void verifyAvailableSizes() throws Exception {
+		new ProductDetailsPageComponents(driver).verifyAvailableSizes();
+	}
+	public void verifyStickyATC() throws Exception {
+		new ProductDetailsPageComponents(driver).verifyStickyATC();
+	}
 	
-		
+	public void verifyReviewRecommendations() throws Exception  {
+		new ProductDetailsPageComponents(driver).verifyReviewRecommendations();
+	}
+	public void verifyProductNamePrice() throws Exception  {
+		new ProductDetailsPageComponents(driver).verifyProductNamePrice();
+	}
+	public void verifyAccordions() throws Exception  {
+		new ProductDetailsPageComponents(driver).verifyAccordions();
+	}
+	public void verifyLowStockInventory() throws Exception  {
+		new ProductDetailsPageComponents(driver).verifyLowStockInventory();
+	}
+	public void verifyReviewRecommendationsSection() throws Exception  {
+		new ProductDetailsPageComponents(driver).verifyReviewRecommendationsSection();
+	}
+	public void verifyQuestionForm() throws Exception  {
+		new ProductDetailsPageComponents(driver).verifyQuestionForm();
+	}
+	public void verifyReviewForm() throws Exception  {
+		new ProductDetailsPageComponents(driver).verifyReviewForm();
+	}
+	public void verifyReviewFormErrorMessages() throws Exception  {
+		new ProductDetailsPageComponents(driver).verifyReviewFormErrorMessages();
+	}
+	public void verifyAddToCart() throws Exception  {
+		new ProductDetailsPageComponents(driver).verifyAddToCart();
+	}
+	
 	}

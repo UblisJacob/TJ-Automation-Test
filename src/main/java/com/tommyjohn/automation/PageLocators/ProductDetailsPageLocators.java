@@ -6,7 +6,7 @@ public class ProductDetailsPageLocators {
 
 	public static By FIRST_PRODUCT_REVIEW_STARS = By.cssSelector("div.mega-collection-grid__row:nth-child(3) > div:nth-child(3) > a > div");
 	//changed
-	public static By PRODUCT_TITLE = By.xpath("(//h1[@class='product-info__title'])[1]");
+	public static By PRODUCT_TITLE = By.cssSelector(".multi-pdp-title-wrap.desktop-view.desktop>.product-info__title-wrap>h1");
 	//changed
 	public static By PRODUCT_TITLE_1 = By.xpath("//div[@class='multi-pdp-title-wrap desktop-view desktop']//h1");//changed
 	//	public static By PRODUCT_PRICE = By.cssSelector("div.product-info__inner-top > span > span:nth-child(2)");
@@ -28,8 +28,14 @@ public class ProductDetailsPageLocators {
 	//image color
 	public static By IMAGE_COLOR = By.cssSelector(".product-gallery.pdp-client-side-container.product-gallery-container>div>div:nth-child(2)>div>div>div>div.slick-active");
 	
-	public static By ACTIVE_SIZES = By.cssSelector(".option-swatch__option>li");
+	public static By TOTAL_SIZES = By.cssSelector(".option-swatch__option>li>label>span");
 	public static By INACTIVE_SIZES = By.cssSelector(".option-swatch__option>li>.option-swatch__input.unavailable.email-when-in-stock");
+	public static By SIZE_VALUE = By.cssSelector(".option-swatch__option>li>input");
+	
+	
+	//color swatches
+	public static By COLOR_SWATCHES = By.cssSelector(".product-option__color-swatches-wrapper>ul>li");	
+	public static By STRIKED_COLOR_SWATCHES = By.cssSelector(".product-option__color-swatches-wrapper>ul>li>.product-option__variant-btn.product-option__variant-btn--color.js-variant--color.unavailable.email-when-in-stock");
 	
 	
 	public static By AFTERPAY_DIV = By.cssSelector(".multi-pdp-title-wrap.desktop-view>span>.afterpay-paragraph");
@@ -40,10 +46,15 @@ public class ProductDetailsPageLocators {
 	public static By SECOND_COLOR = By.cssSelector(".product-option__color-swatches-wrapper > ul > li:nth-child(2) > label");
 	public static By THIRD_COLOR = By.cssSelector(".product-option__color-swatches-wrapper > ul > li:nth-child(3) > label");
 	public static By COLOR_TEXT = By.xpath("//div[@title = 'Color'] /span");       //("//div[@class= 'multi-pdp-info__header'] /span]");
+	// ATC
+	
+	
+	
+	
 	//public static By SIZE_TEXT = By.cssSelector(".product-info__header > span:nth-child(2)");
 
 	public static By SIZE_DROPDOWN = By.cssSelector(".option-dropdown__option >div>a");
-	public static By ALL_SIZE_LIST = By.cssSelector(".select--options__list >li");
+	public static By ALL_SIZE_LIST = By.cssSelector(".option-swatch__option >li");
 	public static By SIZE_DROPDOWN_MENS = By.cssSelector(".option-dropdown__option >div[data-option-name = 'Mens Size'] >a");
 	public static By SIZE_DROPDOWN_WOMENS = By.cssSelector(".option-dropdown__option >div[data-option-name = 'Womens Size'] >a");
 	public static By SIZE_TEXT = By.xpath("//input[@class='sizeOption' and @checked='checked']");
@@ -51,7 +62,7 @@ public class ProductDetailsPageLocators {
 
 
 	public static By ALL_COLOR_LIST = By.cssSelector(".product-option__color-swatches-wrapper > ul >li");
-	public static By PRODUCT_DETAILS = By.cssSelector("div.product-accordion.container> ul > li:nth-child(1) > div:nth-child(1) > a");
+	public static By PRODUCT_DETAILS = By.cssSelector(".product-details-container>div> ul > li:nth-child(1) > div:nth-child(1) > a");
 	public static By SIZEGUIDE = By.cssSelector("button.product-info__header-btn.size-guide");
 	public static By SIZE_GUIDE_BUTTON = By.cssSelector("button.product-info__header-btn.size-guide");
 	public static By ADD_TO_CART_BUTTON = By.cssSelector("button.product-info__atc.button.js-loop-atc");
@@ -61,17 +72,32 @@ public class ProductDetailsPageLocators {
 	public static By PLUS_BUTTON = By.cssSelector(".pdp.plusBtn");
 	public static By UPDATED_QUANTITY = By.cssSelector(".pdp.updatedQty");
 	public static By MINUS_BUTTON = By.cssSelector(".pdp.minusBtn");
-	public static By PAIR_GUARANTEE = By.cssSelector("div.product-accordion.container> ul > li:nth-child(3) > div:nth-child(1) > a");
-	public static By SHIPING_AND_RETURNS = By.cssSelector("div.product-accordion.container> ul > li:nth-child(2) > div:nth-child(1) > a");
+	public static By BEST_PAIR_GUARANTEE = By.cssSelector(".product-details-container>div> ul > li:nth-child(2) > div:nth-child(1) > a");
+	public static By FREE_RETURNS = By.cssSelector(".product-details-container>div> ul > li:nth-child(3) > div:nth-child(1) > a");
 	public static By CHECKOUT_BUTTON = By.cssSelector(".inline-cart__action-btns > a");
 	//public static By COLOR_AND_SIZE = By.cssSelector("div.product-info__variant-select > div:nth-child(1) > div.product-info__header.hide > span");
     public static By LOW_INVENTORY_MSG = By.cssSelector("div.product-info_low-inventory-message");
+    public static By PRODUCT_DETAILS_SECTION = By.cssSelector("div.product-info_low-inventory-message");
+    public static By BEST_PAIR_GUARANTEE_SECTION = By.cssSelector("div.product-info_low-inventory-message");
+    public static By FREE_RETURNS_SECTION = By.cssSelector("div.product-info_low-inventory-message");
 	
 	//afterpay
 
 	public static By AFTERPAY_PDP = By.cssSelector("div.desktop-view.desktop > .afterpay-pdp-container > p");
 	public static By AFTERPAY_PDP_AFTERMESSAGE_LOGO = By.cssSelector("div.desktop-view.desktop > .afterpay-pdp-container > p >p>img");
 	public static By AFTERPAY_PDP_BEFOREMESSAGE_LOGO = By.cssSelector("div.desktop-view > .afterpay-pdp-container > p> img ");
+	
+	//atc
+	
+	public static By EMAIL_WHEN_IN_STOCK_BUTTON = By.cssSelector(".jtwl_header>span");
+	public static By PAIR_GUARANTEE_LINK = By.cssSelector(".product-info__inner-bottom > div:nth-child(1) > button");
+	public static By SHIPING_AND_RETURNS_LINK = By.cssSelector(".product-info__inner-bottom > div:nth-child(2) > button");
+	public static By JOIN_THE_WAITLIST_TEXT = By.cssSelector(".multiPdp__atc-container>button");
+	public static By INLINE_CART_TITLE = By.cssSelector(".inline-cart__title");
+	public static By EMAIL_WHEN_IN_STOCK_BUTTON_CLOSE = By.cssSelector(".close_jtwl");
+	public static By INLINE_CART_CLOSE = By.cssSelector(".inline-cart__close-btn.active");
+	
+	
 
 
 
@@ -101,6 +127,19 @@ public class ProductDetailsPageLocators {
 	public static By PAGINATION_CURRENT_VALUE = By.cssSelector(".yotpo-paginator__current-page");
 	
 	public static By STAR_RATINGS = By.cssSelector(".yotpo-stars-and-sum-reviews > span > span.sr-only");
+	//filter ratings
+	public static By FILTER_RATINGS = By.cssSelector(".yotpo-reviews-qa-header.filters>div:nth-child(2)");
+	public static By FILTER_FIT = By.cssSelector(".yotpo-reviews-qa-header.filters>div:nth-child(3)");
+	public static By FILTER_SORTBY = By.cssSelector(".yotpo-reviews-qa-header.filters>div:nth-child(4)");
+	public static By FILTER_SORTBY_SECTION = By.cssSelector(".yotpo-sort-by-options-container.active>ul>li");
+	
+	public static By QUESTION_TAB = By.cssSelector("div[class='yotpo-header-tab']");
+	public static By QUESTION_FIRST = By.cssSelector(".qna-main>section:nth-child(1)");
+	public static By ASK_QUESTION = By.cssSelector(".yotpo-ctas>div:nth-child(1)");
+	
+
+	
+
 	
 	public static By WRITE_REVIEW_BUTTON = By.cssSelector(".write-review-button");
 	public static By WRITE_REVIEW_HEADING = By.cssSelector("#pdpReviews > div > div > form > div");
@@ -192,13 +231,13 @@ public class ProductDetailsPageLocators {
         public static By Ask_a_Question_CTA = By.cssSelector("div.write-button.ask-question-button");
         public static By ASK_A_QSN_CONTAINER = By.cssSelector(".yotpo-reviews-widget>section>form");
         public static By ASK_A_QUESTION_TITLE = By.cssSelector(".qna-form-title");
-        public static By QSN_ANS_NAME_TEXTBOX = By.cssSelector("form:not(.zero-reviews) > div:nth-child(2) > input[type=text]");
-        public static By QSN_ANS_EMAIL_TEXTBOX = By.cssSelector("form:not(.zero-reviews) > div:nth-child(3) > input[type=email]");
-        public static By QSN_ANS_QUESTION_TEXTBOX = By.cssSelector("form:not(.zero-reviews) > div:nth-child(4) > textarea[name=question]");
-        public static By SUBMIT_QUESTION_CTA = By.cssSelector("form:not(.zero-reviews) > div.qna-form-submit>input");
-        public static By QSN_ANS_NAME_ERROR = By.cssSelector("form:not(.zero-reviews) > div:nth-child(2) >p");
-        public static By QSN_ANS_EMAIL_ERROR = By.cssSelector("form:not(.zero-reviews) > div:nth-child(3) >p");
-        public static By QSN_ANS_QUESTION_ERROR = By.cssSelector("form:not(.zero-reviews) > div:nth-child(4) >p");
+        public static By QSN_ANS_NAME_TEXTBOX = By.cssSelector(".qna-form__wrapper>div:nth-child(2)>input");
+        public static By QSN_ANS_EMAIL_TEXTBOX = By.cssSelector(".qna-form__wrapper>div:nth-child(3)>input");
+        public static By QSN_ANS_QUESTION_TEXTBOX = By.cssSelector(".qna-form__wrapper>div:nth-child(4)>textarea");
+        public static By SUBMIT_QUESTION_CTA = By.cssSelector(".qna-form__wrapper>div:nth-child(5)>input");
+        public static By QSN_ANS_NAME_ERROR = By.cssSelector(".qna-form__wrapper>div:nth-child(2)>p");
+        public static By QSN_ANS_EMAIL_ERROR = By.cssSelector(".qna-form__wrapper>div:nth-child(3)>p");
+        public static By QSN_ANS_QUESTION_ERROR = By.cssSelector(".qna-form__wrapper>div:nth-child(4) >p");
         
         
 }
