@@ -106,7 +106,12 @@ public class ProductDetailsPageLocators {
 
 	public static By RATING_STARS = By.cssSelector("div.multi-pdp-title-wrap.desktop-view > div.product-info__price-wrap > div.yotpo-star-wrapper > div > div > span.yotpo-stars");
 	public static By RATING_NUMBER = By.cssSelector("div.multi-pdp-title-wrap.desktop-view > div.product-info__price-wrap > div.yotpo-star-wrapper > div > div > a");
-	public static By RATING_AND_REVIEWS_BOX = By.cssSelector(".yotpo-reviews-widget >div> div.yotpo-review-bottomline-container ");
+	public static By RATING_AND_REVIEWS_BOX = By.cssSelector(".yotpo-reviews-widget >div> div.yotpo-review-bottomline-container");
+	public static By RATING_AND_REVIEWS_FILTER = By.cssSelector(".yotpo-reviews-widget >div> div.yotpo-review-bottomline-container >div:nth-child(2)>ul>li");
+	public static By RATING_AND_REVIEWS_FILTER_RATING_COUNT = By.cssSelector(".yotpo-reviews-widget >div> div.yotpo-review-bottomline-container >div:nth-child(2)>ul>li>div>div:nth-child(3)");
+	public static By NO_RATING_TEXT = By.cssSelector("div.multi-pdp-title-wrap.desktop-view > div.product-info__price-wrap > div.yotpo-star-wrapper > div > div > span:nth-child(1)");
+	public static By RATING_AND_REVIEWS_TOTAL = By.cssSelector(".review-searched-items-wrapper.mobile-hide>span:nth-child(2)");
+	
 	
 	public static By FIRST_BOX_IN_RATING_AND_REVIEWS = By.cssSelector(".yotpo-reviews-widget >div> div.yotpo-review-bottomline-container >div > div.yotpo-review-bottomline-rating");
 	public static By STARS_IN_FIRST_BOX = By.cssSelector(".yotpo-reviews-widget >div> div.yotpo-review-bottomline-container >div > div.yotpo-review-bottomline-rating > .yotpo-stars");
@@ -137,7 +142,7 @@ public class ProductDetailsPageLocators {
 	public static By QUESTION_FIRST = By.cssSelector(".qna-main>section:nth-child(1)");
 	public static By ASK_QUESTION = By.cssSelector(".yotpo-ctas>div:nth-child(1)");
 	
-
+	
 	
 
 	
@@ -228,7 +233,7 @@ public class ProductDetailsPageLocators {
         public static By REVIEW_FILTER_MESSAGE = By.cssSelector(".yotpo-bottomline__filter-message");
 	    
         //Ask Questions
-        public static By Ask_a_Question_CTA = By.cssSelector("div.write-button.ask-question-button");
+        public static By Ask_a_Question_CTA = By.cssSelector(".button--skeleton.yotpo-write-review.yotpo-icon-btn.pull-right.yotpo-hidden-mobile.write-button.ask-question-button");
         public static By ASK_A_QSN_CONTAINER = By.cssSelector(".yotpo-reviews-widget>section>form");
         public static By ASK_A_QUESTION_TITLE = By.cssSelector(".qna-form-title");
         public static By QSN_ANS_NAME_TEXTBOX = By.cssSelector(".qna-form__wrapper>div:nth-child(2)>input");

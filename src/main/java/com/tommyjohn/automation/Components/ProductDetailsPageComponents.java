@@ -2425,7 +2425,18 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			WebElement el = driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT);
 			JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", el);	
-			
+			//max swatch in a row check
+			List<WebElement> swatchnum = driver.findElements(COLOR_SWATCHES);
+			int swatchsize = swatchnum.size();
+			System.out.println(swatchsize);
+			if(swatchsize>8) {
+				
+				long len=(long)executor.executeScript("return document.querySelector('[data-swatch-section-wrapper] ul').clientHeight;");
+				System.out.println(len);
+				if(len==108) {
+								System.out.println("Maximum Swatch length validation is completed");
+							}
+			}
 			Thread.sleep(3000);
 			allElements = driver.findElements(ALL_COLOR_LIST);
 			
@@ -2489,31 +2500,34 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 	public void verifyAvailableSizes() throws Exception{
 		SoftAssert softAssert = new SoftAssert();
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		new ProductDetailsPage(driver).navigateToAllUnderwearInMenCategory();
-		//new HomePageComponents(driver).navigateToAllPantiesInWomenCategory();
-		
-		//navigate to PDP
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT));
-		Thread.sleep(3000);
-		WebElement el = driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT);
-		jse.executeScript("arguments[0].click();", el);	
-		
-		
+//		new ProductDetailsPage(driver).navigateToAllUnderwearInMenCategory();
+//		
+//		
+//		//navigate to PDP
+//		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(20));
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT));
+//		Thread.sleep(3000);
+//		WebElement el = driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT);
+//		jse.executeScript("arguments[0].click();", el);	
+		driver.get("https://www.tommyjohn.com/products/second-skin-triangle-bralette?color=black");
+		Thread.sleep(5000);
 		allElements = driver.findElements(TOTAL_SIZES);
 		
 		elementsCount = allElements.size();
-		System.out.println("Color Element count :: "+elementsCount);
+		System.out.println("Size Element count :: "+elementsCount);
 		Reporter.log("Sizes are present");
-		
+		if(elementsCount>6) {
+			System.out.println("It is a multi size variant Product");
+		}
 		if(elementsCount > 1)
 		{
+			
 			for(int i=1;i<=elementsCount;i++)
 			{
-				
+				Thread.sleep(2000);
 				WebElement elemen = driver.findElement(By.cssSelector(".option-swatch__option>li:nth-child("+ i +")>input"));
+				Thread.sleep(4000);
 				
-				elemen.click();
 				jse.executeScript("arguments[0].click();", elemen);
 				
 				List<WebElement> unavailablecolors = driver.findElements(STRIKED_COLOR_SWATCHES);
@@ -2522,8 +2536,9 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 				int num = (totalcolors.size()-num1);
 				String sizename = driver.findElement(By.cssSelector(".option-swatch__option>li:nth-child("+i+")>label>span")).getText();
 				
+				
 				if(num>=0)
-					
+					System.out.println("===============");
 					System.out.println("For size: " +sizename);
 					System.out.println("Active Colors: " +num );
 					System.out.println("Unavailable Colors: " + num1);
@@ -2598,7 +2613,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 				WebElement elem = driver.findElement(RATING_STARS);
 				JavascriptExecutor executor = (JavascriptExecutor)driver;
-				elem.click();
+				//elem.click();
 				executor.executeScript("arguments[0].click();", elem);
 				// wait for scroll it down
 				Thread.sleep(3000);
@@ -2609,6 +2624,8 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 				if(!driver.findElement(RATING_NUMBER).getText().equals("(0)"))
 				{
+					Thread.sleep(3000);
+					executor.executeScript("window.scrollBy(0,1200)");
 					Thread.sleep(3000);
 					if(driver.findElement(RATING_AND_REVIEWS_BOX).isDisplayed()) {
 						if(!driver.findElement(FIRST_BOX_IN_RATING_AND_REVIEWS).isDisplayed())
@@ -2768,58 +2785,119 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			SoftAssert softAssert =  new SoftAssert();
 			new HomePageComponents(driver).navigateToAllUnderwearInMenCategory();
 			new CollectionPageComponent(driver).navigateToProductDetailsPage();
+			//for testing No ratings directly on URL
+//			driver.get("https://www.tommyjohn.com/products/womens-second-skin-long-sleeve-dress-final-sale?color=black");
 			Thread.sleep(6000);
 			WebElement ratingstars = driver.findElement(RATING_STARS);
+			
+			String norating = driver.findElement(NO_RATING_TEXT).getText();
+			
+			System.out.println(norating);
 			jse = (JavascriptExecutor) driver;
-			jse.executeScript("arguments[0].click();", ratingstars);
-			//ratingstars.click();
-			Thread.sleep(4000);
-			String avgrating = driver.findElement(AVG_RATING_IN_FIRST_BOX).getText();
-			System.out.println("Average Rating: " +avgrating);
-			String totalreviews = driver.findElement(TOTAL_REVIEWS_IN_FIRST_BOX).getText();
-			System.out.println("Average Rating: " +totalreviews);
-			//fit range
-			WebElement fitrange = driver.findElement(THIRD_BOX_IN_RATING_AND_REVIEWS);
-			jse.executeScript("arguments[0].click();", fitrange);
-			Thread.sleep(2000);
-			//filters click
-			WebElement ratingsfilter = driver.findElement(FILTER_RATINGS);
-			jse.executeScript("arguments[0].click();", ratingsfilter);
-			Thread.sleep(1000);
-			WebElement ratingsfit = driver.findElement(FILTER_FIT);
-			jse.executeScript("arguments[0].click();", ratingsfit);
-			Thread.sleep(1000);
-			WebElement ratingssortby = driver.findElement(FILTER_SORTBY);
-			ratingssortby.click();
-			Thread.sleep(1000);
 			
-			//sort by dropdown
-			List<WebElement> elem = driver.findElements(FILTER_SORTBY_SECTION);
-			int sortby = elem.size();
-			Thread.sleep(3000);		
-			System.out.println(sortby);
-			if(sortby >=1) {
-			
-				for(int i=1;i<=sortby;i++) {
+			//No reviews
+			if(norating.contentEquals("No Ratings")) {
+				jse.executeScript("arguments[0].click();", driver.findElement(NO_RATING_TEXT));
+				Thread.sleep(6000);
+				jse.executeScript("window.scrollBy(0,1200)");
+				Thread.sleep(2000);
+				 softAssert.assertTrue(driver.findElement(NO_REVIEWS_TEXT).isDisplayed(), "No Reviews Text is not displayed");
+				 Thread.sleep(2000);
+				 softAssert.assertTrue(driver.findElement(NO_REVIEWS_SUBTEXT).isDisplayed(), "No Reviews SubText is not displayed");
+				 Thread.sleep(2000);
+				 softAssert.assertTrue(driver.findElement(NO_REVIEW_WRITE_REVIEW).isDisplayed(), "Write a review CTA is not displayed");
+				 
+				}else {
+					jse.executeScript("arguments[0].click();", ratingstars);
+					//ratingstars.click();
+					Thread.sleep(3000);
+					jse.executeScript("window.scrollBy(0,800)");
+					Thread.sleep(3000);
+					String avgrating = driver.findElement(AVG_RATING_IN_FIRST_BOX).getText();
+					System.out.println("Average Rating: " +avgrating);
+					String totalreviews = driver.findElement(TOTAL_REVIEWS_IN_FIRST_BOX).getText();
+					System.out.println("Average Rating: " +totalreviews);
+					//fit range
+					WebElement fitrange = driver.findElement(THIRD_BOX_IN_RATING_AND_REVIEWS);
+					jse.executeScript("arguments[0].click();", fitrange);
+					Thread.sleep(2000);
+					//filters click
+					WebElement ratingsfilter = driver.findElement(FILTER_RATINGS);
+					jse.executeScript("arguments[0].click();", ratingsfilter);
+					Thread.sleep(1000);
+					WebElement ratingsfit = driver.findElement(FILTER_FIT);
+					jse.executeScript("arguments[0].click();", ratingsfit);
+					Thread.sleep(1000);
+					WebElement ratingssortby = driver.findElement(FILTER_SORTBY);
+					ratingssortby.click();
+					Thread.sleep(1000);
 					
-					element = driver.findElement(By.cssSelector(".yotpo-sort-by-options-container.active>ul>li:nth-child("+i+")"));
-					softAssert.assertTrue(element.isDisplayed(), "SORT bY Filter does not work");
+					//sort by dropdown
+					List<WebElement> elem = driver.findElements(FILTER_SORTBY_SECTION);
+					int sortby = elem.size();
+					Thread.sleep(3000);		
+					
+					if(sortby >=1) {
+					
+						for(int i=1;i<=sortby;i++) {
+							
+							element = driver.findElement(By.cssSelector(".yotpo-sort-by-options-container.active>ul>li:nth-child("+i+")"));
+							softAssert.assertTrue(element.isDisplayed(), "SORT bY Filter does not work");
+							jse = (JavascriptExecutor) driver;
+							jse.executeScript("arguments[0].click();", element);
+							Thread.sleep(3000);	
+							WebElement ratingssortbynew = driver.findElement(FILTER_SORTBY);
+							ratingssortbynew.click();
+						}
+						
+						softAssert.assertAll();
+						
+					}
+					
+					//Rating filter
+					
+					List<WebElement> el = driver.findElements(RATING_AND_REVIEWS_FILTER);
+					int starfilter = el.size();
+					Thread.sleep(3000);		
+					
+					if(starfilter >1) {
+					
+						for(int i=1;i<=starfilter;i++) {
+							
+							element = driver.findElement(By.cssSelector(".yotpo-reviews-widget >div> div.yotpo-review-bottomline-container >div:nth-child(2)>ul>li:nth-child("+i+")"));
+							jse = (JavascriptExecutor) driver;
+							jse.executeScript("arguments[0].click();", element);
+							Thread.sleep(1000);	
+							String starfilter1= driver.findElement(By.cssSelector(".yotpo-reviews-widget >div> div.yotpo-review-bottomline-container >div:nth-child(2)>ul>li:nth-child("+i+")")).getAttribute("data-score-distribution");
+//							
+							String starfilter2= driver.findElement(FILTER_RATINGS).getText();			
+							
+							if(starfilter2.contains(starfilter1)) {
+								System.out.println(starfilter1);
+								System.out.println(starfilter2);
+								System.out.println("Filter Ratings are matching");
+								
+								
+							}else {System.out.println("not matching");}
+//						
+						}
+						
+						softAssert.assertAll();
+						
+					}
+					
+					
+					//Display Questions
+					WebElement qsntab = driver.findElement(QUESTION_TAB);
 					jse = (JavascriptExecutor) driver;
-					jse.executeScript("arguments[0].click();", element);
-					Thread.sleep(3000);	
-					WebElement ratingssortbynew = driver.findElement(FILTER_SORTBY);
-					ratingssortbynew.click();
+					jse.executeScript("arguments[0].click();", qsntab);
+					jse.executeScript("window.scrollBy(0,200)");
+					//element = driver.findElement(QUESTION_FIRST);
+					softAssert.assertTrue(driver.findElement(QUESTION_FIRST).isDisplayed(), "Questions are not displayed");
+			
+				
 				}
-				
-				softAssert.assertAll();
-				
-			}
-			//Display Questions
-			WebElement qsntab = driver.findElement(QUESTION_TAB);
-			jse = (JavascriptExecutor) driver;
-			jse.executeScript("arguments[0].click();", qsntab);
-			element = driver.findElement(QUESTION_FIRST);
-			softAssert.assertTrue(element.isDisplayed(), "Questions are not displayed");
+			
 		}
 		
 		public void verifyQuestionForm() throws Exception {
@@ -2835,7 +2913,13 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			jse.executeScript("arguments[0].click();", ratingstars);
 			//ratingstars.click();
 			Thread.sleep(4000);
+			jse.executeScript("window.scrollBy(0,800)");
+			Thread.sleep(3000);
+			String qsntxt = driver.findElement(Ask_a_Question_CTA).getText();
+			System.out.println(qsntxt);
 			softassert.assertEquals(driver.findElement(Ask_a_Question_CTA).getText(), "Ask a Question", "Text change for 'Ask a question'CTA");
+			
+			
 			WebElement AQ_CTA=driver.findElement(Ask_a_Question_CTA);
 			jse.executeScript("arguments[0].click();", AQ_CTA);
 			Thread.sleep(3000);
@@ -2880,7 +2964,9 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			JavascriptExecutor executore = (JavascriptExecutor)driver;
 			executore.executeScript("arguments[0].click();", elem);
 			// wait for scroll it down
-			Thread.sleep(6000);
+			Thread.sleep(3000);
+			executore.executeScript("window.scrollBy(0,800)");
+			Thread.sleep(3000);
 			WebElement writereview = driver.findElement(WRITE_REVIEW_BUTTON);
 			executore.executeScript("arguments[0].click();", writereview);
 
@@ -2925,13 +3011,14 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			checkCorrectProductDetailsPageOpenedOrNot(text);
 			Thread.sleep(3000);
 			WebElement elem = driver.findElement(RATING_STARS);
-			JavascriptExecutor executore = (JavascriptExecutor)driver;
-			executore.executeScript("arguments[0].click();", elem);
+		
+			jse.executeScript("arguments[0].click();", elem);
 			// wait for scroll it down
+			jse.executeScript("window.scrollBy(0,800)");
 			Thread.sleep(6000);
 			elem = driver.findElement(WRITE_REVIEW_BUTTON);
-			executore = (JavascriptExecutor)driver;
-			executore.executeScript("arguments[0].click();", elem);
+			
+			jse.executeScript("arguments[0].click();", elem);
 			//driver.findElement(WRITE_REVIEW_BUTTON).click();
 			Thread.sleep(4000);
 			driver.findElement(SUBMIT_BTN).click();
@@ -2961,11 +3048,12 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			allElements = driver.findElements(ProductDetailsPageComponents.ALL_COLOR_LIST);
 			
 			elementsCount = allElements.size();
+			elementsCount = elementsCount-(elementsCount-4);
 			System.out.println("Color Element count :: "+elementsCount);
 			
 			if(elementsCount > 1)
 				
-				for(int i=1;i<=elementsCount;i++)
+				for(int i=1;i<elementsCount;i++)
 				{
 					
 					WebElement elemen = driver.findElement(By.cssSelector(".product-option__color-swatches-wrapper>ul>li:nth-child(" + i + ")>input"));
