@@ -14,14 +14,15 @@
 		</classes>
 	</test>
  -->	
-<!-- <test thread-count="1" name="ProductPageTests" verbose="1"
+ <!--<test thread-count="1" name="ProductPageTests" verbose="1"
 		parallel="tests">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="TestModules.ValidatePDP" />
 		</classes>
 	</test>
--->
+ -->
+
 	<test thread-count="1" name="InlineCartTests" verbose="1"
 		parallel="tests">
 		<parameter name="browser" value="chrome" />
@@ -29,6 +30,11 @@
 			<class name="TestModules.ValidateInlineCart" />
 		</classes>
 	</test>
+<!-- 
+
+-->
+
+
 
 
 	

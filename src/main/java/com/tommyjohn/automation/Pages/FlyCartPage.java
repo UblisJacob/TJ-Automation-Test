@@ -24,8 +24,16 @@ public class FlyCartPage extends FlyCartComponents {
 	public void validateAllFieldsOnNonEmptyFlyCart() throws Exception {
 		new FlyCartComponents(driver).validateNonEmptyFlyCart();
 	}
-
-	public void validateFlyCartOpenedWithQSandPDP() throws Exception {
-		new FlyCartComponents(driver).VerifyFlyCartOpenWithQSAndPDP();
+	
+	public void verifygiftWrap() throws Exception {
+		new FlyCartComponents(driver).verifygiftWrap();
 	}
+	
+//	public void validateOOSonInlinecart() throws Exception {
+//		new FlyCartComponents(driver).validateOOSonInlinecart();
+//	}
+	
+//	public void validateFlyCartOpenedWithQSandPDP() throws Exception {
+//		new FlyCartComponents(driver).VerifyFlyCartOpenWithQSAndPDP();
+//	}
 }

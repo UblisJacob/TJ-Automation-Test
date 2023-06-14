@@ -35,6 +35,11 @@ public class FlyCartPageLocator {
 	public static By GIFT_WRAP_PRICE = By.cssSelector("div.inline-cart__gift-wrap > span:nth-child(2)");
 	public static By ESTIMATE_TOTAL_PRICE = By.cssSelector("div.inline-cart__summary > div > span");
 	
+	
+	// OOS
+	public static By OOS_MESSAGE_ON_TOP = By.cssSelector(".inline-cart.active.has-recommendations>div:nth-child(2)>span");
+	public static By OOS_LINE_ITEMS = By.cssSelector(".inline-cart.active.has-recommendations>div:nth-child(2)>div:nth-child(8)>span");
+	
 	//AfterPay
 	
 	public static By AFTERPAY_DIV = By.cssSelector(".afterpay-cart-container>.afterpay-paragraph");
