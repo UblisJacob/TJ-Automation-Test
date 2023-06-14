@@ -394,6 +394,7 @@ public class FlyCartComponents extends FlyCartPageLocator{
 
 		softAssert.assertEquals(driver.findElement(OOS_MESSAGE_ON_TOP).getText(), "Some items are out of stock. Please remove or edit them to continue.");
 		softAssert.assertEquals(driver.findElement(OOS_LINE_ITEMS).getText(), "Out of Stock");
+		softAssert.assertEquals(driver.findElement(CHECKOUT_BUTTON).getAttribute("disabled"), "disabled");
 		
 		softAssert.assertAll();
 		
