@@ -58,12 +58,22 @@ public class ProductDetailsPageLocators {
 	public static By SIZE_DROPDOWN_MENS = By.cssSelector(".option-dropdown__option >div[data-option-name = 'Mens Size'] >a");
 	public static By SIZE_DROPDOWN_WOMENS = By.cssSelector(".option-dropdown__option >div[data-option-name = 'Womens Size'] >a");
 	public static By SIZE_TEXT = By.xpath("//input[@class='sizeOption' and @checked='checked']");
+	public static By BRA_BAND_SIZE_DROPDOWN = By.cssSelector(".size-guide-size-finder-dropdowns>span:nth-child(1)>select");
+	public static By BRA_CUP_VOLUME_DROPDOWN = By.cssSelector(".size-guide-size-finder-dropdowns>span:nth-child(2)>select");
+	public static By FIND_SIZE_BUTTON = By.cssSelector(".calculate-size-button>button.find-size-button");
+	public static By CALCULATED_SIZE_RESULT = By.cssSelector(".calculate-size-results");
 	//public static By ALL_SIZE_LIST = By.cssSelector(".product-option__variants.product-option__variants-size > ul > li");
 
 
 	public static By ALL_COLOR_LIST = By.cssSelector(".product-option__color-swatches-wrapper > ul >li");
 	public static By PRODUCT_DETAILS = By.cssSelector(".product-details-container>div> ul > li:nth-child(1) > div:nth-child(1) > a");
 	public static By SIZEGUIDE = By.cssSelector("button.product-info__header-btn.size-guide");
+	public static By SIZEGUIDE_FITRANGE = By.cssSelector(".size-guide-yatpo-fit-graph>ul>li");
+	public static By SIZEGUIDE_FITRANGE_DROPDOWN= By.cssSelector(".expand-instructions");
+	public static By SIZEGUIDE_FITRANGE_TEXT= By.cssSelector(".size-guide-instructions.expanded");
+	public static By SIZEGUIDE_CHART_TABLE= By.cssSelector(".product-fit-guide>.size-chart-table");
+	
+
 	public static By SIZE_GUIDE_BUTTON = By.cssSelector("button.product-info__header-btn.size-guide");
 	public static By ADD_TO_CART_BUTTON = By.cssSelector("button.product-info__atc.button.js-loop-atc");
 	public static By JOIN_THE_WAITLIST = By.cssSelector("button.product-info__atc.button.button--red.button--full.js-loop-atc.email-when-in-stock");
@@ -141,8 +151,8 @@ public class ProductDetailsPageLocators {
 	public static By QUESTION_TAB = By.cssSelector("div[class='yotpo-header-tab']");
 	public static By QUESTION_FIRST = By.cssSelector(".qna-main>section:nth-child(1)");
 	public static By ASK_QUESTION = By.cssSelector(".yotpo-ctas>div:nth-child(1)");
-	
-	
+	public static By RESPONSE_FROM_TOMMYJOHN_LIST = By.cssSelector(".yotpo.yotpo-reviews-container.yotpo-reviews-widget>ul>li");
+	public static By RESPONSE_FROM_TOMMYJOHN = By.cssSelector("p.yotpo-review-response__header");
 	
 
 	

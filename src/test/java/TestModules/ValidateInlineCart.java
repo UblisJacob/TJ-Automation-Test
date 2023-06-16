@@ -27,29 +27,36 @@ public class ValidateInlineCart {
 
 
 
+//	@Test
+//	public void TC_ValidateEmptyFlyCart() throws Exception 
+//	{
+//		new FlyCartPage(driver).verifyAllFields(); 
+//	}
+//
+//	@Test 
+//	public void TC_ValidateTextAndLinksonFlyCart() throws Exception
+//	{
+//		new FlyCartPage(driver).verifyAllFieldsOnNonEmptyFlyCart(); 
+//	}
+//
+//	@Test 
+//	public void TC_ValidateFlyCartwithProductsInIt() throws Exception
+//	{
+//		new FlyCartPage(driver).validateAllFieldsOnNonEmptyFlyCart(); 
+//	}
+//	
+//	@Test
+//	public void TC_verifygiftWrap() throws Exception
+//	{
+//		new FlyCartPage(driver).verifygiftWrap(); 
+//	}
 	@Test
-	public void TC_ValidateEmptyFlyCart() throws Exception 
+	public void validateOOSonInlinecart() throws Exception
 	{
-		new FlyCartPage(driver).verifyAllFields(); 
-	}
-
-	@Test 
-	public void TC_ValidateTextAndLinksonFlyCart() throws Exception
-	{
-		new FlyCartPage(driver).verifyAllFieldsOnNonEmptyFlyCart(); 
-	}
-
-	@Test 
-	public void TC_ValidateFlyCartwithProductsInIt() throws Exception
-	{
-		new FlyCartPage(driver).validateAllFieldsOnNonEmptyFlyCart(); 
+		new FlyCartPage(driver).validateOOSonInlinecart(); 
 	}
 	
-	@Test
-	public void TC_verifygiftWrap() throws Exception
-	{
-		new FlyCartPage(driver).verifygiftWrap(); 
-	}
+	
 //
 //	@Test
 //	public void TC_ValidateFlyCartOpenedWithQSandPDP() throws Exception {

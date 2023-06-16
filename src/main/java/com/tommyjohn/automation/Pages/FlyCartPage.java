@@ -29,9 +29,9 @@ public class FlyCartPage extends FlyCartComponents {
 		new FlyCartComponents(driver).verifygiftWrap();
 	}
 	
-//	public void validateOOSonInlinecart() throws Exception {
-//		new FlyCartComponents(driver).validateOOSonInlinecart();
-//	}
+	public void validateOOSonInlinecart() throws Exception {
+		new FlyCartComponents(driver).validateOOSonInlinecart();
+	}
 	
 //	public void validateFlyCartOpenedWithQSandPDP() throws Exception {
 //		new FlyCartComponents(driver).VerifyFlyCartOpenWithQSAndPDP();
