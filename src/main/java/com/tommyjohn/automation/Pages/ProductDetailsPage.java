@@ -23,6 +23,7 @@ public class ProductDetailsPage extends ProductDetailsPageComponents{
 
 		new ProductDetailsPageComponents(driver).validateProductDetailsPage();
 	}
+	
 	public void verifyReviewsSectionOnPDP() throws Exception {
 
 

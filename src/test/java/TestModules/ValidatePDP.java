@@ -18,7 +18,7 @@ public class ValidatePDP {
 	@Parameters("browser")
 	public void setup(String browser) {
 		try {
-			driver = new CustomUtilities().launchtj(browser);
+				driver = new CustomUtilities().launchtj(browser);
 
 		} catch (Exception e1) {
 			e1.printStackTrace();

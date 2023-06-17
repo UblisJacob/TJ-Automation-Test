@@ -24,6 +24,7 @@ public class AddToCartComponents extends AddToCartLocators{
 	}
 
 	public WebDriver driver;
+	
 	public WebElement element;
 	public Actions action;
 	public JavascriptExecutor jse;

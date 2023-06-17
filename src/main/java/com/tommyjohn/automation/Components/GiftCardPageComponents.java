@@ -29,6 +29,7 @@ import com.tommyjohn.automation.utils.CustomUtilities;
 
 public class GiftCardPageComponents extends GiftCardPageLocators {
 
+	
 	public WebDriver driver;
 	public Actions action;
 	WebElement element;

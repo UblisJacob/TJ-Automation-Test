@@ -8,9 +8,9 @@ public class FlyCartPage extends FlyCartComponents {
 
 	public FlyCartPage(WebDriver driver) 
 	{
-	super(driver);
-	this.driver=driver;
-		// TODO Auto-generated constructor stub
+		super(driver);
+		this.driver=driver;
+			// TODO Auto-generated constructor stub
 	}
 
 	public void verifyAllFields() throws Exception {

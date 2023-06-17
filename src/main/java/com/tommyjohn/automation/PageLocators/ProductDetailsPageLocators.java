@@ -7,6 +7,7 @@ public class ProductDetailsPageLocators {
 	public static By FIRST_PRODUCT_REVIEW_STARS = By.cssSelector("div.mega-collection-grid__row:nth-child(3) > div:nth-child(3) > a > div");
 	//changed
 	public static By PRODUCT_TITLE = By.cssSelector(".multi-pdp-title-wrap.desktop-view.desktop>.product-info__title-wrap>h1");
+	
 	//changed
 	public static By PRODUCT_TITLE_1 = By.xpath("//div[@class='multi-pdp-title-wrap desktop-view desktop']//h1");//changed
 	//	public static By PRODUCT_PRICE = By.cssSelector("div.product-info__inner-top > span > span:nth-child(2)");

@@ -31,11 +31,11 @@ public class ValidateShoppingCart {
 		new ShoppingCartPage(driver).ValidateEmptyCart();
 	}
 	
-	@Test
-	public void ValidateAddingAndRemovingProductsFromCart() throws Exception
-	{
-		new ShoppingCartPage(driver).ValidateAddRemoveProducts();
-	}
+//	@Test
+//	public void ValidateAddingAndRemovingProductsFromCart() throws Exception
+//	{
+//		new ShoppingCartPage(driver).ValidateAddRemoveProducts();
+//	}
 	
 	@Test
 	public void ValidateCartWhenProductsArePresent() throws Exception

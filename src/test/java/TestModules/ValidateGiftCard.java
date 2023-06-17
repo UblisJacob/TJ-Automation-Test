@@ -18,6 +18,7 @@ public class ValidateGiftCard {
 	@BeforeMethod(alwaysRun = true)
 	@Parameters("browser")
 	public void setup(String browser) {
+		
 		try {
 			driver = new CustomUtilities().launchtj(browser);
 

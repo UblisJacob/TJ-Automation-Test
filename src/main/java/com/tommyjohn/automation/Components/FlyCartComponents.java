@@ -23,6 +23,7 @@ public class FlyCartComponents extends FlyCartPageLocator{
 
 
 	double installment;
+	
 	public JavascriptExecutor jse;
 	public WebDriver driver;
 	Properties properties = CustomUtilities.properties;

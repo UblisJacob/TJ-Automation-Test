@@ -15,7 +15,6 @@ public class GiftCardPageLocators {
 	public static By PRICE_OPTIONS = By.cssSelector(".option-swatch__option>li");
 	public static By PRICE_100 = By.cssSelector(".select--options__list >li:nth-child(3)");
 
-
 	//Form
 	public static By RECIPIENT_MAIL_LABEL = By.cssSelector("#gift-card-section >div:nth-child(1)"); 
 	public static By RECIPIENT_MAIL_TEXTBOX = By.cssSelector("#recipient_email");
