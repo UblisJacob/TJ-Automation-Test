@@ -22,7 +22,7 @@ public class AddToCartComponents extends AddToCartLocators{
 	public AddToCartComponents(WebDriver driver) {
 		this.driver = driver;
 	}
-
+ 
 	public WebDriver driver;
 	public WebElement element;
 	public Actions action;
