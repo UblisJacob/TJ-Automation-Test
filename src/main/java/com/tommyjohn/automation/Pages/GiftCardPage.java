@@ -10,7 +10,7 @@ public class GiftCardPage extends GiftCardPageComponents {
 		super(driver);
 		this.driver = driver;
 	}
-
+ 
 	public void giftCardPageCheck() throws Exception {
 		new GiftCardPageComponents(driver).GoToOnGiftCardPage();
 	}

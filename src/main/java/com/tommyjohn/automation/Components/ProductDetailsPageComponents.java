@@ -37,7 +37,6 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 	Properties properties = CustomUtilities.properties;
 	List<WebElement> allElements;
 	int elementsCount;
-	
 	public  static String prodsize;
 	public static String productname;
 	public  static String productsize;

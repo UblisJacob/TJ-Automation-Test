@@ -17,7 +17,7 @@ public class ProductDetailsPage extends ProductDetailsPageComponents{
 		super(driver);
 		this.driver = driver;
 	}
-
+ 
 	public void verifyProductDetailsPage() throws Exception {
 
 

@@ -13,7 +13,7 @@ public class AddToCartPage extends AddToCartComponents{
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	 
 	public void ATC() throws Exception {
 		new AddToCartComponents(driver).addToCart();
 	}

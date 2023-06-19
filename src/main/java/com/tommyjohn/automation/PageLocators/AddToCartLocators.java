@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 
 public class AddToCartLocators {
 	
-	
 	public static By ALL_SIZE_LIST = By.cssSelector(".product-option__color-swatches-wrapper>ul>li"); //(".product-option__variants.product-option__variants-size > ul > li")
 	public static By ADD_TO_CART_BUTTON = By.cssSelector("button.product-info__atc.button.button--red.button--full.js-loop-atc");
 	public static By EMAIL_WHEN_IN_STOCK_BUTTON = By.cssSelector(".jtwl_header>span");
@@ -17,7 +16,6 @@ public class AddToCartLocators {
 	public static By CHECKOUT_BUTTON = By.cssSelector(".inline-cart__action-btns > a:nth-child(3)");
 	public static By JOIN_THE_WAITLIST = By.cssSelector(".multiPdp__atc-container>button");
 	public static By INLINE_CART_TITLE = By.cssSelector(".inline-cart__title");
-	
 	public static By EMAIL_WHEN_IN_STOCK_BUTTON_CLOSE = By.cssSelector(".close_jtwl");
 	public static By INLINE_CART_CLOSE = By.cssSelector(".inline-cart__close-btn.active");
 

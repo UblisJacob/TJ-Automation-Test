@@ -18,7 +18,7 @@ public class ValidateInlineCart {
 	@Parameters("browser")
 	public void setup(String browser) {
 		try {
-			
+			 
 			driver = new CustomUtilities().launchtj(browser);
 
 		} catch (Exception e1) {
