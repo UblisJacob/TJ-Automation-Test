@@ -2,6 +2,7 @@ package com.tommyjohn.automation.Pages;
 
 import org.openqa.selenium.WebDriver;
 
+import com.tommyjohn.automation.Components.ProductDetailsPageComponents;
 import com.tommyjohn.automation.Components.SizeGuideComponents;
 
 public class SizeGuidePage extends SizeGuideComponents
@@ -73,5 +74,14 @@ public class SizeGuidePage extends SizeGuideComponents
 	public void verify_Bundle_SizeGuidePage() throws Exception
 	{
 		new SizeGuideComponents(driver).validate_bundle_SizeGuidePage();
+	}
+	public void verifySizeCharts() throws Exception  {
+		new SizeGuideComponents(driver).verifySizeCharts();
+	}
+	public void verifySizeChartTextBralette() throws Exception  {
+		new SizeGuideComponents(driver).verifySizeChartTextBralette();
+	}
+	public void verifySizeChartTextBras() throws Exception  {
+		new SizeGuideComponents(driver).verifySizeChartTextBras();
 	}
 }

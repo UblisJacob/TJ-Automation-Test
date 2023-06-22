@@ -38,7 +38,58 @@ public class FlyCartComponents extends FlyCartPageLocator{
 		this.driver = driver;
 
 	}
-
+	public void tieredMeterFunctionality() throws Exception
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		SoftAssert softAssert = new SoftAssert();
+		
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(TIERED_METER));
+		Thread.sleep(5000);
+		
+		if(driver.findElement(TIERED_METER).isDisplayed()) {
+			
+			System.out.println("Tiered Meter is displayed on cart page");
+			Reporter.log("Tiered Meter is displayed on cart page");
+			
+			if(driver.findElement(TIERED_METER_TITLE).isDisplayed()){
+				System.out.println("Tiered Meter Title is displayed on cart page");
+				Reporter.log("Tiered Meter Title is displayed on cart page");
+			}
+			else {
+				System.out.println("Tiered Meter Title is not displayed on cart page");
+				Reporter.log("Tiered Meter Title is not displayed on cart page");
+			}
+		}
+		else {
+			System.out.println("Tiered Meter is not displayed on cart page");
+			Reporter.log("Tiered Meter is not displayed on cart page");
+		}
+		
+		//softAssert.assertAll();	
+	}
+	public void validatePromotionalMessage() throws Exception
+	{
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		SoftAssert softAssert = new SoftAssert();
+		
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(TIERED_METER));
+		Thread.sleep(5000);
+		
+		softAssert.assertTrue(driver.findElement(PROMOTIONAL_PRICE).isDisplayed(), "Promotional discounted price is displayed on cart page");
+		if(driver.findElement(PROMOTIONAL_MESSAGE).isDisplayed()) {
+			
+			System.out.println("PROMOTIONAL MESSAGE is displayed on cart page");
+			Reporter.log("PROMOTIONAL MESSAGE is displayed on cart page");
+		}
+		else {
+			System.out.println("PROMOTIONAL MESSAGE is not displayed on cart page");
+			Reporter.log("PROMOTIONAL MESSAGE is not displayed on cart page");
+		}
+		
+		//softAssert.assertAll();	
+	}
 
 	public void verifyAllTextsAndFieldsOnEmptyFlyCart() throws Exception {
 		SoftAssert softAssert = new SoftAssert();
@@ -115,9 +166,12 @@ public class FlyCartComponents extends FlyCartPageLocator{
 
 		// first add any product to cart
 		new AddToCartComponents(driver).addToCart();
-//new ProductDetailsPageComponents(driver).verifyAddToCart();
+		//new ProductDetailsPageComponents(driver).verifyAddToCart();
 		driver.findElement(HomePageLocators.CART_ICON).click();
 		Thread.sleep(3000);
+		tieredMeterFunctionality();
+		
+		validatePromotionalMessage();
 
 		// check for continue shopping button text and is displayed, enabled or not		
 		softAssert.assertTrue(driver.findElement(INLINE_CART_CLOSE_BUTTON).isDisplayed(), "Inline cart close button is not displayed");

@@ -221,15 +221,7 @@ public class ProductDetailsPage extends ProductDetailsPageComponents{
 	public void verifyAddToCart() throws Exception  {
 		new ProductDetailsPageComponents(driver).verifyAddToCart();
 	}
-	public void verifySizeCharts() throws Exception  {
-		new ProductDetailsPageComponents(driver).verifySizeCharts();
-	}
-	public void verifySizeChartTextBralette() throws Exception  {
-		new ProductDetailsPageComponents(driver).verifySizeChartTextBralette();
-	}
-	public void verifySizeChartTextBras() throws Exception  {
-		new ProductDetailsPageComponents(driver).verifySizeChartTextBras();
-	}
+
 	public void verifyBundlePDPs() throws Exception  {
 		new ProductDetailsPageComponents(driver).verifyBundlePDPs();
 	}

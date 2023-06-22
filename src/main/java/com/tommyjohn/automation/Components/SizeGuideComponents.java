@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
+import org.testng.asserts.SoftAssert;
 
 import com.tommyjohn.automation.PageLocators.ProductDetailsPageLocators;
 import com.tommyjohn.automation.PageLocators.SizeGuideLocators;
@@ -1062,5 +1063,279 @@ jse.executeScript("arguments[0].click();", title);
 			}
 		}
 	}
+	
+	public void verifySizeCharts() throws Exception {
+		//String text = null;
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		SoftAssert softAssert = new SoftAssert();
+		// call method to navigate to collection page
+		new HomePageComponents(driver).navigateToAllPantiesInWomenCategory();
+		jse=(JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,250)");
+		// call method to navigate product details page
+		new CollectionPageComponent(driver).navigateToProductDetailsPage();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(SIZEGUIDE));
+		if(driver.findElement(SIZEGUIDE).isDisplayed())
+		{
+			WebElement ele = driver.findElement(SIZEGUIDE);
+			jse.executeScript("arguments[0].click();", ele);
+			Thread.sleep(3000);
+			
+			//verify Fit Range
+			List<WebElement> fitrange = driver.findElements(SIZEGUIDE_FITRANGE);
+			int num = fitrange.size();
+			if(num>0) {
+				
+				for(int i=1;i<=num;i++) {
+					String range = driver.findElement(By.cssSelector(".size-guide-yatpo-fit-graph>ul>li:nth-child("+i+")")).getAttribute("class");
+					if(range.contentEquals("selected")) {
+						String rangevalue = driver.findElement(By.cssSelector(".size-guide-yatpo-fit-graph>ul>li:nth-child("+i+")")).getText();
+						System.out.println(rangevalue + " is selected");
+					}
+					}
+				
+				}else {System.out.println("NO FIT RANGE IS SELECTED");}
+			
+			//View Measurements
+			if (!driver.findElement(By.cssSelector(".product-fit-guide")).isDisplayed())
+				throw new Exception("Sizes chart overlay is not displayed after Size guide button was clicked");
+			System.out.println("Size Chart is displayed");
+			Reporter.log("Size guide link is Displayed :: Clickable");
+			Thread.sleep(2000);
+			//Close first size guide window
+			driver.findElement(By.cssSelector(".close_chart_modal")).click();
+	
+			Thread.sleep(1000);
+		}
+		else
+		{
+			System.out.println("Size guide link is not Displayed");
+			Reporter.log("Size guide link is not Displayed.");
+		}
+		
+		
+		
+		
+	}
+		public void verifySizeChartTextBralette() throws Exception {
+			String text = null;
+			
+			SoftAssert softAssert = new SoftAssert();
+			// call method to navigate to collection page
+			new HomePageComponents(driver).navigateToTriangleBraletteCategory();
+			jse=(JavascriptExecutor)driver;
+			jse.executeScript("window.scrollBy(0,250)");
+			// call method to navigate product details page
+			new CollectionPageComponent(driver).navigateToProductDetailsPage();
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(SIZEGUIDE));
+				
+			//HOW TO Measure
+			if(driver.findElement(SIZEGUIDE).isDisplayed())
+			{
+				WebElement ele = driver.findElement(SIZEGUIDE);
+				jse.executeScript("arguments[0].click();", ele);
+				Thread.sleep(3000);
+				jse.executeScript("window.scrollBy(0,200)");
+				WebElement elem = driver.findElement(SIZEGUIDE_FITRANGE_DROPDOWN);
+				jse.executeScript("arguments[0].click();", elem);
+				Thread.sleep(2000);
+				if(driver.findElement(SIZEGUIDE_FITRANGE_TEXT).isDisplayed()) {
+					System.out.println(driver.findElement(By.cssSelector(".instruction-text")).getText());
+									
+				}
+			}
+			//View Measurements
+		
+			if (!driver.findElement(By.cssSelector(".product-fit-guide")).isDisplayed())
+				throw new Exception("Sizes chart overlay is not displayed after Size guide button was clicked");
+			System.out.println("Size Chart is displayed");
+			Thread.sleep(2000);
+			//fit Range Selected
+			
+			List<WebElement> fitrange = driver.findElements(SIZEGUIDE_FITRANGE);
+			int num = fitrange.size();
+			if(num>0) {
+				
+				for(int i=1;i<=num;i++) {
+					Thread.sleep(2000);
+					String range = driver.findElement(By.cssSelector(".size-guide-yatpo-fit-graph>ul>li:nth-child("+i+")")).getAttribute("class");
+					if(range.contentEquals("selected")) {
+						String rangevalue = driver.findElement(By.cssSelector(".size-guide-yatpo-fit-graph>ul>li:nth-child("+i+")")).getText();
+						System.out.println(rangevalue + " is selected");
+					}
+					}
+				
+				}else {
+						System.out.println("NO FIT RANGE IS SELECTED");
+						}
+			
+			//Size Calculator
+			if(!driver.findElement(BRA_BAND_SIZE_DROPDOWN).isEnabled())
+			{
+				throw new Exception("Band Size Drop-Down is not enable.");
+			}
+			else {
+				Select BandSize_DropDown = new Select(driver.findElement(BRA_BAND_SIZE_DROPDOWN));
+				List<WebElement> BandSize_Options = BandSize_DropDown.getOptions();
+				int BandSize_Options_Count = BandSize_Options.size();
+				System.out.println("All Band Sizes list :: "+ BandSize_Options_Count);
+				
+			
+				for(int i=1;i<BandSize_Options_Count;i++) {
+					
+		//			driver.findElement(By.cssSelector(".size-guide-size-finder-dropdowns.visible>span:nth-child(1)>select")).click();
+		
+					Thread.sleep(2000);
+					BandSize_DropDown.selectByIndex(i);
+		//			WebElement bandopt = BandSize_Options.get(i);
+		//			jse.executeScript("arguments[0].click();", bandopt);
+					Thread.sleep(2500);
+					
+					//driver.findElement(By.cssSelector(".size-guide-size-finder-dropdowns.visible>span:nth-child(1)")).click();
+					
+					}
+				}
+			
+			if(!driver.findElement(BRA_CUP_VOLUME_DROPDOWN).isEnabled())
+			{
+				throw new Exception("Cup Volume/Size Drop-Down is not enable.");
+			}
+			else {
+				Select CupVolume_DropDown = new Select(driver.findElement(BRA_CUP_VOLUME_DROPDOWN));
+				List<WebElement> CupVolume_Options = CupVolume_DropDown.getOptions();
+				int CupVolume_Options_Count = CupVolume_Options.size();
+				System.out.println("All CupVolume list :: "+ CupVolume_Options_Count);
+				String CupVolume_Default_Text = CupVolume_Options.get(0).getText();
+				
+				if(!CupVolume_Default_Text.equalsIgnoreCase("Cup Size"))
+					throw new Exception("Text change for 'Cup Size'");
+			
+				for(int i=1;i<CupVolume_Options_Count;i++) {
+					Thread.sleep(1000);
+					//WebElement ele = driver.findElement(By.cssSelector(".size-guide-size-finder-dropdowns.visible>span:nth-child(2)"));
+					
+					//jse.executeScript("arguments[0].click();", ele);					
+					CupVolume_DropDown.selectByIndex(i);
+				
+				}
+				Thread.sleep(3000);
+		
+				WebElement ele = driver.findElement(FIND_SIZE_BUTTON);
+				Thread.sleep(2000);
+				jse.executeScript("arguments[0].click();", ele);					
+					
+				if(!driver.findElement(CALCULATED_SIZE_RESULT).isDisplayed())
+					throw new Exception("Calculated Size Result is not displayed.");
+				if(!driver.findElement(FIND_SIZE_BUTTON).getText().equalsIgnoreCase("Edit Size"))
+					throw new Exception("Button text should change from 'Find Size' to 'Edit Size'");		
+			}
+		}
+
+		public void verifySizeChartTextBras() throws Exception {
+			String text = null;
+			SoftAssert softAssert = new SoftAssert();
+			// call method to navigate to collection page
+			new HomePageComponents(driver).navigateToBraCategory();
+			jse=(JavascriptExecutor)driver;
+			jse.executeScript("window.scrollBy(0,250)");
+			// call method to navigate product details page
+			new CollectionPageComponent(driver).navigateToProductDetailsPage();
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(SIZEGUIDE));
+			
+			
+			//HOW TO Measure
+			if(driver.findElement(SIZEGUIDE).isDisplayed())
+			{
+				WebElement ele = driver.findElement(SIZEGUIDE);
+				jse.executeScript("arguments[0].click();", ele);
+				Thread.sleep(3000);
+				jse.executeScript("window.scrollBy(0,200)");
+				WebElement elem = driver.findElement(SIZEGUIDE_FITRANGE_TEXT);
+				jse.executeScript("arguments[0].click();", elem);
+				if(driver.findElement(SIZEGUIDE_FITRANGE_TEXT).isDisplayed()) {
+					System.out.println(driver.findElement(By.cssSelector(".instruction-text")).getText());
+									
+				}
+			}
+			//View Measurements and Chart table
+		
+			if (!driver.findElement(SIZEGUIDE_CHART_TABLE).isDisplayed())
+				throw new Exception("Sizes chart Table is not displayed");
+			System.out.println("Size Chart Table is displayed");
+			Thread.sleep(2000);
+			//fit Range Selected
+			
+			List<WebElement> fitrange = driver.findElements(SIZEGUIDE_FITRANGE);
+			int num = fitrange.size();
+			if(num>0) {
+				
+				for(int i=1;i<=num;i++) {
+					Thread.sleep(2000);
+					String range = driver.findElement(By.cssSelector(".size-guide-yatpo-fit-graph>ul>li:nth-child("+i+")")).getAttribute("class");
+					if(range.contentEquals("selected")) {
+						String rangevalue = driver.findElement(By.cssSelector(".size-guide-yatpo-fit-graph>ul>li:nth-child("+i+")")).getText();
+						System.out.println(rangevalue + " is selected");
+					}
+					}
+				
+				}else {
+						System.out.println("NO FIT RANGE IS SELECTED");
+						}
+			
+			//Size Calculator
+			if(!driver.findElement(BRA_BAND_SIZE_DROPDOWN).isEnabled())
+			{
+				throw new Exception("Band Size Drop-Down is not enable.");
+			}
+			else {
+				Select BandSize_DropDown = new Select(driver.findElement(BRA_BAND_SIZE_DROPDOWN));
+				List<WebElement> BandSize_Options = BandSize_DropDown.getOptions();
+				int BandSize_Options_Count = BandSize_Options.size();
+				System.out.println("All Band Sizes list :: "+ BandSize_Options_Count);
+		
+				String BandSize_Default_Text = BandSize_Options.get(0).getText();
+				if(!BandSize_Default_Text.equalsIgnoreCase("Band Size"))
+					throw new Exception("Text change for 'Band Size'");
+				for(int i=1;i<BandSize_Options_Count;i++) {
+					Thread.sleep(500);
+					BandSize_DropDown.selectByIndex(i);
+				}
+			}
+			
+			if(!driver.findElement(BRA_CUP_VOLUME_DROPDOWN).isEnabled())
+			{
+				throw new Exception("Cup Volume/Size Drop-Down is not enable.");
+			}
+			else {
+				Select CupVolume_DropDown = new Select(driver.findElement(BRA_CUP_VOLUME_DROPDOWN));
+				List<WebElement> CupVolume_Options = CupVolume_DropDown.getOptions();
+				int CupVolume_Options_Count = CupVolume_Options.size();
+				System.out.println("All Band Sizes list :: "+ CupVolume_Options_Count);
+				String CupVolume_Default_Text = CupVolume_Options.get(0).getText();
+				
+				if(!CupVolume_Default_Text.equalsIgnoreCase("Cup Size"))
+					throw new Exception("Text change for 'Cup Size'");
+			
+				for(int i=1;i<CupVolume_Options_Count;i++) {
+					Thread.sleep(2000);
+					CupVolume_DropDown.selectByIndex(i);
+					
+				}
+				Thread.sleep(3000);
+		
+				WebElement ele = driver.findElement(FIND_SIZE_BUTTON);
+				Thread.sleep(2000);
+				jse = (JavascriptExecutor)driver;
+				jse.executeScript("arguments[0].click();", ele);					
+					
+				if(!driver.findElement(CALCULATED_SIZE_RESULT).isDisplayed())
+					throw new Exception("Calculated Size Result is not displayed.");
+				if(!driver.findElement(FIND_SIZE_BUTTON).getText().equalsIgnoreCase("Edit Size"))
+					throw new Exception("Button text should change from 'Find Size' to 'Edit Size'");		
+			}
+		}
+
 
 }

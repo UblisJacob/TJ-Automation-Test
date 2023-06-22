@@ -100,18 +100,8 @@ public class ValidatePDP {
 		new ProductDetailsPage(driver).verifyAddToCart();
 	}
 	
-	@Test
-	public void verifySizeCharts() throws Exception {
-		new ProductDetailsPage(driver).verifySizeCharts();
-	}
-	@Test
-	public void verifySizeChartTextBralette() throws Exception {
-		new ProductDetailsPage(driver).verifySizeChartTextBralette();
-	}
-	@Test
-	public void verifySizeChartTextBras() throws Exception {
-		new ProductDetailsPage(driver).verifySizeChartTextBras();
-	}
+
+
 	@Test
 	public void verifyBundlePDPs() throws Exception {
 		new ProductDetailsPage(driver).verifyBundlePDPs();

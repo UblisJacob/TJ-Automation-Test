@@ -40,14 +40,14 @@
 			<class name="TestModules.ValidateHomePage" />
 		</classes>
 	</test>
-
+-->
 	<test thread-count="1" name="InlineCartTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="TestModules.ValidateInlineCartPage" />
 		</classes>
 	</test>
-
+<!--
 	<test thread-count="1" name="StoreLocatorTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
@@ -82,21 +82,21 @@
 			<class name="TestModules.ValidateGiftCardBalance" />
 		</classes>
 	</test>
--->
+
 	<test name="GiftCardPDPsTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="TestModules.ValidateGiftCardFunctionality" />
 		</classes>
 	</test>
-<!--
+
 	<test name="SanityModuleTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="TestModules.ValidateSanityModules" />
 		</classes>
 	</test>
--->
+
 	
 	<test name="AccountPageTests">
 		<parameter name="browser" value="chrome" />
@@ -111,5 +111,19 @@
 			<class name="TestModules.ValidateTJStoresPage" />
 		</classes>
 	</test>
-	
+
+	<test name="BundlePDPTests">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestModules.ValidateBundlePDP" />
+		</classes>
+	</test>
+
+	<test name="SizeGuideTests">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestModules.ValidateSizeGuides" />
+		</classes>
+	</test>
+-->
 </suite>

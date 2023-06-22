@@ -66,8 +66,11 @@ public class SizeGuideLocators
     public static By BRA_SIZE_GUIDE_INSTRUCTION_CONTENT = By.cssSelector(".instruction-container>.instruction-text");
     public static By WATCH_NOW_BUTTON = By.cssSelector(".size-guide-play-video");
     public static By INSTRUCTIONAL_VIDEO = By.cssSelector(".size-image>.instructional-video");
+    public static By SIZEGUIDE_FITRANGE = By.cssSelector(".size-guide-yatpo-fit-graph>ul>li");
+	public static By SIZEGUIDE_FITRANGE_DROPDOWN= By.cssSelector(".expand-instructions");
+	public static By SIZEGUIDE_FITRANGE_TEXT= By.cssSelector(".size-guide-instructions.expanded");
+	public static By SIZEGUIDE_CHART_TABLE= By.cssSelector(".product-fit-guide>.size-chart-table");
 	
-    
 	public static By ADD_TO_CART_BUTTON = By.cssSelector("button.product-info__atc.button.button--red.button--full.js-loop-atc");
 	public static By JOIN_THE_WAITLIST = By.cssSelector("button.product-info__atc.button.button--red.button--full.js-loop-atc.email-when-in-stock");
 	public static By QUANTITY = By.cssSelector(".product-info__atc");
