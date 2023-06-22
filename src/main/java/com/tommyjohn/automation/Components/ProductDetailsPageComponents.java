@@ -2836,8 +2836,8 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			jse = (JavascriptExecutor) driver;
 			jse.executeScript("arguments[0].click();", ratingstars);
 			
-			Thread.sleep(3000);
-			jse.executeScript("window.scrollBy(0, 400)");
+			Thread.sleep(5000);
+			jse.executeScript("window.scrollBy(0, 800)");
 			WebElement AQ_CTA=driver.findElement(Ask_a_Question_CTA);
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(Ask_a_Question_CTA));
 			softassert.assertEquals(driver.findElement(Ask_a_Question_CTA).getText(), "Ask a Question", "Text change for 'Ask a question'CTA");
@@ -2928,8 +2928,8 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			
 			jse.executeScript("arguments[0].click();", elem);
 			// wait for scroll it down
-			Thread.sleep(3000);
-			jse.executeScript("window.scrollBy(0, 600)");
+			Thread.sleep(5000);
+			jse.executeScript("window.scrollBy(0, 700)");
 			WebElement reviewinput = driver.findElement(WRITE_REVIEW_BUTTON);
 			jse.executeScript("arguments[0].click();", reviewinput);
 			//driver.findElement(WRITE_REVIEW_BUTTON).click();
@@ -2976,7 +2976,11 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 					jse.executeScript("arguments[0].click();", elemen);
 					Thread.sleep(3000);
 					
-						for(int k=1;k<6;k++)				
+
+						
+
+						for(int k=1;k<=5;k++)				
+
 						{	
 							WebElement elements = driver.findElement(By.cssSelector(".option-swatch__option>li:nth-child("+ k +")>input"));
 							jse.executeScript("arguments[0].click();", elements);
