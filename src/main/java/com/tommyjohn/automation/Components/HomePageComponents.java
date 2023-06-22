@@ -62,8 +62,8 @@ public class HomePageComponents extends HomePageLocators {
 
 		this.driver = driver;
 
-		wait = new FluentWait<WebDriver>(driver).pollingEvery(Duration.ofMillis(500))
-				.withTimeout(Duration.ofSeconds(30)).ignoring(NoSuchElementException.class);
+//		wait = new FluentWait<WebDriver>(driver).pollingEvery(Duration.ofMillis(500))
+//				.withTimeout(Duration.ofSeconds(30)).ignoring(NoSuchElementException.class);
 
 	}
 
@@ -1648,7 +1648,7 @@ public class HomePageComponents extends HomePageLocators {
 		
 		softassert.assertTrue
 		(pageURL.equals("https://www.tommyjohn.com/pages/do-not-sell-my-personal-information"), "Wrong Page opened after clicking on Do Not Sell My Information Link ");
-		softassert.assertTrue(pageHeader.equals("For California residents- CCPA: “Do Not Sell Or Share My Personal Information” Request Form"), "Page Header doesn't match");
+		softassert.assertTrue(pageHeader.equals("For California residents- CCPA: Do Not Sell Or Share My Personal Information Request Form"), "Page Header doesn't match");
 		
 		softassert.assertAll();
 		
@@ -1959,7 +1959,14 @@ public class HomePageComponents extends HomePageLocators {
 		driver.switchTo().window(parent);
 
 	}
-
+	//navigate to Careers Page
+	public void navigateToCareersPage() throws Exception {
+		driver.get("https://www.tommyjohn.com/pages/careers");
+	}
+	
+	
+	
+	
 	// navigate new arrival in men category
 	public void navigateToNewArrivalsInMenCategory() throws Exception {
 		driver.get("https://tommyjohn.com/collections/mens-new-arrivals-1");

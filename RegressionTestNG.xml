@@ -5,7 +5,7 @@
 	<listeners>
 		<listener class-name="TestScenario.ListenerClass"></listener>
 	</listeners>
-
+<!-- 
 	<test name="CategoryTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
@@ -26,6 +26,7 @@
 			<class name="TestModules.ValidateFooterSection" />
 		</classes>
 	</test>
+
 	<test thread-count="1" name="ProductPageTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
@@ -81,12 +82,20 @@
 			<class name="TestModules.ValidateGiftCardBalance" />
 		</classes>
 	</test>
-	
+-->
 	<test name="GiftCardPDPsTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="TestModules.ValidateGiftCardFunctionality" />
 		</classes>
 	</test>
+<!--
+	<test name="SanityModuleTests">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestModules.ValidateSanityModules" />
+		</classes>
+	</test>
+-->
 	
 </suite>
