@@ -20,9 +20,8 @@ import com.tommyjohn.automation.PageLocators.CheckoutPageLocators;
 import com.tommyjohn.automation.PageLocators.FlyCartPageLocator;
 import com.tommyjohn.automation.PageLocators.HomePageLocators;
 import com.tommyjohn.automation.PageLocators.ShoppingCartLocators;
+import com.tommyjohn.automation.commonMethods.GeneralMethods;
 import com.tommyjohn.automation.utils.CustomUtilities;
-
-import commonMethods.GeneralMethods;
 
 public class ShoppingCartComponents extends ShoppingCartLocators{
 
