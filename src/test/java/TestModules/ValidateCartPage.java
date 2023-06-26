@@ -31,26 +31,26 @@ public class ValidateCartPage {
 		}
 	}
 	
-	/*@Test
+	@Test
 	public void TC_Search_InteractWithEmptyCart() throws Exception {	
 		new ShoppingCartPage(driver).ValidateEmptyCart();	
-	} */
+	} 
 	
-	/*@Test
+	@Test
 	public void TC_Search_InteractWithGiftWrap() throws Exception {
 		new CollectionPage(driver).validateQuickshopFunctionality();
 		new ShoppingCartPage(driver).ValidateViewCartLink();
 		new ShoppingCartPage(driver).AddGiftWrap();
-	}*/
+	}
 	
-	/*@Test
+	@Test
 	public void TC_Search_ApplyingDiscountCode() throws Exception {
 		new CollectionPage(driver).validateQuickshopFunctionality();
 		new ShoppingCartPage(driver).Promo_Code_OncartPage();
 		
-	}*/
+	}
 	
-	/*@Test
+	@Test
 	public void TC_Search_InteractWithActiveCart() throws Exception {
 		searchText = objGeneralMethods.readPropertiesFile("searchSleepwearSets");
 		new HomePage(driver).validateSearchFunctionEnterKeyword(searchText);
@@ -60,9 +60,9 @@ public class ValidateCartPage {
 		new ShoppingCartPage(driver).tieredMeterFunctionality();
 		new ShoppingCartPage(driver).AddRemoveProductsFromCart();
 		
-	}*/
+	}
 	
-	/*@Test
+	@Test
 	public void TC_Search_ViewOOSItem() throws Exception {
 		searchText = objGeneralMethods.readPropertiesFile("searchBundle");
 		new HomePage(driver).validateSearchFunctionEnterKeyword(searchText);
@@ -70,9 +70,9 @@ public class ValidateCartPage {
 		new ShoppingCartPage(driver).ValidateViewCartLink();
 		new ShoppingCartPage(driver).OOSValidation();
 		
-	}*/
+	}
 	
-	/*@Test
+	@Test
 	public void TC_Search_ViewPromotions() throws Exception {
 		String accountEmail = objGeneralMethods.readPropertiesFile("loginemail");
 		String password = objGeneralMethods.readPropertiesFile("password");
@@ -82,8 +82,7 @@ public class ValidateCartPage {
 		new CollectionPage(driver).validateQuickshopFunctionalityOnSearchPLP();
 		new ShoppingCartPage(driver).ValidateViewCartLink();
 		new ShoppingCartPage(driver).validatePromotion();
-		
-	}*/
+	}
 	
 	@Test
 	public void TC_Search_InteractWithPayments() throws Exception {
