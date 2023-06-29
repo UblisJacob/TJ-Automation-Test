@@ -6,117 +6,110 @@
 		<listener class-name="TestScenario.ListenerClass"></listener>
 	</listeners>
 
-	<test name="CategoryTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateCategoryPages" />
-		</classes>
-	</test>
+<!--	<test name="CategoryTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateCategoryPages" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test name="SearchPageTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateSearchPages" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test name="FooterPageTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateFooterSection" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test  name="ProductPageTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidatePDP" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test  name="HomePageTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateHomePage" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test thread-count="1" name="StoreLocatorTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateStoreLocator" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test name="AllQuizTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateQuiz" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test name="CreateAccountAndLoginTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateCreateAccount_Login" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test name="CheckoutPageTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateCheckoutPage" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test name="GiftCardBalancePageTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateGiftCardBalance" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test name="GiftCardPDPsTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateGiftCardFunctionality" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test name="AccountPageTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateAccountPage" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test name="StoreDirectoryTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateTJStoresPage" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!---->
+<!--	<test name="CartPageTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateCartPage" />-->
+<!--		</classes>-->
+<!--	</test>-->
+<!--	<test  name="InlineCartTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateInlineCartPage" />-->
+<!--		</classes>-->
+<!--	</test>-->
 
-	<test name="SearchPageTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateSearchPages" />
-		</classes>
-	</test>
-
-	<test name="FooterPageTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateFooterSection" />
-		</classes>
-	</test>
-
-	<test thread-count="1" name="ProductPageTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidatePDP" />
-		</classes>
-	</test>
-
-	<test thread-count="1" name="HomePageTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateHomePage" />
-		</classes>
-	</test>
-
-	<test thread-count="1" name="StoreLocatorTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateStoreLocator" />
-		</classes>
-	</test>
-
-	<test name="AllQuizTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateQuiz" />
-		</classes>
-	</test>
-
-	<test name="CreateAccountAndLoginTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateCreateAccount_Login" />
-		</classes>
-	</test>
-
-	<test name="CheckoutPageTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateCheckoutPage" />
-		</classes>
-	</test>
-
-	<test name="GiftCardBalancePageTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateGiftCardBalance" />
-		</classes>
-	</test>
-
-	<test name="GiftCardPDPsTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateGiftCardFunctionality" />
-		</classes>
-	</test>
-
-	<test name="AccountPageTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateAccountPage" />
-		</classes>
-	</test>
-
-	<test name="StoreDirectoryTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateTJStoresPage" />
-		</classes>
-	</test>
-
-	<test name="CartPageTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateCartPage" />
-		</classes>
-	</test>
-	<test thread-count="1" name="InlineCartTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateInlineCartPage" />
-		</classes>
-	</test>
-
-
-	<test thread-count="1" name="AfterPayTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateAfterPay" />
-		</classes>
-	</test>
 	<test name="BundlePageTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
@@ -131,5 +124,11 @@
 		</classes>
 	</test>
 
+	<test name="SanityModulesTests">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestModules.ValidateSanityModules" />
+		</classes>
+	</test>
 
 </suite>

@@ -23,7 +23,7 @@ public class ValidateQuiz {
 	}
 
 	@Test
-	public void ValidateMensUnderwearQuizFlow() throws Exception
+	public void ValidateMensUnderwearQuizFlow(WebDriver driver) throws Exception
 	{
 		new QuizPage(driver).VerifyMensQuizFlow();
 	}
