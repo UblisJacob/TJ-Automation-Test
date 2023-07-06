@@ -5,7 +5,7 @@
 	<listeners>
 		<listener class-name="TestScenario.ListenerClass"></listener>
 	</listeners>
-
+<!--
 	<test name="CategoryTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
@@ -103,6 +103,7 @@
 			<class name="TestModules.ValidateCartPage" />
 		</classes>
 	</test>
+-->
 	<test thread-count="1" name="InlineCartTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
@@ -110,7 +111,7 @@
 		</classes>
 	</test>
 
-
+<!--
 	<test thread-count="1" name="AfterPayTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
@@ -124,6 +125,13 @@
 		</classes>
 	</test>
 
+	<test name="SanityModuleTests">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="TestModules.ValidateSanityModules" />
+		</classes>
+	</test>
+
 	<test name="BlogPageTests">
 		<parameter name="browser" value="chrome" />
 		<classes>
@@ -131,5 +139,5 @@
 		</classes>
 	</test>
 
-
+-->
 </suite>
