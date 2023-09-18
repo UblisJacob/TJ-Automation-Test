@@ -4,7 +4,8 @@ import org.openqa.selenium.By;
 
 
 public class BlogPageLocators {
-
+    
+	
 	public static By BLOG_LINK = By.cssSelector("a[data-tj-qa='footer-blog']");
 	public static By BLOG_TITLE = By.xpath("//*[data-tj-qa='blog-heading'] | //p[@title='Tommy John Blog']");
 	

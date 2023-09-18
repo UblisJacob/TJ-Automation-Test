@@ -21,6 +21,7 @@ public class NavigationFlowPageLocators extends HomePageLocators
 	public static By WOMENS_ALL_NEWARRIVALS = By.xpath("(//li[@arial-label='open Women menu']//a[@aria-label='New Arrivals link']//span)[1]");
 	//public static By WOMENS_ALL_NEWARRIVALS = By.xpath("(//li[@arial-label='open Women menu']//a[@aria-label='New Arrivals link']//span)[1]");
 	
+	
 	public static By MEN_UNDERWEAR_BOXERBRIEF = SECOND_lEVEL2_CATEGORY;
 	public static By MEN_CLOTHING_TEESandPOLOS = FIRST_lEVEL2_CATEGORY;
 	public static By WOMEN_BRAS_SCOOPBRALETTE = SECOND_lEVEL2_CATEGORY;

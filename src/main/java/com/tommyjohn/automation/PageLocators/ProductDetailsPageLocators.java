@@ -8,6 +8,7 @@ public class ProductDetailsPageLocators {
 	//changed
 	public static By PRODUCT_TITLE = By.cssSelector("[data-tj-qa='product-name'],.multi-pdp-title-wrap.desktop-view.desktop>.product-info__title-wrap>h1");
  	
+	
 	//changed
 	public static By PRODUCT_TITLE_1 = By.xpath("//div[@class='multi-pdp-title-wrap desktop-view desktop']//h1");//changed
 	//	public static By PRODUCT_PRICE = By.cssSelector("div.product-info__inner-top > span > span:nth-child(2)");
