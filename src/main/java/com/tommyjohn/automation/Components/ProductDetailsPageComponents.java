@@ -2477,7 +2477,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		
 			if(elementsCount > 1)
 			{
-				for(int i=1;i<=elementsCount;i++)
+				for(int i=1;i<elementsCount;i++)
 				{
 						String imagecolor = null;
 						WebElement elemen = driver.findElement(By.cssSelector(".product-option__color-swatches-wrapper>ul>li:nth-child(" + i + ") > label"));
@@ -2548,15 +2548,15 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		allElements = driver.findElements(TOTAL_SIZES);
 		
 		elementsCount = allElements.size();
-		System.out.println("Color Element count :: "+elementsCount);
+		System.out.println("Size count :: "+elementsCount);
 		Reporter.log("Sizes are present");
 		
 		if(elementsCount > 1)
 		{
-			for(int i=1;i<=elementsCount;i++)
+			for(int i=1;i<elementsCount;i++)
 			{
 				
-				WebElement elemen = driver.findElement(By.cssSelector(".option-swatch__option>li:nth-child("+ i +")>input"));
+				WebElement elemen = driver.findElement(By.cssSelector(".option-swatch__option>li:nth-child("+ i +")"));
 				
 				jse.executeScript("arguments[0].click();", elemen);
 				
@@ -2812,17 +2812,17 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		Thread.sleep(2000);
 		if(elementsCount > 1)
 			
-				for(int i=1;i<=elementsCount;i++)
+				for(int i=1;i<elementsCount;i++)
 				{
 					
-					WebElement elemen = driver.findElement(By.cssSelector(".product-option__color-swatches-wrapper>ul>li:nth-child(" + i + ")>input"));
+					WebElement elemen = driver.findElement(By.cssSelector(".product-option__color-swatches-wrapper>ul>li:nth-child(" + i + ")"));
 					jse = (JavascriptExecutor) driver;
 					jse.executeScript("arguments[0].click();", elemen);
 					Thread.sleep(1000);
 					
 						for(int k=1;k<6;k++)				
 						{	
-							WebElement elements = driver.findElement(By.cssSelector(".option-swatch__option>li:nth-child("+ k +")>input"));
+							WebElement elements = driver.findElement(By.cssSelector(".option-swatch__option>li:nth-child("+ k +")"));
 							//elements.click();
 							Thread.sleep(1000);
 							jse.executeScript("arguments[0].click();", elements);
@@ -2987,7 +2987,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			driver.findElement(EMAIL_TEXTBOX).sendKeys("kritika.bhat@tommyjohnwear.com");
 			softAssert.assertEquals(driver.findElement(LOCATION).getText(), "Location (Optional)", "Laguage mismatch for Location ");
 			driver.findElement(LOCATION_TEXTBOX).sendKeys("India");
-			softAssert.assertEquals(driver.findElement(FIT).getText(), "Fit", "Laguage mismatch for Fit	 ");
+			softAssert.assertEquals(driver.findElement(FIT).getText(), "Fit", "Language mismatch for Fit	 ");
 			WebElement fit = driver.findElement(FIT_SELECTION);
 			executore.executeScript("arguments[0].click();", fit);
 			softAssert.assertEquals(driver.findElement(OVERALLRATING).getText(), "* Overall Rating", "Laguage mismatch for Overall Rating	 ");
