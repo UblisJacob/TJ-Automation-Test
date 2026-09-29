@@ -27,15 +27,6 @@ public class ValidateCheckoutPage extends ExtentReport {
 		}
 	}
 
-	@Test
-	public void ValidateGWP() throws Exception
-	{
-		new CheckoutPage(driver).ValidateGWP();
-	}
-
-
-
-
 
 
 	//	@Test
