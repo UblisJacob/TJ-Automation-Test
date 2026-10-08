@@ -25,8 +25,8 @@ import java.util.stream.Collectors;
 public class Slack {
 
     public static String TJ_QA_WEBHOOK_URL="https://hooks.slack.com/services/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";
-    public static String Test_WEBHOOK_URL="https://hooks.slack.com/services/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";
-    public static String Test_Automation_WEBHOOK_URL="https://hooks.slack.com/services/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";
+    public static String Test_WEBHOOK_URL="https://hooks.slack.com/services/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";
+    public static String Test_Automation_WEBHOOK_URL="https://hooks.slack.com/services/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";
     public static String CurrentDate;
 
 
@@ -58,17 +58,27 @@ public class Slack {
 
     public static void sendSlackNotificationReg(String passed, String failed, String skipped, String reportLink /*, String JSonLink*/) throws Exception {
 
-            //    String ReportLINK = "https://drive.google.com/uc?export=download&id=1nLJZrcFHbj8PHV9rq9eX7F6ctYoI076S";
+            //    String ReportLINK = "https://drive.google.com/uc?export=download&id=1UNv3rSScunclXp-fa_fq1jUNCtOmgoXU";
             // Create JSON payload
+
+
+
+        System.out.println("========== INSIDE SLACK METHOD ==========");
+        System.out.println("TJ_QA_WEBHOOK_URL: " + Test_Automation_WEBHOOK_URL);
+        System.out.println("Passed: " + passed);
+        System.out.println("Failed: " + failed);
+        System.out.println("Skipped: " + skipped);
+        System.out.println("Report Link: " + reportLink);
+
                 String Date = setCurrentDatetDate();
 
                 System.out.println(passed+"\n"+failed+"\n"+skipped+"\n"+reportLink+"\n"/*+JSonLink*/);
 
                String payload = "{\"text\":\"*Regression Results*\n*Time:* " + Date + " \n*Passed:* " + passed + "\n*Failed:* "+ failed + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + reportLink + "|Click> \",\"type\": \"mrkdwn\"}";
 
-//              String payload = "{\"text\":\"*Regression Results*\n*Time:* " + Date + " \n*Passed:* " + 190 + "\n*Failed:* "+ 10 + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + ReportLINK + "|Click> \",\"type\": \"mrkdwn\"}";
+//              String payload = "{\"text\":\"*ADA Check Results*\n*Time:* " + Date + " \n*Passed:* " + 9 + "\n*Failed:* "+ 63 + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + ReportLINK + "|Click> \",\"type\": \"mrkdwn\"}";
 
-            URL url = new URL(TJ_QA_WEBHOOK_URL);
+            URL url = new URL(Test_Automation_WEBHOOK_URL);
 
             HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 
@@ -92,6 +102,12 @@ public class Slack {
             int responseCode = httpConn.getResponseCode();
 
             System.out.println("Response Code: " + responseCode);
+
+        if (responseCode >= 200 && responseCode < 300) {
+            System.out.println("Slack notification sent successfully.");
+        } else {
+            System.out.println("Slack notification failed.");
+        }
 
     }
 
@@ -191,6 +207,7 @@ public class Slack {
 
     public static void sendSlackNotificationADA(String passed, String failed, String skipped, String reportLink ) throws Exception {
 
+
         // Create JSON payload
         String Date = setCurrentDatetDate();
 
@@ -273,7 +290,7 @@ public class Slack {
 //              String payload = "{\"text\":\"*GTM Results*\n*Time:* " + Date + " \n*Passed:* " + 4 + "\n*Failed:* "+ 1 + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + ReportLINK + "|Click> \",\"type\": \"mrkdwn\"}";
 
 
-        URL url = new URL(TJ_QA_WEBHOOK_URL);
+        URL url = new URL(Test_Automation_WEBHOOK_URL);
 
         HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 
