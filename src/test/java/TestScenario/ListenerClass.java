@@ -154,19 +154,32 @@ public class ListenerClass extends ExtentReport
 			e.printStackTrace();
 		}
 
-//		try {
-//			// 🔧 CHANGE: Send Slack ONLY if link is valid
-//			if (!reportLink.contains("failed")) {
-//				sendSlackNotificationReg(
-//						String.valueOf(Fpassed),
-//						String.valueOf(Ffailed),
-//						String.valueOf(Fskipped),
-//						reportLink
-//				);
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		try {
+
+			System.out.println("=================================");
+			System.out.println("Starting Slack Notification...");
+			System.out.println("Report Link: " + reportLink);
+			System.out.println("Passed: " + Fpassed);
+			System.out.println("Failed: " + Ffailed);
+			System.out.println("Skipped: " + Fskipped);
+			System.out.println("=================================");
+
+			sendSlackNotificationReg(
+					String.valueOf(Fpassed),
+					String.valueOf(Ffailed),
+					String.valueOf(Fskipped),
+					reportLink
+			);
+
+			System.out.println("Slack method completed.");
+
+		} catch (Exception e) {
+
+			System.err.println("Slack notification failed!");
+			e.printStackTrace();
+
+		}
+
 	}
 
 	// ================= SUITE FINISH =================
