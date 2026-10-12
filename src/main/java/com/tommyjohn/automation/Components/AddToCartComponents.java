@@ -26,8 +26,7 @@ import static com.tommyjohn.automation.PageLocators.CollectionPageLocator.PRODUC
 import static com.tommyjohn.automation.PageLocators.FlyCartPageLocator.*;
 import static com.tommyjohn.automation.PageLocators.HomePageLocators.SEARCH_ICON;
 import static com.tommyjohn.automation.PageLocators.HomePageLocators.SEARCH_ICON_INPUT;
-import static com.tommyjohn.automation.PageLocators.ProductDetailsPageLocators.CART_ICON;
-import static com.tommyjohn.automation.PageLocators.ProductDetailsPageLocators.PDP_TABS;
+import static com.tommyjohn.automation.PageLocators.ProductDetailsPageLocators.*;
 import static com.tommyjohn.automation.PageLocators.ShoppingCartLocators.CART_TOTAL;
 import static com.tommyjohn.automation.PageLocators.ShoppingCartLocators.QUANTITY_INPUT;
 
@@ -412,7 +411,7 @@ public class AddToCartComponents extends AddToCartLocators{
 
 			List<WebElement> colorVariants =
 					driver.findElements(
-							ProductDetailsPageComponents.COLOR_VARIANT
+							COLOR_VARIANT
 					);
 
 			System.out.println(
@@ -1248,7 +1247,7 @@ public class AddToCartComponents extends AddToCartLocators{
 
 		Thread.sleep(2000);
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: "+elementsCount);
@@ -1354,7 +1353,7 @@ public class AddToCartComponents extends AddToCartLocators{
 
 		Thread.sleep(2000);
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: "+elementsCount);
@@ -1662,7 +1661,7 @@ public class AddToCartComponents extends AddToCartLocators{
 
 //		jse.executeScript("arguments[0].click();", driver.findElement(By.xpath("(//span[@class='text-sm text-text-tertiary'])[1]")));
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -1761,7 +1760,7 @@ public class AddToCartComponents extends AddToCartLocators{
 
 //		jse.executeScript("arguments[0].click();", driver.findElement(By.xpath("(//span[@class='text-sm text-text-tertiary'])[1]")));
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -1853,7 +1852,7 @@ public class AddToCartComponents extends AddToCartLocators{
 
 		Thread.sleep(2000);
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -1964,9 +1963,9 @@ public class AddToCartComponents extends AddToCartLocators{
 		jse.executeScript("arguments[0].click();", driver.findElement(By.xpath("(//span[@class='text-sm text-text-tertiary'])[1]")));
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageComponents.COLOR_VARIANT));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(COLOR_VARIANT));
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -2050,7 +2049,7 @@ public class AddToCartComponents extends AddToCartLocators{
 
 		int count =0;
 		// call method to navigate to collection page
-		new HomePageComponents(driver).navigateToMensAllUnderwear();
+		new HomePageComponents(driver).navigateToMensAll();
 		jse = (JavascriptExecutor) driver;
 		jse.executeScript("window.scrollBy(0,250)");
 		// call method to navigate product details page
@@ -2060,7 +2059,10 @@ public class AddToCartComponents extends AddToCartLocators{
 
 		jse.executeScript("arguments[0].click();", driver.findElement(By.xpath("(//span[@class='text-sm text-text-tertiary'])[1]")));
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(COLOR_VARIANT));
+
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -2160,7 +2162,7 @@ public class AddToCartComponents extends AddToCartLocators{
 			System.out.println("No Tabs Found");
 		}
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -2327,7 +2329,7 @@ public class AddToCartComponents extends AddToCartLocators{
 
 		Thread.sleep(2000);
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -2419,7 +2421,7 @@ public class AddToCartComponents extends AddToCartLocators{
 
 		Thread.sleep(2000);
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -2508,7 +2510,7 @@ public class AddToCartComponents extends AddToCartLocators{
 
 		Thread.sleep(2000);
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -2598,7 +2600,7 @@ public class AddToCartComponents extends AddToCartLocators{
 
 		Thread.sleep(2000);
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -2695,7 +2697,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		Thread.sleep(2000);
 
 		// Get all color variants
-		List<WebElement> colorVariants = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		List<WebElement> colorVariants = driver.findElements(COLOR_VARIANT);
 		System.out.println("Color Element count :: " + colorVariants.size());
 
 		if (colorVariants.size() > 0) {
@@ -2703,7 +2705,7 @@ public class AddToCartComponents extends AddToCartLocators{
 			for (int i = 0; i < colorVariants.size(); i++) {
 
 				// Re-fetch color elements to avoid stale element
-				colorVariants = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+				colorVariants = driver.findElements(COLOR_VARIANT);
 				WebElement color = colorVariants.get(i);
 
 				jse.executeScript("arguments[0].click();", color);
@@ -2780,7 +2782,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		ExtentReport.extentTest.info(driver.getCurrentUrl());
 		Thread.sleep(2000);
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -2873,7 +2875,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		ExtentReport.extentTest.info(driver.getCurrentUrl());
 		Thread.sleep(2000);
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -2966,7 +2968,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		ExtentReport.extentTest.info(driver.getCurrentUrl());
 		Thread.sleep(2000);
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -3062,7 +3064,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		ExtentReport.extentTest.info(driver.getCurrentUrl());
 		Thread.sleep(2000);
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
@@ -3155,7 +3157,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		ExtentReport.extentTest.info(driver.getCurrentUrl());
 		Thread.sleep(2000);
 
-		allElements = driver.findElements(ProductDetailsPageComponents.COLOR_VARIANT);
+		allElements = driver.findElements(COLOR_VARIANT);
 
 		elementsCount = allElements.size();
 		System.out.println("Color Element count :: " + elementsCount);
