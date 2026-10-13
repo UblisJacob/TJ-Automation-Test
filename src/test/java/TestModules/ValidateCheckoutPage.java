@@ -29,6 +29,13 @@ public class ValidateCheckoutPage extends ExtentReport {
 
 
 	@Test
+	public void ValidateErrorBanner() throws Exception
+	{
+		new CheckoutPage(driver).validateErrorBanner();
+	}
+
+
+	@Test
 	public void VerifySplitBundleProductUsingQuickShop() throws Exception
 	{
 		new AddToCartComponents(driver).AddBundleProductFromPLP("womens-second-skin-sleep-pocket-tee-pant-set-9");
