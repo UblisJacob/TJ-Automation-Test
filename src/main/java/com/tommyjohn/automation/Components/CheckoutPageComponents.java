@@ -2649,6 +2649,37 @@ public class CheckoutPageComponents extends CheckoutPageLocators {
 
 	}
 
+	public void validateErrorBanner() throws Exception {
+		jse = (JavascriptExecutor)driver;
+		SoftAssert softAssert = new SoftAssert();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		new AddToCartComponents(driver).addToCart();
+		wait.until(ExpectedConditions.elementToBeClickable(HomePageLocators.CART_ICON));
+		jse.executeScript("arguments[0].click();", driver.findElement(HomePageLocators.CART_ICON));
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(FlyCartPageLocator.VIEW_CART_LINK));
+//		driver.findElement(FlyCartPageLocator.VIEW_CART_LINK).click();
+		Thread.sleep(5000);
+		jse.executeScript("arguments[0].click();", driver.findElement(CHECKOUT_BUTTON));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(CONTACTINFO_TEXT));
+		driver.findElement(CHECKOUT_EMAIL).sendKeys(CustomUtilities.properties.getProperty("checkoutemail"));
+		softAssert.assertEquals(driver.findElement(SHIPPINGADD_TEXT).getText(), "Delivery", "Shipping address title is not displayed");
+		enterinvalidshippingdetails();
+		Reporter.log("Shipping Address Details entered");
+		ExtentReport.extentTest.info("Shipping Address Details entered");
+		// driver.findElement(CONTINUE_TO_SHIPPING_BUTTON).click();
+//		WebElement Continue_shipping = driver.findElement(CONTINUE_TO_SHIPPING_BUTTON);
+//		((JavascriptExecutor) driver).executeScript("arguments[0].click();", Continue_shipping);
+//		Reporter.log("User is navigated to select shipping method");
+//		ExtentReport.extentTest.info("User is navigated to select shipping method");
+//		Thread.sleep(10000);
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(CONTACT_EMAIL));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(ERROR_BANNER));
+		softAssert.assertTrue(driver.findElement(ERROR_BANNER).isDisplayed(),"Error banner is not displayed");
+		Reporter.log("Error Banner is Displayed");
+		ExtentReport.extentTest.info("Error Banner is Displayed");
+
+	}
+
 	public void validateFreeShipping() throws Exception {
 		jse = (JavascriptExecutor)driver;
 		SoftAssert softAssert = new SoftAssert();
@@ -3032,6 +3063,36 @@ public class CheckoutPageComponents extends CheckoutPageLocators {
 //		ExtentReport.extentTest.info("How heard values are displayed:: Clickable");
 		softAssert.assertAll();
 
+	}
+
+	public void enterinvalidshippingdetails() throws Exception {
+		wait=new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.presenceOfElementLocated(FIRSTNAME_TEXTBOX));
+		Thread.sleep(10000);
+		driver.findElement(FIRSTNAME_TEXTBOX).clear();
+		driver.findElement(FIRSTNAME_TEXTBOX).sendKeys("TestFirstNameWithThirtyFiveCharacters");
+		driver.findElement(LASTNAME_TEXTBOX).clear();
+		driver.findElement(LASTNAME_TEXTBOX).sendKeys("TestLastNamesWithThirtyFiveCharacters");
+		driver.findElement(ADDRESS1_TEXTBOX).clear();
+		driver.findElement(ADDRESS1_TEXTBOX).sendKeys("TestAdrressOneWithThirtyFiveCharacters");
+		Thread.sleep(5000);
+		driver.findElement(ADDRESS2_TEXTBOX).clear();
+		driver.findElement(ADDRESS2_TEXTBOX).sendKeys("TestAdrressTwoWithThirtyFiveCharacters");
+		driver.findElement(CITY_TEXTBOX).clear();
+		driver.findElement(CITY_TEXTBOX).sendKeys("TestCityNameWithThirtyFiveCharacters");
+		WebElement countrydp = driver.findElement(COUNTRY_DROPDOWN);
+		Select country = new Select(countrydp);
+		country.selectByValue("US");
+
+		WebElement statedp = driver.findElement(STATE_DROPDOWN);
+		Select state = new Select(statedp);
+		state.selectByValue("NY");
+
+		driver.findElement(PINCODE_TEXTBOX).clear();
+		driver.findElement(PINCODE_TEXTBOX).sendKeys("10005");
+		Thread.sleep(2000);
+		driver.findElement(PHONE_TEXTBOX).clear();
+		driver.findElement(PHONE_TEXTBOX).sendKeys("8889996667");
 	}
 
 	public void entershippingdetails() throws Exception {
