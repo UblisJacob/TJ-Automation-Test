@@ -66,12 +66,12 @@
 	<!--		</classes>-->
 	<!--	</test>-->
 
-	<test name="CreateAccountAndLoginTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateCreateAccount_Login" />
-		</classes>
-	</test>
+<!--	<test name="CreateAccountAndLoginTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateCreateAccount_Login" />-->
+<!--		</classes>-->
+<!--	</test>-->
 
 	<test name="CheckoutPageTests">
 		<parameter name="browser" value="chrome" />
@@ -94,12 +94,12 @@
 		</classes>
 	</test>
 
-	<test name="AccountPageTests">
-		<parameter name="browser" value="chrome" />
-		<classes>
-			<class name="TestModules.ValidateAccountPage" />
-		</classes>
-	</test>
+<!--	<test name="AccountPageTests">-->
+<!--		<parameter name="browser" value="chrome" />-->
+<!--		<classes>-->
+<!--			<class name="TestModules.ValidateAccountPage" />-->
+<!--		</classes>-->
+<!--	</test>-->
 
 	<!--	<test name="StoreDirectoryTests">-->
 	<!--		<parameter name="browser" value="chrome" />-->

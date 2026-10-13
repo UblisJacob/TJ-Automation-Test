@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 
 public class Slack {
 
-    public static String TJ_QA_WEBHOOK_URL="https://hooks.slack.com/services/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";
+    public static String TJ_QA_WEBHOOK_URL="https://hooks.slack.com/services/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";
     public static String Test_WEBHOOK_URL="https://hooks.slack.com/services/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";
     public static String Test_Automation_WEBHOOK_URL="https://hooks.slack.com/services/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";
     public static String CurrentDate;
@@ -58,13 +58,13 @@ public class Slack {
 
     public static void sendSlackNotificationReg(String passed, String failed, String skipped, String reportLink /*, String JSonLink*/) throws Exception {
 
-            //    String ReportLINK = "https://drive.google.com/uc?export=download&id=1UNv3rSScunclXp-fa_fq1jUNCtOmgoXU";
+            //    String ReportLINK = "https://drive.google.com/uc?export=download&id=1JeiyF7Z5Q3B-Ba6cPUot6fROgaomSLRX";
             // Create JSON payload
 
 
 
         System.out.println("========== INSIDE SLACK METHOD ==========");
-        System.out.println("TJ_QA_WEBHOOK_URL: " + Test_Automation_WEBHOOK_URL);
+        System.out.println("TJ_QA_WEBHOOK_URL: " + TJ_QA_WEBHOOK_URL);
         System.out.println("Passed: " + passed);
         System.out.println("Failed: " + failed);
         System.out.println("Skipped: " + skipped);
@@ -76,9 +76,9 @@ public class Slack {
 
                String payload = "{\"text\":\"*Regression Results*\n*Time:* " + Date + " \n*Passed:* " + passed + "\n*Failed:* "+ failed + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + reportLink + "|Click> \",\"type\": \"mrkdwn\"}";
 
-//              String payload = "{\"text\":\"*ADA Check Results*\n*Time:* " + Date + " \n*Passed:* " + 9 + "\n*Failed:* "+ 63 + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + ReportLINK + "|Click> \",\"type\": \"mrkdwn\"}";
+//              String payload = "{\"text\":\"*Regression Results*\n*Time:* " + Date + " \n*Passed:* " + 174 + "\n*Failed:* "+ 22 + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + ReportLINK + "|Click> \",\"type\": \"mrkdwn\"}";
 
-            URL url = new URL(Test_Automation_WEBHOOK_URL);
+            URL url = new URL(TJ_QA_WEBHOOK_URL);
 
             HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 
