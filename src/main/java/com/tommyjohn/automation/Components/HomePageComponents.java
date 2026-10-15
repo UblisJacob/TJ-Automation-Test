@@ -64,6 +64,27 @@ public class HomePageComponents extends HomePageLocators {
 
 	}
 
+	public void ValidateContentBannerSlice() throws InterruptedException {
+
+		SoftAssert softAssert = new SoftAssert();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		driver.get("https://www.tommyjohn.com/?_ab=0&_sc=1&toggle_content=men");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(HERO_BANNER_IMAGE));
+		Thread.sleep(2000);
+		js.executeScript("window.scrollBy(0,500)");
+		softAssert.assertTrue(driver.findElement(CONTENT_BANNER_SLICE).isDisplayed(),"Content Banner Slice Is Not Available");
+		Reporter.log("Content Banner Slice Is Available");
+		ExtentReport.extentTest.info("Content Banner Slice Is Available");
+		WebElement element1 = driver.findElement(CONTENT_BANNER_SLICE_CTA);
+		js.executeScript("arguments[0].click();", element1);
+		//driver.findElement(MENS_TOGGLE).click();
+		//js.executeScript("window.scrollBy(0,500)");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT_IMAGE));
+		softAssert.assertTrue(driver.findElement(FIRST_PRODUCT_IMAGE).isDisplayed(),"CTA in the Content Banner Slice Is not functional");
+		Reporter.log("CTA in the Content Banner Slice Is functional");
+		ExtentReport.extentTest.info("CTA in the Content Banner Slice Is  functional");
+	}
+
 	public void ValidateShopNowCTAInTopBanner() throws InterruptedException {
 		SoftAssert softAssert = new SoftAssert();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
