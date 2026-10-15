@@ -24,6 +24,13 @@ public class ValidateHomePage extends ExtentReport {
 		}
 	}
 
+
+//	@Test
+	public void ValidateContentBannerSlice() throws Exception {
+		HomePageComponents homePage = new HomePageComponents(driver);
+		homePage.ValidateContentBannerSlice();
+	}
+
     @Test
     public void VerifyScrollCTA() throws Exception {
         HomePageComponents homePage = new HomePageComponents(driver);
