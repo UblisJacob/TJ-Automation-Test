@@ -46,6 +46,7 @@ public class HomePageComponents extends HomePageLocators {
 	public String currentUrl2;
 	boolean flag = false;
 	public static WebElement element;
+	public static WebElement element1;
 	public static WebElement ele1;
 	public Actions action;
 	JavascriptExecutor executor = (JavascriptExecutor) driver;
@@ -1844,6 +1845,8 @@ public class HomePageComponents extends HomePageLocators {
 		element=driver.findElement(ACCOUNT_NAV_DROPDOWN);
 		((JavascriptExecutor)driver).executeScript("arguments[0].click();", element);
 		Thread.sleep(5000);
+		element1=driver.findElement(SIGNIN_SIGNUP_CTA);
+		((JavascriptExecutor)driver).executeScript("arguments[0].click();", element1);
 		if(!driver.getCurrentUrl().contains("https://shopify.com/authentication/"))
 			throw new Exception("Wrong page opened after clicked on Account Icon");
 		Reporter.log("Account Icon is Displayed :: Clickable");
