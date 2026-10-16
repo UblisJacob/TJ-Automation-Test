@@ -324,6 +324,7 @@ public class HomePageLocators{
 	public static By EMAIL_US = By.cssSelector(".header-nav-dropdown > ul > li:nth-child(5) > a");
 	
 	public static By ACCOUNT_NAV_DROPDOWN = By.xpath("//span[@class='icon block icon-account']");
+	public static By SIGNIN_SIGNUP_CTA = By.xpath("//a[contains(text(),'Sign in or Sign up')]");
 	public static By HEADER_LOGIN_TITLE = By.cssSelector("span[data-tj-qa='header-login']");
 	//public static By REORDER = By.cssSelector("header-desktop-right > li:nth-child(3) >div > ul > li:nth-child(2) > a ");
 	//	public static By CART_ICON = By.cssSelector("i.icon-shopping-cart");

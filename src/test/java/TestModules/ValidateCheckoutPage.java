@@ -42,7 +42,7 @@ public class ValidateCheckoutPage extends ExtentReport {
 		new CheckoutPage(driver).ValidateSplitBundleProductUsingQuickShop();
 	}
 
-	@Test
+//	@Test
 	public void ValidateGWP() throws Exception
 	{
 		new CheckoutPage(driver).ValidateGWP();

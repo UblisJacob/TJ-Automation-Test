@@ -25,6 +25,9 @@ import com.tommyjohn.automation.PageLocators.TermsAndConditionsPageLocators;
 import com.tommyjohn.automation.commonMethods.GeneralMethods;
 import com.tommyjohn.automation.utils.CustomUtilities;
 
+import static com.tommyjohn.automation.Components.HomePageComponents.element1;
+import static com.tommyjohn.automation.PageLocators.HomePageLocators.SIGNIN_SIGNUP_CTA;
+
 public class FooterSectionComponents extends FooterSectionLocators {
 
 	public WebDriver driver;
@@ -503,6 +506,8 @@ public class FooterSectionComponents extends FooterSectionLocators {
 		softassert.assertTrue(linkText.equals("Sign In"), "Sign In link text is changed");
 
 		objGeneralMethods.clickButtonByJS(driver, SIGN_IN_FOOTER_LINK);
+		element1=driver.findElement(SIGNIN_SIGNUP_CTA);
+		((JavascriptExecutor)driver).executeScript("arguments[0].click();", element1);
 		wait = new WebDriverWait(driver,Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.titleContains("Sign in - Tommy John"));
 
@@ -535,6 +540,8 @@ public class FooterSectionComponents extends FooterSectionLocators {
 		softassert.assertTrue(linkText.equals("Order History"), "Order History Link text is changed");
 
 		objGeneralMethods.clickButtonByJS(driver, ORDER_HISTORY);
+		element1=driver.findElement(SIGNIN_SIGNUP_CTA);
+		((JavascriptExecutor)driver).executeScript("arguments[0].click();", element1);
 
 		wait.until(ExpectedConditions.titleContains("Sign in - Tommy John"));
 
