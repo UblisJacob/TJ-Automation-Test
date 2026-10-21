@@ -70,7 +70,7 @@ public class ReOrderPageComponents extends ReOrderPageLocators {
 		} catch (TimeoutException | NoSuchElementException e) {
 			System.out.println("Login Button not found or is not clickable");
 			Assert.fail("Login Button not found or is not clickable");
-			ExtentReport.extentTest.info("Login Button not found or is not clickable");
+			ExtentReport.getExtentTest().info("Login Button not found or is not clickable");
 		}
 	}
 
@@ -100,7 +100,7 @@ public class ReOrderPageComponents extends ReOrderPageLocators {
 		} catch (Exception e) {
 			System.out.println("Reorder option not displayed");
 			Assert.fail("Reorder option not displayed");
-			ExtentReport.extentTest.info("Reorder option not displayed");
+			ExtentReport.getExtentTest().info("Reorder option not displayed");
 		}
 
 //		Wait for Reorder page to load
@@ -117,7 +117,7 @@ public class ReOrderPageComponents extends ReOrderPageLocators {
 				currentUrl = driver.getCurrentUrl();
 				System.out.println("Reorder Page is not displayed even after performing Re-Login, Current page url is: " + currentUrl);
 				Assert.fail("Reorder Page is not displayed even after performing Re-Login, Current page url is: " + currentUrl);
-				ExtentReport.extentTest.info("Reorder Page is not displayed even after performing Re-Login, Current page url is: " + currentUrl);
+				ExtentReport.getExtentTest().info("Reorder Page is not displayed even after performing Re-Login, Current page url is: " + currentUrl);
 			}
 		}
 
@@ -151,13 +151,13 @@ public class ReOrderPageComponents extends ReOrderPageLocators {
 		try{
 			softAssert.assertAll();
 		}catch (AssertionError e) {
-			ExtentReport.extentTest.fail(e);
+			ExtentReport.getExtentTest().fail(e);
 			softAssert.assertAll();
 		}
 		
 		System.out.println("total products on reorder page is: " + element.size());
 		Reporter.log("total products on reorder page is: " + element.size());
-		ExtentReport.extentTest.info("total products on reorder page is: " + element.size());
+		ExtentReport.getExtentTest().info("total products on reorder page is: " + element.size());
 	}
 
 	/**
@@ -229,13 +229,13 @@ public class ReOrderPageComponents extends ReOrderPageLocators {
 		try{
 			softAssert.assertAll();
 		}catch (AssertionError e) {
-			ExtentReport.extentTest.fail(e);
+			ExtentReport.getExtentTest().fail(e);
 			softAssert.assertAll();
 		}
 		
 		System.out.println("Product was successfully added to cart after clicking on ATC CTA on Reorder Page");
 		Reporter.log("Product was successfully added to cart after clicking on ATC CTA on Reorder Page");
-		ExtentReport.extentTest.info("Product was successfully added to cart after clicking on ATC CTA on Reorder Page");
+		ExtentReport.getExtentTest().info("Product was successfully added to cart after clicking on ATC CTA on Reorder Page");
 	}
 	
 	/**
@@ -297,13 +297,13 @@ public class ReOrderPageComponents extends ReOrderPageLocators {
 		try{
 			softAssert.assertAll();
 		}catch (AssertionError e) {
-			ExtentReport.extentTest.fail(e);
+			ExtentReport.getExtentTest().fail(e);
 			softAssert.assertAll();
 		}
 		
 		System.out.println("Correct page opened after clicking on Order #" + orderNumber);
 		Reporter.log("Correct page opened after clicking on Order #" + orderNumber);
-		ExtentReport.extentTest.info("Correct page opened after clicking on Order #" + orderNumber);
+		ExtentReport.getExtentTest().info("Correct page opened after clicking on Order #" + orderNumber);
 	}
 
 	/**
@@ -356,13 +356,13 @@ public class ReOrderPageComponents extends ReOrderPageLocators {
 		try{
 			softAssert.assertAll();
 		}catch (AssertionError e) {
-			ExtentReport.extentTest.fail(e);
+			ExtentReport.getExtentTest().fail(e);
 			softAssert.assertAll();
 		}
 		
 		System.out.println("Correct Page opened after clicking on product image of " + productName);
 		Reporter.log("Correct Page opened after clicking on product image of "+ productName);
-		ExtentReport.extentTest.info("Correct Page opened after clicking on product image of "+ productName);
+		ExtentReport.getExtentTest().info("Correct Page opened after clicking on product image of "+ productName);
 
 	}
 	
@@ -427,13 +427,13 @@ public class ReOrderPageComponents extends ReOrderPageLocators {
 		try{
 			softAssert.assertAll();
 		}catch (AssertionError e) {
-			ExtentReport.extentTest.fail(e);
+			ExtentReport.getExtentTest().fail(e);
 			softAssert.assertAll();
 		}
 		
 		System.out.println("Review Page from reorder is correct");
 		Reporter.log("Review Page from reorder is correct");
-		ExtentReport.extentTest.info("Review Page from reorder is correct");
+		ExtentReport.getExtentTest().info("Review Page from reorder is correct");
 
 	}
 

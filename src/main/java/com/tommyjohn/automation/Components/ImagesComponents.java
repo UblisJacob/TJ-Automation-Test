@@ -140,7 +140,7 @@ public class ImagesComponents {
 
             // ✅ Console + Report (ALL DATA)
             System.out.println(status + " | ALT: " + altFinal + " | SRC: " + src + " | URL: " + urlFinal);
-            ExtentReport.extentTest.info(
+            ExtentReport.getExtentTest().info(
                     status + " | ALT: " + altFinal + " | SRC: " + src + " | URL: " + urlFinal
             );
 
@@ -161,9 +161,9 @@ public class ImagesComponents {
         try { writer.close(); } catch (Exception ignored) {}
 
         // ✅ FINAL SUMMARY
-        ExtentReport.extentTest.info("===== 🔴 FINAL SUMMARY 🔴 =====");
-        ExtentReport.extentTest.info("Missing ALT count: " + missingAltTotal);
-        ExtentReport.extentTest.info("Missing URL count: " + missingUrlTotal);
+        ExtentReport.getExtentTest().info("===== 🔴 FINAL SUMMARY 🔴 =====");
+        ExtentReport.getExtentTest().info("Missing ALT count: " + missingAltTotal);
+        ExtentReport.getExtentTest().info("Missing URL count: " + missingUrlTotal);
 
         if (missingAltTotal > 0 || missingUrlTotal > 0) {
             Assert.fail("Homepage ALT / URL validation failed");
@@ -218,7 +218,7 @@ public class ImagesComponents {
                 String url = "https://www.tommyjohn.com" + path;
                 Reporter.log("🔍 Starting validation for URL: " + url);
                 System.out.println("🔍 Starting validation for URL: " + url);
-                ExtentReport.extentTest.info("🔍 Starting validation for URL: " + url);
+                ExtentReport.getExtentTest().info("🔍 Starting validation for URL: " + url);
                 log("🔍 Validating URL: " + url);
 
                 driver.get(url);
@@ -284,7 +284,7 @@ public class ImagesComponents {
 
                         log(logMessage);
                         System.out.println(logMessage);
-                        ExtentReport.extentTest.info(logMessage);
+                        ExtentReport.getExtentTest().info(logMessage);
 
                         // ================= CSV → FAILURES ONLY =================
                         if (!status.contains("Valid")) {
@@ -298,7 +298,7 @@ public class ImagesComponents {
                 } catch (Exception e) {
                     log("❌ Page not loading or products not visible: " + url);
                     String errorMsg = "❌ Page not loading: " + url; Reporter.log(errorMsg);
-                    ExtentReport.extentTest.info(errorMsg);
+                    ExtentReport.getExtentTest().info(errorMsg);
                     System.out.println(errorMsg);
                 }
             }
@@ -315,7 +315,7 @@ public class ImagesComponents {
 
         // ================= FINAL SUMMARY =================
 
-        ExtentReport.extentTest.info("===== 🔴 FINAL SUMMARY 🔴 ====="); ExtentReport.extentTest.info("Missing ALT count: " + missingAltTotal); ExtentReport.extentTest.info("Missing URL count: " + missingUrlTotal); ExtentReport.extentTest.info( "Expected PLPs: " + PLPs + " | Successfully loaded PLPs: " + loadedPLPs );
+        ExtentReport.getExtentTest().info("===== 🔴 FINAL SUMMARY 🔴 ====="); ExtentReport.getExtentTest().info("Missing ALT count: " + missingAltTotal); ExtentReport.getExtentTest().info("Missing URL count: " + missingUrlTotal); ExtentReport.getExtentTest().info( "Expected PLPs: " + PLPs + " | Successfully loaded PLPs: " + loadedPLPs );
 
         System.out.println("===== FINAL SUMMARY ====="); System.out.println("Missing ALT count: " + missingAltTotal); System.out.println("Missing URL count: " + missingUrlTotal); System.out.println("Expected PLPs: " + PLPs + " | Loaded PLPs: " + loadedPLPs);
 
@@ -391,7 +391,7 @@ public class ImagesComponents {
 
                 String url = "https://www.tommyjohn.com" + path;
                 System.out.println("🔍 Validating PDP: " + url);
-                ExtentReport.extentTest.info("Validating PDP: " + url);
+                ExtentReport.getExtentTest().info("Validating PDP: " + url);
 
                 try {
                     driver.get(url);
@@ -419,7 +419,7 @@ public class ImagesComponents {
                 } catch (Exception e) {
                     missingUrlTotal++;
                     System.out.println("❌ PDP not loading: " + url);
-                    ExtentReport.extentTest.info("PDP not loading: " + url);
+                    ExtentReport.getExtentTest().info("PDP not loading: " + url);
                 }
             }
         }
@@ -432,10 +432,10 @@ public class ImagesComponents {
         writer.close();
 
         // ================= SUMMARY =================
-        ExtentReport.extentTest.info("===== 🔴 PDP FINAL SUMMARY 🔴 =====");
-        ExtentReport.extentTest.info("Missing ALT count: " + missingAltTotal);
-        ExtentReport.extentTest.info("Missing URL count: " + missingUrlTotal);
-        ExtentReport.extentTest.info("Loaded PDPs: " + loadedPDPs);
+        ExtentReport.getExtentTest().info("===== 🔴 PDP FINAL SUMMARY 🔴 =====");
+        ExtentReport.getExtentTest().info("Missing ALT count: " + missingAltTotal);
+        ExtentReport.getExtentTest().info("Missing URL count: " + missingUrlTotal);
+        ExtentReport.getExtentTest().info("Loaded PDPs: " + loadedPDPs);
 
         System.out.println("===== PDP FINAL SUMMARY =====");
         System.out.println("Missing ALT count: " + missingAltTotal);
@@ -494,7 +494,7 @@ public class ImagesComponents {
                 System.out.println(failMsg);
 
                 // Extent
-                ExtentReport.extentTest.info(failMsg);
+                ExtentReport.getExtentTest().info(failMsg);
 
                 // TestNG
                 Reporter.log(failMsg);
@@ -517,7 +517,7 @@ public class ImagesComponents {
                                 " | URL: " + url;
 
                 System.out.println(passMsg);
-                ExtentReport.extentTest.info(passMsg);
+                ExtentReport.getExtentTest().info(passMsg);
                 Reporter.log(passMsg);
             }
         }
@@ -548,7 +548,7 @@ public class ImagesComponents {
         } catch (Exception ex) {
             System.out.println("❌ " + sectionName + " section NOT displayed for URL: " + url);
             Reporter.log(sectionName + " section NOT displayed for URL: " + url);
-            ExtentReport.extentTest.info(sectionName + " section NOT displayed for URL: " + url);
+            ExtentReport.getExtentTest().info(sectionName + " section NOT displayed for URL: " + url);
         }
     }
 

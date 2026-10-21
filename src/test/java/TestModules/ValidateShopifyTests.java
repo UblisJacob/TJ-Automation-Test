@@ -1,0 +1,53 @@
+package TestModules;
+
+import com.base.ExtentReport;
+import com.tommyjohn.automation.Components.HomePageComponents;
+import com.tommyjohn.automation.Components.ShopifyTestCasesComponents;
+import com.tommyjohn.automation.utils.CustomUtilities;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class ValidateShopifyTests  {
+
+    public WebDriver driver;
+
+    @BeforeMethod(alwaysRun = true)
+    @Parameters("browser")
+    public void setup(String browser) {
+        try {
+            driver = new CustomUtilities().launchk(browser);
+
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+    }
+
+
+    @Test
+    public void ValidateContentBannerSlice() throws Exception {
+        ShopifyTestCasesComponents shopifytests = new ShopifyTestCasesComponents(driver);
+        shopifytests.ValidateContentBannerSlice();
+    }
+
+    @Test
+    public void ValidateBrandTickerNeonColors() throws Exception {
+        ShopifyTestCasesComponents shopifytests = new ShopifyTestCasesComponents(driver);
+        shopifytests.ValidateBrandTickerNeonColors();
+    }
+
+    @AfterMethod(alwaysRun = true)
+    void teardown () {
+
+//		driver.close();
+//		driver.quit();
+        if(driver != null)
+        {
+            driver.quit();
+        }
+    }
+
+
+}

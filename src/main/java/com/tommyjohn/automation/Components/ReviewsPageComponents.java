@@ -95,7 +95,7 @@ public class ReviewsPageComponents extends ReviewsPageLocators {
 				}
 			}else System.out.println("Pagination is not displayed");
 			Reporter.log("Pagination is Displayed :: Clickable");
-			ExtentReport.extentTest.info("Pagination is Displayed :: Clickable");
+			ExtentReport.getExtentTest().info("Pagination is Displayed :: Clickable");
 			softassert.assertAll();
 			
 			

@@ -3,9 +3,7 @@ package com.tommyjohn.automation.Components;
 
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
@@ -75,7 +73,7 @@ public class HomePageComponents extends HomePageLocators {
 		js.executeScript("window.scrollBy(0,500)");
 		softAssert.assertTrue(driver.findElement(CONTENT_BANNER_SLICE).isDisplayed(),"Content Banner Slice Is Not Available");
 		Reporter.log("Content Banner Slice Is Available");
-		ExtentReport.extentTest.info("Content Banner Slice Is Available");
+		ExtentReport.getExtentTest().info("Content Banner Slice Is Available");
 		WebElement element1 = driver.findElement(CONTENT_BANNER_SLICE_CTA);
 		js.executeScript("arguments[0].click();", element1);
 		//driver.findElement(MENS_TOGGLE).click();
@@ -83,7 +81,7 @@ public class HomePageComponents extends HomePageLocators {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT_IMAGE));
 		softAssert.assertTrue(driver.findElement(FIRST_PRODUCT_IMAGE).isDisplayed(),"CTA in the Content Banner Slice Is not functional");
 		Reporter.log("CTA in the Content Banner Slice Is functional");
-		ExtentReport.extentTest.info("CTA in the Content Banner Slice Is  functional");
+		ExtentReport.getExtentTest().info("CTA in the Content Banner Slice Is  functional");
 	}
 
 	public void ValidateShopNowCTAInTopBanner() throws InterruptedException {
@@ -130,7 +128,7 @@ public class HomePageComponents extends HomePageLocators {
 		}
 //		softAssert.assertAll();
 		Reporter.log("Shop Now links validation completed");
-		ExtentReport.extentTest.info("Shop Now links validated (excluding 'sale' URLs)");
+		ExtentReport.getExtentTest().info("Shop Now links validated (excluding 'sale' URLs)");
 
 
 	}
@@ -145,7 +143,7 @@ public class HomePageComponents extends HomePageLocators {
         js.executeScript("window.scrollBy(0,500)");
         softAssert.assertTrue(driver.findElement(SCROLL_CTA).isDisplayed(),"Scroll Button is not available");
         Reporter.log("Scroll Button is available");
-        ExtentReport.extentTest.info("Scroll Button is available");
+        ExtentReport.getExtentTest().info("Scroll Button is available");
     }
 
     public void ValidateClickingScrollCTA() throws InterruptedException {
@@ -156,12 +154,12 @@ public class HomePageComponents extends HomePageLocators {
         js.executeScript("window.scrollBy(0,500)");
         softAssert.assertTrue(driver.findElement(SCROLL_CTA).isDisplayed(),"Scroll Button is not available");
         Reporter.log("Scroll Button is available");
-        ExtentReport.extentTest.info("Scroll Button is available");
+        ExtentReport.getExtentTest().info("Scroll Button is available");
         driver.findElement(SCROLL_CTA).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(HERO_BANNER_IMAGE));
         softAssert.assertTrue(driver.findElement(HERO_BANNER_IMAGE).isDisplayed(),"Scroll Button Is Not Clickable");
         Reporter.log("Scroll Button Is Clickable");
-        ExtentReport.extentTest.info("Scroll Button Is Clickable");
+        ExtentReport.getExtentTest().info("Scroll Button Is Clickable");
     }
 
 	public void VerifyProductReviewModule() throws InterruptedException {
@@ -173,7 +171,7 @@ public class HomePageComponents extends HomePageLocators {
 		js.executeScript("window.scrollBy(0,200)");
 		softAssert.assertTrue(driver.findElement(PRODUCT_REVIEW_MODULE).isDisplayed(),"Toggle Button is not available");
 		Reporter.log("Toggle Button is available");
-		ExtentReport.extentTest.info("Toggle Button is available");
+		ExtentReport.getExtentTest().info("Toggle Button is available");
 	}
 
 	public void VerifyUGCModule() throws InterruptedException {
@@ -185,7 +183,7 @@ public class HomePageComponents extends HomePageLocators {
 		Thread.sleep(2000);
 		softAssert.assertTrue(driver.findElement(UGC_MODULE).isDisplayed(),"UGC_MODULE is not available");
 		Reporter.log("UGC_MODULE is available");
-		ExtentReport.extentTest.info("UGC_MODULE is available");
+		ExtentReport.getExtentTest().info("UGC_MODULE is available");
 	}
 
     public void ValidateClickingTheUGCModule() throws InterruptedException {
@@ -197,7 +195,7 @@ public class HomePageComponents extends HomePageLocators {
         Thread.sleep(2000);
         softAssert.assertTrue(driver.findElement(UGC_MODULE).isDisplayed(), "UGC_MODULE is not available");
         Reporter.log("UGC_MODULE is available");
-        ExtentReport.extentTest.info("UGC_MODULE is available");
+        ExtentReport.getExtentTest().info("UGC_MODULE is available");
         wait.until(ExpectedConditions.presenceOfElementLocated(FIRST_UGC_MODULE));
         // Hover On product image on collection page
         element = driver.findElement(FIRST_UGC_MODULE);
@@ -205,16 +203,16 @@ public class HomePageComponents extends HomePageLocators {
         action.moveToElement(element).build().perform();
         if (driver.findElement(SHOP_NOW_LINK).isDisplayed()) {
             Reporter.log("Shop Now Link is displayed on hover.");
-            ExtentReport.extentTest.info("Shop Now Link is displayed on hover.");
+            ExtentReport.getExtentTest().info("Shop Now Link is displayed on hover.");
             driver.findElement(SHOP_NOW_LINK).click();
             Thread.sleep(3000);
             Reporter.log("Shop Now Link is validated :: Clickable.");
-            ExtentReport.extentTest.info("Shop Now Link is validated :: Clickable.");
+            ExtentReport.getExtentTest().info("Shop Now Link is validated :: Clickable.");
             // size overlay Field validation
             softAssert.assertTrue(driver.findElement(INFLUENCER_FAVOURITE_PRODUCT_POPUP).isDisplayed(),
                     "When the User clicks Shop Now link in the UGC Module, the Influencer Favourite Product Popup is not displayed");
             Reporter.log("When the User clicks Shop Now link in the UGC Module, the Influencer Favourite Product Popup is displayed");
-            ExtentReport.extentTest.info("When the User clicks Shop Now link in the UGC Module, the Influencer Favourite Product Popup is displayed");
+            ExtentReport.getExtentTest().info("When the User clicks Shop Now link in the UGC Module, the Influencer Favourite Product Popup is displayed");
 
         }
     }
@@ -227,7 +225,7 @@ public class HomePageComponents extends HomePageLocators {
             Thread.sleep(10000);
             softAssert.assertTrue(driver.findElement(UGC_MODULE).isDisplayed(), "UGC_MODULE is not available");
             Reporter.log("UGC_MODULE is available");
-            ExtentReport.extentTest.info("UGC_MODULE is available");
+            ExtentReport.getExtentTest().info("UGC_MODULE is available");
             wait.until(ExpectedConditions.presenceOfElementLocated(FIRST_UGC_MODULE));
             // Hover On product image on collection page
             element = driver.findElement(FIRST_UGC_MODULE);
@@ -235,23 +233,23 @@ public class HomePageComponents extends HomePageLocators {
             action.moveToElement(element).build().perform();
             if (driver.findElement(SHOP_NOW_LINK).isDisplayed()) {
                 Reporter.log("Shop Now Link is displayed on hover.");
-                ExtentReport.extentTest.info("Shop Now Link is displayed on hover.");
+                ExtentReport.getExtentTest().info("Shop Now Link is displayed on hover.");
                 driver.findElement(SHOP_NOW_LINK).click();
                 Thread.sleep(3000);
                 Reporter.log("Shop Now Link is validated :: Clickable.");
-                ExtentReport.extentTest.info("Shop Now Link is validated :: Clickable.");
+                ExtentReport.getExtentTest().info("Shop Now Link is validated :: Clickable.");
                 // size overlay Field validation
                 softAssert.assertTrue(driver.findElement(INFLUENCER_FAVOURITE_PRODUCT_POPUP).isDisplayed(),
                         "When the User clicks Shop Now link in the UGC Module, the Influencer Favourite Product Popup is not displayed");
                 Reporter.log("When the User clicks Shop Now link in the UGC Module, the Influencer Favourite Product Popup is displayed");
-                ExtentReport.extentTest.info("When the User clicks Shop Now link in the UGC Module, the Influencer Favourite Product Popup is displayed");
+                ExtentReport.getExtentTest().info("When the User clicks Shop Now link in the UGC Module, the Influencer Favourite Product Popup is displayed");
                 driver.findElement(SHOP_NOW_CTA_IN_POPUP).click();
                 wait.until(ExpectedConditions.urlContains("tommyjohn.com"));
                 wait.until(ExpectedConditions.presenceOfElementLocated(PRODUCT_NAME_PDP));
                 softAssert.assertTrue(driver.findElement(PRODUCT_NAME_PDP).isDisplayed(),
                         "When the User clicks Shop Now link in the Popup Module, the User is not directed to the PDP");
                 Reporter.log("When the User clicks Shop Now link in the Popup Module, the User is directed to the PDP");
-                ExtentReport.extentTest.info("When the User clicks Shop Now link in the Popup Module, the User is directed to the PDP");
+                ExtentReport.getExtentTest().info("When the User clicks Shop Now link in the Popup Module, the User is directed to the PDP");
             }
         }
 
@@ -264,7 +262,7 @@ public class HomePageComponents extends HomePageLocators {
 		js.executeScript("window.scrollBy(0,200)");
 		softAssert.assertTrue(driver.findElement(TOGGLE_BUTTON).isDisplayed(),"Toggle Button is not available");
 		Reporter.log("Toggle Button is available");
-		ExtentReport.extentTest.info("Toggle Button is available");
+		ExtentReport.getExtentTest().info("Toggle Button is available");
 	}
 
 	public void VerifyRecsInMensToggle() throws InterruptedException {
@@ -282,7 +280,7 @@ public class HomePageComponents extends HomePageLocators {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(MENS_RECS));
 		softAssert.assertTrue(driver.findElement(MENS_RECS).isDisplayed(),"Recs are not available in the Mens Toggle");
 		Reporter.log("Recs are available in the Mens Toggle");
-		ExtentReport.extentTest.info("Recs are available in the Mens Toggle");
+		ExtentReport.getExtentTest().info("Recs are available in the Mens Toggle");
 
 	}
 
@@ -298,7 +296,7 @@ public class HomePageComponents extends HomePageLocators {
 		driver.findElement(MENS_SHOP_NOW_CTA).click();
 		softAssert.assertTrue(driver.findElement(PRODUCT_TITLE).isDisplayed(),"Shop Now CTA is not functional");
 		Reporter.log("Shop Now CTA is functional");
-		ExtentReport.extentTest.info("Shop Now CTA is functional");
+		ExtentReport.getExtentTest().info("Shop Now CTA is functional");
 
 	}
 
@@ -313,7 +311,7 @@ public class HomePageComponents extends HomePageLocators {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(NEW_MARKDOWNS_SECTIONS));
 		softAssert.assertTrue(driver.findElement(NEW_MARKDOWNS_SECTIONS).isDisplayed(),"New Markdown Section is not available");
 		Reporter.log("New Markdown Section is available");
-		ExtentReport.extentTest.info("New Markdown Section is available");
+		ExtentReport.getExtentTest().info("New Markdown Section is available");
 
 
 	}
@@ -326,7 +324,7 @@ public class HomePageComponents extends HomePageLocators {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(HERO_BANNER_IMAGE));
 		softAssert.assertTrue(driver.findElement(HERO_BANNER_IMAGE).isDisplayed(),"Hero Banner Image is not available");
 		Reporter.log("Hero Banner Image is available");
-		ExtentReport.extentTest.info("Hero Banner Image is available");
+		ExtentReport.getExtentTest().info("Hero Banner Image is available");
 
 	}
 
@@ -348,8 +346,167 @@ public class HomePageComponents extends HomePageLocators {
 			element = driver.findElement(PAGEHEADER);
 			softAssert.assertTrue(element.isDisplayed(), "Shop Men's CTA is not functional in Hero Slider");
 			Reporter.log("Shop Men's CTA is functional in Hero Slider");
-			ExtentReport.extentTest.info("Shop Men's CTA is functional in Hero Slider");
+			ExtentReport.getExtentTest().info("Shop Men's CTA is functional in Hero Slider");
 		}
+	}
+
+
+	public void ValidateBrandTickerNeonColors() {
+
+		SoftAssert softAssert = new SoftAssert();
+
+		System.out.println("==============================================");
+		System.out.println("Starting Brand Ticker Neon Color Validation");
+		System.out.println("==============================================");
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		By tickerLocator = By.xpath(
+				"//*[@id='ticker']//span[contains(normalize-space(.),'Comfort Perfected')]"
+		);
+
+		List<WebElement> tickerElements = driver.findElements(tickerLocator);
+
+		// Soft assert if the ticker text is unavailable.
+		softAssert.assertTrue(
+				!tickerElements.isEmpty(),
+				"FAIL: Comfort Perfected™ text is not available."
+		);
+
+		if (tickerElements.isEmpty()) {
+			System.out.println("Ticker text is unavailable. Skipping color validation.");
+			softAssert.assertAll();
+			return;
+		}
+
+		WebElement tickerElement = null;
+
+		// Prefer the visible ticker copy.
+		try {
+			tickerElement = wait.until(
+					ExpectedConditions.visibilityOfElementLocated(tickerLocator)
+			);
+		} catch (Exception e) {
+			softAssert.fail(
+					"FAIL: Comfort Perfected™ ticker text was found but is not visible."
+			);
+			softAssert.assertAll();
+			return;
+		}
+
+		System.out.println("Current URL: " + driver.getCurrentUrl());
+		System.out.println("Ticker text: " + tickerElement.getText());
+
+		// Inspect all matching ticker copies.
+		@SuppressWarnings("unchecked")
+		List<Map<String, Object>> tickerCopies =
+				(List<Map<String, Object>>) js.executeScript(
+						"return Array.from(document.querySelectorAll('#ticker span'))" +
+								".filter(el => el.textContent.includes('Comfort Perfected'))" +
+								".map((el, index) => {" +
+								"  const css = window.getComputedStyle(el);" +
+								"  return {" +
+								"    index: index," +
+								"    text: el.textContent.trim()," +
+								"    visible: el.getClientRects().length > 0," +
+								"    ariaHidden: !!el.closest('[aria-hidden=\"true\"]')," +
+								"    inlineStyle: el.getAttribute('style')," +
+								"    color1: css.getPropertyValue('--neon-color-1').trim()," +
+								"    color2: css.getPropertyValue('--neon-color-2').trim()," +
+								"    textShadow: css.textShadow" +
+								"  };" +
+								"});"
+				);
+
+		System.out.println("\n========== ALL TICKER COPIES ==========");
+
+		for (Map<String, Object> copy : tickerCopies) {
+			System.out.println(copy);
+		}
+
+		// Trace the selected ticker for five seconds.
+		System.out.println("\n========== STYLE TRACE ==========");
+
+		for (int i = 1; i <= 10; i++) {
+
+			@SuppressWarnings("unchecked")
+			Map<String, String> styles = (Map<String, String>) js.executeScript(
+					"const el = arguments[0];" +
+							"const css = window.getComputedStyle(el);" +
+							"return {" +
+							"  color1: css.getPropertyValue('--neon-color-1').trim()," +
+							"  color2: css.getPropertyValue('--neon-color-2').trim()," +
+							"  textShadow: css.textShadow," +
+							"  inlineStyle: el.getAttribute('style')" +
+							"};",
+					tickerElement
+			);
+
+			System.out.println("Sample " + i + ": " + styles);
+
+			if (i < 10) {
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					Thread.currentThread().interrupt();
+					Assert.fail("Interrupted while tracing ticker styles.", e);
+				}
+			}
+		}
+
+		// Read final computed values.
+		@SuppressWarnings("unchecked")
+		Map<String, String> finalStyles = (Map<String, String>) js.executeScript(
+				"const el = arguments[0];" +
+						"const css = window.getComputedStyle(el);" +
+						"return {" +
+						"  color1: css.getPropertyValue('--neon-color-1').trim()," +
+						"  color2: css.getPropertyValue('--neon-color-2').trim()," +
+						"  textShadow: css.textShadow," +
+						"  inlineStyle: el.getAttribute('style')" +
+						"};",
+				tickerElement
+		);
+
+		String color1 = finalStyles.get("color1");
+		String color2 = finalStyles.get("color2");
+
+		System.out.println("\n========== FINAL VALIDATION ==========");
+		System.out.println("Neon Color 1: " + color1);
+		System.out.println("Neon Color 2: " + color2);
+		System.out.println("Computed Text Shadow: " + finalStyles.get("textShadow"));
+		System.out.println("Inline Style: " + finalStyles.get("inlineStyle"));
+
+		// Accept expected hex colors or transparent RGBA.
+		softAssert.assertTrue(
+				isAllowedNeonColor(color1, "#1F38DB"),
+				"Unexpected Neon Color 1: " + color1
+		);
+
+		softAssert.assertTrue(
+				isAllowedNeonColor(color2, "#A60BA1"),
+				"Unexpected Neon Color 2: " + color2
+		);
+
+		System.out.println("Brand ticker validation completed.");
+
+		// Report all collected assertion failures.
+		softAssert.assertAll();
+	}
+
+	private boolean isAllowedNeonColor(String actualColor, String expectedHex) {
+
+		if (actualColor == null) {
+			return false;
+		}
+
+		String normalized = actualColor
+				.replaceAll("\\s+", "")
+				.toUpperCase();
+
+		return normalized.equals(expectedHex.toUpperCase())
+				|| normalized.equals("RGBA(0,0,0,0)");
 	}
 
 	public void ValidateBrandTicker() throws InterruptedException {
@@ -364,7 +521,7 @@ public class HomePageComponents extends HomePageLocators {
 		element = driver.findElement(BRAND_TICKER);
 		softAssert.assertTrue(element.isDisplayed(),"Brand Ticker is not available in Homepage");
 		Reporter.log("Brand Ticker is available in Homepage");
-		ExtentReport.extentTest.info("Brand Ticker is available in Homepage");
+		ExtentReport.getExtentTest().info("Brand Ticker is available in Homepage");
 	}
 
 	public void ValidateShopWomensCTAInHeroSlider() throws InterruptedException {
@@ -386,7 +543,7 @@ public class HomePageComponents extends HomePageLocators {
             element = driver.findElement(PAGEHEADER);
             softAssert.assertTrue(element.isDisplayed(), "Shop Women's CTA is not functional in Hero Slider");
             Reporter.log("Shop Women's CTA is functional in Hero Slider");
-            ExtentReport.extentTest.info("Shop Women's CTA is functional in Hero Slider");
+            ExtentReport.getExtentTest().info("Shop Women's CTA is functional in Hero Slider");
         }
 	}
 
@@ -418,7 +575,7 @@ public class HomePageComponents extends HomePageLocators {
 			}
 			softAssert.assertAll();
 			Reporter.log("Categories in Men Category Selector section are functional");
-			ExtentReport.extentTest.info("Categories in Men Category Selector section are functional");
+			ExtentReport.getExtentTest().info("Categories in Men Category Selector section are functional");
 		}
 	}
 
@@ -453,7 +610,7 @@ public class HomePageComponents extends HomePageLocators {
 			}
 			softAssert.assertAll();
 			Reporter.log("Categories in Men Category Selector section are functional");
-			ExtentReport.extentTest.info("Categories in Men Category Selector section are functional");
+			ExtentReport.getExtentTest().info("Categories in Men Category Selector section are functional");
 		}
 	}
 
@@ -466,7 +623,7 @@ public class HomePageComponents extends HomePageLocators {
 //		Thread.sleep(2000);
 //		softAssert.assertTrue(driver.findElement(SHOP_PAGEHEADER).isDisplayed(),"Shop Men CTA in Image Banner is not functional");
 //		Reporter.log("Shop Men CTA in Image Banner is functional");
-//		ExtentReport.extentTest.info("Shop Men CTA in Image Banner is functional");
+//		ExtentReport.getExtentTest().info("Shop Men CTA in Image Banner is functional");
 //
 //	}
 
@@ -504,7 +661,7 @@ public class HomePageComponents extends HomePageLocators {
 
 		// Log results
 		Reporter.log("Shop Men CTA in Image Banner is functional");
-		ExtentReport.extentTest.info("Shop Men CTA in Image Banner is functional");
+		ExtentReport.getExtentTest().info("Shop Men CTA in Image Banner is functional");
 
 		// Assert all validations
 		softAssert.assertAll();
@@ -521,7 +678,7 @@ public class HomePageComponents extends HomePageLocators {
 //		Thread.sleep(2000);
 //		softAssert.assertTrue(driver.findElement(SHOP_PAGEHEADER).isDisplayed(),"Shop Women CTA in Image Banner is not functional");
 //		Reporter.log("Shop Women CTA in Image Banner is functional");
-//		ExtentReport.extentTest.info("Shop Women CTA in Image Banner is functional");
+//		ExtentReport.getExtentTest().info("Shop Women CTA in Image Banner is functional");
 //
 //	}
 
@@ -557,7 +714,7 @@ public class HomePageComponents extends HomePageLocators {
 
 		// Log results
 		Reporter.log("Shop Women CTA in Image Banner is functional");
-		ExtentReport.extentTest.info("Shop Women CTA in Image Banner is functional");
+		ExtentReport.getExtentTest().info("Shop Women CTA in Image Banner is functional");
 
 		// Assert all validations
 		softAssert.assertAll();
@@ -589,7 +746,7 @@ public class HomePageComponents extends HomePageLocators {
 		softAssert.assertTrue(driver.findElement(By.xpath("//a[@class='button-inverse mt-xl' and contains(text(),'Explore Air')]")).isDisplayed(),"Explore Air is not Functional");
 		softAssert.assertAll();
 		Reporter.log("All the Collection Selector Links are functional");
-		ExtentReport.extentTest.info("All the Collection Selector Links are functional");
+		ExtentReport.getExtentTest().info("All the Collection Selector Links are functional");
 
 	}
 
@@ -625,7 +782,7 @@ public class HomePageComponents extends HomePageLocators {
 //
 //		// Log results
 //		Reporter.log("User is directed to About Us page on clicking Our Story CTA");
-//		ExtentReport.extentTest.info("User is directed to About Us page on clicking Our Story CTA");
+//		ExtentReport.getExtentTest().info("User is directed to About Us page on clicking Our Story CTA");
 //
 //		// Assert all validations
 //		softAssert.assertAll();
@@ -674,7 +831,7 @@ public class HomePageComponents extends HomePageLocators {
 
 			// Log results
 			Reporter.log("User is directed to About Us page on clicking Our Story CTA");
-			ExtentReport.extentTest.info("User is directed to About Us page on clicking Our Story CTA");
+			ExtentReport.getExtentTest().info("User is directed to About Us page on clicking Our Story CTA");
 
 			// Assert all validations
 			softAssert.assertAll();
@@ -701,7 +858,7 @@ public class HomePageComponents extends HomePageLocators {
 //		softAssert.assertEquals(URL,"https://www.tommyjohn.com/pages/about-us","Our Story CTA in Brand Building section is not functional");
 //		softAssert.assertAll();
 //		Reporter.log("Brand Building CTAs are functional");
-//		ExtentReport.extentTest.info("Brand Building CTAs are functional");
+//		ExtentReport.getExtentTest().info("Brand Building CTAs are functional");
 //	}
 
 	public void ValidateBrandBuildingInfoCTAs() throws InterruptedException {
@@ -719,6 +876,7 @@ public class HomePageComponents extends HomePageLocators {
 		// Validate 'Best Pair Guarantee' CTA
 //		validateCTA(LEARNMORE_CTA, "//h1[contains(text(),'Best Pair Guarantee')]", "Learn More CTA in Brand Building section is not functional", softAssert);
 
+		wait.until(ExpectedConditions.visibilityOfElementLocated(BEST_PAIR_GUARANTEE));
 		js.executeScript("arguments[0].click();", driver.findElement(BEST_PAIR_GUARANTEE));
 		String URL = driver.getCurrentUrl();
 		System.out.println(URL);
@@ -756,7 +914,7 @@ public class HomePageComponents extends HomePageLocators {
 		// Assert all validations
 		softAssert.assertAll();
 		Reporter.log("Brand Building CTAs are functional");
-		ExtentReport.extentTest.info("Brand Building CTAs are functional");
+		ExtentReport.getExtentTest().info("Brand Building CTAs are functional");
 	}
 
 
@@ -861,7 +1019,7 @@ public class HomePageComponents extends HomePageLocators {
 
 		softAssert.assertTrue(driver.findElement(NORESULTPAGETITLE).isDisplayed(), "User is not directed to the No results page");
 		Reporter.log("User is directed to the No results page");
-		ExtentReport.extentTest.info("User is directed to the No results page");
+		ExtentReport.getExtentTest().info("User is directed to the No results page");
 
 	}
 
@@ -890,7 +1048,7 @@ public class HomePageComponents extends HomePageLocators {
 
 		softAssert.assertTrue(driver.findElement(INLINECART_PRODUCT_NAME).isDisplayed(), "Product is not added to Cart from Instagram Widget");
 		Reporter.log("Product is added to Cart from Instagram Widget");
-		ExtentReport.extentTest.info("Product is added to Cart from Instagram Widget");
+		ExtentReport.getExtentTest().info("Product is added to Cart from Instagram Widget");
 	}
 
 	public void ValidateAppropriateProductIsAddedToCartFromInstagramWidget() throws Exception {
@@ -918,7 +1076,7 @@ public class HomePageComponents extends HomePageLocators {
 
 		softAssert.assertEquals(First_Product_Name, InLineCart_Product, "Wrong product is added to Cart from Instagram Widget");
 		Reporter.log("Appropriate product is added to Cart from Instagram Widget");
-		ExtentReport.extentTest.info("Appropriate product is added to Cart from Instagram Widget");
+		ExtentReport.getExtentTest().info("Appropriate product is added to Cart from Instagram Widget");
 
 	}
 
@@ -940,7 +1098,7 @@ public class HomePageComponents extends HomePageLocators {
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(INSTA_FIRST_SIZE)));
 		softAssert.assertTrue(driver.findElement(INSTA_FIRST_SIZE).isDisplayed(),"Size Overlay is not displayed in the Instagram Widget");
 		Reporter.log("Size Overlay is displayed in the Instagram Widget");
-		ExtentReport.extentTest.info("Size Overlay is displayed in the Instagram Widget");
+		ExtentReport.getExtentTest().info("Size Overlay is displayed in the Instagram Widget");
 
 	}
 
@@ -976,7 +1134,7 @@ public class HomePageComponents extends HomePageLocators {
 		softAssert.assertEquals(ColorSwatch,text,"Color Mismatched In InLine Cart");
 		softAssert.assertAll();
 		Reporter.log("Selected Color Is Added To Cart");
-		ExtentReport.extentTest.info("Selected Color Is Added To Cart");
+		ExtentReport.getExtentTest().info("Selected Color Is Added To Cart");
 
 
 	}
@@ -1003,7 +1161,7 @@ public class HomePageComponents extends HomePageLocators {
 			if(!currentUrl1.contains(currentUrl2))
 				throw new Exception("HomePage logo not working correctly");
 			Reporter.log("TommyJohnLogo is displayed and clickable :: home page opens on clicking logo");
-			ExtentReport.extentTest.info("TommyJohnLogo is displayed and clickable :: home page opens on clicking logo");
+			ExtentReport.getExtentTest().info("TommyJohnLogo is displayed and clickable :: home page opens on clicking logo");
 		}
 		else
 			throw new Exception("HomePage logo is not present");
@@ -1011,7 +1169,7 @@ public class HomePageComponents extends HomePageLocators {
 		//Verify header search icon image
 		softassert.assertTrue(driver.findElement(SEARCH_ICON_IMAGE).isDisplayed(), "Global header search icon image is not displayed");
 		Reporter.log("Global header serach icon image is displayed");
-		ExtentReport.extentTest.info("Global header serach icon image is displayed");
+		ExtentReport.getExtentTest().info("Global header serach icon image is displayed");
 
 		//Verify new arrivals
 		//		if(driver.findElement(NEWARRIVALS_CATEGORY).isDisplayed()) {
@@ -1042,14 +1200,14 @@ public class HomePageComponents extends HomePageLocators {
 					throw new Exception("Men Category is not hoverable");
 				Thread.sleep(3000);
 				Reporter.log("Men category is displayed :: Hoverable");
-				ExtentReport.extentTest.info("Men category is displayed :: Hoverable");
+				ExtentReport.getExtentTest().info("Men category is displayed :: Hoverable");
 			} catch (Exception ex) {
 				System.out.println("Entering Catch");
 				if (!driver.findElement(FIRST_lEVEL1_CATEGORY_COPY).isDisplayed())
 					throw new Exception("Men Category is not hoverable");
 				Thread.sleep(3000);
 				Reporter.log("Men category is displayed :: Hoverable");
-				ExtentReport.extentTest.info("Men category is displayed :: Hoverable");
+				ExtentReport.getExtentTest().info("Men category is displayed :: Hoverable");
 			}
 		}
 		catch(Exception e)
@@ -1067,14 +1225,14 @@ public class HomePageComponents extends HomePageLocators {
 					throw new Exception("Men Category is not hoverable");
 				Thread.sleep(3000);
 				Reporter.log("Men category is displayed :: Hoverable");
-				ExtentReport.extentTest.info("Men category is displayed :: Hoverable");
+				ExtentReport.getExtentTest().info("Men category is displayed :: Hoverable");
 			} catch (Exception ex) {
 				System.out.println("Entering Catch");
 				if (!driver.findElement(FIRST_lEVEL1_CATEGORY_COPY).isDisplayed())
 					throw new Exception("Men Category is not hoverable");
 				Thread.sleep(3000);
 				Reporter.log("Men category is displayed :: Hoverable");
-				ExtentReport.extentTest.info("Men category is displayed :: Hoverable");
+				ExtentReport.getExtentTest().info("Men category is displayed :: Hoverable");
 			}
 
 		}
@@ -1093,14 +1251,14 @@ public class HomePageComponents extends HomePageLocators {
 				if (!driver.findElement(WOMENS_FIRST_lEVEL1_CATEGORY).isDisplayed())
 					throw new Exception("Women Category is not hoverable");
 				Reporter.log("Women category is Displayed :: Hoverable :: Clickable");
-				ExtentReport.extentTest.info("Women category is Displayed :: Hoverable :: Clickable");
+				ExtentReport.getExtentTest().info("Women category is Displayed :: Hoverable :: Clickable");
 				Thread.sleep(3000);
 			} catch (Exception ex) {
 				System.out.println("Entering Catch");
 				if (!driver.findElement(WOMENS_FIRST_lEVEL1_CATEGORY_COPY).isDisplayed())
 					throw new Exception("Women Category is not hoverable");
 				Reporter.log("Women category is Displayed :: Hoverable :: Clickable");
-				ExtentReport.extentTest.info("Women category is Displayed :: Hoverable :: Clickable");
+				ExtentReport.getExtentTest().info("Women category is Displayed :: Hoverable :: Clickable");
 			}
 
 		}
@@ -1117,14 +1275,14 @@ public class HomePageComponents extends HomePageLocators {
 				if (!driver.findElement(WOMENS_FIRST_lEVEL1_CATEGORY).isDisplayed())
 					throw new Exception("Women Category is not hoverable");
 				Reporter.log("Women category is Displayed :: Hoverable :: Clickable");
-				ExtentReport.extentTest.info("Women category is Displayed :: Hoverable :: Clickable");
+				ExtentReport.getExtentTest().info("Women category is Displayed :: Hoverable :: Clickable");
 				Thread.sleep(3000);
 			} catch (Exception ex) {
 				System.out.println("Entering Catch");
 				if (!driver.findElement(WOMENS_FIRST_lEVEL1_CATEGORY_COPY).isDisplayed())
 					throw new Exception("Women Category is not hoverable");
 				Reporter.log("Women category is Displayed :: Hoverable :: Clickable");
-				ExtentReport.extentTest.info("Women category is Displayed :: Hoverable :: Clickable");
+				ExtentReport.getExtentTest().info("Women category is Displayed :: Hoverable :: Clickable");
 			}
 
 
@@ -1140,7 +1298,7 @@ public class HomePageComponents extends HomePageLocators {
 //		//	if(!driver.findElement(FIRST_lEVEL1_CATEGORY).isDisplayed())
 //		//	throw new Exception("Final Sale category is not hoverable");
 //		Reporter.log("ImNewHere category is Displayed :: Hoverable :: clickable");
-//		ExtentReport.extentTest.info("ImNewHere category is Displayed :: Hoverable :: clickable");
+//		ExtentReport.getExtentTest().info("ImNewHere category is Displayed :: Hoverable :: clickable");
 ////		softassert.assertAll();
 
 
@@ -1155,7 +1313,7 @@ public class HomePageComponents extends HomePageLocators {
 //			if(!driver.findElement(SECOND_lEVEL1_CATEGORY).isDisplayed())
 //			throw new Exception("New+Featured category is not hoverable");
 //		Reporter.log("New+Featured category is Displayed :: Hoverable :: clickable");
-//		ExtentReport.extentTest.info("New+Featured category is Displayed :: Hoverable :: clickable");
+//		ExtentReport.getExtentTest().info("New+Featured category is Displayed :: Hoverable :: clickable");
 		softassert.assertAll();
 
 	}
@@ -1222,16 +1380,16 @@ public class HomePageComponents extends HomePageLocators {
 		{
 			System.out.println("Search Page Title is displayed");
 			Reporter.log("Search Page Title is displayed");
-			ExtentReport.extentTest.info("Search Page Title is displayed");
+			ExtentReport.getExtentTest().info("Search Page Title is displayed");
 
 			try {
 				if (driver.getCurrentUrl().contains("second+skin")) {
 					System.out.println("Search Page Title is correct");
 					Reporter.log("Search Page Title is correct");
-					ExtentReport.extentTest.info("Search Page Title is correct");
+					ExtentReport.getExtentTest().info("Search Page Title is correct");
 				} else {
 					Reporter.log("Search Page Title is not correct");
-					ExtentReport.extentTest.info("Search Page Title is not correct");
+					ExtentReport.getExtentTest().info("Search Page Title is not correct");
 					throw new Exception("Search Page Title is not correct");
 				}
 			}
@@ -1240,10 +1398,10 @@ public class HomePageComponents extends HomePageLocators {
 				if (driver.getCurrentUrl().contains("mens-sleep-lounge")) {
 					System.out.println("Search Page Title is correct");
 					Reporter.log("Search Page Title is correct");
-					ExtentReport.extentTest.info("Search Page Title is correct");
+					ExtentReport.getExtentTest().info("Search Page Title is correct");
 				} else {
 					Reporter.log("Search Page Title is not correct");
-					ExtentReport.extentTest.info("Search Page Title is not correct");
+					ExtentReport.getExtentTest().info("Search Page Title is not correct");
 					throw new Exception("Search Page Title is not correct");
 				}
 
@@ -1252,7 +1410,7 @@ public class HomePageComponents extends HomePageLocators {
 		else
 		{
 			Reporter.log("Search Page Title is not displayed");
-			ExtentReport.extentTest.info("Search Page Title is not displayed");
+			ExtentReport.getExtentTest().info("Search Page Title is not displayed");
 			throw new Exception("Search Page Title is not displayed");
 		}
 			
@@ -1277,7 +1435,7 @@ public class HomePageComponents extends HomePageLocators {
 		Thread.sleep(3000);
 		softAssert.assertTrue(driver.findElement(POPULARCATEGORIES).isDisplayed(),"Popular categories is not displayed in the Search Dropdown");
 		Reporter.log("Popular categories is displayed in the Search Dropdown");
-		ExtentReport.extentTest.info("Popular categories is displayed in the Search Dropdown");
+		ExtentReport.getExtentTest().info("Popular categories is displayed in the Search Dropdown");
 
 	}
 
@@ -1292,7 +1450,7 @@ public class HomePageComponents extends HomePageLocators {
 		System.out.println(Categories);
 		softAssert.assertEquals(Categories,4,"Popular categories does not contain four categories");
 		Reporter.log("Popular categories contains four categories");
-		ExtentReport.extentTest.info("Popular categories contains four categories");
+		ExtentReport.getExtentTest().info("Popular categories contains four categories");
 
 	}
 
@@ -1308,7 +1466,7 @@ public class HomePageComponents extends HomePageLocators {
 		System.out.println(Categories);
 		softAssert.assertEquals(Categories,5,"Popular Terms does not contain five categories");
 		Reporter.log("Popular Terms contains five categories");
-		ExtentReport.extentTest.info("Popular Terms contains five categories");
+		ExtentReport.getExtentTest().info("Popular Terms contains five categories");
 
 	}
 
@@ -1324,7 +1482,7 @@ public class HomePageComponents extends HomePageLocators {
 		Thread.sleep(8000);
 		softAssert.assertTrue(driver.findElement(POPULARTERMS).isDisplayed(),"Popular Terms is not displayed in the Search Dropdown");
 		Reporter.log("Popular Terms is displayed in the Search Dropdown");
-		ExtentReport.extentTest.info("Popular Terms is displayed in the Search Dropdown");
+		ExtentReport.getExtentTest().info("Popular Terms is displayed in the Search Dropdown");
 	}
 
 	public void validateSearchFunction(String searchText) throws Exception {
@@ -1361,25 +1519,25 @@ public class HomePageComponents extends HomePageLocators {
 //		{
 //			System.out.println("Search Page Title is displayed");
 //			Reporter.log("Search Page Title is displayed");
-//			ExtentReport.extentTest.info("Search Page Title is displayed");
+//			ExtentReport.getExtentTest().info("Search Page Title is displayed");
 //			System.out.println(driver.findElement(SEARCHPAGE_TITLE).getText());
 //			if(driver.findElement(SEARCHPAGE_TITLE).getText().contains("results for \""+ productName +"\""))
 //			{
 //				System.out.println("Search Page Title is correct");
 //				Reporter.log("Search Page Title is correct");
-//				ExtentReport.extentTest.info("Search Page Title is correct");
+//				ExtentReport.getExtentTest().info("Search Page Title is correct");
 //			}
 //			else
 //			{
 //				Reporter.log("Search Page Title is not correct");
-//				ExtentReport.extentTest.info("Search Page Title is not correct");
+//				ExtentReport.getExtentTest().info("Search Page Title is not correct");
 //				throw new Exception("Search Page Title is not correct");
 //			}
 //		}
 //		else
 //		{
 //			Reporter.log("Search Page Title is not displayed");
-//			ExtentReport.extentTest.info("Search Page Title is not displayed");
+//			ExtentReport.getExtentTest().info("Search Page Title is not displayed");
 //			throw new Exception("Search Page Title is not displayed");
 //		}
 			
@@ -1460,7 +1618,7 @@ public class HomePageComponents extends HomePageLocators {
 		System.out.println("actual is: "+actual+" expected is: "+suggested_title);
 		softAssert.assertTrue(actual.equals(suggested_title) , "Wrong PDP displayed after clicking on name of auto suggested product tile title" );
 		Reporter.log("Verified Search auto suggestion functionality");
-		ExtentReport.extentTest.info("Verified Search auto suggestion functionality");
+		ExtentReport.getExtentTest().info("Verified Search auto suggestion functionality");
 
 		//validate search page
 		driver.findElement(SEARCH_ICON).click();
@@ -1510,7 +1668,7 @@ public class HomePageComponents extends HomePageLocators {
 //		MethodToCheckAllFiltersOnSearchPage();
 
 		Reporter.log("Search page is displayed :: Correct");
-		ExtentReport.extentTest.info("Search page is displayed :: Correct");
+		ExtentReport.getExtentTest().info("Search page is displayed :: Correct");
 
 		executor.executeScript("arguments[0].click();", driver.findElement(SEARCH_ICON) );
 	//	driver.findElement(SEARCH_ICON).click();
@@ -1523,7 +1681,7 @@ public class HomePageComponents extends HomePageLocators {
 //		text = attribute[attribute.length-1].replace(";", "");
 //		softAssert.assertEquals(driver.findElement(POPULAR_SEARCHES).isDisplayed(), "Clear recent search link is not functional");
 		Reporter.log("Clear recent search link is Displayed :: Clickable");
-		ExtentReport.extentTest.info("Clear recent search link is Displayed :: Clickable");
+		ExtentReport.getExtentTest().info("Clear recent search link is Displayed :: Clickable");
 //		softAssert.assertAll();
 
 	}
@@ -1731,7 +1889,7 @@ public class HomePageComponents extends HomePageLocators {
 		if(!currentUrl2.startsWith("https://tommyjohn.com/account/login"))
 			throw new Exception("Wrong page opened after clicked on sin in option");
 		Reporter.log("sign in is Displayed :: Clickable");
-		ExtentReport.extentTest.info("sign in is Displayed :: Clickable");
+		ExtentReport.getExtentTest().info("sign in is Displayed :: Clickable");
 
 		//check help
 		driver.get(baseUrl);
@@ -1741,7 +1899,7 @@ public class HomePageComponents extends HomePageLocators {
 		if(!driver.findElement(HELP_ICON_HELP_OPTION).isDisplayed())
 			throw new Exception("Help Center option not displayed");
 		Reporter.log("Help center option is Displayed ");
-		ExtentReport.extentTest.info("Help center option is Displayed ");
+		ExtentReport.getExtentTest().info("Help center option is Displayed ");
 		driver.findElement(HELP_ICON_HELP_OPTION).click();
 		Thread.sleep(3000);
 		//	driver.findElement(By.cssSelector(".LeaveSiteButtons > a")).click();
@@ -1750,7 +1908,7 @@ public class HomePageComponents extends HomePageLocators {
 		if(!currentUrl2.equalsIgnoreCase("https://help.tommyjohn.com/hc/en-us"))
 			throw new Exception("Wrong page opened after clicked on help option");
 		Reporter.log("Help option is Displayed :: Clickable");
-		ExtentReport.extentTest.info("Help option is Displayed :: Clickable");
+		ExtentReport.getExtentTest().info("Help option is Displayed :: Clickable");
 
 		// check my account option
 		driver.get(baseUrl);
@@ -1761,14 +1919,14 @@ public class HomePageComponents extends HomePageLocators {
 		if(!driver.findElement(MYACCOUNT_OPTION).isDisplayed())
 			throw new Exception("My account option not displayed");
 		Reporter.log("My account option is Displayed ");
-		ExtentReport.extentTest.info("My account option is Displayed ");
+		ExtentReport.getExtentTest().info("My account option is Displayed ");
 		driver.findElement(MYACCOUNT_OPTION).click();
 		Thread.sleep(3000);
 		currentUrl2 = driver.getCurrentUrl();
 		if(!currentUrl2.startsWith("https://tommyjohn.com/account"))
 			throw new Exception("Wrong page opened after clicked on my account option");
 		Reporter.log("My account is Displayed :: Clickable");
-		ExtentReport.extentTest.info("My account is Displayed :: Clickable");
+		ExtentReport.getExtentTest().info("My account is Displayed :: Clickable");
 
 
 
@@ -1850,7 +2008,7 @@ public class HomePageComponents extends HomePageLocators {
 		if(!driver.getCurrentUrl().contains("https://shopify.com/authentication/"))
 			throw new Exception("Wrong page opened after clicked on Account Icon");
 		Reporter.log("Account Icon is Displayed :: Clickable");
-		ExtentReport.extentTest.info("Account Icon is Displayed :: Clickable");
+		ExtentReport.getExtentTest().info("Account Icon is Displayed :: Clickable");
 
 	}
 	public void validateCartIcon() throws Exception {
@@ -1865,7 +2023,7 @@ public class HomePageComponents extends HomePageLocators {
 			throw new Exception("Mini Cart is not opened");
 		driver.get(baseUrl);
 		Reporter.log("Cart Icon is Displayed :: Clickable :: Mini Cart is Opened");	
-		ExtentReport.extentTest.info("Cart Icon is Displayed :: Clickable :: Mini Cart is Opened");	
+		ExtentReport.getExtentTest().info("Cart Icon is Displayed :: Clickable :: Mini Cart is Opened");	
 	}
 
 	
@@ -2921,7 +3079,7 @@ public class HomePageComponents extends HomePageLocators {
 		driver.findElement(SUBMIT_REQUEST_CTA).click();
 		softassert.assertTrue(driver.findElement(ERROR_MESSAGE).isDisplayed(), "Error message is not displayed for wrong/empty submission with california user");
 		Reporter.log("Field validation is correct on Do Not Sell My Personal Information Page");
-		ExtentReport.extentTest.info("Field validation is correct on Do Not Sell My Personal Information Page");
+		ExtentReport.getExtentTest().info("Field validation is correct on Do Not Sell My Personal Information Page");
 
 		//select all other states
 		stateoptions.selectByValue("All other states");
@@ -2931,7 +3089,7 @@ public class HomePageComponents extends HomePageLocators {
 		Thread.sleep(3000);
 		softassert.assertTrue(driver.getCurrentUrl().equalsIgnoreCase("https://tommyjohn.com/"), "Wrong page opened after click on 'Back to Home' CTA from CCPA page");
 		Reporter.log("Page is correct for non-california user");
-		ExtentReport.extentTest.info("Page is correct for non-california user");
+		ExtentReport.getExtentTest().info("Page is correct for non-california user");
 
 
 		//Select California state
@@ -2970,7 +3128,7 @@ public class HomePageComponents extends HomePageLocators {
 		//		System.out.println(element.getText()+" CTA is cliackable");
 		//		softassert.assertTrue(driver.getCurrentUrl().equalsIgnoreCase("https://tommyjohn.com/"), "Wrong page opened after click on 'Back to Home' CTA after successful submission by california user");
 		Reporter.log("Page is correct for california user");
-		ExtentReport.extentTest.info("Page is correct for california user");
+		ExtentReport.getExtentTest().info("Page is correct for california user");
 		softassert.assertAll();
 
 	}
@@ -2989,7 +3147,7 @@ public class HomePageComponents extends HomePageLocators {
 		Thread.sleep(3000);
 		new CollectionPageComponent(driver).AddproductToCartByQuickShop();
 		Reporter.log("Verified DY recs quick shop functionality on HomePgae");
-		ExtentReport.extentTest.info("Verified DY recs quick shop functionality on HomePgae");
+		ExtentReport.getExtentTest().info("Verified DY recs quick shop functionality on HomePgae");
 	}
 
 	public void MethodToCheckColorSwatchOnDYRecs() throws Exception
@@ -3034,7 +3192,7 @@ public class HomePageComponents extends HomePageLocators {
 						jse.executeScript("arguments[0].click();", elemen);
 						//	softassert.assertTrue(Img_colortext.equalsIgnoreCase(colornew1), "Color not changing");
 						Reporter.log("Color swatches are changing correctly");
-						ExtentReport.extentTest.info("Color swatches are changing correctly");
+						ExtentReport.getExtentTest().info("Color swatches are changing correctly");
 					}
 					else {
 						throw new Exception("Color not changing");
@@ -3069,7 +3227,7 @@ public class HomePageComponents extends HomePageLocators {
 		if(!Hover_on_plp.equalsIgnoreCase(Second_image_pdp))
 			throw new Exception("Product tile hover functionality is not correct");
 		Reporter.log("Verified Product tile hover functionality");	
-		ExtentReport.extentTest.info("Verified Product tile hover functionality");
+		ExtentReport.getExtentTest().info("Verified Product tile hover functionality");
 
 	}
 
@@ -3468,12 +3626,12 @@ public class HomePageComponents extends HomePageLocators {
 		{
 			System.out.println("Help Us page opened correctly");
 			Reporter.log("Help Us page opened correctly");
-			ExtentReport.extentTest.info("Help Us page opened correctly");
+			ExtentReport.getExtentTest().info("Help Us page opened correctly");
 		}
 
 		else {
 			System.out.println("Help Us page didn't open correctly");
-			ExtentReport.extentTest.info("Help Us page didn't open correctly");
+			ExtentReport.getExtentTest().info("Help Us page didn't open correctly");
 			throw new Exception("Help Us page didn't open correctly");
 		}
 
@@ -3499,13 +3657,13 @@ public class HomePageComponents extends HomePageLocators {
 			driver.navigate().to("https://www.tommyjohn.com/pages/contact-us");
 			Thread.sleep(5000);
 			Reporter.log("Contact Us/Email link is Displayed :: Clickable");
-			ExtentReport.extentTest.info("Contact Us/Email link is Displayed :: Clickable");
+			ExtentReport.getExtentTest().info("Contact Us/Email link is Displayed :: Clickable");
 			if(driver.getCurrentUrl().contains("/pages/contact-us")) {
 				System.out.println("Email link on help page is Displayed :: Clickable");
-				ExtentReport.extentTest.info("Email link on help page is Displayed :: Clickable");
+				ExtentReport.getExtentTest().info("Email link on help page is Displayed :: Clickable");
 			}
 			else {
-				ExtentReport.extentTest.info("Wrong page opened after Email link on help page link clicked");
+				ExtentReport.getExtentTest().info("Wrong page opened after Email link on help page link clicked");
 				throw new Exception("Wrong page opened after Email link on help page link clicked");
 			}
 		}
@@ -3517,7 +3675,7 @@ public class HomePageComponents extends HomePageLocators {
 		else						
 			throw new Exception("Wrong page opened after Contact Us footer link clicked");
 		 Reporter.log("Contact Us footer link is Displayed :: Clickable");
-		 ExtentReport.extentTest.info("Contact Us footer link is Displayed :: Clickable");
+		 ExtentReport.getExtentTest().info("Contact Us footer link is Displayed :: Clickable");
 	}
 							
 	}

@@ -58,7 +58,7 @@ public class Slack {
 
     public static void sendSlackNotificationReg(String passed, String failed, String skipped, String reportLink /*, String JSonLink*/) throws Exception {
 
-            //    String ReportLINK = "https://drive.google.com/uc?export=download&id=1JeiyF7Z5Q3B-Ba6cPUot6fROgaomSLRX";
+                String ReportLINK = "https://drive.google.com/uc?export=download&id=16YH_zO8CxTffc2SozYSlBzg82v2aQT3K";
             // Create JSON payload
 
 
@@ -74,9 +74,9 @@ public class Slack {
 
                 System.out.println(passed+"\n"+failed+"\n"+skipped+"\n"+reportLink+"\n"/*+JSonLink*/);
 
-               String payload = "{\"text\":\"*Regression Results*\n*Time:* " + Date + " \n*Passed:* " + passed + "\n*Failed:* "+ failed + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + reportLink + "|Click> \",\"type\": \"mrkdwn\"}";
+//               String payload = "{\"text\":\"*Regression Results*\n*Time:* " + Date + " \n*Passed:* " + passed + "\n*Failed:* "+ failed + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + reportLink + "|Click> \",\"type\": \"mrkdwn\"}";
 
-//              String payload = "{\"text\":\"*Regression Results*\n*Time:* " + Date + " \n*Passed:* " + 174 + "\n*Failed:* "+ 22 + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + ReportLINK + "|Click> \",\"type\": \"mrkdwn\"}";
+              String payload = "{\"text\":\"*Regression Results*\n*Time:* " + Date + " \n*Passed:* " + 198 + "\n*Failed:* "+ 6 + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + ReportLINK + "|Click> \",\"type\": \"mrkdwn\"}";
 
             URL url = new URL(TJ_QA_WEBHOOK_URL);
 
@@ -316,6 +316,51 @@ public class Slack {
         System.out.println("Response Code: " + responseCode);
 
     }
+
+    public static void sendSlackNotificationShopify(String passed, String failed, String skipped, String reportLink ) throws Exception {
+
+//        String ReportLINK = "https://drive.google.com/uc?export=download&id=1KTDuIyffrmAI-75XB_-JrRQ8QgyjOmPB";
+        // Create JSON payload
+        String Date = setCurrentDatetDate();
+
+        System.out.println(passed+"\n"+failed+"\n"+skipped+"\n"+reportLink+"\n"/*+JSonLink*/);
+
+        String payload = "{\"text\":\"*Shopify Test Cases Result*\n*Time:* " + Date + " \n*Passed:* " + passed + "\n*Failed:* "+ failed + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + reportLink + "|Click> \",\"type\": \"mrkdwn\"}";
+
+//              String payload = "{\"text\":\"*GTM Results*\n*Time:* " + Date + " \n*Passed:* " + 4 + "\n*Failed:* "+ 1 + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + ReportLINK + "|Click> \",\"type\": \"mrkdwn\"}";
+
+
+        URL url = new URL(Test_WEBHOOK_URL);
+
+        HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
+
+        httpConn.setDoOutput(true);
+
+        httpConn.setRequestMethod("POST");
+
+        httpConn.setRequestProperty("Content-Type", "application/json");
+
+        httpConn.setRequestProperty("Accept", "application/json");
+
+        try (OutputStream os = httpConn.getOutputStream()) {
+
+            byte[] file = payload.getBytes("utf-8");
+            //             byte[] input = payload.getBytes("utf-8");
+
+            os.write(file, 0, file.length);
+
+
+        }
+        int responseCode = httpConn.getResponseCode();
+
+        System.out.println("Response Code: " + responseCode);
+
+    }
+
+
+
+
+
 }
 
 

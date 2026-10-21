@@ -54,7 +54,7 @@ public class ContactUsComponent extends ContactUsPageLocators
 		Thread.sleep(3000);
 		softassert.assertTrue(driver.findElement(SEND_MESSAGE_BUTTON).isEnabled(), "Send message button not enabled");
 		Reporter.log("User is able to send message through contact us form.");
-		ExtentReport.extentTest.info("User is able to send message through contact us form.");
+		ExtentReport.getExtentTest().info("User is able to send message through contact us form.");
 		
 		softassert.assertAll();
 	}
@@ -221,7 +221,7 @@ public class ContactUsComponent extends ContactUsPageLocators
 		softassert.assertTrue(driver.findElement(HELP_PAGETITLE).isDisplayed(), "Help Center page title is not displayed.");
 		softassert.assertEquals(driver.findElement(HELP_PAGETITLE).getText(), "How can we help?","Text changed for Help Center page title.");
 		Reporter.log("Contact us Page Title is displayed :: Correct.");
-		ExtentReport.extentTest.info("Contact us Page Title is displayed :: Correct.");
+		ExtentReport.getExtentTest().info("Contact us Page Title is displayed :: Correct.");
 		softassert.assertAll();
 
 	}

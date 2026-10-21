@@ -340,7 +340,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(SHARE_ICON));
 		softAssert.assertTrue(driver.findElement(SHARE_ICON).isDisplayed(),"Share Icon is not available in PDP");
 		Reporter.log("Share Icon is available in PDP");
-		ExtentReport.extentTest.info("Share Icon is available in PDP");
+		ExtentReport.getExtentTest().info("Share Icon is available in PDP");
 	}
 
 
@@ -388,7 +388,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
                 "Product title does not contain 'Tank'");
         softAssert.assertAll();
         Reporter.log("Appropriate Product is displayed when the User selects the Collection Category");
-        ExtentReport.extentTest.info("Appropriate Product is displayed when the User selects the Neckline Category");
+        ExtentReport.getExtentTest().info("Appropriate Product is displayed when the User selects the Neckline Category");
     }
 
     public void ValidateStyleSection()
@@ -410,7 +410,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
                 "Product title does not contain 'Stay-Tucked'");
         softAssert.assertAll();
         Reporter.log("Appropriate Product is displayed when the User selects the Style Category");
-        ExtentReport.extentTest.info("Appropriate Product is displayed when the User selects the Style Category");
+        ExtentReport.getExtentTest().info("Appropriate Product is displayed when the User selects the Style Category");
     }
 
 
@@ -440,7 +440,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			System.out.println(Sticky_SelectASize_CTA);
 			softAssert.assertEquals(SelectASize_CTA,Sticky_SelectASize_CTA,"ATC CTA is not disabled in Sticky and Regular CTAs when the User doesn't select any size");
 			Reporter.log("ATC CTA is disabled in Sticky and Regular CTAs when the User doesn't select any size");
-			ExtentReport.extentTest.info("ATC CTA is disabled in Sticky and Regular CTAs when the User doesn't select any size");
+			ExtentReport.getExtentTest().info("ATC CTA is disabled in Sticky and Regular CTAs when the User doesn't select any size");
 		}
 
 	}
@@ -477,7 +477,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 				"Product title does not contain 'Cool Cotton'");
 		softAssert.assertAll();
 		Reporter.log("Appropriate Product is displayed when the User selects the Collection Category");
-		ExtentReport.extentTest.info("Appropriate Product is displayed when the User selects the Collection Category");
+		ExtentReport.getExtentTest().info("Appropriate Product is displayed when the User selects the Collection Category");
 	}
 
 
@@ -497,7 +497,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
         softAssert.assertEquals(Recs_Products.size(), 3, "The Upsdie Down PDP does not contain 3 sections");
         softAssert.assertAll();
         Reporter.log("The Upsdie Down PDP contains 3 sections");
-        ExtentReport.extentTest.info("The Upsdie Down PDP contains 3 sections");
+        ExtentReport.getExtentTest().info("The Upsdie Down PDP contains 3 sections");
     }
 
 
@@ -515,7 +515,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(UPSIDE_DOWN_PROGRESS_BAR));
 		softAssert.assertTrue(driver.findElement(UPSIDE_DOWN_PROGRESS_BAR).isDisplayed(),"Progress Bar is not available in PDP");
 		Reporter.log("Progress Bar is available in PDP");
-		ExtentReport.extentTest.info("Progress Bar is available in PDP");
+		ExtentReport.getExtentTest().info("Progress Bar is available in PDP");
 
 
 	}
@@ -537,7 +537,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
         softAssert.assertEquals(Recs_Products.size(), 4, "Recs does not contain 4 products");
        softAssert.assertAll();
         Reporter.log("PDP Section contains Recs");
-        ExtentReport.extentTest.info("PDP Section contains Recs");
+        ExtentReport.getExtentTest().info("PDP Section contains Recs");
     }
 
 
@@ -554,7 +554,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		String Add_to_Wishlist = driver.findElement(ADD_TO_WISHLIST).getText();
 		System.out.println("Add to Wishlist text is:"+ Add_to_Wishlist);
 		Reporter.log("Add to Wishlist is available in PDP");
-		ExtentReport.extentTest.info("Add to Wishlist is available in PDP");
+		ExtentReport.getExtentTest().info("Add to Wishlist is available in PDP");
 
 	}
 
@@ -571,7 +571,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		String Add_to_Wishlist = driver.findElement(ADD_TO_WISHLIST).getText();
 		System.out.println("Add to Wishlist text is:"+ Add_to_Wishlist);
 		Reporter.log("Add to Wishlist is available in PDP");
-		ExtentReport.extentTest.info("Add to Wishlist is available in PDP");
+		ExtentReport.getExtentTest().info("Add to Wishlist is available in PDP");
 
 	}
 
@@ -588,13 +588,13 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		String Add_to_Wishlist = driver.findElement(ADD_TO_WISHLIST).getText();
 		System.out.println("Add to Wishlist text is:"+ Add_to_Wishlist);
 		Reporter.log("Add to Wishlist is available in PDP");
-		ExtentReport.extentTest.info("Add to Wishlist is available in PDP");
+		ExtentReport.getExtentTest().info("Add to Wishlist is available in PDP");
 		WebElement elem = driver.findElement(ADD_TO_WISHLIST);
 		js1.executeScript("arguments[0].click();", elem);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(LOGIN_DRAWER));
 		softAssert.assertTrue(driver.findElement(LOGIN_DRAWER).isDisplayed(),"Login Drawer Is not Displayed for the Guest user");
 		Reporter.log("Login Drawer Is Displayed for the Guest user when the User tries to Add the Product to Wishlist");
-		ExtentReport.extentTest.info("Login Drawer Is Displayed for the Guest user when the User tries to Add the Product to Wishlist");
+		ExtentReport.getExtentTest().info("Login Drawer Is Displayed for the Guest user when the User tries to Add the Product to Wishlist");
 		
 	}
 
@@ -610,7 +610,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(PRODUCT_TITLE));
 		softAssert.assertTrue(driver.findElement(PRODUCT_ADD_ON).isDisplayed(),"Product AddOn is not available");
 		Reporter.log("Product AddOn is available");
-		ExtentReport.extentTest.info("Product AddOn is available");
+		ExtentReport.getExtentTest().info("Product AddOn is available");
 	}
 
 	public void ValidateComparisonModule() throws InterruptedException {
@@ -625,7 +625,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		Thread.sleep(2000);
 		softAssert.assertTrue(driver.findElement(COMPARISON_MODULE).isDisplayed(),"Comparison Module is not available");
 		Reporter.log("Comparison Module is available");
-		ExtentReport.extentTest.info("Comparison Module is available");
+		ExtentReport.getExtentTest().info("Comparison Module is available");
 //		WebElement ele = driver.findElement(SHOP_LINER_CTA);
 //		js1.executeScript("arguments[0].click();", ele);
 //	//	driver.findElement(SHOP_LINER_CTA).click();
@@ -641,7 +641,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(PRODUCT_TITLE));
 		softAssert.assertAll();
 		Reporter.log("Comparison Module is functional");
-		ExtentReport.extentTest.info("Comparison Module is functional");
+		ExtentReport.getExtentTest().info("Comparison Module is functional");
 	}
 
 	public void VerifyComparisonModule() throws InterruptedException {
@@ -657,7 +657,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		Thread.sleep(2000);
 		softAssert.assertTrue(driver.findElement(COMPARISON_MODULE).isDisplayed(),"Comparison Module is not available");
 		Reporter.log("Comparison Module is available");
-		ExtentReport.extentTest.info("Comparison Module is available");
+		ExtentReport.getExtentTest().info("Comparison Module is available");
 
 	}
 
@@ -715,7 +715,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			throw new Exception("Sizes chart overlay is not displayed after Size guide button was clicked");
 		System.out.println("Size Chart is displayed");
 		Reporter.log("Size Chart is displayed");
-		ExtentReport.extentTest.info("Size Chart is displayed");
+		ExtentReport.getExtentTest().info("Size Chart is displayed");
 		Thread.sleep(2000);
 		//Size Calculator
 		wait.until(ExpectedConditions.visibilityOfElementLocated(BRA_BAND_SIZE_DROPDOWN));
@@ -737,7 +737,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		String Size_Result = driver.findElement(SIZE_RESULT).getText();
 		System.out.println("Size Result is:"+ Size_Result);
 		Reporter.log("Size Result is displayed on selecting the Band Size and Cup Volume");
-		ExtentReport.extentTest.info("Size Result is displayed on selecting the Band Size and Cup Volume\"");
+		ExtentReport.getExtentTest().info("Size Result is displayed on selecting the Band Size and Cup Volume\"");
 	}
 
 	public void VerifyHowToMeasureSection() throws Exception {
@@ -759,7 +759,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			softAssert.assertEquals(Steps_Count, 3,"The How to Measure section does not contain 3 steps");
 			softAssert.assertAll();
 			Reporter.log("The How to Measure section is available and contain 3 steps");
-			ExtentReport.extentTest.info("The How to Measure section is available and contain 3 steps");
+			ExtentReport.getExtentTest().info("The How to Measure section is available and contain 3 steps");
 
 		}
 	}
@@ -796,12 +796,12 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		} else {
 			System.out.println("Size guide link is not Displayed");
 			Reporter.log("Size guide link is not Displayed.");
-			ExtentReport.extentTest.info("Size guide link is not Displayed.");
+			ExtentReport.getExtentTest().info("Size guide link is not Displayed.");
 		}
 
 		softAssert.assertAll();
 		Reporter.log("Size Chart contains all the details");
-		ExtentReport.extentTest.info("Size Chart contains all the details");
+		ExtentReport.getExtentTest().info("Size Chart contains all the details");
 	}
 
 	public void ValidateReadAllReviewsLinkInReviewsSummary() throws Exception {
@@ -817,13 +817,13 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		js.executeScript("arguments[0].click();", driver.findElement(REVIEW_SUMMARY));
 		softAssert.assertTrue(driver.findElement(REVIEW_SUMMARY).isDisplayed(),"Review Summary link is not functional");
 		Reporter.log("Review Summary link is functional");
-		ExtentReport.extentTest.info("Review Summary link is functional");
+		ExtentReport.getExtentTest().info("Review Summary link is functional");
 		Thread.sleep(5000);
 		js.executeScript("arguments[0].click();", driver.findElement(READ_ALL_REVIEWS));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_REVIEW));
 		softAssert.assertTrue(driver.findElement(FIRST_REVIEW).isDisplayed(),"Read All Review link is not functional");
 		Reporter.log("Read All Review link is not functional");
-		ExtentReport.extentTest.info("Read All Review link is not functional");
+		ExtentReport.getExtentTest().info("Read All Review link is not functional");
 
 	}
 	public void VerifyShopPayIsDisplayed()
@@ -837,7 +837,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(SHOP_PAY));
 		softAssert.assertTrue(driver.findElement(SHOP_PAY).isDisplayed(),"Shop Pay is not available");
 		Reporter.log("Shop Pay is available");
-		ExtentReport.extentTest.info("Shop Pay is available");
+		ExtentReport.getExtentTest().info("Shop Pay is available");
 	}
 
 	public void ValidateWriteAReviewLink()
@@ -851,7 +851,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(WRITE_A_REVIEW_LINK));
 		softAssert.assertTrue(driver.findElement(WRITE_A_REVIEW_LINK).isDisplayed(),"Write a Review Link is not available");
 		Reporter.log("Write a Review Link is available");
-		ExtentReport.extentTest.info("Write a Review Link is available");
+		ExtentReport.getExtentTest().info("Write a Review Link is available");
 	}
 
 	public void ValidateReviewsSummaryLink() throws Exception {
@@ -867,7 +867,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		js.executeScript("arguments[0].click();", driver.findElement(REVIEW_SUMMARY));
 		softAssert.assertTrue(driver.findElement(REVIEW_SUMMARY).isDisplayed(),"Review Summary link is not functional");
 		Reporter.log("Review Summary link is functional");
-		ExtentReport.extentTest.info("Review Summary link is functional");
+		ExtentReport.getExtentTest().info("Review Summary link is functional");
 	}
 
 
@@ -891,7 +891,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(REVIEW_SUMMARY_TITLE));
 		softAssert.assertTrue(driver.findElement(REVIEW_SUMMARY_TITLE).isDisplayed(),"Review Summary CTA is not functional");
 		Reporter.log("Review Summary CTA is functional");
-		ExtentReport.extentTest.info("Review Summary CTA is functional");
+		ExtentReport.getExtentTest().info("Review Summary CTA is functional");
 	}
 
 	public void ValidateDisabledATC() throws Exception {
@@ -918,7 +918,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			System.out.println(Sticky_SelectASize_CTA);
 			softAssert.assertEquals(SelectASize_CTA,Sticky_SelectASize_CTA,"ATC CTA is not disabled in Sticky and Regular CTAs when the User doesn't select any size");
 			Reporter.log("ATC CTA is disabled in Sticky and Regular CTAs when the User doesn't select any size");
-			ExtentReport.extentTest.info("ATC CTA is disabled in Sticky and Regular CTAs when the User doesn't select any size");
+			ExtentReport.getExtentTest().info("ATC CTA is disabled in Sticky and Regular CTAs when the User doesn't select any size");
 		}
 
 
@@ -967,7 +967,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 					System.out.println(Text1);
 					softAssert.assertEquals(TabsPrice,Text1,"Same values are not displayed in the Tabs and Add to Cart CTA");
 					Reporter.log("Same values are displayed in the Tabs and Add to Cart CTA");
-					ExtentReport.extentTest.info("Same values are displayed in the Tabs and Add to Cart CTA");
+					ExtentReport.getExtentTest().info("Same values are displayed in the Tabs and Add to Cart CTA");
 
 						Thread.sleep(1000);
 						System.out.println("=============================");
@@ -1034,7 +1034,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 								count++;
 								System.out.println("Swatch section is not displayed in " + url);
 								Reporter.log("Swatch section is not displayed in " + url);
-								ExtentReport.extentTest.info("Swatch section is not displayed in " + url);
+								ExtentReport.getExtentTest().info("Swatch section is not displayed in " + url);
 							}
 
 							try {
@@ -1045,7 +1045,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 								count++;
 								System.out.println("Size section is not displayed in Tab1 " + url);
 								Reporter.log("Size section is not displayed in Tab1 " + url);
-								ExtentReport.extentTest.info("Size section is not displayed in Tab1 " + url);
+								ExtentReport.getExtentTest().info("Size section is not displayed in Tab1 " + url);
 							}
 
 							try {
@@ -1056,7 +1056,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 								count++;
 								System.out.println("Quantity and Add to Cart sections are displayed in Tab1 " + url);
 								Reporter.log("Quantity and Add to Cart sections are displayed in Tab1 " + url);
-								ExtentReport.extentTest.info("Quantity and Add to Cart sections are displayed in Tab1 " + url);
+								ExtentReport.getExtentTest().info("Quantity and Add to Cart sections are displayed in Tab1 " + url);
 							}
 
 						} catch (Exception e) {
@@ -1106,7 +1106,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 		softAssert.assertTrue(driver.findElement(INLINECART_PRODUCT_NAME).isDisplayed(), "Product is not added to Cart from Instagram Widget");
 		Reporter.log("Product is added to Cart from Instagram Widget");
-		ExtentReport.extentTest.info("Product is added to Cart from Instagram Widget");
+		ExtentReport.getExtentTest().info("Product is added to Cart from Instagram Widget");
 	}
 
 	public void VerifyPromoBannerIsAvailableinPDP() throws Exception {
@@ -1119,7 +1119,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		softAssert.assertTrue(driver.findElement(PDP_PROMOBANNER).isDisplayed(),"Promo Banner is not available in the PDP");
 		softAssert.assertAll();
 		Reporter.log("Promo Banner is available in the PDP");
-		ExtentReport.extentTest.info("Promo Banner is available in the PDP");
+		ExtentReport.getExtentTest().info("Promo Banner is available in the PDP");
 	}
 
 	public void ValidateAppropriateProductIsAddedToCartFromInstagramWidget() throws Exception {
@@ -1148,7 +1148,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 		softAssert.assertEquals(First_Product_Name, InLineCart_Product, "Wrong product is added to Cart from Instagram Widget");
 		Reporter.log("Appropriate product is added to Cart from Instagram Widget");
-		ExtentReport.extentTest.info("Appropriate product is added to Cart from Instagram Widget");
+		ExtentReport.getExtentTest().info("Appropriate product is added to Cart from Instagram Widget");
 
 	}
 
@@ -1171,7 +1171,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(INSTA_FIRST_SIZE)));
 		softAssert.assertTrue(driver.findElement(INSTA_FIRST_SIZE).isDisplayed(), "Size Overlay is not displayed in the Instagram Widget");
 		Reporter.log("Size Overlay is displayed in the Instagram Widget");
-		ExtentReport.extentTest.info("Size Overlay is displayed in the Instagram Widget");
+		ExtentReport.getExtentTest().info("Size Overlay is displayed in the Instagram Widget");
 
 	}
 
@@ -1207,7 +1207,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		softAssert.assertEquals(ColorSwatch, text, "Color Mismatched In InLine Cart");
 		softAssert.assertAll();
 		Reporter.log("Selected Color Is Added To Cart");
-		ExtentReport.extentTest.info("Selected Color Is Added To Cart");
+		ExtentReport.getExtentTest().info("Selected Color Is Added To Cart");
 
 
 	}
@@ -1735,7 +1735,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		if (!driver.findElement(AFTERPAY_PDP).isDisplayed())
 			throw new Exception("AfterPay Message not present on PDP");
 		Reporter.log("After pay Message on PDP is displayed :: Displayed");
-		ExtentReport.extentTest.info("After pay Message on PDP is displayed :: Displayed");
+		ExtentReport.getExtentTest().info("After pay Message on PDP is displayed :: Displayed");
 
 
 		//Check message with calculated installment and icon display
@@ -1759,10 +1759,10 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 			softAssert.assertTrue(afterpaymessaging.getText().contains("available for orders between $35 - $1,000"), "Wrong afterpay message displayed for product price");
 			Reporter.log("After pay message is correct On PDP :: Displayed and Correct message is displayed");
-			ExtentReport.extentTest.info("After pay message is correct On PDP :: Displayed and Correct message is displayed");
+			ExtentReport.getExtentTest().info("After pay message is correct On PDP :: Displayed and Correct message is displayed");
 			softAssert.assertTrue(afterpaylogo.isDisplayed(), "Afterpay logo not present on PDP");
 			Reporter.log("After pay logo icon is displayed on PDP :: Displayed");
-			ExtentReport.extentTest.info("After pay logo icon is displayed on PDP :: Displayed");
+			ExtentReport.getExtentTest().info("After pay logo icon is displayed on PDP :: Displayed");
 		} else {
 			WebElement afterpaylogo = (WebElement) js.executeScript("return document.querySelector(\"#root > div > div > afterpay-placement\").shadowRoot.querySelector(\"p > span.afterpay-logo-link > button.afterpay-logo.brand-afterpay.type-badge.black-on-mint\")");
 
@@ -1777,10 +1777,10 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			System.out.println("Actual int_amount is: " + actual);
 			softAssert.assertEquals(ins_amount, expectedmessage, "Wrong afterpay message displayed for product price");
 			Reporter.log("After pay message with calculated installment is correct :: Displayed and correct");
-			ExtentReport.extentTest.info("After pay message with calculated installment is correct :: Displayed and correct");
+			ExtentReport.getExtentTest().info("After pay message with calculated installment is correct :: Displayed and correct");
 			softAssert.assertTrue(afterpaylogo.isDisplayed(), "Afterpay logo not present on PDP");
 			Reporter.log("After pay logo icon is displayed on PDP :: Displayed");
-			ExtentReport.extentTest.info("After pay logo icon is displayed on PDP :: Displayed");
+			ExtentReport.getExtentTest().info("After pay logo icon is displayed on PDP :: Displayed");
 
 		}
 
@@ -2423,7 +2423,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 		softAssert.assertAll();
 		Reporter.log("Recommended for You :: Displayed");
-		ExtentReport.extentTest.info("Recommended for You :: Displayed");
+		ExtentReport.getExtentTest().info("Recommended for You :: Displayed");
 	}
 
 	public void VerifyQuickShopOnRecommendedforYou() throws Exception {
@@ -3375,7 +3375,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 	//			System.out.println(thumbnail);
 			}
 			Reporter.log("New Image is visible");
-			ExtentReport.extentTest.info("New Image is visible");
+			ExtentReport.getExtentTest().info("New Image is visible");
 		}
 		softAssert.assertAll();
 
@@ -3409,12 +3409,12 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			else {
 				System.out.println("Badging is displayed on PDP.");
 				Reporter.log("Badge is displayed on PDP.");
-				ExtentReport.extentTest.info("Badge is displayed on PDP.");
+				ExtentReport.getExtentTest().info("Badge is displayed on PDP.");
 			}
 		} catch (Exception e) {
 			System.out.println("Badging is not applicable for this product.");
 			Reporter.log("Badge on PDP :: Not displayed .");
-			ExtentReport.extentTest.info("Badge on PDP :: Not displayed .");
+			ExtentReport.getExtentTest().info("Badge on PDP :: Not displayed .");
 		}
 
 		softAssert.assertAll();
@@ -3443,12 +3443,12 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			else {
 				System.out.println("Badging is displayed on PDP.");
 				Reporter.log("Badge is displayed on PDP.");
-				ExtentReport.extentTest.info("Badge is displayed on PDP.");
+				ExtentReport.getExtentTest().info("Badge is displayed on PDP.");
 			}
 		} catch (Exception e) {
 			System.out.println("Badging is not applicable for this product.");
 			Reporter.log("Badge on PDP :: Not displayed .");
-			ExtentReport.extentTest.info("Badge on PDP :: Not displayeds");
+			ExtentReport.getExtentTest().info("Badge on PDP :: Not displayeds");
 		}
 
 	}
@@ -3517,7 +3517,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 
 				Reporter.log("Colors are present and changing correctly");
-				ExtentReport.extentTest.info("Colors are present and changing correctly");
+				ExtentReport.getExtentTest().info("Colors are present and changing correctly");
 
 
 				if (i > 10)
@@ -3575,11 +3575,11 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 //			if (count > 0) {
 //				System.out.println(count);
 //				Reporter.log("Sizes are changing and colors are unavailable for few sizes");
-//				ExtentReport.extentTest.info("Sizes are changing and colors are unavailable for few sizes");
+//				ExtentReport.getExtentTest().info("Sizes are changing and colors are unavailable for few sizes");
 //			}
 
 			Reporter.log("Sizes are changing correctly");
-			ExtentReport.extentTest.info("Sizes are changing correctly");
+			ExtentReport.getExtentTest().info("Sizes are changing correctly");
 		}
 
 	}
@@ -3598,7 +3598,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		WebElement SelectSizeSection = driver.findElement(By.xpath("//div[@class='space-y-lg']"));
 		softassert.assertTrue(SelectSizeSection.isDisplayed(), "Sticky Select a Size is not Clickable on PDP");
 		Reporter.log("Scrolling CTA Select a Size is displayed :: Clickable");
-		ExtentReport.extentTest.info("Scrolling CTA Select a Size is displayed :: Clickable");
+		ExtentReport.getExtentTest().info("Scrolling CTA Select a Size is displayed :: Clickable");
 
 
 	}
@@ -3635,7 +3635,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 //		}
 
 		Reporter.log("Scrolling CTA Add to Cart is displayed :: Clickable");
-		ExtentReport.extentTest.info("Scrolling CTA Add to Cart is displayed :: Clickable");
+		ExtentReport.getExtentTest().info("Scrolling CTA Add to Cart is displayed :: Clickable");
 
 	}
 
@@ -3659,7 +3659,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			executor.executeScript("window.scrollBy(0, 600)");
 			//wait.until(ExpectedConditions.presenceOfElementLocated(WRITE_REVIEW_BUTTON));
 			Reporter.log("Review Stars Are Displayed :: Clickable :: Clicked");
-			ExtentReport.extentTest.info("Review Stars Are Displayed :: Clickable :: Clicked");
+			ExtentReport.getExtentTest().info("Review Stars Are Displayed :: Clickable :: Clicked");
 			// check for Rating and Reviews are present or not
 			System.out.println("rating: " + driver.findElement(RATING_NUMBER).getText());
 
@@ -3684,7 +3684,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 				driver.findElement(NO_REVIEW_WRITE_REVIEW).click();
 			}
 			Reporter.log("Rating and Reviews Displayed");
-			ExtentReport.extentTest.info("Rating and Reviews Displayed");
+			ExtentReport.getExtentTest().info("Rating and Reviews Displayed");
 		} else
 			throw new Exception("Rating Stars are not clickable");
 
@@ -3715,10 +3715,10 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		try {
 			softassert.assertEquals(productname, prodcttitle, "Text is not matched");
 			Reporter.log("Product name and Price are displayed");
-			ExtentReport.extentTest.info("Product name and Price are displayed");
+			ExtentReport.getExtentTest().info("Product name and Price are displayed");
 		} catch (Exception e) {
 			Reporter.log("Product name and Price are not displayed");
-			ExtentReport.extentTest.info("Product name and Price are not displayed");
+			ExtentReport.getExtentTest().info("Product name and Price are not displayed");
 		}
 
 		softassert.assertAll();
@@ -3746,7 +3746,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			if (driver.findElement(PRODUCT_DETAILS_SECTION).isDisplayed()) {
 				System.out.println("PRODUCT_DETAILS_SECTION is Displayed");
 				Reporter.log("Product details accordion :: displayed");
-				ExtentReport.extentTest.info("Product details accordion :: displayed");
+				ExtentReport.getExtentTest().info("Product details accordion :: displayed");
 			}
 		} else
 			throw new Exception("Product details accordion not present or not clikable ");
@@ -3765,7 +3765,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 //				if (driver.findElement(BEST_PAIR_GUARANTEE_SECTION).isDisplayed()) {
 //					System.out.println("BEST_PAIR_GUARANTEE_SECTION is Displayed");
 //					Reporter.log("BEST_PAIR_GUARANTEE_SECTION :: displayed");
-//					ExtentReport.extentTest.info("BEST_PAIR_GUARANTEE_SECTION :: displayed");
+//					ExtentReport.getExtentTest().info("BEST_PAIR_GUARANTEE_SECTION :: displayed");
 //				}
 //			} else throw new Exception("BEST_PAIR_GUARANTEE accordion not present or not clikable");
 //		} catch (Exception e)
@@ -3789,12 +3789,12 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 				if (driver.findElement(FIT_MATERIAL_SECTION).isDisplayed()) {
 					System.out.println("FIT_MATERIAL_SECTION is Displayed");
 					Reporter.log("FIT_MATERIAL_SECTION :: displayed");
-					ExtentReport.extentTest.info("FIT_MATERIAL_SECTION :: displayed");
+					ExtentReport.getExtentTest().info("FIT_MATERIAL_SECTION :: displayed");
 				}
 			} else throw new Exception("FIT_MATERIAL_SECTION accordion not present or not clikable");
 //		}
 		Reporter.log("PRODUCT ACCORDIONS ARE DISPLAYED");
-		ExtentReport.extentTest.info("PRODUCT ACCORDIONS ARE DISPLAYED");
+		ExtentReport.getExtentTest().info("PRODUCT ACCORDIONS ARE DISPLAYED");
 	}
 
 	public void verifyDetailsInFitMaterialAccordion() throws Exception {
@@ -3827,7 +3827,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 //		softAssert.assertTrue(driver.findElement(FIT_MATERIAL_CLOTH_DETAIL2).isDisplayed(),"Cloth detail2 not displayed");
 		softAssert.assertAll();
 		Reporter.log("Details in the Fit+Material accordion is displayed appropriately");
-		ExtentReport.extentTest.info("Details in the Fit+Material accordion is displayed appropriately");
+		ExtentReport.getExtentTest().info("Details in the Fit+Material accordion is displayed appropriately");
 
 	}
 
@@ -3864,7 +3864,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 							System.out.println("For Size: " + elements.getAttribute("value"));
 							System.out.println("===================");
 							Reporter.log("Low Stock Inventory message :: Displayed");
-							ExtentReport.extentTest.info("Low Stock Inventory message :: Displayed");
+							ExtentReport.getExtentTest().info("Low Stock Inventory message :: Displayed");
 							count++;
 						}
 					}
@@ -3882,11 +3882,11 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 		if(count>0) {
 			Reporter.log("Message Displayed");
-			ExtentReport.extentTest.info("Message Displayed");
+			ExtentReport.getExtentTest().info("Message Displayed");
 		}
 		else {
 			Reporter.log("No Msg");
-			ExtentReport.extentTest.info("No Msg");
+			ExtentReport.getExtentTest().info("No Msg");
 		}
 
 	}
@@ -3908,7 +3908,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 ////		executor.executeScript("arguments[0].click();", el);
 //		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 //		Reporter.log(driver.getCurrentUrl());
-//		ExtentReport.extentTest.info(driver.getCurrentUrl());
+//		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 //		Thread.sleep(6000);
 //		WebElement ratingstars = driver.findElement(RATING_STARS);
 //		jse = (JavascriptExecutor) driver;
@@ -3954,7 +3954,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 //
 //		softAssert.assertAll();
 //		Reporter.log("Ratings Tiermeter displays appropriate results");
-//		ExtentReport.extentTest.info("Ratings Tiermeter displays appropriate result");
+//		ExtentReport.getExtentTest().info("Ratings Tiermeter displays appropriate result");
 //
 //	}
 
@@ -3970,7 +3970,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		// Log the current URL
 		String currentURL = driver.getCurrentUrl();
 		Reporter.log(currentURL);
-		ExtentReport.extentTest.info(currentURL);
+		ExtentReport.getExtentTest().info(currentURL);
 
 		// Wait for and click the rating stars
 		WebElement ratingStars = wait.until(ExpectedConditions.visibilityOfElementLocated(RATING_STARS));
@@ -3989,7 +3989,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		// Assert all and log results
 		softAssert.assertAll();
 		Reporter.log("Ratings Tier Meter displays appropriate results");
-		ExtentReport.extentTest.info("Ratings Tier Meter displays appropriate results");
+		ExtentReport.getExtentTest().info("Ratings Tier Meter displays appropriate results");
 	}
 
 	// Helper method to validate a specific rating tier meter
@@ -4036,7 +4036,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 //		softAssert.assertTrue(driver.findElement(RECENTLY_VIEWED).isDisplayed(),"Recently viewed section is not avaialable");
 		softAssert.assertAll();
 		Reporter.log("Recs are available");
-		ExtentReport.extentTest.info("Recs are available");
+		ExtentReport.getExtentTest().info("Recs are available");
 	}
 
 
@@ -4057,7 +4057,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 //		executor.executeScript("arguments[0].click();", el);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 		Thread.sleep(6000);
 		WebElement ratingstars = driver.findElement(RATING_STARS);
 		jse = (JavascriptExecutor) driver;
@@ -4073,13 +4073,13 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		String totalreviews = driver.findElement(TOTAL_REVIEWS_IN_FIRST_BOX).getText();
 		System.out.println("Total Rating: " + totalreviews);
 		Reporter.log("Average rating and Total reviews are :: Displayed");
-		ExtentReport.extentTest.info("Average rating and Total reviews are :: Displayed");
+		ExtentReport.getExtentTest().info("Average rating and Total reviews are :: Displayed");
 		//fit range
 		WebElement fitrange = driver.findElement(FIT_RANGE);
 		jse.executeScript("arguments[0].click();", fitrange);
 		Thread.sleep(2000);
 		Reporter.log("Fit range is :: Clickable");
-		ExtentReport.extentTest.info("Fit range is :: Clickable");
+		ExtentReport.getExtentTest().info("Fit range is :: Clickable");
 		//filters click
 		WebElement ratingsfilter = driver.findElement(FILTER_RATINGS);
 		jse.executeScript("arguments[0].click();", ratingsfilter);
@@ -4092,7 +4092,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 		Thread.sleep(1000);
 		Reporter.log("Filters are :: Clickable");
-		ExtentReport.extentTest.info("Filters are :: Clickable");
+		ExtentReport.getExtentTest().info("Filters are :: Clickable");
 		//sort by dropdown
 		List<WebElement> elem = driver.findElements(FILTER_SORTBY_SECTION);
 		int sortby = elem.size();
@@ -4112,7 +4112,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 			}
 			Reporter.log("Sort by is :: Clickable");
-			ExtentReport.extentTest.info("Sort by is :: Clickable");
+			ExtentReport.getExtentTest().info("Sort by is :: Clickable");
 
 
 		}
@@ -4126,7 +4126,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		element = driver.findElement(QUESTION_FIRST);
 		softAssert.assertTrue(element.isDisplayed(), "Questions are not displayed");
 		Reporter.log("Questions are :: Displayed");
-		ExtentReport.extentTest.info("Questions are :: Displayed");
+		ExtentReport.getExtentTest().info("Questions are :: Displayed");
 		softAssert.assertAll();
 	}
 
@@ -4180,7 +4180,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		softassert.assertTrue(driver.findElement(QSN_ANS_QUESTION_ERROR).isDisplayed(), "Question error message is not displayed with invalid input");
 
 		Reporter.log("Ask a Question form is Displayed :: Correct");
-		ExtentReport.extentTest.info("Ask a Question form is Displayed :: Correct");
+		ExtentReport.getExtentTest().info("Ask a Question form is Displayed :: Correct");
 		softassert.assertAll();
 
 
@@ -4234,7 +4234,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 		softAssert.assertTrue(driver.findElement(SUBMIT_BTN).isEnabled(), "Submit button not enabled");
 		Reporter.log("Review form is :: Displayed");
-		ExtentReport.extentTest.info("Review form is :: Displayed");
+		ExtentReport.getExtentTest().info("Review form is :: Displayed");
 		softAssert.assertAll();
 	}
 
@@ -4268,16 +4268,16 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			softAssert.assertEquals(driver.findElement(HEADLINE_ERROR).getText(), "Review headline is required", "Laguage mismatch for error message for Headline");
 			softAssert.assertEquals(driver.findElement(REVIEW_ERROR).getText(), "Review content is required", "Laguage mismatch for error message for Review");
 			Reporter.log("Review form error msgs are :: Displayed");
-			ExtentReport.extentTest.info("Review form error msgs are :: Displayed");
+			ExtentReport.getExtentTest().info("Review form error msgs are :: Displayed");
 		} catch (Exception e) {
 			System.out.println("Review form error msgs are :: NOT Displayed");
 			Reporter.log("Review form error msgs are :: NOT Displayed");
-			ExtentReport.extentTest.info("Review form error msgs are :: NOT Displayed");
+			ExtentReport.getExtentTest().info("Review form error msgs are :: NOT Displayed");
 		}
 
 		softAssert.assertAll();
 		Reporter.log("Review form error msgs are :: Displayed");
-		ExtentReport.extentTest.info("Review form error msgs are :: Displayed");
+		ExtentReport.getExtentTest().info("Review form error msgs are :: Displayed");
 	}
 
 
@@ -4375,7 +4375,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			}
 
 		Reporter.log("ATC works fine");
-		ExtentReport.extentTest.info("ATC works fine");
+		ExtentReport.getExtentTest().info("ATC works fine");
 	}
 
 
@@ -4432,7 +4432,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		} else {
 			System.out.println("Size guide link is not Displayed");
 			Reporter.log("Size guide link is not Displayed.");
-			ExtentReport.extentTest.info("Size guide link is not Displayed.");
+			ExtentReport.getExtentTest().info("Size guide link is not Displayed.");
 		}
 
 
@@ -4468,7 +4468,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			throw new Exception("Sizes chart overlay is not displayed after Size guide button was clicked");
 		System.out.println("Size Chart is displayed");
 		Reporter.log("Size Chart is displayed");
-		ExtentReport.extentTest.info("Size Chart is displayed");
+		ExtentReport.getExtentTest().info("Size Chart is displayed");
 		Thread.sleep(2000);
 
 
@@ -4481,7 +4481,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			int BandSize_Options_Count = BandSize_Options.size();
 			System.out.println("All Band Sizes list :: " + BandSize_Options_Count);
 			Reporter.log("All Band Sizes list :: Displayed");
-			ExtentReport.extentTest.info("All Band Sizes list :: Displayed");
+			ExtentReport.getExtentTest().info("All Band Sizes list :: Displayed");
 
 
 			for (int i = 1; i < BandSize_Options_Count; i++) {
@@ -4519,7 +4519,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		executor.executeScript("arguments[0].click();", el);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 //	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(SIZEGUIDE));
 		//HOW TO Measure
@@ -4542,7 +4542,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			throw new Exception("Sizes chart Table is not displayed");
 		System.out.println("Size Chart Table is displayed");
 		Reporter.log("Size Chart Table is displayed");
-		ExtentReport.extentTest.info("Size Chart Table is displayed");
+		ExtentReport.getExtentTest().info("Size Chart Table is displayed");
 		Thread.sleep(2000);
 		//fit Range Selected
 
@@ -4557,7 +4557,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 //					String rangevalue = driver.findElement(By.xpath("(//ul[@data-tj-qa='size-guide-fit-range-graph']//li)[" + i + "]")).getText();
 //					System.out.println(rangevalue + " is selected");
 //					Reporter.log("Fit Range is displayed");
-//					ExtentReport.extentTest.info("Fit Range is displayed");
+//					ExtentReport.getExtentTest().info("Fit Range is displayed");
 //
 //				}
 //			}
@@ -4565,7 +4565,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 //		} else {
 //			System.out.println("NO FIT RANGE IS SELECTED");
 //			Reporter.log("NO FIT RANGE IS SELECTED");
-//			ExtentReport.extentTest.info("NO FIT RANGE IS SELECTED");
+//			ExtentReport.getExtentTest().info("NO FIT RANGE IS SELECTED");
 //		}
 
 		//Size Calculator
@@ -4577,7 +4577,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 			int BandSize_Options_Count = BandSize_Options.size();
 			System.out.println("All Band Sizes list :: " + BandSize_Options_Count);
 			Reporter.log("All Band Sizes list :: SELECTED");
-			ExtentReport.extentTest.info("All Band Sizes list :: SELECTED");
+			ExtentReport.getExtentTest().info("All Band Sizes list :: SELECTED");
 
 			String BandSize_Default_Text = driver.findElement(BAND_SIZE_TEXT).getText();
 			System.out.println(BandSize_Default_Text);
@@ -4597,7 +4597,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 //			int CupVolume_Options_Count = CupVolume_Options.size();
 //			System.out.println("All CupVolume list ::" + CupVolume_Options_Count);
 //			Reporter.log("All CupVolume list :: SELECTED");
-//			ExtentReport.extentTest.info("All CupVolume list :: SELECTED");
+//			ExtentReport.getExtentTest().info("All CupVolume list :: SELECTED");
 //
 //			String CupVolume_Default_Text = driver.findElement(CUP_VOLUME_TEXT).getText();
 //
@@ -4685,7 +4685,7 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 
 			}
 		Reporter.log("Bundle PDP's are displayed");
-		ExtentReport.extentTest.info("Bundle PDP's are displayed");
+		ExtentReport.getExtentTest().info("Bundle PDP's are displayed");
 
 	}
 }

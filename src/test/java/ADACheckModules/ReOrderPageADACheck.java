@@ -72,7 +72,7 @@ public class ReOrderPageADACheck extends ReOrderPageLocators {
         } catch (Exception e) {
             System.out.println("Reorder option not displayed");
             Assert.fail("Reorder option not displayed");
-            ExtentReport.extentTest.info("Reorder option not displayed");
+            ExtentReport.getExtentTest().info("Reorder option not displayed");
         }
         wait.until(ExpectedConditions.visibilityOfElementLocated(REORDER_TEXT));
         ADACheckMethods.ADACheck(driver, "ReOrderPageADACheck");

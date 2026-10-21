@@ -136,7 +136,7 @@ public class AccountPageComponents extends AccountPageLocators {
 			softassert.fail("After clicking on My account option as a Guest User, User seems to be have been redirected to Account Page as a logged in user");
 		}
 		
-		ExtentReport.extentTest.info("Guest user was correctly redirected to login page after clicking on My Account option");
+		ExtentReport.getExtentTest().info("Guest user was correctly redirected to login page after clicking on My Account option");
 
 		
 //		Go back to homepage
@@ -213,7 +213,7 @@ public class AccountPageComponents extends AccountPageLocators {
 		softassert.assertTrue(driver.findElement(FIRST_ORDER_NUMBER).isDisplayed(),
 				"Order number is not displayed on Order History table");
 		Reporter.log("Account page contents for logged-in user are Displayed :: Correct");
-		ExtentReport.extentTest.info("Account page contents for logged-in user are Displayed :: Correct");
+		ExtentReport.getExtentTest().info("Account page contents for logged-in user are Displayed :: Correct");
 		
 
 		text = driver.findElement(FIRST_ORDER_NUMBER).getAttribute("aria-label");
@@ -237,7 +237,7 @@ public class AccountPageComponents extends AccountPageLocators {
 
 		softassert.assertEquals(text, text1, "Tracking order number is incorrect");
 		Reporter.log("Order number is clickable and navigates correctly for track the order");
-		ExtentReport.extentTest.info("Order number is clickable and navigates correctly for track the order");
+		ExtentReport.getExtentTest().info("Order number is clickable and navigates correctly for track the order");
 
 		softassert.assertAll();
 

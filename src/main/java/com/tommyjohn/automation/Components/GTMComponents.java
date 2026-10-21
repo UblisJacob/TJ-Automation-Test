@@ -3051,7 +3051,7 @@ public class GTMComponents {
                 ));
 
         Reporter.log("DevTools Network monitoring started.", true);
-        ExtentReport.extentTest.info(
+        ExtentReport.getExtentTest().info(
                 "DevTools Network monitoring started."
         );
 
@@ -3143,7 +3143,7 @@ public class GTMComponents {
             // =========================================================
 
             Reporter.log("Navigating to Men's PLP...", true);
-            ExtentReport.extentTest.info(
+            ExtentReport.getExtentTest().info(
                     "Navigating to Men's PLP."
             );
 
@@ -3158,7 +3158,7 @@ public class GTMComponents {
             );
 
             Reporter.log("Men's PLP loaded successfully.", true);
-            ExtentReport.extentTest.info(
+            ExtentReport.getExtentTest().info(
                     "Men's PLP loaded successfully."
             );
 
@@ -3186,7 +3186,7 @@ public class GTMComponents {
             );
 
             Reporter.log("Navigated to PDP.", true);
-            ExtentReport.extentTest.info(
+            ExtentReport.getExtentTest().info(
                     "Navigated to PDP."
             );
 
@@ -3195,7 +3195,7 @@ public class GTMComponents {
             // =========================================================
 
             Reporter.log("Adding product to cart...", true);
-            ExtentReport.extentTest.info(
+            ExtentReport.getExtentTest().info(
                     "Adding product to cart."
             );
 
@@ -3209,7 +3209,7 @@ public class GTMComponents {
                     true
             );
 
-            ExtentReport.extentTest.info(
+            ExtentReport.getExtentTest().info(
                     "Product added to cart successfully."
             );
 
@@ -3229,7 +3229,7 @@ public class GTMComponents {
                     true
             );
 
-            ExtentReport.extentTest.info(
+            ExtentReport.getExtentTest().info(
                     "Checkout button is available."
             );
 
@@ -3246,7 +3246,7 @@ public class GTMComponents {
                     true
             );
 
-            ExtentReport.extentTest.info(
+            ExtentReport.getExtentTest().info(
                     "Previous Facebook requests cleared."
             );
 
@@ -3259,7 +3259,7 @@ public class GTMComponents {
                     true
             );
 
-            ExtentReport.extentTest.info(
+            ExtentReport.getExtentTest().info(
                     "Clicking Checkout button."
             );
 
@@ -3282,7 +3282,7 @@ public class GTMComponents {
                     true
             );
 
-            ExtentReport.extentTest.info(
+            ExtentReport.getExtentTest().info(
                     "Checkout page loaded successfully."
             );
 
@@ -3295,7 +3295,7 @@ public class GTMComponents {
                     true
             );
 
-            ExtentReport.extentTest.info(
+            ExtentReport.getExtentTest().info(
                     "Waiting 3 seconds for Checkout analytics to initialize."
             );
 
@@ -3310,7 +3310,7 @@ public class GTMComponents {
                     true
             );
 
-            ExtentReport.extentTest.info(
+            ExtentReport.getExtentTest().info(
                     "Waiting up to 30 seconds for Facebook InitiateCheckout."
             );
 
@@ -3370,7 +3370,7 @@ public class GTMComponents {
                         true
                 );
 
-                ExtentReport.extentTest.pass(
+                ExtentReport.getExtentTest().pass(
                         "Facebook InitiateCheckout event fired upon entering Checkout."
                 );
 
@@ -3381,7 +3381,7 @@ public class GTMComponents {
                         true
                 );
 
-                ExtentReport.extentTest.fail(
+                ExtentReport.getExtentTest().fail(
                         "Facebook InitiateCheckout event was NOT detected upon entering Checkout."
                 );
             }
@@ -3409,7 +3409,7 @@ public class GTMComponents {
                     true
             );
 
-            ExtentReport.extentTest.fail(
+            ExtentReport.getExtentTest().fail(
                     "Facebook InitiateCheckout validation failed: "
                             + e.getMessage()
             );
@@ -3424,7 +3424,7 @@ public class GTMComponents {
                     true
             );
 
-            ExtentReport.extentTest.fail(
+            ExtentReport.getExtentTest().fail(
                     "Exception while validating Facebook InitiateCheckout: "
                             + e.getMessage()
             );
@@ -3568,7 +3568,7 @@ public class GTMComponents {
         });
 
         Reporter.log("DevTools Network Listener Started");
-        ExtentReport.extentTest.info("DevTools Network Listener Started");
+        ExtentReport.getExtentTest().info("DevTools Network Listener Started");
 
         //=========================================================
         // Navigate to Men's PLP
@@ -3582,7 +3582,7 @@ public class GTMComponents {
         wait.until(ExpectedConditions.elementToBeClickable(firstProduct));
 
         Reporter.log("Navigated to Men's All PLP");
-        ExtentReport.extentTest.info("Navigated to Men's All PLP");
+        ExtentReport.getExtentTest().info("Navigated to Men's All PLP");
 
         //=========================================================
         // Click First Product
@@ -3591,7 +3591,7 @@ public class GTMComponents {
         driver.findElement(firstProduct).click();
 
         Reporter.log("Clicked First Product");
-        ExtentReport.extentTest.info("Clicked First Product");
+        ExtentReport.getExtentTest().info("Clicked First Product");
 
         //=========================================================
         // Wait for PDP
@@ -3648,9 +3648,9 @@ public class GTMComponents {
         Reporter.log("ContentSquare Fired : " + contentSquare);
         Reporter.log("Fredhopper Fired : " + fredhopper);
 
-        ExtentReport.extentTest.info("Facebook Fired : " + facebook);
-        ExtentReport.extentTest.info("ContentSquare Fired : " + contentSquare);
-        ExtentReport.extentTest.info("Fredhopper Fired : " + fredhopper);
+        ExtentReport.getExtentTest().info("Facebook Fired : " + facebook);
+        ExtentReport.getExtentTest().info("ContentSquare Fired : " + contentSquare);
+        ExtentReport.getExtentTest().info("Fredhopper Fired : " + fredhopper);
 
         //=========================================================
         // Debug Missing Vendors
@@ -3703,12 +3703,12 @@ public class GTMComponents {
             softAssert.assertAll();
 
             Reporter.log("All GTM Events Fired Successfully.");
-            ExtentReport.extentTest.pass("All GTM Events Fired Successfully.");
+            ExtentReport.getExtentTest().pass("All GTM Events Fired Successfully.");
 
         } catch (AssertionError e) {
 
             Reporter.log("GTM Validation Failed.");
-            ExtentReport.extentTest.fail(e.getMessage());
+            ExtentReport.getExtentTest().fail(e.getMessage());
 
             throw e;
         }
@@ -4590,7 +4590,7 @@ public class GTMComponents {
         executor.executeScript("arguments[0].click();", el);
         wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
         Reporter.log(driver.getCurrentUrl());
-        ExtentReport.extentTest.info(driver.getCurrentUrl());
+        ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 
         Thread.sleep(5000); // ✅ Wait for network request
 

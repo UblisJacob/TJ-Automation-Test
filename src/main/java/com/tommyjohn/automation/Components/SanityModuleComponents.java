@@ -66,12 +66,12 @@ public class SanityModuleComponents extends SanityModuleLocators{
 				//margin validations
 				if(width>=1250)  {
 					Reporter.log("Hero Module annotations are correct");
-					ExtentReport.extentTest.info("Hero Module annotations are correct");
+					ExtentReport.getExtentTest().info("Hero Module annotations are correct");
 					System.out.println("Hero Module Tile annotations are correct");
 				}
 				else {
 					System.out.println("Hero Module annotations are not correct");
-					ExtentReport.extentTest.info("Hero Module annotations are not correct");
+					ExtentReport.getExtentTest().info("Hero Module annotations are not correct");
 					throw new Exception("Hero Module annotations are not correct");
 				}
 			}
@@ -125,12 +125,12 @@ public class SanityModuleComponents extends SanityModuleLocators{
 				//margin validations
 				if(width>=1184)  {
 					Reporter.log("Fixed Banner Module annotations are correct");
-					ExtentReport.extentTest.info("Fixed Banner Module annotations are correct");
+					ExtentReport.getExtentTest().info("Fixed Banner Module annotations are correct");
 					System.out.println("Fixed Banner Module annotations are correct");
 				}
 				else {
 					System.out.println("Fixed Banner Module annotations are not correct");
-					ExtentReport.extentTest.info("Fixed Banner Module annotations are not correct");
+					ExtentReport.getExtentTest().info("Fixed Banner Module annotations are not correct");
 					throw new Exception("Fixed Banner Module annotations are not correct");
 				}
 			}
@@ -235,12 +235,12 @@ public class SanityModuleComponents extends SanityModuleLocators{
 					//margin validations
 					if(width>=1184)  {
 						Reporter.log("Fixed Banner Module annotations are correct");
-						ExtentReport.extentTest.info("Fixed Banner Module annotations are correct");
+						ExtentReport.getExtentTest().info("Fixed Banner Module annotations are correct");
 						System.out.println("Fixed Banner Module annotations are correct");
 					}
 					else {
 						System.out.println("Fixed Banner Module annotations are not correct");
-						ExtentReport.extentTest.info("Fixed Banner Module annotations are not correct");
+						ExtentReport.getExtentTest().info("Fixed Banner Module annotations are not correct");
 						throw new Exception("Fixed Banner Module annotations are not correct");
 					}
 				}
@@ -296,12 +296,12 @@ public class SanityModuleComponents extends SanityModuleLocators{
 						//margin validations
 						if(width1==580)  {
 							Reporter.log("SideBySide annotations for Img 1 are correct");
-							ExtentReport.extentTest.info("SideBySide annotations for Img 1 are correct");
+							ExtentReport.getExtentTest().info("SideBySide annotations for Img 1 are correct");
 							System.out.println("SideBySide annotations for Img 1 are correct");
 						}
 						if(width2==580)  {
 							Reporter.log("SideBySide annotations for Img 2 are correct");
-							ExtentReport.extentTest.info("SideBySide annotations for Img 2 are correct");
+							ExtentReport.getExtentTest().info("SideBySide annotations for Img 2 are correct");
 							System.out.println("SideBySide annotations for Img 2 are correct");
 						}
 					}

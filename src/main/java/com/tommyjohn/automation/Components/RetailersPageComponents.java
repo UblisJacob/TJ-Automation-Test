@@ -59,7 +59,7 @@ public class RetailersPageComponents extends RetailersPageLocators {
         System.out.println(driver.findElement(RETAILERS_PAGE_HEADER).getText());
         softassert.assertEquals(driver.findElement(RETAILERS_PAGE_HEADER).getText(), "Contact Us","Text changed for Help Center page title.");
         Reporter.log("Retailers Page Title is displayed :: Correct.");
-        ExtentReport.extentTest.info("Retailers Page Title is displayed :: Correct.");
+        ExtentReport.getExtentTest().info("Retailers Page Title is displayed :: Correct.");
         softassert.assertAll();
 
 
