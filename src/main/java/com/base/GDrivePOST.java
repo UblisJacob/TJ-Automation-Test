@@ -14,12 +14,16 @@ import com.google.auth.oauth2.GoogleCredentials;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class GDrivePOST {
 
+    public static String CurrentDate;
     // ===================== CONFIG =====================
     private static final String APPLICATION_NAME = "Tommy John Automation";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
@@ -31,6 +35,34 @@ public class GDrivePOST {
     // 📁 Shared Drive Folder ID
     private static final String REPORT_FOLDER_ID =
             "0AIAF7vczpBChUk9PVA";
+
+
+    public  static String setCurrentDatetDate()
+    {
+
+        ZoneId easternTimeZone = ZoneId.of("America/New_York");
+
+        ZonedDateTime easternTime = ZonedDateTime.now(easternTimeZone);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyyHHmmss");
+
+        System.out.println("Current Eastern Time (US & Canada): " + easternTime.format(formatter));
+
+        //      DateFormat dateFormat = new SimpleDateFormat("MMddyyyyHHmmss");
+
+        //      formatter.setTimeZone(TimeZone.getTimeZone("EST"));
+
+//        System.out.println(formatter);
+//
+//        Date date = new Date();
+
+        CurrentDate= easternTime.format(formatter);
+
+        System.out.println(CurrentDate);
+
+        return CurrentDate;
+
+    }
 
     // ===================== DRIVE SERVICE =====================
     private static Drive getDriveService()
@@ -99,7 +131,16 @@ public class GDrivePOST {
     public static String UploadReport() throws Exception {
         return uploadFile(
                 "Report/index.html",
-                "Regression Report",
+                "Regression Report" + setCurrentDatetDate(),
+                "text/html",
+                REPORT_FOLDER_ID
+        );
+    }
+
+    public static String UploadShopifyReport() throws Exception {
+        return uploadFile(
+                "Report/index.html",
+                "Shopify Tests Report" + setCurrentDatetDate(),
                 "text/html",
                 REPORT_FOLDER_ID
         );
@@ -108,16 +149,18 @@ public class GDrivePOST {
     public static String UploadSmokeReport() throws Exception {
         return uploadFile(
                 "Report/index.html",
-                "Smoke Test Report",
+                "Smoke Test Report" + setCurrentDatetDate(),
                 "text/html",
                 REPORT_FOLDER_ID
         );
     }
 
+
+
     public static String UploadADAReport() throws Exception {
         return uploadFile(
                 "Report/index.html",
-                "ADA Check Report",
+                "ADA Check Report" + setCurrentDatetDate(),
                 "text/html",
                 REPORT_FOLDER_ID
         );
@@ -126,7 +169,7 @@ public class GDrivePOST {
     public static String UploadGTMReport() throws Exception {
         return uploadFile(
                 "Report/index.html",
-                "GTM Report",
+                "GTM Report" + setCurrentDatetDate(),
                 "text/html",
                 REPORT_FOLDER_ID
         );
@@ -150,7 +193,7 @@ public class GDrivePOST {
         links.put("reportLink",
                 uploadFile(
                         "Report/index.html",
-                        "Image Report",
+                        "Image Report" + setCurrentDatetDate(),
                         "text/html",
                         REPORT_FOLDER_ID));
 

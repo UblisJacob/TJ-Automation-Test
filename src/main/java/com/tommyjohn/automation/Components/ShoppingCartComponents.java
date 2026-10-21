@@ -65,7 +65,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(SHOP_PAY));
 		softAssert.assertTrue(driver.findElement(SHOP_PAY).isDisplayed(),"Shop Pay is not available");
 		Reporter.log("Shop Pay is available");
-		ExtentReport.extentTest.info("Shop Pay is available");
+		ExtentReport.getExtentTest().info("Shop Pay is available");
 	}
 
 
@@ -103,7 +103,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 
 		softAssert.assertAll();
 		Reporter.log(" Quantity increased to 4 in Cart page");
-		ExtentReport.extentTest.info(" Quantity increased to 4 in Cart page");
+		ExtentReport.getExtentTest().info(" Quantity increased to 4 in Cart page");
 	}
 
 
@@ -130,7 +130,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		element= driver.findElement(APPLIED_PROMO_COUPON);
 		softAssert.assertTrue(element.isDisplayed(), "The Coupon code is not getting applied in Cart page");
 		Reporter.log("The Coupon code applied in Cart page");
-		ExtentReport.extentTest.info("The Coupon code applied in Cart page");
+		ExtentReport.getExtentTest().info("The Coupon code applied in Cart page");
 	}
 
 
@@ -152,7 +152,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		System.out.println(COUNT_IN_CART);
 		softAssert.assertEquals(COUNT_IN_INLINECART,COUNT_IN_CART,"Inappropriate product count is displayed in Cart and Inline cart pages.");
 		Reporter.log("Appropriate product count is displayed in Cart and Inline cart pages.");
-		ExtentReport.extentTest.info("Appropriate product count is displayed in Cart and Inline cart pages.");
+		ExtentReport.getExtentTest().info("Appropriate product count is displayed in Cart and Inline cart pages.");
 
 	}
 
@@ -172,7 +172,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		System.out.println(TOTAL);
 		softAssert.assertEquals(TOTAL,"$48.00","Cart Total is differ from the 3 for $48 functionality");
 		Reporter.log("3 for $48 functionality works fine in Cart page");
-		ExtentReport.extentTest.info("3 for $48 functionality works fine in Cart page");
+		ExtentReport.getExtentTest().info("3 for $48 functionality works fine in Cart page");
 
     }
 
@@ -193,7 +193,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		softAssert.assertEquals(TOTAL,"$60.00","Cart Total is differ from the 5 for $65 functionality");
         softAssert.assertAll();
 		Reporter.log("5 for $60 functionality works fine in Cart page");
-		ExtentReport.extentTest.info("5 for $60 functionality works fine in Cart page");
+		ExtentReport.getExtentTest().info("5 for $60 functionality works fine in Cart page");
 
 	}
 
@@ -213,7 +213,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		softAssert.assertEquals(TOTAL,"$60.00","Cart Total is differ from the 5 for $65 functionality");
 		softAssert.assertAll();
 		Reporter.log("5 for $60 functionality works fine in Cart page");
-		ExtentReport.extentTest.info("5 for $60 functionality works fine in Cart page");
+		ExtentReport.getExtentTest().info("5 for $60 functionality works fine in Cart page");
 	}
 
     public void ValidateBundleTierinCartPage() throws Exception {
@@ -228,7 +228,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
         softAssert.assertEquals(BUNDLE_TIER_TITLE,"Women's Clearance","The Bundle Tier Meter Is Not Displayed");
         Reporter.log("Bundle Tier functionality works fine in Cart page");
         softAssert.assertAll();
-        ExtentReport.extentTest.info("Bundle Tier functionality works fine in Cart page");
+        ExtentReport.getExtentTest().info("Bundle Tier functionality works fine in Cart page");
     }
 
 
@@ -252,7 +252,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		element= driver.findElement(ERROR_COUPON);
 		softAssert.assertTrue(element.isDisplayed(), "Error message is not displayed for the incorrect coupon code");
 		Reporter.log("Error message is displayed for the incorrect coupon code");
-		ExtentReport.extentTest.info("Error message is displayed for the incorrect coupon code");
+		ExtentReport.getExtentTest().info("Error message is displayed for the incorrect coupon code");
 
 	}
 
@@ -281,7 +281,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		element= driver.findElement(APPLIED_COUPON);
 		softAssert.assertTrue(element.isDisplayed(), "The Coupon code FIRST20 is not getting applied in Cart page");
 		Reporter.log("The Coupon code FIRST20 applied in Cart page");
-		ExtentReport.extentTest.info("The Coupon code FIRST20 applied in Cart page");
+		ExtentReport.getExtentTest().info("The Coupon code FIRST20 applied in Cart page");
 
 		WebElement element1= driver.findElement(SAVINGS_AMOUNT);
 		softAssert.assertTrue(element1.isDisplayed(),"Total Amount saved is not displayed in the Cart Page");
@@ -291,7 +291,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		System.out.println("Total Amount Saved is = "+ Savings_Amount);
 
 		Reporter.log("Total Amount saved is displayed in the Cart Page");
-		ExtentReport.extentTest.info("Total Amount saved is displayed in the Cart Page");
+		ExtentReport.getExtentTest().info("Total Amount saved is displayed in the Cart Page");
 
 	}
 
@@ -322,7 +322,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		element= driver.findElement(APPLIED_COUPON);
 		softAssert.assertTrue(element.isDisplayed(), "The Coupon code FIRST20 is not getting applied in Cart page");
 		Reporter.log("The Coupon code FIRST20 applied in Cart page");
-		ExtentReport.extentTest.info("The Coupon code FIRST20 applied in Cart page");
+		ExtentReport.getExtentTest().info("The Coupon code FIRST20 applied in Cart page");
 
 	}
 
@@ -349,7 +349,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 			softAssert.assertAll();
 
 		Reporter.log("Product Suggestion is displayed in the Cart page");
-		ExtentReport.extentTest.info("Product Suggestion is displayed in the Cart page");
+		ExtentReport.getExtentTest().info("Product Suggestion is displayed in the Cart page");
 
 	}
 
@@ -378,19 +378,19 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		if(driver.getCurrentUrl().equals(url)) {
 			System.out.println("Start shopping button on empty cart redirects user to homepage");
 			Reporter.log("Start shopping button on empty cart redirects user to homepage");
-			ExtentReport.extentTest.info("Start shopping button on empty cart redirects user to homepage");
+			ExtentReport.getExtentTest().info("Start shopping button on empty cart redirects user to homepage");
 		}
 		else {
 			Reporter.log("Start shopping button on empty cart doesn't redirect user to homepage");
-			ExtentReport.extentTest.info("Start shopping button on empty cart doesn't redirect user to homepage");
+			ExtentReport.getExtentTest().info("Start shopping button on empty cart doesn't redirect user to homepage");
 			throw new Exception("Start shopping button on empty cart doesn't redirect user to homepage");
 		}
 		softAssert.assertAll();
 		driver.get(CustomUtilities.baseUrl);
 		Reporter.log("Cart Title Present - Your Shopping Carts ");
-		ExtentReport.extentTest.info("Cart Title Present - Your Shopping Carts ");
+		ExtentReport.getExtentTest().info("Cart Title Present - Your Shopping Carts ");
 		Reporter.log("Message displayed correctly - Your cart is Empty");
-		ExtentReport.extentTest.info("Message displayed correctly - Your cart is Empty");
+		ExtentReport.getExtentTest().info("Message displayed correctly - Your cart is Empty");
 		
 	}
 
@@ -407,7 +407,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(FlyCartPageLocator.VIEW_CART_LINK));
 		driver.findElement(FlyCartPageLocator.VIEW_CART_LINK).click();
 		Reporter.log("Clicked on View cart link in inline cart");
-		ExtentReport.extentTest.info("Clicked on View cart link in inline cart");
+		ExtentReport.getExtentTest().info("Clicked on View cart link in inline cart");
 		softAssert.assertAll();
 		
 	}
@@ -423,7 +423,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(FlyCartPageLocator.VIEW_CART_LINK));
 		driver.findElement(FlyCartPageLocator.VIEW_CART_LINK).click();
 		Reporter.log("Clicked on View cart link in inline cart");
-		ExtentReport.extentTest.info("Clicked on View cart link in inline cart");
+		ExtentReport.getExtentTest().info("Clicked on View cart link in inline cart");
 		softAssert.assertAll();
 
 	}
@@ -446,19 +446,19 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 			
 			System.out.println("PROMOTIONAL MESSAGE is displayed on cart page");
 			Reporter.log("PROMOTIONAL MESSAGE is displayed on cart page");
-			ExtentReport.extentTest.info("PROMOTIONAL MESSAGE is displayed on cart page");
+			ExtentReport.getExtentTest().info("PROMOTIONAL MESSAGE is displayed on cart page");
 		}
 		else {
 			System.out.println("PROMOTIONAL MESSAGE is not displayed on cart page");
 			Reporter.log("PROMOTIONAL MESSAGE is not displayed on cart page");
-			ExtentReport.extentTest.info("PROMOTIONAL MESSAGE is not displayed on cart page");
+			ExtentReport.getExtentTest().info("PROMOTIONAL MESSAGE is not displayed on cart page");
 		}
 		}
 		
 		catch(Exception e)
 		{
 			Reporter.log("PROMOTIONAL MESSAGE is not displayed on cart page");
-			ExtentReport.extentTest.info("PROMOTIONAL MESSAGE is not displayed on cart page");
+			ExtentReport.getExtentTest().info("PROMOTIONAL MESSAGE is not displayed on cart page");
 		}
 		
 		//softAssert.assertAll();	
@@ -478,18 +478,18 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 			if(driver.findElement(TIERED_METER_TITLE).isDisplayed()){
 				System.out.println("Tiered Meter Title is displayed on cart page");
 				Reporter.log("Tiered Meter Title is displayed on cart page");
-				ExtentReport.extentTest.info("Tiered Meter Title is displayed on cart page");
+				ExtentReport.getExtentTest().info("Tiered Meter Title is displayed on cart page");
 			}
 			else {
 				System.out.println("Tiered Meter Title is not displayed on cart page");
 				Reporter.log("Tiered Meter Title is not displayed on cart page");
-				ExtentReport.extentTest.info("Tiered Meter Title is displayed on cart page");
+				ExtentReport.getExtentTest().info("Tiered Meter Title is displayed on cart page");
 			}
 		}
 		catch(Exception e)
 		{
 			Reporter.log("Tiered Meter Title is not displayed on cart page");
-			ExtentReport.extentTest.info("Tiered Meter Title is not displayed on cart page");
+			ExtentReport.getExtentTest().info("Tiered Meter Title is not displayed on cart page");
 		}
 		
 		
@@ -516,23 +516,23 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 			
 			System.out.println("OOS message is displayed on cart page");
 			Reporter.log("OOS message is displayed on cart page");
-			ExtentReport.extentTest.info("OOS message is displayed on cart page");
+			ExtentReport.getExtentTest().info("OOS message is displayed on cart page");
 			
 			if(driver.findElement(OOS_TAG).isDisplayed()){
 				System.out.println("OOS Tag is displayed on cart page");
 				Reporter.log("OOS Tag is displayed on cart page");
-				ExtentReport.extentTest.info("OOS Tag is displayed on cart page");
+				ExtentReport.getExtentTest().info("OOS Tag is displayed on cart page");
 			}
 			else {
 				System.out.println("OOS Tag is not displayed on cart page");
 				Reporter.log("OOS Tag is not displayed on cart page");
-				ExtentReport.extentTest.info("OOS Tag is not displayed on cart page");
+				ExtentReport.getExtentTest().info("OOS Tag is not displayed on cart page");
 			}
 		}
 		else {
 			System.out.println("OOS message is not displayed on cart page");
 			Reporter.log("OOS message is not displayed on cart page");
-			ExtentReport.extentTest.info("OOS message is not displayed on cart page");
+			ExtentReport.getExtentTest().info("OOS message is not displayed on cart page");
 		}
 		
 		//softAssert.assertAll();	
@@ -717,7 +717,7 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 		if(!driver.findElement(AFTERPAY_DIV).isDisplayed())
 			throw new Exception("AfterPay Message not present on Shopping cart.");
 		Reporter.log("After pay Message is displayed on Shopping Cart :: Displayed");
-		ExtentReport.extentTest.info("After pay Message is displayed on Shopping Cart :: Displayed");
+		ExtentReport.getExtentTest().info("After pay Message is displayed on Shopping Cart :: Displayed");
 
 		//Check message with calculated installment and icon display
 		price = driver.findElement(ESTIMATE_TOTAL_PRICE).getText();
@@ -733,10 +733,10 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 
 			softAssert.assertTrue(afterpaymessaging.getText().contains("available for orders between $35 - $1000") , "Wrong afterpay message displayed for product price");
 			Reporter.log("After pay message is correct On Shopping cart :: Displayed and Correct");
-			ExtentReport.extentTest.info("After pay message is correct On Shopping cart :: Displayed and Correct");
+			ExtentReport.getExtentTest().info("After pay message is correct On Shopping cart :: Displayed and Correct");
 			softAssert.assertTrue(afterpaylogo.isDisplayed(), "Afterpay logo not present on Shopping cart.");	
 			Reporter.log("After pay logo icon is displayed on Shopping cart :: Displayed");
-			ExtentReport.extentTest.info("After pay logo icon is displayed on Shopping cart :: Displayed");
+			ExtentReport.getExtentTest().info("After pay logo icon is displayed on Shopping cart :: Displayed");
 		}
 		else
 		{
@@ -752,10 +752,10 @@ public class ShoppingCartComponents extends ShoppingCartLocators{
 			System.out.println("Actual ins_amount is: " +ins_amount);
 			softAssert.assertEquals(ins_amount, expectedmessage , "Wrong afterpay message displayed for product price");
 			Reporter.log("After pay message with calculated installment is correct on Inline cart :: Displayed and correct");
-			ExtentReport.extentTest.info("After pay message with calculated installment is correct on Inline cart :: Displayed and correct");
+			ExtentReport.getExtentTest().info("After pay message with calculated installment is correct on Inline cart :: Displayed and correct");
 			softAssert.assertTrue(afterpaylogo.isDisplayed(), "Afterpay logo not present on Shopping cart");
 			Reporter.log("After pay logo icon is displayed on Inline cart :: Displayed");
-			ExtentReport.extentTest.info("After pay logo icon is displayed on Inline cart :: Displayed");
+			ExtentReport.getExtentTest().info("After pay logo icon is displayed on Inline cart :: Displayed");
 		}
 		Thread.sleep(3000);   		
 
@@ -793,7 +793,7 @@ Thread.sleep(4000);
 		wait.until(ExpectedConditions.visibilityOf(element));
 		softAssert.assertEquals(element.getText(), "Enter a valid discount code", "Text changed for promo code error message on cart page");
 		Reporter.log("Promo code error message is displayed :: Correct");
-		ExtentReport.extentTest.info("Promo code error message is displayed :: Correct");
+		ExtentReport.getExtentTest().info("Promo code error message is displayed :: Correct");
 
 		//Verify with valid promo code
 		driver.findElement(DISCOUNTCODE_TEXTBOX).sendKeys(Promo_Code);
@@ -802,7 +802,7 @@ Thread.sleep(4000);
 		Thread.sleep(2000);
 		softAssert.assertTrue(driver.findElement(PROMO_SUCCESSFUL_MESSAGE).isDisplayed(), "Succesful message is not displayed for applied promo code");
 		Reporter.log("Promo code successful message is displayed :: Correct");
-		ExtentReport.extentTest.info("Promo code successful message is displayed :: Correct");
+		ExtentReport.getExtentTest().info("Promo code successful message is displayed :: Correct");
 
 		softAssert.assertTrue(driver.findElement(SALE_PRICE).isDisplayed(), "Sale peice is not displayed after applied promo code");
 		softAssert.assertTrue(driver.findElement(APPLIED_PROMO_CODE).isDisplayed(), "Applied promo code is not displayed for product on cart page");
@@ -847,7 +847,7 @@ Thread.sleep(4000);
 		if(!flag)
 			throw new Exception("Discount coupon is not applied cart");
 		Reporter.log("Promo code is auto-applied on newly added products");  	
-		ExtentReport.extentTest.info("Promo code is auto-applied on newly added products");
+		ExtentReport.getExtentTest().info("Promo code is auto-applied on newly added products");
 
 		Thread.sleep(3000);
 		Check_Promocode_onCheckout_throughCart();	
@@ -861,7 +861,7 @@ Thread.sleep(4000);
 		softAssert.assertTrue(driver.findElement(APPLIED_PROMO_CODE).getText().isEmpty(), "Discount code is still displayed on cart page after removing code from checkout");
 
 		Reporter.log("Apply promo code through textbox on cart page is correct");
-		ExtentReport.extentTest.info("Apply promo code through textbox on cart page is correct");
+		ExtentReport.getExtentTest().info("Apply promo code through textbox on cart page is correct");
 		AddPromoCode_OnCart_ThroughURL();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(SUBTOTAL_PRICE));
 		Check_Promocode_onCheckout_throughCart();	
@@ -933,13 +933,13 @@ Thread.sleep(4000);
 //		}
 //		if(flag) {
 //			Reporter.log("Gift Box $5.00 is already checked");
-//		ExtentReport.extentTest.info("Gift Box $5.00 is already checked");
+//		ExtentReport.getExtentTest().info("Gift Box $5.00 is already checked");
 //	}
 	//	else {
 			driver.findElement(FlyCartPageLocator.GIFT_BOX_$5_CHECKBOX).click();
 			Thread.sleep(5000);
 			Reporter.log("Gift Box $5.00 is checked");
-			ExtentReport.extentTest.info("Gift Box $5.00 is checked");
+			ExtentReport.getExtentTest().info("Gift Box $5.00 is checked");
 	//	}
 			
 		js.executeScript("arguments[0].click();", driver.findElement(FlyCartPageLocator.GIFT_WRAP_APPLY));
@@ -986,7 +986,7 @@ Thread.sleep(4000);
 			driver.switchTo().window(mainWindow);
 			softAssert.fail("PayPal popup does not show up when clicked on paypal express checkout button");
 			Reporter.log("PayPal popup does not show up when clicked on paypal express checkout button");
-			ExtentReport.extentTest.info("PayPal popup does not show up when clicked on paypal express checkout button");
+			ExtentReport.getExtentTest().info("PayPal popup does not show up when clicked on paypal express checkout button");
 		}
 //		Verify GPay Button	
 		try {
@@ -998,7 +998,7 @@ Thread.sleep(4000);
 		Actions action = new Actions(driver);
 		 action.moveToElement(element).click().build().perform();
 		 Reporter.log("GPay option is present on checkout page");
-		 ExtentReport.extentTest.info("GPay option is present on checkout page");
+		 ExtentReport.getExtentTest().info("GPay option is present on checkout page");
 
 		} catch (ElementClickInterceptedException | NoSuchElementException | TimeoutException e) {
 			driver.navigate().refresh();
@@ -1006,7 +1006,7 @@ Thread.sleep(4000);
 			try {
 				driver.findElement(GPAY_BUTTON).click();
 				Reporter.log("GPAY option is present on checkout page");
-				ExtentReport.extentTest.info("GPAY option is present on checkout page");
+				ExtentReport.getExtentTest().info("GPAY option is present on checkout page");
 			} catch (ElementClickInterceptedException |NoSuchElementException | TimeoutException f) {
 				softAssert.assertTrue(false, "Express Checkout Option GPay is not interactable");
 			}
@@ -1026,7 +1026,7 @@ Thread.sleep(4000);
 		softAssert.assertTrue(text.contains("Amazon"), "Amazon pay did not open up after clicking on Amazon Pay button ");
 
 		Reporter.log("Amazon Pay option is present on checkout page");
-		ExtentReport.extentTest.info("Amazon Pay option is present on checkout page");
+		ExtentReport.getExtentTest().info("Amazon Pay option is present on checkout page");
 
 		driver.navigate().back();
 
@@ -1045,17 +1045,17 @@ Thread.sleep(4000);
 		softAssert.assertTrue(text.contains("shop"), "Shop pay did not open up after clicking on Shop Pay button ");
 
 		Reporter.log("Shop Pay option is present on checkout page");
-		ExtentReport.extentTest.info("Shop Pay option is present on checkout page");
+		ExtentReport.getExtentTest().info("Shop Pay option is present on checkout page");
 		
 		softAssert.assertAll();
 		Reporter.log("Redirected to SHOP PAY login page when clicked on shop pay button");
-		ExtentReport.extentTest.info("Redirected to SHOP PAY login page when clicked on shop pay button");
+		ExtentReport.getExtentTest().info("Redirected to SHOP PAY login page when clicked on shop pay button");
 		Reporter.log("Redirected to Amazon login page when clicked on amz pay button");
-		ExtentReport.extentTest.info("Redirected to Amazon login page when clicked on amz pay button");
+		ExtentReport.getExtentTest().info("Redirected to Amazon login page when clicked on amz pay button");
 		Reporter.log("PayPal popup shows up when clicked on paypal express checkout button");
-		ExtentReport.extentTest.info("PayPal popup shows up when clicked on paypal express checkout button");
+		ExtentReport.getExtentTest().info("PayPal popup shows up when clicked on paypal express checkout button");
 		Reporter.log("GPay popup shows up when clicked on Gpay express checkout button");
-		ExtentReport.extentTest.info("GPay popup shows up when clicked on Gpay express checkout button");
+		ExtentReport.getExtentTest().info("GPay popup shows up when clicked on Gpay express checkout button");
 
 	}
 
@@ -1082,20 +1082,20 @@ Thread.sleep(4000);
 			if (styleValue == null || !styleValue.replace(" ", "").contains("width:100%")) {
 				System.out.println("Tiered meter not filling in correctly.");
 				Reporter.log("Tiered meter not filling in correctly.");
-				ExtentReport.extentTest.fail("Tiered meter not filling in correctly.");
+				ExtentReport.getExtentTest().fail("Tiered meter not filling in correctly.");
 				throw new Exception("Tiered meter not filling in correctly.");
 			}
 
 			// If validation passes
 			System.out.println("Tiered Meter is filling correctly (100%).");
 			Reporter.log("Tiered Meter is filling correctly (100%).");
-			ExtentReport.extentTest.info("Tiered Meter is filling correctly (100%).");
+			ExtentReport.getExtentTest().info("Tiered Meter is filling correctly (100%).");
 
 		} else {
 			// Handle case where Tiered Meter is missing
 			System.out.println("Tiered Meter is not displayed on Cart page.");
 			Reporter.log("Tiered Meter is not displayed on Cart page.");
-			ExtentReport.extentTest.info("Tiered Meter is not displayed on Cart page.");
+			ExtentReport.getExtentTest().info("Tiered Meter is not displayed on Cart page.");
 			throw new Exception("Tiered Meter is not displayed on Cart page.");
 		}
 	}

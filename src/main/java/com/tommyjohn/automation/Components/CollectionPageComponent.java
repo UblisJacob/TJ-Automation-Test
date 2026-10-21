@@ -79,7 +79,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		js.executeScript("arguments[0].click();", collectionFilter);
 
 		Reporter.log("Collection Filter opened");
-		ExtentReport.extentTest.info("Collection Filter opened");
+		ExtentReport.getExtentTest().info("Collection Filter opened");
 		WebElement filterContainer = wait.until(
 				ExpectedConditions.visibilityOfElementLocated(
 						By.xpath("(//div[contains(@class,'overflow-y-auto')])[2]")));
@@ -106,7 +106,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		}
 
 		Reporter.log("Filter dropdown scrolled successfully.");
-		ExtentReport.extentTest.pass("Filter dropdown scrolled successfully.");
+		ExtentReport.getExtentTest().pass("Filter dropdown scrolled successfully.");
 	}
 
 	public void ValidatePageAutoScroll() throws Exception {
@@ -123,7 +123,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 				"Filter Pills are not displayed");
 
 		Reporter.log("Filter Pills are displayed");
-		ExtentReport.extentTest.info("Filter Pills are displayed");
+		ExtentReport.getExtentTest().info("Filter Pills are displayed");
 		js.executeScript("window.scrollBy(0,1200);");
 		Thread.sleep(2000);
 		Long scrollBefore = (Long) js.executeScript("return window.pageYOffset;");
@@ -144,7 +144,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 				"Page did not scroll to the first row after applying the filter.");
 
 		Reporter.log("Page scrolled to the first row after applying the filter.");
-		ExtentReport.extentTest.info("Page scrolled to the first row after applying the filter.");
+		ExtentReport.getExtentTest().info("Page scrolled to the first row after applying the filter.");
 		WebElement firstProduct = wait.until(ExpectedConditions.visibilityOfElementLocated(
 				By.xpath("(//a[contains(text(),'Air Trunk')])[1]")));
 
@@ -156,7 +156,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 				"Appropriate product is not displayed after selecting the filter.");
 
 		Reporter.log("Appropriate product is displayed after selecting the filter.");
-		ExtentReport.extentTest.info("Appropriate product is displayed after selecting the filter.");
+		ExtentReport.getExtentTest().info("Appropriate product is displayed after selecting the filter.");
 
 		softAssert.assertAll();
 	}
@@ -194,7 +194,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 				"Page automatically scrolled to the Second Skin section");
 
 		Reporter.log("Anchor link successfully navigated to Second Skin section.");
-		ExtentReport.extentTest.info("Anchor link successfully navigated to Second Skin section.");
+		ExtentReport.getExtentTest().info("Anchor link successfully navigated to Second Skin section.");
 
 		softAssert.assertAll();
 	}
@@ -209,7 +209,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(DYPLACEHOLDERBANNER));
 		softAssert.assertTrue(driver.findElement(DYPLACEHOLDERBANNER).isDisplayed(),"DY Placeholder banner is displayed in the PLP");
 		Reporter.log("DY Placeholder banner is displayed in the PLP");
-		ExtentReport.extentTest.info("DY Placeholder banner is displayed in the PLP");
+		ExtentReport.getExtentTest().info("DY Placeholder banner is displayed in the PLP");
 	}
 
 	public void ValidateRatingCountInPLPandPDP()
@@ -239,7 +239,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		softAssert.assertEquals(reviewCountWithoutComma,RatingCountPDPWithoutParens,"Rating count mismatch");
 		softAssert.assertAll();
 		Reporter.log("Rating Count is same in PLP and PDP");
-		ExtentReport.extentTest.info("Rating Count is same in PLP and PDP");
+		ExtentReport.getExtentTest().info("Rating Count is same in PLP and PDP");
 	}
 
 	public void VerifyFilterPill()
@@ -251,7 +251,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(FILTER_PILLS));
 		softAssert.assertTrue(driver.findElement(FILTER_PILLS).isDisplayed(),"Filter Pills are not displayed");
 		Reporter.log("Filter Pills are displayed");
-		ExtentReport.extentTest.info("Filter Pills are displayed");
+		ExtentReport.getExtentTest().info("Filter Pills are displayed");
 	}
 
     public void ValidateCollectionFilterInFilterPill() throws InterruptedException {
@@ -262,7 +262,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
         wait.until(ExpectedConditions.visibilityOfElementLocated(FILTER_PILLS));
         softAssert.assertTrue(driver.findElement(FILTER_PILLS).isDisplayed(),"Filter Pills are not displayed");
         Reporter.log("Filter Pills are displayed");
-        ExtentReport.extentTest.info("Filter Pills are displayed");
+        ExtentReport.getExtentTest().info("Filter Pills are displayed");
         js.executeScript("arguments[0].click();", driver.findElement(COLLECTION_FILTER_PILL));
         String AirFilter = driver.findElement(By.xpath("(//span[@class='font-medium' and contains(text(),'Air')])")).getText();
         System.out.println(AirFilter);
@@ -274,7 +274,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
         System.out.println(text);
         softAssert.assertEquals(AirFilter, text, "Appropriate Product is not displayed while from filter pill");
         Reporter.log("Appropriate Product is displayed while from filter pill");
-        ExtentReport.extentTest.info("Appropriate Product is displayed while from filter pill");
+        ExtentReport.getExtentTest().info("Appropriate Product is displayed while from filter pill");
     }
 
     public void ValidateStyleFilterInFilterPill() throws InterruptedException {
@@ -285,7 +285,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
         wait.until(ExpectedConditions.visibilityOfElementLocated(FILTER_PILLS));
         softAssert.assertTrue(driver.findElement(FILTER_PILLS).isDisplayed(),"Filter Pills are not displayed");
         Reporter.log("Filter Pills are displayed");
-        ExtentReport.extentTest.info("Filter Pills are displayed");
+        ExtentReport.getExtentTest().info("Filter Pills are displayed");
         js.executeScript("arguments[0].click();", driver.findElement(STYLE_FILTER_PILL));
         String BriefFilter = driver.findElement(By.xpath("(//span[@class='font-medium' and contains(text(),'Boxer Briefs')])[2]")).getText();
         System.out.println(BriefFilter);
@@ -302,7 +302,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
         );
         softAssert.assertAll();
         Reporter.log("Appropriate Product is displayed while from filter pill");
-        ExtentReport.extentTest.info("Appropriate Product is displayed while from filter pill");
+        ExtentReport.getExtentTest().info("Appropriate Product is displayed while from filter pill");
     }
 
 
@@ -316,12 +316,12 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(DYPLACEHOLDERBANNER));
 		softAssert.assertTrue(driver.findElement(DYPLACEHOLDERBANNER).isDisplayed(),"DY Placeholder banner is not displayed in the PLP");
 		Reporter.log("DY Placeholder banner is displayed in the PLP");
-		ExtentReport.extentTest.info("DY Placeholder banner is displayed in the PLP");
+		ExtentReport.getExtentTest().info("DY Placeholder banner is displayed in the PLP");
 		js.executeScript("arguments[0].click();", driver.findElement(SHOPNOWCTAINDYPLACEHOLDERBANNER));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(FIRST_PRODUCT));
 		softAssert.assertTrue(driver.findElement(FIRST_PRODUCT).isDisplayed(),"Shop Now CTA in DY Placeholder banner is not functional");
 		Reporter.log("Shop Now CTA in DY Placeholder banner is functional");
-		ExtentReport.extentTest.info("Shop Now CTA in DY Placeholder banner is functional");
+		ExtentReport.getExtentTest().info("Shop Now CTA in DY Placeholder banner is functional");
 	}
 
 
@@ -334,7 +334,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(COLLECTION_DOORWAYS));
 		softAssert.assertTrue(driver.findElement(COLLECTION_DOORWAYS).isDisplayed(),"Collection Doorways is displayed in the PLP");
 		Reporter.log("Collection Doorways is displayed in the PLP");
-		ExtentReport.extentTest.info("Collection Doorways is displayed in the PLP");
+		ExtentReport.getExtentTest().info("Collection Doorways is displayed in the PLP");
 		CollectionDoorways = driver.findElements(COLLECTION_DOORWAYS_COUNT);
 		Count = CollectionDoorways.size();
 		System.out.println(Count);
@@ -347,7 +347,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 
 		softAssert.assertAll();
 		Reporter.log("Collection Doorways is displayed and functional in the PLP");
-		ExtentReport.extentTest.info("Collection Doorways is displayed and functional in the PLP");
+		ExtentReport.getExtentTest().info("Collection Doorways is displayed and functional in the PLP");
 
 	}
 
@@ -362,7 +362,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(COLLECTION_DOORWAYS));
 		softAssert.assertTrue(driver.findElement(COLLECTION_DOORWAYS).isDisplayed(),"Collection Doorways is displayed in the PLP");
 		Reporter.log("Collection Doorways is displayed in the PLP");
-		ExtentReport.extentTest.info("Collection Doorways is displayed in the PLP");
+		ExtentReport.getExtentTest().info("Collection Doorways is displayed in the PLP");
 	}
 
 	public void ValidateStarRatingIsFunctional()
@@ -375,7 +375,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(REVIEWS));
 		softAssert.assertTrue(driver.findElement(REVIEWS).isDisplayed(),"On Clicking the Star Rating under the Product tile the User is not directed directly to the Reviews Section in the PDP");
 		Reporter.log("On Clicking the Star Rating under the Product tile the User is directed directly to the Reviews Section in the PDP");
-		ExtentReport.extentTest.info("On Clicking the Star Rating under the Product tile the User is directed directly to the Reviews Section in the PDP");
+		ExtentReport.getExtentTest().info("On Clicking the Star Rating under the Product tile the User is directed directly to the Reviews Section in the PDP");
 
 	}
 
@@ -395,7 +395,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(PLP_RECS));
 			softAssert.assertTrue(driver.findElement(PLP_RECS).isDisplayed(), "Recs are not available in the PLP");
 			Reporter.log("Recs are not available in the PLP");
-			ExtentReport.extentTest.info("Recs are not available in the PLP");
+			ExtentReport.getExtentTest().info("Recs are not available in the PLP");
 		}
 		catch(Exception e)
 		{
@@ -411,7 +411,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(PLP_RECSs));
 			softAssert.assertTrue(driver.findElement(PLP_RECSs).isDisplayed(), "Recs are not available in the PLP");
 			Reporter.log("Recs are not available in the PLP");
-			ExtentReport.extentTest.info("Recs are not available in the PLP");
+			ExtentReport.getExtentTest().info("Recs are not available in the PLP");
 		}
 	}
 
@@ -430,7 +430,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		System.out.println(CollectionFilterCountInAllFiltersDropwdown);
 		softAssert.assertEquals(CollectionFilterCountInCollectionDropwdown, CollectionFilterCountInAllFiltersDropwdown, "Appropriate Collection filters are not displayed");
 		Reporter.log("Appropriate Collection filters are displayed");
-		ExtentReport.extentTest.info("Appropriate Collection filters are displayed");
+		ExtentReport.getExtentTest().info("Appropriate Collection filters are displayed");
 
 	}
 
@@ -468,7 +468,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 
 		softAssert.assertEquals(NamesInCollectionDropdown, NamesInAllFiltersDropdown, "The Collection names are not equal in All Filter Dropdown and Collection Dropdown");
 		Reporter.log("The Collection names are equal in All Filter Dropdown and Collection Dropdown");
-		ExtentReport.extentTest.info("The Collection names are equal in All Filter Dropdown and Collection Dropdown");
+		ExtentReport.getExtentTest().info("The Collection names are equal in All Filter Dropdown and Collection Dropdown");
 	}
 
 	public void ValidateCategoryFiltersCountInAllFiltersDropdownAndInCategoryDropdown() {
@@ -486,7 +486,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		System.out.println(CategoryFilterCountInAllFiltersDropwdown);
 		softAssert.assertEquals(CategoryFilterCountInCategoryDropwdown, CategoryFilterCountInAllFiltersDropwdown, "Appropriate Category filters are not displayed");
 		Reporter.log("Appropriate Category filters are displayed");
-		ExtentReport.extentTest.info("Appropriate Category filters are displayed");
+		ExtentReport.getExtentTest().info("Appropriate Category filters are displayed");
 
 	}
 
@@ -523,7 +523,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 
 		softAssert.assertEquals(NamesInCategoryDropdown, NamesInAllFiltersDropdown, "The Category names are not equal in All Filter Dropdown and Category Dropdown");
 		Reporter.log("The Category names are equal in All Filter Dropdown and Category Dropdown");
-		ExtentReport.extentTest.info("The Category names are equal in All Filter Dropdown and Category Dropdown");
+		ExtentReport.getExtentTest().info("The Category names are equal in All Filter Dropdown and Category Dropdown");
 	}
 
 	public void ValidateColorFiltersCountInAllFiltersDropdownAndInColorDropdown() {
@@ -541,7 +541,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		System.out.println(ColorFilterCountInAllFiltersDropwdown);
 		softAssert.assertEquals(ColorFilterCountInSizeDropwdown, ColorFilterCountInAllFiltersDropwdown, "Appropriate Color filters are not displayed");
 		Reporter.log("Appropriate Color filters are displayed");
-		ExtentReport.extentTest.info("Appropriate Color filters are displayed");
+		ExtentReport.getExtentTest().info("Appropriate Color filters are displayed");
 	}
 
 	public void ValidateColorFiltersNameInAllFiltersDropdownAndInColorDropdown() {
@@ -574,7 +574,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 
 		softAssert.assertEquals(NamesInColorDropdown, NamesInAllFiltersDropdown, "The Color names are not equal in All Filter Dropdown and Size Dropdown");
 		Reporter.log("The Color names are equal in All Filter Dropdown and Size Dropdown");
-		ExtentReport.extentTest.info("The Color names are equal in All Filter Dropdown and Size Dropdown");
+		ExtentReport.getExtentTest().info("The Color names are equal in All Filter Dropdown and Size Dropdown");
 	}
 
 
@@ -593,7 +593,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		System.out.println(SizeFilterCountInAllFiltersDropwdown);
 		softAssert.assertEquals(SizeFilterCountInSizeDropwdown, SizeFilterCountInAllFiltersDropwdown, "Appropriate Size filters are not displayed");
 		Reporter.log("Appropriate Size filters are displayed");
-		ExtentReport.extentTest.info("Appropriate Size filters are displayed");
+		ExtentReport.getExtentTest().info("Appropriate Size filters are displayed");
 	}
 
 	public void ValidateSizeFiltersNameInAllFiltersDropdownAndInSizeDropdown() {
@@ -626,7 +626,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 
 		softAssert.assertEquals(NamesInSizeDropdown, NamesInAllFiltersDropdown, "The Size names are not equal in All Filter Dropdown and Size Dropdown");
 		Reporter.log("The Size names are equal in All Filter Dropdown and Size Dropdown");
-		ExtentReport.extentTest.info("The Size names are equal in All Filter Dropdown and Size Dropdown");
+		ExtentReport.getExtentTest().info("The Size names are equal in All Filter Dropdown and Size Dropdown");
 
 	}
 
@@ -652,7 +652,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		System.out.println(text);
 		softAssert.assertEquals(AirFilter, text, "Appropriate Product is not displayed while filtering");
 		Reporter.log("Appropriate Product is displayed while filtering");
-		ExtentReport.extentTest.info("Appropriate Product is displayed while filtering");
+		ExtentReport.getExtentTest().info("Appropriate Product is displayed while filtering");
 
 	}
 
@@ -670,7 +670,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		executor.executeScript("arguments[0].click();", el);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 		// text =
 		// driver.findElement(ProductDetailsPageLocators.PRODUCT_TITLE).getText();
 		return text;
@@ -690,7 +690,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		executor.executeScript("arguments[0].click();", el);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 		// text =
 		// driver.findElement(ProductDetailsPageLocators.PRODUCT_TITLE).getText();
 		return text;
@@ -711,7 +711,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		executor.executeScript("arguments[0].click();", el);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 		// text =
 		// driver.findElement(ProductDetailsPageLocators.PRODUCT_TITLE).getText();
 		return text;
@@ -731,7 +731,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		executor.executeScript("arguments[0].click();", el);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 		// text =
 		// driver.findElement(ProductDetailsPageLocators.PRODUCT_TITLE).getText();
 		return text;
@@ -799,13 +799,13 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		// driver.findElement(THIRD_PRODUCT_IMAGE).click();
 		Thread.sleep(7000);
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 
 		// check correct Product details page opened or not
 		//new ProductDetailsPageComponents(driver).checkCorrectProductDetailsPageOpenedOrNot(text);
 
 		Reporter.log("Product image on collection page is Displayed :: Clickable and validated successfully");
-		ExtentReport.extentTest.info("Product image on collection page is Displayed :: Clickable and validated successfully");
+		ExtentReport.getExtentTest().info("Product image on collection page is Displayed :: Clickable and validated successfully");
 
 
 		Thread.sleep(5000);
@@ -887,7 +887,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 //			throw new Exception("The products are not sorted in ascending order");
 //		} else {
 //			Reporter.log("The products are sorted in ascending order of price");
-//			ExtentReport.extentTest.info("The products are sorted in ascending order of price");
+//			ExtentReport.getExtentTest().info("The products are sorted in ascending order of price");
 //		}
 //
 ////
@@ -973,7 +973,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 			throw new Exception("The products are not sorted in ascending order");
 		} else {
 			Reporter.log("The products are sorted in ascending order of price");
-			ExtentReport.extentTest.info("The products are sorted in ascending order of price");
+			ExtentReport.getExtentTest().info("The products are sorted in ascending order of price");
 		}
 
 		// Now sort descending
@@ -1004,7 +1004,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 			throw new Exception("The products are not sorted successfully in descending order");
 		} else {
 			Reporter.log("The products are sorted successfully in descending order");
-			ExtentReport.extentTest.info("The products are sorted successfully in descending order");
+			ExtentReport.getExtentTest().info("The products are sorted successfully in descending order");
 		}
 
 		return "Sorting completed successfully";
@@ -1035,7 +1035,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 //			new ProductDetailsPageComponents(driver).validatePage();
 
 		Reporter.log("Product head line text on collection page is Displayed :: Clickable and validated successfully");
-		ExtentReport.extentTest.info("Product head line text on collection page is Displayed :: Clickable and validated successfully");
+		ExtentReport.getExtentTest().info("Product head line text on collection page is Displayed :: Clickable and validated successfully");
 
 	}
 
@@ -1050,7 +1050,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		// driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT).click();
 		Thread.sleep(3000);
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 
 		// check correct Product details page opened or not
 		new ProductDetailsPageComponents(driver).checkCorrectProductDetailsPageOpenedOrNot(text);
@@ -1063,7 +1063,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		 */
 
 		Reporter.log("Product head line text on collection page is Displayed :: Clickable and validated successfully");
-		ExtentReport.extentTest.info("Product head line text on collection page is Displayed :: Clickable and validated successfully");
+		ExtentReport.getExtentTest().info("Product head line text on collection page is Displayed :: Clickable and validated successfully");
 
 	}
 
@@ -1085,7 +1085,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		jse.executeScript("arguments[0].click();", element1);
 		Thread.sleep(3000);
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
     
 		/*text = driver.findElement(FIRST_PRODUCT_IMAGE).getAttribute("alt");
 		driver.findElement(FIRST_PRODUCT_HEAD_LINE_TEXT).click();
@@ -1108,7 +1108,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 			new ProductDetailsPageComponents(driver).validatePage();
 
 		Reporter.log("Product review stars on collection page is Displayed :: Clickable and validated successfully");
-		ExtentReport.extentTest.info("Product review stars on collection page is Displayed :: Clickable and validated successfully");
+		ExtentReport.getExtentTest().info("Product review stars on collection page is Displayed :: Clickable and validated successfully");
 	}
 
 	@SuppressWarnings("static-access")
@@ -1211,7 +1211,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		System.out.println(Hammock);
 		softAssert.assertTrue(driver.findElement(By.xpath("//h2[@class='text-display-sm font-medium leading-none']")).isDisplayed(),"Hammock Pouch Icon is not fundtional");
 		Reporter.log("Hammock Pouch Icon is fundtional");
-		ExtentReport.extentTest.info("Hammock Pouch Icon is fundtional");
+		ExtentReport.getExtentTest().info("Hammock Pouch Icon is fundtional");
 	}
 
 	// method to validate all filters
@@ -1244,7 +1244,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		}
 
 		Reporter.log("All filters is Displayed :: Clickable and validated successfully");
-		ExtentReport.extentTest.info("All filters is Displayed :: Clickable and validated successfully");
+		ExtentReport.getExtentTest().info("All filters is Displayed :: Clickable and validated successfully");
 
 
 		// objGeneralMethods.clickButtonByJS(driver, element);
@@ -1396,11 +1396,11 @@ public class CollectionPageComponent extends CollectionPageLocator {
 //			count = 0;
 //		}
 //		Reporter.log("All filters are working correctly");
-//		ExtentReport.extentTest.info("All filters are working correctly");
+//		ExtentReport.getExtentTest().info("All filters are working correctly");
 //		Reporter.log("All selected items are displayed in list and removing from list");
-//		ExtentReport.extentTest.info("All selected items are displayed in list and removing from list");
+//		ExtentReport.getExtentTest().info("All selected items are displayed in list and removing from list");
 //		Reporter.log("Clear filters button works correctly");
-//		ExtentReport.extentTest.info("Clear filters button works correctly");
+//		ExtentReport.getExtentTest().info("Clear filters button works correctly");
 
 		// scroll to last filter view
 		// element = driver.findElement(LAST_FILTER);
@@ -1480,11 +1480,11 @@ public class CollectionPageComponent extends CollectionPageLocator {
 //		if(priceFilterPill.contains(priceFilter)) {
 //			System.out.println("Price Filter is working");
 //			Reporter.log("Price Filter is working");
-//			ExtentReport.extentTest.info("Price Filter is working");
+//			ExtentReport.getExtentTest().info("Price Filter is working");
 //		}
 //		else {
 //			System.out.println("Price Filter is not working");
-//			ExtentReport.extentTest.info("Price Filter is not working");
+//			ExtentReport.getExtentTest().info("Price Filter is not working");
 //			throw new Exception("Price Filter is not working");
 //		}
 
@@ -1647,7 +1647,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 			flag1 = false;
 		}
 		Reporter.log("All corosals are Displayed :: And by default not active");
-		ExtentReport.extentTest.info("All corosals are Displayed :: And by default not active");
+		ExtentReport.getExtentTest().info("All corosals are Displayed :: And by default not active");
 
 
 		for (int k = 1; k <= allCorosals.size(); k++) {
@@ -1678,7 +1678,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 
 		// driver.findElement(CLEAR_FILTER_BUTTON).click();
 		Reporter.log("Corosals gets active when respective option selected");
-		ExtentReport.extentTest.info("Corosals gets active when respective option selected");
+		ExtentReport.getExtentTest().info("Corosals gets active when respective option selected");
 	}
 
 	public void validateallurls() throws Exception {
@@ -1706,13 +1706,13 @@ public class CollectionPageComponent extends CollectionPageLocator {
 					if (driver.findElement(FIRST_PRODUCT).isDisplayed()) {
 						count++;
 						Reporter.log(url + "loads fine and products are displayed");
-						ExtentReport.extentTest.info(url + "loads fine and products are displayed");
+						ExtentReport.getExtentTest().info(url + "loads fine and products are displayed");
 					}
 				} catch (Exception ex) {
 
 					System.out.println("Page is not loading in " + url);
 					Reporter.log("Page is not loading in " + url);
-					ExtentReport.extentTest.info("Page is not loading in " + url);
+					ExtentReport.getExtentTest().info("Page is not loading in " + url);
 
 				}
 			}
@@ -1746,11 +1746,11 @@ public class CollectionPageComponent extends CollectionPageLocator {
 			wait.until(ExpectedConditions.presenceOfElementLocated(FIRST_PRODUCT));
 			List<WebElement> items = driver.findElements(By.cssSelector(".product-item"));
 			Reporter.log("No. of items present in " + url + " is " + items.size());
-			ExtentReport.extentTest.info("No. of items present in " + url + " is " + items.size());
+			ExtentReport.getExtentTest().info("No. of items present in " + url + " is " + items.size());
 
 		} catch (Exception e) {
 			Reporter.log(url + "not loading");
-			ExtentReport.extentTest.info(url + "not loading");
+			ExtentReport.getExtentTest().info(url + "not loading");
 		}
 	}
 
@@ -1770,7 +1770,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		Thread.sleep(3000);
 		if (driver.findElement(QUICK_SHOP_ATC).isDisplayed()) {
 			Reporter.log("Quick shop ATC button is displayed on hover.");
-			ExtentReport.extentTest.info("Quick shop ATC button is displayed on hover.");
+			ExtentReport.getExtentTest().info("Quick shop ATC button is displayed on hover.");
 
 			System.out.println("Quick shop ATC text is: " + driver.findElement(QUICK_SHOP_ATC).getText());
 			softAssert.assertEquals(driver.findElement(QUICK_SHOP_ATC).getText(), "Select a size",
@@ -1782,7 +1782,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 			// .driver.findElement(QUICK_SHOP_ATC).click();
 			Thread.sleep(3000);
 			Reporter.log("Quick shop ATC button text is validated :: Clickable.");
-			ExtentReport.extentTest.info("Quick shop ATC button text is validated :: Clickable.");
+			ExtentReport.getExtentTest().info("Quick shop ATC button text is validated :: Clickable.");
 		}
 		softAssert.assertTrue(driver.findElement(QUICK_SHOP_LEARN_MORE).isDisplayed(),"Learn More link is not available in the Quick Shop");
 		driver.findElement(QUICK_SHOP_LEARN_MORE).click();
@@ -1790,7 +1790,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		softAssert.assertTrue(driver.findElement(By.xpath("//h2[@class='text-display-sm font-medium leading-none']")).isDisplayed(),"Learn More Link is not functional");
 		softAssert.assertAll();
 		Reporter.log("Learn More Link is functional");
-		ExtentReport.extentTest.info("Learn More Link is functional");
+		ExtentReport.getExtentTest().info("Learn More Link is functional");
 	}
 
 
@@ -1827,11 +1827,11 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		Thread.sleep(3000);
 		driver.findElement(QUICK_SHOP_ATC).click();
 		Reporter.log("Quick shop ATC button text is validated :: Clickable.");
-		ExtentReport.extentTest.info("Quick shop ATC button text is validated :: Clickable.");
+		ExtentReport.getExtentTest().info("Quick shop ATC button text is validated :: Clickable.");
 		driver.findElement(QUICKSHOP_CLOSE).click();
 		softAssert.assertTrue(driver.findElement(QUICK_SHOP_ATC).isDisplayed(),"QUICKSHOP close icon is not functional.");
 		Reporter.log("QUICKSHOP close icon is functional.");
-		ExtentReport.extentTest.info("QUICKSHOP close icon is functional.");
+		ExtentReport.getExtentTest().info("QUICKSHOP close icon is functional.");
 
 	}
 
@@ -1847,34 +1847,34 @@ public class CollectionPageComponent extends CollectionPageLocator {
 //		js.executeScript("window.scrollBy(0,500)");
 		if (driver.findElement(QUICK_SHOP_ATC).isDisplayed()) {
 			Reporter.log("Quick shop ATC button is displayed on hover.");
-			ExtentReport.extentTest.info("Quick shop ATC button is displayed on hover.");
+			ExtentReport.getExtentTest().info("Quick shop ATC button is displayed on hover.");
 			System.out.println("Quick shop ATC text is: " + driver.findElement(QUICK_SHOP_ATC).getText());
 			softAssert.assertEquals(driver.findElement(QUICK_SHOP_ATC).getText(), "Add To Cart +",
 					"Text changed for Quick shop ATC button.");
 			driver.findElement(QUICK_SHOP_ATC).click();
 			Thread.sleep(3000);
 			Reporter.log("Quick shop ATC button text is validated :: Clickable.");
-			ExtentReport.extentTest.info("Quick shop ATC button text is validated :: Clickable.");
+			ExtentReport.getExtentTest().info("Quick shop ATC button text is validated :: Clickable.");
 
 			// size overlay Field validation
 			softAssert.assertTrue(driver.findElement(QUICK_SHOP_SIZE_OVERLAY).isDisplayed(),
 					"On collection page Quick shop select size overlay is not displayed after click on ATC button.");
 			Reporter.log("Quick shop size overlay is displayed.");
-			ExtentReport.extentTest.info("Quick shop size overlay is displayed.");
+			ExtentReport.getExtentTest().info("Quick shop size overlay is displayed.");
 			softAssert.assertTrue(driver.findElement(QUICK_SHOP_SIZE_OVERLAY_CLOSE).isDisplayed(),
 					"Quick shop select size overlay close btn is not displayed after click on ATC button.");
 			Reporter.log("Quick shop size overlay is close button is displayed.");
-			ExtentReport.extentTest.info("Quick shop size overlay is close button is displayed.");
+			ExtentReport.getExtentTest().info("Quick shop size overlay is close button is displayed.");
 //				softAssert.assertTrue(driver.findElement(QUICK_SHOP_SIZE_OVERLAY_HEADING).isDisplayed(),
 //						"Quick shop select size overlay's heading is not displayed.");
 			//	softAssert.assertEquals(driver.findElement(QUICK_SHOP_SIZE_OVERLAY_HEADING).getText(), "Choose Your Size",
 			//			"Text changed for Quick shop Size overlay heading.");
 			Reporter.log("Quick shop size overlay heading is displayed ::Correct.");
-			ExtentReport.extentTest.info("Quick shop size overlay heading is displayed ::Correct.");
+			ExtentReport.getExtentTest().info("Quick shop size overlay heading is displayed ::Correct.");
 			softAssert.assertTrue(driver.findElement(QUICK_SHOP_SIZE_LABEL).isDisplayed(),
 					"Quick shop size labels are not displayed.");
 			Reporter.log("Quick shop size labels are displayed.");
-			ExtentReport.extentTest.info("Quick shop size labels are displayed.");
+			ExtentReport.getExtentTest().info("Quick shop size labels are displayed.");
 			/*
 			 * softAssert.assertTrue(!driver.findElement(QUICK_SHOP_SIZE_OVERLAY_ATC).
 			 * isEnabled(),
@@ -1957,7 +1957,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 
 
 			Reporter.log("Quick Shop is functional");
-			ExtentReport.extentTest.info("Quick Shop is functional");
+			ExtentReport.getExtentTest().info("Quick Shop is functional");
 		}
 
 	//				if (!classtext.equalsIgnoreCase("not-available")) {
@@ -2008,7 +2008,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 ////					System.out.println("The product doesn't have multivariant sizes in quickshop");
 ////				}
 //				Reporter.log("Quick shop size labels are Clickable.");
-//				ExtentReport.extentTest.info("Quick shop size labels are Clickable.");
+//				ExtentReport.getExtentTest().info("Quick shop size labels are Clickable.");
 //
 //				/*
 //				 * for(int i=0;i<allElements.size();i++) { element = driver.findElement(By.
@@ -2063,7 +2063,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 //				System.out.println("product details are correct on Fly cart.");
 //				Thread.sleep(3000);
 //				Reporter.log("Product details are validated on Inline cart.");
-//				ExtentReport.extentTest.info("Product details are validated on Inline cart.");
+//				ExtentReport.getExtentTest().info("Product details are validated on Inline cart.");
 //				WebElement btn = driver.findElement(FlyCartPageLocator.INLINE_CART_CLOSE_BUTTON);
 //				js.executeScript("arguments[0].click();", btn);
 //				// }
@@ -2135,7 +2135,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 
                     else
                     {
-						ExtentReport.extentTest.info("Color not changing");
+						ExtentReport.getExtentTest().info("Color not changing");
 						throw new Exception("Color not changing");
 					}
 				}
@@ -2159,12 +2159,12 @@ public class CollectionPageComponent extends CollectionPageLocator {
 				js.executeScript("arguments[0].click();", element);
 			}
 			Reporter.log("Color swatch slick arrows are displayed :: Clickable");
-			ExtentReport.extentTest.info("Color swatch slick arrows are displayed :: Clickable");
+			ExtentReport.getExtentTest().info("Color swatch slick arrows are displayed :: Clickable");
 		}
 		
 		softAssert.assertAll();
 		Reporter.log("Color swatches are changing correctly");
-		ExtentReport.extentTest.info("Color swatches are changing correctly");
+		ExtentReport.getExtentTest().info("Color swatches are changing correctly");
 	}
 
 	public void MethodToCheckColorSwatchChangingOnPLP() throws Exception {
@@ -2253,7 +2253,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		if (!text1.equals(text))
 			throw new Exception("Product tile hover functionality is not correct on plp");
 		Reporter.log("Verified Product tile hover functionality on plp");
-		ExtentReport.extentTest.info("Verified Product tile hover functionality on plp");
+		ExtentReport.getExtentTest().info("Verified Product tile hover functionality on plp");
 	}
 
 	public void UpdatedSizeFilter() {
@@ -2297,7 +2297,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		Thread.sleep(3000);
 		if (driver.findElement(QUICK_SHOP_ATC).isDisplayed()) {
 			Reporter.log("Quick shop ATC button is displayed on hover.");
-			ExtentReport.extentTest.info("Quick shop ATC button is displayed on hover.");
+			ExtentReport.getExtentTest().info("Quick shop ATC button is displayed on hover.");
 
 			System.out.println("Quick shop ATC text is: " + driver.findElement(QUICK_SHOP_ATC).getText());
 			softAssert.assertEquals(driver.findElement(QUICK_SHOP_ATC).getText(), "Select a size",
@@ -2309,12 +2309,12 @@ public class CollectionPageComponent extends CollectionPageLocator {
 			// .driver.findElement(QUICK_SHOP_ATC).click();
 			Thread.sleep(3000);
 			Reporter.log("Quick shop ATC button text is validated :: Clickable.");
-			ExtentReport.extentTest.info("Quick shop ATC button text is validated :: Clickable.");
+			ExtentReport.getExtentTest().info("Quick shop ATC button text is validated :: Clickable.");
 		}
 		softAssert.assertTrue(driver.findElement(HAMMOCK_POUCH_CTA).isDisplayed(),"Hammock Pouch toggle button is not functional");
 		softAssert.assertAll();
 		Reporter.log("Hammock Pouch toggle button is functional");
-		ExtentReport.extentTest.info("Hammock Pouch toggle button is functional");
+		ExtentReport.getExtentTest().info("Hammock Pouch toggle button is functional");
 
 	}
 
@@ -2355,7 +2355,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 
 			System.out.println("Product is displayed as multipack");
 			Reporter.log("Products are displayed as multipacks on selecting the Multipacks checkbox");
-			ExtentReport.extentTest.info("Products are displayed as multipacks on selecting the Multipacks checkbox");
+			ExtentReport.getExtentTest().info("Products are displayed as multipacks on selecting the Multipacks checkbox");
 
 		}
 	}
@@ -2369,12 +2369,12 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		
 //	String d= 	driver.findElement(By.xpath("//div[@class='relative aspect-tile']//swiper-slide")).getAttribute("style");
 //	if(d.contains("width: 361px;")) {
-//		ExtentReport.extentTest.info("Product grid contains incorrect number of items");
+//		ExtentReport.getExtentTest().info("Product grid contains incorrect number of items");
 //		throw new Exception("Product grid contains incorrect number of items");
 //	}
 		SoftAssert softassert = new SoftAssert();
 		softassert.assertTrue(driver.findElement(By.xpath(PLP_PRODUCTS)).isDisplayed(),"Products are not displayed");
-		ExtentReport.extentTest.info("Product grids are displayed");
+		ExtentReport.getExtentTest().info("Product grids are displayed");
 
 //		for (int i = 1; i < 5; i++) {
 //			if (objGeneralMethods.verifyElementExists(driver, By.xpath(PLP_PRODUCTS + "[" + i + "]"))) {
@@ -2423,11 +2423,11 @@ public class CollectionPageComponent extends CollectionPageLocator {
 
 			System.out.println("Breadcrumb link is working properly");
 			Reporter.log("Breadcrumb link is working properly");
-			ExtentReport.extentTest.info("Breadcrumb link is working properly");
+			ExtentReport.getExtentTest().info("Breadcrumb link is working properly");
 
 		} else {
 			System.out.println("Breadcrumb link is not working");
-			ExtentReport.extentTest.info("Breadcrumb link is not working");
+			ExtentReport.getExtentTest().info("Breadcrumb link is not working");
 			throw new Exception("Breadcrumb link is not working");
 		}
 
@@ -2453,20 +2453,20 @@ public class CollectionPageComponent extends CollectionPageLocator {
 //		if(c>0)
 //		{
 //			Reporter.log("The Category page displayed correct count of items");
-//			ExtentReport.extentTest.info("The Category page displayed correct count of items");
+//			ExtentReport.getExtentTest().info("The Category page displayed correct count of items");
 //		}
 //		else {
-//			ExtentReport.extentTest.info("The Category page displayed incorrect count of items");
+//			ExtentReport.getExtentTest().info("The Category page displayed incorrect count of items");
 //			throw new Exception("The Category page displayed incorrect count of items");
 //		}
 
 		if ((pageHeader.isDisplayed()) &&  headingcount.isDisplayed()) {
 			Reporter.log("The Category page header is displayed correctly with count of items");
-			ExtentReport.extentTest.info("The Category page header is displayed");
+			ExtentReport.getExtentTest().info("The Category page header is displayed");
 	//		System.out.println("Page Header is - " + pageHeader.getText());
 
 		} else {
-			ExtentReport.extentTest.info("Page Header is not displayed");
+			ExtentReport.getExtentTest().info("Page Header is not displayed");
 			throw new Exception("Page Header is not displayed");
 		}
 
@@ -2492,13 +2492,13 @@ public class CollectionPageComponent extends CollectionPageLocator {
 
 				Reporter.log("The Category page header "
 						+ driver.findElement(By.xpath("(//h2[@class='mb-md font-serif text-body-lg text-text-accent'])["+i+"]")).getText() + " is displayed");
-				ExtentReport.extentTest.info("The Category page header "
+				ExtentReport.getExtentTest().info("The Category page header "
 						+ driver.findElement(By.xpath("(//h2[@class='mb-md font-serif text-body-lg text-text-accent'])["+i+"]")).getText() + " is displayed");
 				System.out.println("Section Header - "
 						+ driver.findElement(By.xpath("(//h2[@class='mb-md font-serif text-body-lg text-text-accent'])["+i+"]")).getText());
 
 			} else {
-				ExtentReport.extentTest.info("Section Header is not displayed");
+				ExtentReport.getExtentTest().info("Section Header is not displayed");
 				throw new Exception("Section Header is not displayed");
 			}
 		}
@@ -2516,7 +2516,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		WebElement inlineBanner = driver.findElement(PLP_INLINE_BANNER);
 		System.out.println(driver.getCurrentUrl());
 		Assert.assertTrue(inlineBanner.isEnabled(), "Inline banner is clickable");
-		ExtentReport.extentTest.info("Inline banner is clickable");
+		ExtentReport.getExtentTest().info("Inline banner is clickable");
 		js.executeScript("arguments[0].scrollIntoView(true);", inlineBanner);
 		//Actions action = new Actions(driver);
 		//action.moveToElement(inlineBanner).click().perform();
@@ -2535,7 +2535,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(PLP_INLINE_BANNER));
 		WebElement inlineBanner = driver.findElement(PLP_INLINE_BANNER);
 		Assert.assertTrue(inlineBanner.isEnabled(), "Inline banner is clickable");
-		ExtentReport.extentTest.info("Inline banner is clickable");
+		ExtentReport.getExtentTest().info("Inline banner is clickable");
 		js.executeScript("arguments[0].scrollIntoView(true);", inlineBanner);
 		js.executeScript("arguments[0].click();", inlineBanner);
 //		Actions action = new Actions(driver);
@@ -2549,7 +2549,7 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		Thread.sleep(5000);
 		softAssert.assertTrue(driver.findElement(SHOP_PAGEHEADER).isDisplayed(),"User is not directed to Appropriate Page On Clicking the Inline Banner from PLP");
 		Reporter.log("User is directed to Appropriate Page On Clicking the Inline Banner from PLP");
-		ExtentReport.extentTest.info("User is directed to Appropriate Page On Clicking the Inline Banner from PLP");
+		ExtentReport.getExtentTest().info("User is directed to Appropriate Page On Clicking the Inline Banner from PLP");
 
 	}
 
@@ -2579,26 +2579,26 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		if (onImageBadge.isDisplayed()) {
 
 			Reporter.log("The On Image Badge is displayed");
-			ExtentReport.extentTest.info("The On Image Badge is displayed");
+			ExtentReport.getExtentTest().info("The On Image Badge is displayed");
 			System.out.println("The On Image Badge is displayed");
 
 		} else {
 			System.out.println("The On Image Badge is not displayed");
-			ExtentReport.extentTest.info("The On Image Badge is not displayed");
+			ExtentReport.getExtentTest().info("The On Image Badge is not displayed");
 			throw new Exception("The On Image Badge is not displayed");
 		}
 		
 		if (secondaryBadge.isDisplayed()) {
 
 			Reporter.log("The Secondary Badge is displayed");
-			ExtentReport.extentTest.info("The Secondary Badge is displayed");
+			ExtentReport.getExtentTest().info("The Secondary Badge is displayed");
 			System.out.println("The Secondary Badge is displayed");
 
 		} else {
 			
 			System.out.println("The Secondary Badge is not displayed");
 			Reporter.log("The Secondary Badge is not displayed");
-			ExtentReport.extentTest.info("The Secondary Badge is not displayed");
+			ExtentReport.getExtentTest().info("The Secondary Badge is not displayed");
 			//throw new Exception("The Secondary Badge is not displayed");
 		}
 	
@@ -2659,21 +2659,21 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		if (seoTitle.isDisplayed()) {
 
 			Reporter.log("SEO title is displayed");
-			ExtentReport.extentTest.info("SEO title is displayed");
+			ExtentReport.getExtentTest().info("SEO title is displayed");
 			System.out.println("SEO title is displayed");
 			if(seoBody.isDisplayed()) {
 				Reporter.log("SEO Body displayed");
-				ExtentReport.extentTest.info("SEO Body displayed");
+				ExtentReport.getExtentTest().info("SEO Body displayed");
 				System.out.println("SEO Body is displayed");
 			}
 			else {
 				System.out.println("SEO Body is not displayed");
-				ExtentReport.extentTest.info("SEO Body is not displayed");
+				ExtentReport.getExtentTest().info("SEO Body is not displayed");
 				throw new Exception("SEO Body is not displayed");
 			}
 		} else {
 			System.out.println("SEO title is not displayed");
-			ExtentReport.extentTest.info("SEO title is not displayed");
+			ExtentReport.getExtentTest().info("SEO title is not displayed");
 			throw new Exception("SEO title is not displayed");
 		}
 		
@@ -2689,11 +2689,11 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		if(url.contains(textLink)) {
 			System.out.println("User has navigated to correct page");
 			Reporter.log("User has navigated to correct page");
-			ExtentReport.extentTest.info("User has navigated to correct page");
+			ExtentReport.getExtentTest().info("User has navigated to correct page");
 		}
 		else {
 			System.out.println("User has not navigated to desired page");
-			ExtentReport.extentTest.info("User has not navigated to desired page");
+			ExtentReport.getExtentTest().info("User has not navigated to desired page");
 			throw new Exception("User has not navigated to desired page");
 		}
 	}
@@ -2721,14 +2721,14 @@ public class CollectionPageComponent extends CollectionPageLocator {
 //		if (priceFilter.isDisplayed()) {
 //
 //			Reporter.log("Price Filter is displayed");
-//			ExtentReport.extentTest.info("Price Filter is displayed");
+//			ExtentReport.getExtentTest().info("Price Filter is displayed");
 //			System.out.println("Price Filter is displayed");
 //			js.executeScript("arguments[0].click();", priceFilter);
 //			
 //			if(singleProductFilter.isEnabled())
 //			{
 //				Reporter.log("Single Product Filter is clickable");
-//				ExtentReport.extentTest.info("Single Product Filter is clickable");
+//				ExtentReport.getExtentTest().info("Single Product Filter is clickable");
 //				System.out.println("Single Product Filter is clickable");
 //				js.executeScript("arguments[0].click();", singleProductFilter);
 //				js.executeScript("arguments[0].click();", priceFilter);
@@ -2736,12 +2736,12 @@ public class CollectionPageComponent extends CollectionPageLocator {
 //			}
 //			else {
 //				System.out.println("Single Product Filter is not clickable");
-//				ExtentReport.extentTest.info("Single Product Filter is not clickable");
+//				ExtentReport.getExtentTest().info("Single Product Filter is not clickable");
 //				throw new Exception("Single Product Filter is not clickable");
 //			}
 //		} else {
 //			System.out.println("Price Filter is not displayed");
-//			ExtentReport.extentTest.info("Price Filter is not displayed");
+//			ExtentReport.getExtentTest().info("Price Filter is not displayed");
 //			throw new Exception("Price Filter is not displayed");
 //		}
 //		wait.until(ExpectedConditions.visibilityOfElementLocated(PRODUCT_IMAGE));
@@ -2752,12 +2752,12 @@ public class CollectionPageComponent extends CollectionPageLocator {
 //		width=	dim.width;		
 //		if(width>280)  {
 //			Reporter.log("Single Product Tile annotations are correct");
-//			ExtentReport.extentTest.info("Single Product Tile annotations are correct");
+//			ExtentReport.getExtentTest().info("Single Product Tile annotations are correct");
 //			System.out.println("Single Product Tile annotations are correct");
 //		}
 //		else {
 //			System.out.println("Single Product Tile annotations are not correct");
-//			ExtentReport.extentTest.info("Single Product Tile annotations are not correct");
+//			ExtentReport.getExtentTest().info("Single Product Tile annotations are not correct");
 //			throw new Exception("Single Product Tile annotations are not correct");
 //		}
 	}
@@ -2783,12 +2783,12 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		
 		if(width>250)  {
 			Reporter.log("Single Product Tile annotations are correct");
-			ExtentReport.extentTest.info("Single Product Tile annotations are correct");
+			ExtentReport.getExtentTest().info("Single Product Tile annotations are correct");
 			System.out.println("Single Product Tile annotations are correct");
 		}
 		else {
 			System.out.println("Single Product Tile annotations are not correct");
-			ExtentReport.extentTest.info("Single Product Tile annotations are not correct");
+			ExtentReport.getExtentTest().info("Single Product Tile annotations are not correct");
 			throw new Exception("Single Product Tile annotations are not correct");
 		}
 	}

@@ -43,7 +43,7 @@ public class InfluenecerPageComponents extends InfluencerPageLocators {
 
         softAssert.assertTrue(driver.findElement(FAVORITES_SECTION).isDisplayed(),"Favorites section is not available");
         Reporter.log("Favorites section is available");
-        ExtentReport.extentTest.info("Favorites section is available");
+        ExtentReport.getExtentTest().info("Favorites section is available");
 
     }
 
@@ -57,7 +57,7 @@ public class InfluenecerPageComponents extends InfluencerPageLocators {
 
         softAssert.assertTrue(driver.findElement(TRENDINGTHISWEEK).isDisplayed(),"Trending this week section is not available");
         Reporter.log("Trending this week section is available");
-        ExtentReport.extentTest.info("Trending this week section is available");
+        ExtentReport.getExtentTest().info("Trending this week section is available");
 
 
     }
@@ -74,7 +74,7 @@ public class InfluenecerPageComponents extends InfluencerPageLocators {
 
         softAssert.assertTrue(driver.findElement(SHOPBYCATEGORY).isDisplayed(),"Shop By Category section is not available");
         Reporter.log("Shop By Category section is available");
-        ExtentReport.extentTest.info("Shop By Category section is available");
+        ExtentReport.getExtentTest().info("Shop By Category section is available");
 
 
     }

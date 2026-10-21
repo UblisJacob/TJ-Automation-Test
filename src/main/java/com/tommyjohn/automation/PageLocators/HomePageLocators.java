@@ -49,6 +49,7 @@ public class HomePageLocators{
 	public static By OURSTORY_CTA = By.xpath("(//a[@class='button-secondary mt-lg'])[3]");
 	public static By SIGNUP_CTA = By.xpath("(//a[@class='button-secondary mt-lg'])[3]");
 	public static By BRAND_TICKER = By.xpath("//div[@id='ticker']");
+	public static By BRAND_TICKER_NEON_TEXT = By.xpath("(//div[@class='ticker-items inline-block']//span)[1]");
 
 	//InstagramWidget
 	public static By INSTA_SHOP_ICON = By.xpath("(//div[@class='dyUgc-firstlevel__slidetile-shopIcon'])[2]");

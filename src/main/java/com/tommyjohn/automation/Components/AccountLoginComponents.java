@@ -86,7 +86,7 @@ public class AccountLoginComponents extends AccountLoginLocators {
 
 		softly.assertAll();
 		Reporter.log("User is not able to Login via Social media links without accepting the Terms and Conditions");
-		ExtentReport.extentTest.info("User is not able to Login via Social media links without accepting the Terms and Conditions");
+		ExtentReport.getExtentTest().info("User is not able to Login via Social media links without accepting the Terms and Conditions");
 
 	}
 
@@ -130,7 +130,7 @@ public class AccountLoginComponents extends AccountLoginLocators {
 
 		softly.assertAll();
 		Reporter.log("User is not able to Register via Social media links without accepting the Terms and Conditions");
-		ExtentReport.extentTest.info("User is not able to Register via Social media links without accepting the Terms and Conditions");
+		ExtentReport.getExtentTest().info("User is not able to Register via Social media links without accepting the Terms and Conditions");
 
 	}
 
@@ -179,7 +179,7 @@ public class AccountLoginComponents extends AccountLoginLocators {
 		Thread.sleep(3000);
 
 		Reporter.log("Account Created Successfully :: User is brought to account page");
-		ExtentReport.extentTest.info("Account Created Successfully :: User is brought to account page");
+		ExtentReport.getExtentTest().info("Account Created Successfully :: User is brought to account page");
 		
 		return email;
 	}
@@ -289,7 +289,7 @@ public class AccountLoginComponents extends AccountLoginLocators {
 		// throw new Exception("Terms page is not displayed");
 
 		Reporter.log("All the fields and texts displayed on Create Account account page are correct");
-		ExtentReport.extentTest.info("All the fields and texts displayed on Create Account account page are correct");
+		ExtentReport.getExtentTest().info("All the fields and texts displayed on Create Account account page are correct");
 	}
 
 	public void verifyErrosForCreateAccount() throws Exception {
@@ -316,7 +316,7 @@ public class AccountLoginComponents extends AccountLoginLocators {
 			throw new Exception("Error messages are not displayed for invalid account creation");
 
 		Reporter.log("All error messages are verified on create account page");
-		ExtentReport.extentTest.info("All error messages are verified on create account page");
+		ExtentReport.getExtentTest().info("All error messages are verified on create account page");
 	}
 
 	public void verifyFieldsOnRecoverPasswordPage() throws Exception {
@@ -379,7 +379,7 @@ public class AccountLoginComponents extends AccountLoginLocators {
 //			throw new Exception("Wrong page opened after back to login link clicked");
 
 		Reporter.log("All the fields and texts displayed on Recover password page are correct");
-		ExtentReport.extentTest.info("All the fields and texts displayed on Recover password page are correct");
+		ExtentReport.getExtentTest().info("All the fields and texts displayed on Recover password page are correct");
 
 	}
 
@@ -423,7 +423,7 @@ public class AccountLoginComponents extends AccountLoginLocators {
 //					+ CustomUtilities.properties.getProperty("emailRecievedSuccessMessage") + "but actual is " + text);
 //
 //		Reporter.log("Recover password functionality completed Successfully :: User is brought to login page");
-//		ExtentReport.extentTest.info("Recover password functionality completed Successfully :: User is brought to login page");
+//		ExtentReport.getExtentTest().info("Recover password functionality completed Successfully :: User is brought to login page");
 //	}
 
 	public void recoverPassword() throws Exception {
@@ -470,7 +470,7 @@ public class AccountLoginComponents extends AccountLoginLocators {
 
 			System.out.println("CAPTCHA detected in new window! Skipping the test and marking it as passed.");
 			Reporter.log("CAPTCHA detected in new window, skipping and marking as passed.");
-			ExtentReport.extentTest.pass("CAPTCHA detected in new window. Test is marked as passed.");
+			ExtentReport.getExtentTest().pass("CAPTCHA detected in new window. Test is marked as passed.");
 
 //			driver.close();  // Close CAPTCHA window
 //			driver.switchTo().window(originalWindow);  // Switch back to main window
@@ -488,7 +488,7 @@ public class AccountLoginComponents extends AccountLoginLocators {
 //		}
 
 		Reporter.log("Recover password functionality completed successfully :: User is brought to login page");
-		ExtentReport.extentTest.info("Recover password functionality completed successfully :: User is brought to login page");
+		ExtentReport.getExtentTest().info("Recover password functionality completed successfully :: User is brought to login page");
 	}
 
 
@@ -541,7 +541,7 @@ Thread.sleep(3000);
 			throw new Exception("Wrong page opened after clicked on link");
 
 		Reporter.log("All error messages are verified on Recover password page");
-		ExtentReport.extentTest.info("All error messages are verified on Recover password page");
+		ExtentReport.getExtentTest().info("All error messages are verified on Recover password page");
 	}
 
 	public void verifyAllFieldsOnLoginPage() throws Exception {
@@ -595,7 +595,7 @@ Thread.sleep(3000);
 			throw new Exception("Forgot password link is not present");
 
 		Reporter.log("All displayed fields and texts are verified on account login page");
-		ExtentReport.extentTest.info("All displayed fields and texts are verified on account login page");
+		ExtentReport.getExtentTest().info("All displayed fields and texts are verified on account login page");
 	}
 
 	public void verifyAccountLoginFuctionality(String createdAccountEmail, String password) throws Exception {
@@ -640,7 +640,7 @@ Thread.sleep(3000);
 			throw new Exception("Wrong page opened");
 
 		Reporter.log("Account Login functionality verified successfully");
-		ExtentReport.extentTest.info("Account Login functionality verified successfully");
+		ExtentReport.getExtentTest().info("Account Login functionality verified successfully");
 	}
 	
 	public void verifyAccountLogin(String createdAccountEmail, String password) throws Exception {
@@ -677,7 +677,7 @@ Thread.sleep(3000);
 			throw new Exception("Wrong page opened");
 
 		Reporter.log("Account Login functionality verified successfully");
-		ExtentReport.extentTest.info("Account Login functionality verified successfully");
+		ExtentReport.getExtentTest().info("Account Login functionality verified successfully");
 	}
 
 	public void verifyErrorMessagesOnLoginPage() throws Exception {
@@ -720,7 +720,7 @@ Thread.sleep(3000);
 			throw new Exception("Wrong page opened");
 
 		Reporter.log("All error messages are verified on login page");
-		ExtentReport.extentTest.info("All error messages are verified on login page");
+		ExtentReport.getExtentTest().info("All error messages are verified on login page");
 	}
 	
 	

@@ -128,9 +128,9 @@ public class GiftCardBalancePageComponents extends GiftCardBalancePageLocators {
 		System.out.println("Physical Gift Card Form and all of its necessary fields are present");
 		System.out.println("Digital Gift Card Form and all of its necessary fields are present");
 		Reporter.log("Physical Gift Card Form and all of its necessary fields are present");
-		ExtentReport.extentTest.info("Physical Gift Card Form and all of its necessary fields are present");
+		ExtentReport.getExtentTest().info("Physical Gift Card Form and all of its necessary fields are present");
 		Reporter.log("Digital Gift Card Form and all of its necessary fields are present");
-		ExtentReport.extentTest.info("Digital Gift Card Form and all of its necessary fields are present");
+		ExtentReport.getExtentTest().info("Digital Gift Card Form and all of its necessary fields are present");
 	}
 
 	/**
@@ -191,7 +191,7 @@ public class GiftCardBalancePageComponents extends GiftCardBalancePageLocators {
 		softassert.assertAll();
 		System.out.println("Card Number, Activation Date and Remaining Balance is present on Balance Page");
 		Reporter.log("Card Number, Activation Date and Remaining Balance is present on Balance Page");
-		ExtentReport.extentTest.info("Card Number, Activation Date and Remaining Balance is present on Balance Page");
+		ExtentReport.getExtentTest().info("Card Number, Activation Date and Remaining Balance is present on Balance Page");
 		
 //		"Back to Gift Card Balance" directs the user back to the initial page.
 		String expbacktoGCLink = "https://tommyjohn.com/pages/my-card-balance";
@@ -265,7 +265,7 @@ public class GiftCardBalancePageComponents extends GiftCardBalancePageLocators {
 
 		System.out.println("Error Message appeared after entering invalid card number");
 		Reporter.log("Error Message appeared after entering invalid card number");
-		ExtentReport.extentTest.info("Error Message appeared after entering invalid card number");
+		ExtentReport.getExtentTest().info("Error Message appeared after entering invalid card number");
 
 		driver.navigate().refresh();
 
@@ -290,7 +290,7 @@ public class GiftCardBalancePageComponents extends GiftCardBalancePageLocators {
 
 		System.out.println("Error Message appeared after entering invalid Gift Card Pin");
 		Reporter.log("Error Message appeared after entering invalid Gift Card Pin");
-		ExtentReport.extentTest.info("Error Message appeared after entering invalid Gift Card Pin");
+		ExtentReport.getExtentTest().info("Error Message appeared after entering invalid Gift Card Pin");
 		
 		driver.navigate().refresh();
 
@@ -307,7 +307,7 @@ public class GiftCardBalancePageComponents extends GiftCardBalancePageLocators {
 
 		System.out.println("Error Message appeared after entering invalid Gift Card Pin");
 		Reporter.log("Error Message appeared after entering invalid Gift Card Pin");
-		ExtentReport.extentTest.info("Error Message appeared after entering invalid Gift Card Pin");
+		ExtentReport.getExtentTest().info("Error Message appeared after entering invalid Gift Card Pin");
 
 		driver.navigate().refresh();
 
@@ -364,7 +364,7 @@ public class GiftCardBalancePageComponents extends GiftCardBalancePageLocators {
 		softassert.assertAll();
 		System.out.println("Card Number, Activation Date and Remaining Balance is present on Balance Page");
 		Reporter.log("Card Number, Activation Date and Remaining Balance is present on Balance Page");
-		ExtentReport.extentTest.info("Card Number, Activation Date and Remaining Balance is present on Balance Page");
+		ExtentReport.getExtentTest().info("Card Number, Activation Date and Remaining Balance is present on Balance Page");
 		
 //		"Back to Gift Card Balance" directs the user back to the intial page.
 		String expbacktoGCLink = "https://tommyjohn.com/pages/my-card-balance";
@@ -427,7 +427,7 @@ public class GiftCardBalancePageComponents extends GiftCardBalancePageLocators {
 		
 		System.out.println("Valid Error Message appeared after omitting card number field");
 		Reporter.log("Valid Error Message appeared after omitting card number field");
-		ExtentReport.extentTest.info("Valid Error Message appeared after omitting card number field");
+		ExtentReport.getExtentTest().info("Valid Error Message appeared after omitting card number field");
 
 		driver.navigate().refresh();
 		wait.until(ExpectedConditions.elementToBeClickable(DIGITAL_GIFT_CARD_CHECK_BALANCE_BTN));
@@ -442,7 +442,7 @@ public class GiftCardBalancePageComponents extends GiftCardBalancePageLocators {
 		softassert.assertTrue(actualEmailErrorText.equals(expectedEmailErrorText), "Error Message for did not appear for Email field or Error Text has changed");
 		System.out.println("Valid Error Message appeared after entering valid GCID and omitting Email field");
 		Reporter.log("Valid Error Message appeared after entering valid GCID and omitting Email field");
-		ExtentReport.extentTest.info("Valid Error Message appeared after entering valid GCID and omitting Email field");
+		ExtentReport.getExtentTest().info("Valid Error Message appeared after entering valid GCID and omitting Email field");
 
 		driver.navigate().refresh();
 		
@@ -466,7 +466,7 @@ public class GiftCardBalancePageComponents extends GiftCardBalancePageLocators {
 		
 		System.out.println("Valid Error Message appeared after omitting both fields");
 		Reporter.log("Valid Error Message appeared after omitting both fields");
-		ExtentReport.extentTest.info("Valid Error Message appeared after omitting both fields");
+		ExtentReport.getExtentTest().info("Valid Error Message appeared after omitting both fields");
 
 		driver.navigate().refresh();
 		
@@ -491,7 +491,7 @@ public class GiftCardBalancePageComponents extends GiftCardBalancePageLocators {
 		
 		System.out.println("Valid Error Message appeared after entering invalid GCID and Valid Email field");
 		Reporter.log("Valid Error Message appeared after entering invalid GCID and Valid Email field");
-		ExtentReport.extentTest.info("Valid Error Message appeared after entering invalid GCID and Valid Email field");
+		ExtentReport.getExtentTest().info("Valid Error Message appeared after entering invalid GCID and Valid Email field");
 
 		driver.navigate().refresh();
 		
@@ -511,7 +511,7 @@ public class GiftCardBalancePageComponents extends GiftCardBalancePageLocators {
 		
 		System.out.println("Valid Error Message appeared after entering valid GCID and inValid Email field");
 		Reporter.log("Valid Error Message appeared after entering valid GCID and inValid Email field");
-		ExtentReport.extentTest.info("Valid Error Message appeared after entering valid GCID and inValid Email field");
+		ExtentReport.getExtentTest().info("Valid Error Message appeared after entering valid GCID and inValid Email field");
 
 		driver.navigate().refresh();
 		
@@ -531,7 +531,7 @@ public class GiftCardBalancePageComponents extends GiftCardBalancePageLocators {
 		
 		System.out.println("Valid Error Message appeared after entering invalid GCID and invalid Email field");
 		Reporter.log("Valid Error Message appeared after entering invalid GCID and invalid Email field");
-		ExtentReport.extentTest.info("Valid Error Message appeared after entering invalid GCID and invalid Email field");
+		ExtentReport.getExtentTest().info("Valid Error Message appeared after entering invalid GCID and invalid Email field");
 
 		driver.navigate().refresh();
 		

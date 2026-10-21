@@ -49,7 +49,7 @@ public class CheckoutPageADACheck {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         jse.executeScript("arguments[0].click();", driver.findElement(FlyCartComponents.CHECKOUT_BUTTON));
         Reporter.log("Information page displayed");
-        ExtentReport.extentTest.info("Information page displayed");
+        ExtentReport.getExtentTest().info("Information page displayed");
         ADACheckMethods.ADACheck(driver, "InformationPageADACheck");
 
         //Navigating to Shipping page
@@ -80,13 +80,13 @@ public class CheckoutPageADACheck {
         driver.findElement(CheckoutPageLocators.PHONE_TEXTBOX).clear();
         driver.findElement(CheckoutPageLocators.PHONE_TEXTBOX).sendKeys("8889996667");
         Reporter.log("Shipping Address Details entered");
-        ExtentReport.extentTest.info("Shipping Address Details entered");
+        ExtentReport.getExtentTest().info("Shipping Address Details entered");
         WebElement Continue_shipping = driver.findElement(CheckoutPageLocators.CONTINUE_TO_SHIPPING_BUTTON);
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", Continue_shipping);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@type='radio'])[2]")));
   //      driver.findElement(By.xpath("(//input[@type='radio'])[2]")).click();
         Reporter.log("Shipping page is displayed");
-        ExtentReport.extentTest.info("Shipping page is displayed");
+        ExtentReport.getExtentTest().info("Shipping page is displayed");
         ADACheckMethods.ADACheck(driver, "ShippingPageADACheck");
 
         //Navigating to Payment Page
@@ -95,7 +95,7 @@ public class CheckoutPageADACheck {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='checkbox']")));
   //      driver.findElement(By.xpath("//input[@type='checkbox']")).click();
         Reporter.log("Payment page is displayed");
-        ExtentReport.extentTest.info("Payment page is displayed");
+        ExtentReport.getExtentTest().info("Payment page is displayed");
         ADACheckMethods.ADACheck(driver, "PaymentPageADACheck");
         ADACheckMethods.softAssert.assertAll();
     }

@@ -36,6 +36,7 @@ public class CustomUtilities {
     // Remove static WebDriver - use DriverManager below (ThreadLocal)
     public EdgeDriver edgedriver;
     public static String baseUrl = "https://www.tommyjohn.com/";
+    static String ShopifyCasesUrl = "https://www.tommyjohn.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=188766486573";
     public static String shopify = "https://admin.shopify.com/store/tommyjohn/";
     public static BufferedReader reader;
     public static Properties properties;
@@ -175,6 +176,139 @@ public class CustomUtilities {
 
         return localDriver;
     }
+
+
+    public WebDriver launchk(String browser) throws Exception {
+
+
+        LoggingPreferences logPrefs = new LoggingPreferences();
+        logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
+
+
+
+        // load properties file
+        loadPropertiesFile();
+
+        WebDriver localDriver = null;
+
+        if (browser.equalsIgnoreCase("chrome")) {
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.setCapability("goog:loggingPrefs", logPrefs);
+            chromeOptions.addArguments("--use-fake-ui-for-media-stream");
+            chromeOptions.addArguments("--use-fake-device-for-media-stream");
+            chromeOptions.addArguments("--unsafely-treat-insecure-origin-as-secure=http:// 192.168.5.37");
+//            chromeOptions.addArguments("--unsafely-treat-insecure-origin-as-secure=http://192.168.7.207");
+            chromeOptions.addArguments("--disable-web-security");
+            chromeOptions.addArguments("--ignore-certificate-errors");
+            chromeOptions.addArguments("--disable-gpu");
+            // remove headless if you need visual debugging; keep if CI
+//            chromeOptions.addArguments("--headless=new");
+            chromeOptions.addArguments("--window-size=1920,1080");
+            chromeOptions.addArguments("--disable-touch-events");
+            chromeOptions.addArguments("--force-device-scale-factor=1");
+            chromeOptions.addArguments("--disable-features=TouchpadAndWheelScrollLatching");
+            chromeOptions.addArguments("--force-device-scale-factor=1");
+            chromeOptions.addArguments("--start-maximized");
+            //     chromeOptions.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36");
+//            chromeOptions.addArguments("--disable-blink-features=AutomationControlled");
+//            chromeOptions.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
+//            chromeOptions.setExperimentalOption("useAutomationExtension", false);
+            chromeOptions.addArguments("--no-sandbox");
+            chromeOptions.addArguments("--disable-dev-shm-usage");
+            chromeOptions.addArguments("--aggressive-cache-discard");
+            chromeOptions.addArguments("--disable-cache");
+            chromeOptions.addArguments("--disable-application-cache");
+            chromeOptions.addArguments("--no-default-browser-check");
+            chromeOptions.addArguments("--disable-popup-blocking");
+            chromeOptions.addArguments("--remote-allow-origins=*");
+            chromeOptions.setAcceptInsecureCerts(true);
+            chromeOptions.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+
+            // host resolver rules (as before)
+            chromeOptions.addArguments("--host-resolver-rules=MAP cdn.attn.tv 127.0.0.1");
+            chromeOptions.addArguments("--host-resolver-rules=MAP tommyjohn.attn.tv 127.0.0.1");
+            chromeOptions.addArguments("--host-resolver-rules=MAP creatives.attn.tv 127.0.0.1");
+
+            // instantiate driver
+            localDriver = new ChromeDriver(chromeOptions);
+
+            // optional: use CDP to set device metrics (keeps your previous behavior)
+//            try {
+//                DevTools devTools = ((ChromeDriver) localDriver).getDevTools();
+//                devTools.createSession();
+//                devTools.send(Emulation.setDeviceMetricsOverride(
+//                        1920, 1080, 1.0, false,
+//                        Optional.empty(), Optional.empty(), Optional.empty(),
+//                        Optional.empty(), Optional.empty(), Optional.empty(),
+//                        Optional.empty(), Optional.empty(), Optional.empty(),
+//                        Optional.empty()
+//                ));
+//            } catch (Exception e) {
+//                // CDP may fail on some driver versions/environments — ignore safely
+//                System.out.println("DevTools session/setup failed: " + e.getMessage());
+//            }
+
+
+            localDriver.manage().window().setSize(new Dimension(1920, 1080));
+            localDriver.get(ShopifyCasesUrl);
+
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            FirefoxOptions options = new FirefoxOptions();
+            options.addArguments("--disable-gpu");
+            options.addArguments("--window-size=1280,800");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--aggressive-cache-discard");
+            options.addArguments("--disable-cache");
+            options.addArguments("--disable-application-cache");
+            options.addArguments("--ignore-certificate-errors");
+            options.addArguments("--no-default-browser-check");
+            options.addArguments("--disable-popup-blocking");
+
+            options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+
+            localDriver = new FirefoxDriver(options);
+            localDriver.get(ShopifyCasesUrl);
+            localDriver.manage().window().maximize();
+
+        } else if (browser.equalsIgnoreCase("edge")) {
+            EdgeOptions options = new EdgeOptions();
+            edgedriver = new EdgeDriver(options);
+            edgedriver.get(ShopifyCasesUrl);
+            edgedriver.manage().window().maximize();
+            localDriver = edgedriver;
+
+        } else if (browser.equalsIgnoreCase("safari")) {
+            System.setProperty("webdriver.edge.driver", properties.getProperty("safariPath"));
+            SafariOptions options = new SafariOptions();
+            options.setCapability("--headless", true);
+            options.setCapability("--window-size=1280,800", true);
+            options.setCapability("--disable-gpu", true);
+            options.setCapability("--no-sandbox", true);
+            options.setCapability("--disable-dev-shm-usage", true);
+            options.setCapability("--aggressive-cache-discard", true);
+            options.setCapability("--disable-cache", true);
+            options.setCapability("--disable-application-cache", true);
+            options.setCapability("--ignore-certificate-errors", true);
+            options.setCapability("--no-default-browser-check", true);
+            options.setCapability("--disable-popup-blocking", true);
+
+            options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+
+            localDriver = new SafariDriver(options);
+            localDriver.get(ShopifyCasesUrl);
+            localDriver.manage().window().maximize();
+        }
+
+        // set the ThreadLocal driver so other classes/listeners can fetch it
+        if (localDriver != null) {
+            DriverManager.setDriver(localDriver);
+        }
+
+        return localDriver;
+    }
+
+
 
     // safe teardown: quits and unloads ThreadLocal driver
     public void teardown() {

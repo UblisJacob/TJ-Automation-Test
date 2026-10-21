@@ -171,12 +171,12 @@ public class ElevarComponents {
             driver.findElement(PHONE_TEXTBOX).clear();
             driver.findElement(PHONE_TEXTBOX).sendKeys("8889996667");
             Reporter.log("Shipping Address Details entered");
-            ExtentReport.extentTest.info("Shipping Address Details entered");
+            ExtentReport.getExtentTest().info("Shipping Address Details entered");
             // driver.findElement(CONTINUE_TO_SHIPPING_BUTTON).click();
             WebElement Continue_shipping = driver.findElement(CONTINUE_TO_SHIPPING_BUTTON);
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", Continue_shipping);
             Reporter.log("User is navigated to select shipping method");
-            ExtentReport.extentTest.info("User is navigated to select shipping method");
+            ExtentReport.getExtentTest().info("User is navigated to select shipping method");
             wait.until(ExpectedConditions.visibilityOfElementLocated(CONTACT_EMAIL));
 
             Thread.sleep(5000); // Let pixel trigger naturally

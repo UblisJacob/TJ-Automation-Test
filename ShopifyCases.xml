@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Shopify Case Suite" thread-count="3">
+
+    <listeners>
+        <listener class-name="TestScenario.ShopifyTestsListenerClass"></listener>
+        <listener class-name="TestScenario.RetryListener"></listener>
+    </listeners>
+
+    <test name="ShopifyTestCaseTests">
+        <!--        <parameter name="seleniumGridURL" value="http://192.168.5.229:4444/wd/hub"/>-->
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="TestModules.ValidateShopifyTests" />
+        </classes>
+    </test>
+</suite>

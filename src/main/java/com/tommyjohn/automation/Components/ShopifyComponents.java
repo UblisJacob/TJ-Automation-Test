@@ -10,6 +10,7 @@ import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v152.network.Network;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
@@ -41,10 +42,7 @@ public class ShopifyComponents extends ShopifyLocators {
     List<WebElement> Tabs;
     String allClasses = null;
     public Actions actions;
-    String invalidemail = "drewstrr@tre.cde";
-    String invalidpassword = "123";
-    String forgotpasswordemail = "testuserQA1@gmail.com";
-    String currentUrl;
+    Wait<WebDriver> wait;
 
 
     public void ValidateShopifyAccountLogin(String createdAccountEmail, String password) throws Exception {
@@ -257,7 +255,7 @@ public class ShopifyComponents extends ShopifyLocators {
 
                 Reporter.log("Login Successful");
 
-                ExtentReport.extentTest.pass("Login Successful");
+                ExtentReport.getExtentTest().pass("Login Successful");
 
                 return;
             }
@@ -272,7 +270,7 @@ public class ShopifyComponents extends ShopifyLocators {
 
                 Reporter.log("Waiting for Authentication Code");
 
-                ExtentReport.extentTest.info(
+                ExtentReport.getExtentTest().info(
                         "Reached Authentication Page");
 
                 return;

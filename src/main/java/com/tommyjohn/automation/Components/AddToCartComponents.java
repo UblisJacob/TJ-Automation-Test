@@ -224,7 +224,7 @@ public class AddToCartComponents extends AddToCartLocators{
 			Reporter.log(
 					"Validated Flyout cart opens with QuickShop");
 
-			ExtentReport.extentTest.info(
+			ExtentReport.getExtentTest().info(
 					"Validated Flyout cart opens with QuickShop");
 
 		} else {
@@ -1222,7 +1222,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		else {
 			System.out.println("Add to Cart CTA is not enabled");
 			Reporter.log("Add to Cart CTA is not enabled");
-			ExtentReport.extentTest.info("Add to Cart CTA is not enabled");
+			ExtentReport.getExtentTest().info("Add to Cart CTA is not enabled");
 
 		}
 
@@ -2692,7 +2692,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 
 		Thread.sleep(2000);
 
@@ -2779,7 +2779,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		driver.get("https://www.tommyjohn.com/products/womens-second-skin-brief-13?variant=44729634914349");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 		Thread.sleep(2000);
 
 		allElements = driver.findElements(COLOR_VARIANT);
@@ -2872,7 +2872,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		driver.get("https://www.tommyjohn.com/products/womens-air-brief-1?variant=44929145798701");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 		Thread.sleep(2000);
 
 		allElements = driver.findElements(COLOR_VARIANT);
@@ -2965,7 +2965,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		driver.get("https://www.tommyjohn.com/products/womens-air-brief-1?variant=44929145798701");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 		Thread.sleep(2000);
 
 		allElements = driver.findElements(COLOR_VARIANT);
@@ -3061,7 +3061,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		driver.get("https://www.tommyjohn.com/products/womens-air-brief-1?variant=44929145798701");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 		Thread.sleep(2000);
 
 		allElements = driver.findElements(COLOR_VARIANT);
@@ -3154,7 +3154,7 @@ public class AddToCartComponents extends AddToCartLocators{
 		driver.get("https://www.tommyjohn.com/products/womens-air-brief-3?variant=66913155743789");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ProductDetailsPageLocators.PRODUCT_TITLE));
 		Reporter.log(driver.getCurrentUrl());
-		ExtentReport.extentTest.info(driver.getCurrentUrl());
+		ExtentReport.getExtentTest().info(driver.getCurrentUrl());
 		Thread.sleep(2000);
 
 		allElements = driver.findElements(COLOR_VARIANT);

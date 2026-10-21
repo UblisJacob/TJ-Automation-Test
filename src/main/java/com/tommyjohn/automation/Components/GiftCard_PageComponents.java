@@ -505,12 +505,12 @@ public class GiftCard_PageComponents extends GiftCard_PageLocators {
 			if(driver.findElement(ProductDetailsPageLocators.AFTERPAY_PDP).isDisplayed())
 				flag=1;
 			Reporter.log("AfterPay Message is displayed on PDP with Gift Card in cart");
-			ExtentReport.extentTest.info("AfterPay Message is displayed on PDP with Gift Card in cart");
+			ExtentReport.getExtentTest().info("AfterPay Message is displayed on PDP with Gift Card in cart");
 		}
 		catch(Exception e) {
 			System.out.println("After Pay Message is not displayed on normal PDP with Gift Card.");
 			Reporter.log("After Pay Message is not displayed on normal PDP with Gift Card");
-			ExtentReport.extentTest.info("After Pay Message is not displayed on normal PDP with Gift Card");
+			ExtentReport.getExtentTest().info("After Pay Message is not displayed on normal PDP with Gift Card");
 		}
 
 		if(flag==1) {
@@ -532,12 +532,12 @@ public class GiftCard_PageComponents extends GiftCard_PageLocators {
 					if(driver.findElement(FlyCartPageLocator.AFTERPAY_FLYCART).isDisplayed())
 						flag=1;
 					Reporter.log("AfterPay Message is displayed on Inline cart with Gift Card");
-					ExtentReport.extentTest.info("AfterPay Message is displayed on Inline cart with Gift Card");
+					ExtentReport.getExtentTest().info("AfterPay Message is displayed on Inline cart with Gift Card");
 				}
 				catch(Exception e){
 					System.out.println("After Pay Message is not displayed on Fly cart with Gift Card.");
 					Reporter.log("After Pay Message is not displayed on Inline cart with Gift Card");
-					ExtentReport.extentTest.info("After Pay Message is not displayed on Inline cart with Gift Card");
+					ExtentReport.getExtentTest().info("After Pay Message is not displayed on Inline cart with Gift Card");
 				}
 			}
 
@@ -565,12 +565,12 @@ public class GiftCard_PageComponents extends GiftCard_PageLocators {
 					if(driver.findElement(ShoppingCartComponents.AFTERPAY_CART).isDisplayed())
 					flag=1;	
 					Reporter.log("AfterPay Message is displayed on Shopping cart with Gift Card");
-					ExtentReport.extentTest.info("AfterPay Message is displayed on Shopping cart with Gift Card");
+					ExtentReport.getExtentTest().info("AfterPay Message is displayed on Shopping cart with Gift Card");
 				}
 				catch(Exception e){
 					System.out.println("After Pay Message is not displayed on Shopping cart with Gift Card.");
 					Reporter.log("After Pay Message is not displayed on Shopping cart with Gift Card");
-					ExtentReport.extentTest.info("After Pay Message is not displayed on Shopping cart with Gift Card");
+					ExtentReport.getExtentTest().info("After Pay Message is not displayed on Shopping cart with Gift Card");
 				}
 			}
 
@@ -614,12 +614,12 @@ public class GiftCard_PageComponents extends GiftCard_PageLocators {
 					driver.findElement(CheckoutPageComponents.AFTERPAYLOGO_WITH_INSTALLMENT).isDisplayed();
 					 flag = 1;
 					Reporter.log("BUG : AfterPay Message is displayed on Checkout page with Gift Card");
-					ExtentReport.extentTest.info("BUG : AfterPay Message is displayed on Checkout page with Gift Card");
+					ExtentReport.getExtentTest().info("BUG : AfterPay Message is displayed on Checkout page with Gift Card");
 				}
 				catch(Exception e){
 					System.out.println("After Pay Message is not displayed on payment page with Gift Card.");
 					Reporter.log("After Pay Message is not displayed on Checkout page with Gift Card");
-					ExtentReport.extentTest.info("After Pay Message is not displayed on Checkout page with Gift Card");
+					ExtentReport.getExtentTest().info("After Pay Message is not displayed on Checkout page with Gift Card");
 				}
 			}
 		}

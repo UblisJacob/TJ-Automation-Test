@@ -31,6 +31,12 @@ public class ValidateHomePage extends ExtentReport {
 		homePage.ValidateContentBannerSlice();
 	}
 
+	@Test
+	public void ValidateBrandTickerNeonColors() throws Exception {
+		HomePageComponents homePage = new HomePageComponents(driver);
+		homePage.ValidateBrandTickerNeonColors();
+	}
+
     @Test
     public void VerifyScrollCTA() throws Exception {
         HomePageComponents homePage = new HomePageComponents(driver);
@@ -95,18 +101,6 @@ public class ValidateHomePage extends ExtentReport {
 		new HomePage(driver).VerifyRecsInMensToggle();
 	}
 
-//	@Test
-	public void ValidateShopNowCTAInMensToggle() throws Exception {
-
-		new HomePage(driver).ValidateShopNowCTAInMensToggle();
-	}
-
-
-//	@Test
-	public void ValidateNewMarkdownSection() throws Exception {
-
-		new HomePage(driver).ValidateNewMarkdownsSection();
-	}
 
 	@Test
 	public void ValidateShopMensCTAInHeroSlider() throws Exception {
@@ -174,12 +168,7 @@ public class ValidateHomePage extends ExtentReport {
 
 		new HomePage(driver).ValidateLogoAndCategoriesPresence();
 	}
-	
-//	@Test
-	public void VerifyAccountdropdownOnHomePage() throws Exception {
 
-		new HomePage(driver).verifyaccountdropdown();
-	}
 
 	@Test
 	public void VerifyAccountAndCartIconOnHomePage() throws Exception {
@@ -187,74 +176,6 @@ public class ValidateHomePage extends ExtentReport {
 		new HomePage(driver).validateAccountIcon();
 		new HomePage(driver).validateCartIcon();
 	}
-
-
-	
-	//@Test
-	public void ValidateDoNotSellMyPersonalInformationPage() throws
-	Exception {
-
-		new HomePage(driver).validateDoNotSellMyPersonalInformation();
-	}
-
-//	@Test
-	public void ValidateAddingProductToCartFromInstagramWidget() throws
-			Exception {
-
-		new HomePage(driver).ValidateAddingProductToCartFromInstagramWidget();
-	}
-
-//	@Test
-	public void ValidateAppropriateProductIsAddedToCartFromInstagramWidget() throws
-			Exception {
-
-		new HomePage(driver).ValidateAppropriateProductIsAddedToCartFromInstagramWidget();
-	}
-
-//	@Test
-	public void ValidateSizeOverlayInInstagramWidget() throws
-			Exception {
-
-		new HomePage(driver).ValidateSizeOverlayInInstagramWidget();
-	}
-
-//	@Test
-	public void verifySelectedColorSwatchIsDisplayedInTheInlineCart() throws
-			Exception {
-
-		new HomePage(driver).verifySelectedColorSwatchIsDisplayedInTheInlineCart();
-	}
-	
-//	@Test
-	public void ValidateRecommendedForYou() throws
-	Exception {
-
-		new HomePage(driver).verifyrecommendedforyou();
-	}
-	
-//	@Test
-	public void ValidateQuickShoponDYRecsHomePgae() throws
-	Exception {
-
-		new HomePage(driver).verifyQuickShopforDYRecsOnHomePage();
-	}
-
-//	@Test
-	public void ValidateColorSwatchonDYRecsHomePage() throws
-	Exception {
-
-		new HomePage(driver).verifyColorSwatchforDYRecsOnHomePage();
-	}
-
-//	@Test
-	public void ValidateProductTileHoverFunctionalityonDYRecsHomePage() throws
-	Exception {
-
-		new HomePage(driver).verifyRFYProductTileHoverFunctionality();
-	}
-
-
-
 
 
 	@AfterMethod(alwaysRun = true)
