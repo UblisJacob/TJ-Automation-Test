@@ -48,6 +48,8 @@ import static com.tommyjohn.automation.ADACheck.ADACheckMethods.softAssert;
 import static com.tommyjohn.automation.PageLocators.CheckoutPageLocators.*;
 import static com.tommyjohn.automation.PageLocators.CollectionPageLocator.*;
 import static com.tommyjohn.automation.PageLocators.FlyCartPageLocator.*;
+import static com.tommyjohn.automation.PageLocators.ShoppingCartLocators.CHECKOUT_BUTTON;
+
 import com.tommyjohn.automation.PageLocators.CheckoutPageLocators;
 import org.testng.asserts.SoftAssert;
 

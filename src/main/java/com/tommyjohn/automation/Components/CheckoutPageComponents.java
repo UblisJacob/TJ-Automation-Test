@@ -34,6 +34,10 @@ public class CheckoutPageComponents extends CheckoutPageLocators {
 
 	public CheckoutPageComponents(WebDriver driver) {
 		this.driver = driver;
+		this.wait = new FluentWait<>(driver)
+				.pollingEvery(Duration.ofMillis(DEFAULT_POLLING_MILLI_SECONDS))
+				.withTimeout(Duration.ofSeconds(DEFAULT_PAGE_LOAD_TIMEOUT_SECONDS))
+				.ignoring(NoSuchElementException.class);
 	}
 
 	public WebDriver driver;
@@ -45,6 +49,142 @@ public class CheckoutPageComponents extends CheckoutPageLocators {
 	String price;
 	String text;
 	SoftAssert softAssert = new SoftAssert();
+	public static final long DEFAULT_PAGE_LOAD_TIMEOUT_SECONDS = 30;
+	public static final long DEFAULT_POLLING_MILLI_SECONDS = 500;
+	public static final long THREAD_SLEEP_5_SEC = 5000;
+	public static final long THREAD_SLEEP_2_SEC = 2000;
+
+
+
+	public void validateWarningMessage() throws Exception {
+		/* Click Search Icon and type the item name Polo */
+		Actions Act = new Actions(driver);
+		jse = (JavascriptExecutor)driver;
+	//	generalMethods.waitTillPageLoad(driver);
+		driver.findElement(SEARCH_ICON).click();
+		waitAndEnterValue(SEARCH_INPUT, "Polo");
+		Act.sendKeys(Keys.ENTER).perform();
+		/* Select Premium Pique Polo from the product list and click on it */
+		Thread.sleep(THREAD_SLEEP_5_SEC);
+		jse.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(PRODUCT_LIST_PREMIUM_PIQUE_POLO));
+		jse.executeScript("window.scrollBy(0, 100);");
+		waitAndClick(PRODUCT_LIST_PREMIUM_PIQUE_POLO, false);
+		/* Select the size and color of the product and click on Add to Cart */
+		waitAndClick(MEDIUM_SIZE, false);
+		waitAndClick(ADD_TO_CART_BUTTON, true);
+		/* Click Check out Button */
+		waitAndClick(CHECKOUT_BUTTON, false);
+		/* Enter Mail ID and Select Country */
+		waitAndEnterValue(MAIL_ID, "test@example.com");
+		waitAndClick(COUNTRY_COMBO, false);
+		waitAndClick(INDIA_COMBO_VALUE, false);
+		/* Enter over 35 characters in each name and address field */
+		By[] fieldLocators = {FIRST_NAME_FIELD, LAST_NAME_FIELD, ADDRESS_ONE_FIELD, ADDRESS_TWO_FIELD, CITY_FIELD,
+				PINCODE_FIELD};
+		String[] fieldNames = {"First name", "Last name", "Address 1", "Address 2", "City", "ZIP code"};
+		String[] fieldValues = {"abcdefghijklmn".repeat(4), "opqrstuvwxyz".repeat(4),
+				"123 Main Street, Apartment 456, Cityville, State, Country".repeat(2),
+				"Additional Address Info, Suite 789, Cityville, State, Country".repeat(2), "New York City ".repeat(4),
+				"1234567890".repeat(4)};
+		for (int i = 0; i < fieldLocators.length; i++) {
+			waitAndEnterValue(fieldLocators[i], fieldValues[i]);
+			String enteredValue = driver.findElement(fieldLocators[i]).getAttribute("value");
+			System.out.println("Value Entered in " + fieldNames[i] + " : " + enteredValue);
+	//		generalMethods.printReport("Value Entered in the " + fieldNames[i] + " is " + enteredValue, driver);
+			Reporter.log("Value Entered in the " + fieldNames[i] + " is " + enteredValue);
+			ExtentReport.getExtentTest().info("Value Entered in the " + fieldNames[i] + " is " + enteredValue);
+			driver.findElement(fieldLocators[i]).sendKeys(Keys.TAB);
+		}
+		/* Build the expected alert messages from the values in the fields */
+		List<String> expectedAlertMessages = new ArrayList<>();
+		for (int i = 0; i < fieldLocators.length; i++) {
+			String enteredValue = driver.findElement(fieldLocators[i]).getAttribute("value");
+			if (enteredValue != null && enteredValue.length() > 35) {
+				expectedAlertMessages.add(fieldNames[i] + " must be 35 characters or fewer");
+			}
+		}
+		/* Wait until visible alerts match the expected validation */
+		if (expectedAlertMessages.isEmpty()) {
+			wait.until(d -> d.findElements(FIRST_NAME_ALERT).stream().noneMatch(WebElement::isDisplayed));
+		} else {
+			wait.until(d -> d.findElements(FIRST_NAME_ALERT).stream().filter(WebElement::isDisplayed)
+					.count() >= expectedAlertMessages.size());
+		}
+		/* Collect the text of all currently visible warning alerts */
+		List<String> actualAlertMessages = new ArrayList<>();
+		for (WebElement alertMessage : driver.findElements(FIRST_NAME_ALERT)) {
+			if (alertMessage.isDisplayed()) {
+				actualAlertMessages.add(alertMessage.getText());
+			}
+		}
+		System.out.println("Warning messages displayed:");
+		for (String message : actualAlertMessages) {
+			System.out.println("- " + message);
+		}
+		System.out.println("Total warning messages displayed: " + actualAlertMessages.size());
+		/*
+		 * Check that only fields > 35 characters have alerts and all the message are
+		 * correct
+		 */
+		jse.executeScript("window.scrollBy(0, 500);");
+		Thread.sleep(THREAD_SLEEP_5_SEC);
+		softAssert.assertEquals(actualAlertMessages, expectedAlertMessages,
+				"Alerts should be displayed only for fields containing more than 35 characters");
+		//generalMethods.printReport("Alerts were displaying for the Fields containing more than 35 characters", driver);
+		Reporter.log("Alerts were displaying for the Fields containing more than 35 characters");
+		ExtentReport.getExtentTest().info("Alerts were displaying for the Fields containing more than 35 characters");
+		softAssert.assertAll();
+		Reporter.log("Validated alerts for fields containing more than 35 characters.");
+	}
+	/**
+	 * The method waitAndEnterValue waits for an element to be clickable and Enter
+	 * the given value in the element
+	 * @param locator
+	 * @param value
+	 */
+	private void waitAndEnterValue(By locator, String value) {
+		if (wait == null) {
+			throw new IllegalStateException(
+					"WebDriver wait is not initialized in CheckoutPageComponents."
+			);
+		}
+
+		WebElement element = wait.until(
+				ExpectedConditions.elementToBeClickable(locator)
+		);
+
+		element.clear();
+		element.sendKeys(value);
+	}
+	/**
+	 * The method waitAndClick waits for an element to be clickable, clicks it, and
+	 * optionally sleeps for a specified duration.
+	 * @param locator
+	 * @param isSleepNeeded
+	 */
+
+	public void waitAndClick(By locator, boolean isSleepNeeded)
+			throws InterruptedException {
+
+		if (wait == null) {
+			throw new IllegalStateException(
+					"WebDriver wait is not initialized in CheckoutPageComponents."
+			);
+		}
+
+		wait.until(
+				ExpectedConditions.elementToBeClickable(locator)
+		).click();
+
+		if (isSleepNeeded) {
+			Thread.sleep(THREAD_SLEEP_5_SEC);
+		}
+	}
+
+
+
+
+
 
 	public void ValidateSplitBundleProductUsingQuickShop() throws InterruptedException {
 		jse = (JavascriptExecutor)driver;

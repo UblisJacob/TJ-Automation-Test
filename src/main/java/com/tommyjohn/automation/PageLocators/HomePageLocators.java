@@ -6,9 +6,32 @@ import org.openqa.selenium.By;
 public class HomePageLocators{
 
 	//HomePageSections
+	public static final By UGC_MODUL_1 = By.xpath("//*[@data-cs-override-id='hp-four-sixty-ugc']");
+	public static final By FIRST_UGC_MODUL_1 = By.xpath("//*[@data-cs-override-id='hp-four-sixty-ugc']" + "//div[contains(@class,'fs-timeline-entry')" + " and @aria-hidden='false']");
+	public static final By SEE_DETAILS_CTA = By.xpath(".//div[contains(@class,'fs-has-links')]");
+	public static final By UGC_HOVER_PRODUCT_NAMES = By.xpath(".//div[contains(@class,'fs-hover-products')]" + "//div[contains(@class,'fs-hover-product-name')]");
+	public static final By UGC_HOVER_PRODUCT_PRICES = By.xpath(".//div[contains(@class,'fs-hover-products')]" + "//div[contains(@class,'fs-hover-product-price')]");
+	// Modal locators
+	public static final By UGC_POPUP = By.xpath("//*[contains(@class,'fs-lightbox')" + " or contains(@class,'fs-detail-container')]");
+	public static final By UGC_MODAL_TITLE = By.xpath("//*[contains(@class,'fs-detail-title')]");
+	public static final By UGC_MODAL_PRODUCT_NAMES = By.xpath("//*[contains(@class,'fs-detail-container')]" + "//*[contains(@class,'fs-text-product')]");
+	public static final By UGC_MODAL_PRODUCT_PRICES = By.xpath("//*[contains(@class,'fs-detail-container')]" + "//*[contains(@class,'fs-text-price')]");
+	public static final By UPSELL_MODULE = By.xpath("//*[@data-dy-embedded-object='true']" + "//div[contains(@class,'dy_unit')]" + "[.//a[normalize-space()='Shop Now']]");
+	public static final By UPSELL_SHOP_NOW_CTA = By.xpath("//*[@data-dy-embedded-object='true']" + "//div[contains(@class,'dy_unit')]" + "//a[normalize-space()='Shop Now']");
+	public static final By UPSELL_PRODUCT_TITLE = By.xpath("//h1[normalize-space()='The Best of TJ Trunk 4\" (3-Pack)']");
+	public static final By ACTIVITIES_INSPIRATION_SECTION = By.xpath("//*[@data-cs-override-id='activities-inspiration-1']");
+	public static final By ACTIVITIES_INSPIRATION_TEXT = By.xpath("//*[@data-cs-override-id='activities-inspiration-1']//*[self::p or self::button]");
+	public static final By TEST_ACTIVITY_1 = By.xpath("//*[@data-cs-override-id='activities-inspiration-1']//button[normalize-space()='Test Activity 1']");
+	public static final By TEST_ACTIVITY_2 = By.xpath("//*[@data-cs-override-id='activities-inspiration-1']//button[normalize-space()='Test Activity 2']");
+	public static final By FIFTY_FIFTY_FEATURED_COLLECTION = By.xpath("//*[@id='Hide5050' and @data-cs-override-id='hp-50-50-m']");
+	public static final By FIFTY_FIFTY_PRODUCT_IDS = By.xpath("//*[@id='Hide5050']//article[@data-product-id]");
+	public static final By FIFTY_FIFTY_PRODUCT_LINKS = By.xpath("//*[@id='Hide5050']//article[@data-product-id]//a[@href and @data-cy='productTileLink']");
+	public static final By AMBASSADOR_SPOTLIGHT = By.xpath("//*[@data-cs-override-id='hp-ambassador-spotlight']");
+	public static final By AMBASSADOR_SPOTLIGHT_TEXT = By.xpath("//*[@data-cs-override-id='hp-ambassador-spotlight']//*[self::p or self::h1 or self::h2 or self::h3 or self::a]");
 	public static By CONTENT_BANNER_SLICE = By.xpath("(//div[@id='BannerSliceOwnYourComfort'])[1]");
 	public static By CONTENT_BANNER_SLICE_CTA = By.xpath("//a[@class='button-inverse font-sans']");
-
+	public static By LIFESTYLE_DOORWAY = By.xpath("//div[@class='[grid-area:doorways] flex flex-col md:flex-row gap-2xs my-2xs']");
+	public static By LIFESTYLE_DOORWAY_CTA = By.xpath("(//p[@class='button-inverse'])[2]");
 	public static By TOGGLE_BUTTON = By.xpath("//div[@class='relative flex w-full max-w-[300px] rounded-[100px] bg-surface-secondary p-1']");
 	public static By MENS_TOGGLE = By.xpath("(//button[@class='relative z-10 flex-1 cursor-pointer rounded-[100px] border-none bg-transparent px-6 py-3 text-base text-black transition-all duration-300 hover:text-gray-800'])[1]");
 	public static By MENS_RECS = By.xpath("(//h2[@class=\"[grid-area:title] text-heading-sm font-medium\"])[1]");
