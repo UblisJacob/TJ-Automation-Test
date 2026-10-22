@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="temp" thread-count="1">
+<suite name="temp" thread-count="3">
 
     <listeners>
         <listener class-name="TestScenario.ListenerClass"/>
-        <!-- <listener class-name="TestScenario.RetryListener"/> -->
+<!--        <listener class-name="TestScenario.RetryListener"/>-->
     </listeners>
 
     <test name="Tests">
         <parameter name="browser" value="chrome"/>
         <classes>
-                <class name="TestModules.ValidateCartPage">
+                <class name="TestModules.ValidateShopifyTests">
                 <methods>
-                    <include name="ValidateBundleTierinCartPage"/>
+                    <include name="ValidateClickingTheUGCModule"/>
                 </methods>
             </class>
         </classes>

@@ -35,7 +35,7 @@ public class CustomUtilities {
 
     // Remove static WebDriver - use DriverManager below (ThreadLocal)
     public EdgeDriver edgedriver;
-    public static String baseUrl = "https://www.tommyjohn.com/";
+    public static String baseUrl = "https://tommyjohn.myshopify.com/?preview_theme_id=188818423853";
     static String ShopifyCasesUrl = "https://www.tommyjohn.com/?_ab=0&_fd=0&_sc=1&preview_theme_id=188766486573";
     public static String shopify = "https://admin.shopify.com/store/tommyjohn/";
     public static BufferedReader reader;

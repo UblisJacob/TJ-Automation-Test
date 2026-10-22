@@ -25,6 +25,31 @@ public class ValidateShopifyTests  {
         }
     }
 
+    @Test
+    public void ValidateClickingTheUGCModule() throws Exception {
+        ShopifyTestCasesComponents shopifytests = new ShopifyTestCasesComponents(driver);
+        shopifytests.ValidateClickingTheUGCModule();
+    }
+
+    @Test
+    public void ValidateActivitiesInspirationSection() throws Exception {
+        ShopifyTestCasesComponents shopifytests = new ShopifyTestCasesComponents(driver);
+        shopifytests.ValidateActivitiesInspirationSection();
+    }
+
+
+    @Test
+    public void ValidateFiftyFiftyFeaturedCollection() throws Exception {
+        ShopifyTestCasesComponents shopifytests = new ShopifyTestCasesComponents(driver);
+        shopifytests.ValidateFiftyFiftyFeaturedCollection();
+    }
+
+
+    @Test
+    public void ValidateAmbassadorSpotlight() throws Exception {
+        ShopifyTestCasesComponents shopifytests = new ShopifyTestCasesComponents(driver);
+        shopifytests.ValidateAmbassadorSpotlight();
+    }
 
     @Test
     public void ValidateContentBannerSlice() throws Exception {
@@ -37,6 +62,14 @@ public class ValidateShopifyTests  {
         ShopifyTestCasesComponents shopifytests = new ShopifyTestCasesComponents(driver);
         shopifytests.ValidateBrandTickerNeonColors();
     }
+
+    @Test
+    public void ValidateLifestyleDoorways() throws Exception {
+        ShopifyTestCasesComponents shopifytests = new ShopifyTestCasesComponents(driver);
+        shopifytests.ValidateLifeStyleDoorway();
+    }
+
+
 
     @AfterMethod(alwaysRun = true)
     void teardown () {

@@ -5,7 +5,22 @@ import org.openqa.selenium.By;
 
 public class CheckoutPageLocators {
 
-	//
+	public static By SEARCH_ICON = By.xpath("//span[@class='icon block icon-search']");
+	public static By SEARCH_INPUT = By.xpath("//input[@type='search' and @name='keywords']");
+	public static By PRODUCT_LIST_PREMIUM_PIQUE_POLO = By.xpath("//a[@data-cy='productTileLink'and text()='Premium Pique Polo' and contains(@href,'color=dress-blues')]");
+	public static By MEDIUM_SIZE = By.xpath("//label[@for='ProductForm-sizeOption-m']");
+	public static By ADD_TO_CART_BUTTON = By.xpath("//button[@class='button grow' and @name='add']");
+	public static By CHECKOUT_BUTTON = By.xpath("//button[@id='MiniCart-Form' and @name='checkout']");
+	public static By MAIL_ID = By.xpath("//input[@id='email' and @name='email']");
+	public static By COUNTRY_COMBO = By.xpath("//select[@name='countryCode' and contains(@id,'SelectPS')]");
+	public static By INDIA_COMBO_VALUE = By.xpath("//option[@value='IN' and text()='India']");
+	public static By FIRST_NAME_FIELD = By.xpath("//input[@name='firstName' and @placeholder='First name']");
+	public static By LAST_NAME_FIELD = By.xpath("//input[@name='lastName' and @placeholder='Last name']");
+	public static By ADDRESS_ONE_FIELD = By.xpath("//input[@name='address1' and @placeholder='Address']");
+	public static By ADDRESS_TWO_FIELD = By.xpath("//input[@name='address2' and contains(@placeholder,'optional')]");
+	public static By CITY_FIELD = By.xpath("//input[@name='city' and @placeholder='City']");
+	public static By PINCODE_FIELD = By.xpath("//input[@name='postalCode' and @placeholder='PIN code']");
+	public static By FIRST_NAME_ALERT = By.xpath("//li[@class='_1585eob1 _1585eob0 _1fragemws _1fragemzh']");
 	public static By COMPLETE_ORDER = By.xpath("//button[@id='checkout-pay-button']");
 	public static By ORDER_CONFIRMATION = By.xpath("//h2[contains(text(),'Thank you')]");
 	public static By OTHER = By.xpath("//input[@placeholder='Other']");

@@ -34,6 +34,12 @@ public class ValidateCheckoutPage extends ExtentReport {
 		new CheckoutPage(driver).validateErrorBanner();
 	}
 
+	@Test
+	public void ValidateWarningMessage() throws Exception
+	{
+		new CheckoutPage(driver).validateWarningMessage();
+	}
+
 
 	@Test
 	public void VerifySplitBundleProductUsingQuickShop() throws Exception
