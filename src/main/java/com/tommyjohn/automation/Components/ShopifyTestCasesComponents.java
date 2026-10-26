@@ -1,6 +1,7 @@
 package com.tommyjohn.automation.Components;
 
 import com.base.ExtentReport;
+import com.tommyjohn.automation.PageLocators.HomePageLocators;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -33,6 +34,203 @@ public class ShopifyTestCasesComponents {
         wait = new FluentWait<WebDriver>(driver).pollingEvery(Duration.ofMillis(500))
                 .withTimeout(Duration.ofSeconds(60)).ignoring(NoSuchElementException.class);
 
+    }
+
+    public void validateProductVideoInPLPAndPDP() throws InterruptedException {
+
+        SoftAssert softAssert = new SoftAssert();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        Actions actions = new Actions(driver);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        try {
+            // Navigate to Men's PLP
+            new HomePageComponents(driver).navigateToMensAll();
+
+            System.out.println("Navigated to Men's PLP.");
+            Reporter.log("Navigated to Men's PLP.");
+
+            // Locate the first product tile
+            WebElement productLink = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(FIRST_PLP_PRODUCT_TILE));
+
+            // Locate the product card containing the carousel
+            WebElement productCard = productLink.findElement(PLP_PRODUCT_CARD);
+
+            // Locate and hover over the product media
+            WebElement productMedia = wait.until(d -> {
+                List<WebElement> mediaElements =
+                        productCard.findElements(PLP_PRODUCT_MEDIA);
+
+                return mediaElements.isEmpty() ? null : mediaElements.get(0);
+            });
+
+            actions.moveToElement(productMedia).perform();
+
+            System.out.println("Hovered over the first product media.");
+            Reporter.log("Hovered over the first product media.");
+
+            // First Next slide click
+            WebElement nextButton = wait.until(
+                    ExpectedConditions.elementToBeClickable(
+                            productCard.findElement(PLP_NEXT_SLIDE_BUTTON)));
+
+            nextButton.click();
+
+            System.out.println("Clicked Next slide once.");
+            Reporter.log("Clicked Next slide once.");
+
+            // Wait for the carousel to update
+            wait.until(d -> {
+                List<WebElement> mediaElements =
+                        productCard.findElements(PLP_PRODUCT_MEDIA);
+
+                return !mediaElements.isEmpty();
+            });
+
+            // Re-locate the media after the carousel updates
+            productMedia = productCard.findElement(PLP_PRODUCT_MEDIA);
+
+            // Additional hover after the first Next slide attempt
+            actions.moveToElement(productMedia).perform();
+
+            System.out.println("Hovered over the product media again.");
+            Reporter.log("Hovered over the product media again.");
+
+            // Re-locate and click Next slide again
+            nextButton = wait.until(
+                    ExpectedConditions.elementToBeClickable(
+                            productCard.findElement(PLP_NEXT_SLIDE_BUTTON)));
+
+            nextButton.click();
+
+            System.out.println("Clicked Next slide a second time.");
+            Reporter.log("Clicked Next slide a second time.");
+
+            // Validate video in the third media position
+            WebElement thirdMediaVideo = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(
+                            PLP_THIRD_MEDIA_VIDEO));
+
+            if (thirdMediaVideo.isDisplayed()) {
+                String message =
+                        "PASS: Video is present in the third media position on PLP.";
+
+                System.out.println(message);
+                Reporter.log(message);
+                ExtentReport.getExtentTest().pass(message);
+
+            } else {
+                String message =
+                        "FAIL: Video is not displayed in the third media position on PLP.";
+
+                System.out.println(message);
+                Reporter.log(message);
+                ExtentReport.getExtentTest().fail(message);
+
+                softAssert.fail(message);
+            }
+
+        } catch (Exception e) {
+            String message = "FAIL: PLP video validation failed. " + e.getMessage();
+
+            System.out.println(message);
+            Reporter.log(message);
+            ExtentReport.getExtentTest().fail(message);
+
+            softAssert.fail(message);
+        }
+
+        try {
+            // Scroll the first product tile into view
+            WebElement productLink = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(FIRST_PLP_PRODUCT_TILE));
+
+            js.executeScript(
+                    "arguments[0].scrollIntoView({block:'center', inline:'nearest'});",
+                    productLink);
+
+            // Click the product tile, using JavaScript if a normal click is intercepted
+            try {
+                wait.until(ExpectedConditions.elementToBeClickable(productLink)).click();
+
+            } catch (ElementClickInterceptedException e) {
+                js.executeScript("arguments[0].click();", productLink);
+            }
+
+            // Wait for the PDP video
+            WebElement pdpVideo = wait.until(
+                    ExpectedConditions.presenceOfElementLocated(PDP_PRODUCT_VIDEO));
+
+            if (pdpVideo.isDisplayed()) {
+                String message = "PASS: Product video is present on PDP.";
+
+                System.out.println(message);
+                Reporter.log(message);
+                ExtentReport.getExtentTest().pass(message);
+
+            } else {
+                String message = "FAIL: Product video is not displayed on PDP.";
+
+                System.out.println(message);
+                Reporter.log(message);
+                ExtentReport.getExtentTest().fail(message);
+
+                softAssert.fail(message);
+            }
+
+        } catch (Exception e) {
+            String message = "FAIL: PDP video validation failed. " + e.getMessage();
+
+            System.out.println(message);
+            Reporter.log(message);
+            ExtentReport.getExtentTest().fail(message);
+
+            softAssert.fail(message);
+        }
+
+        // Fail the test if either validation failed
+        softAssert.assertAll();
+    }
+
+
+
+    public void validateInlineSuccessMessage() {
+
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        SoftAssert softAssert = new SoftAssert();
+
+        try {
+            // Add product to cart
+            new AddToCartComponents(driver).addToCart();
+
+            // Click cart icon
+            WebElement cartIcon = wait.until(
+                    ExpectedConditions.elementToBeClickable(HomePageLocators.CART_ICON));
+
+            jse.executeScript("arguments[0].click();", cartIcon);
+
+            WebElement message = wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(
+                            HomePageLocators.INLINE_SUCCESS_MESSAGE));
+
+            if (message.isDisplayed()) {
+                System.out.println("PASS: Inline success message is displayed: "
+                        + message.getText());
+            } else {
+                System.out.println("FAIL: Inline success message is not displayed.");
+                softAssert.fail("Inline success message is not displayed.");
+            }
+
+        } catch (Exception e) {
+            System.out.println(
+                    "FAIL: Inline success message was not displayed within 30 seconds.");
+            softAssert.fail(
+                    "Inline success message was not displayed within 30 seconds.");
+        }
+
+        softAssert.assertAll();
     }
 
 

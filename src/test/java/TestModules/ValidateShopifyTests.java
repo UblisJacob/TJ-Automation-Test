@@ -26,6 +26,24 @@ public class ValidateShopifyTests  {
     }
 
     @Test
+    public void ValidateProductVideoInPLPAndPDP() throws Exception {
+        ShopifyTestCasesComponents shopifytests = new ShopifyTestCasesComponents(driver);
+        shopifytests.validateProductVideoInPLPAndPDP();
+    }
+
+
+
+    @Test
+    public void ValidateInlineSuccessMessage() throws Exception {
+        ShopifyTestCasesComponents shopifytests = new ShopifyTestCasesComponents(driver);
+        shopifytests.validateInlineSuccessMessage();
+    }
+
+
+
+
+
+    @Test
     public void ValidateClickingTheUGCModule() throws Exception {
         ShopifyTestCasesComponents shopifytests = new ShopifyTestCasesComponents(driver);
         shopifytests.ValidateClickingTheUGCModule();

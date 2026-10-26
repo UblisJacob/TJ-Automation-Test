@@ -5,12 +5,22 @@ import org.openqa.selenium.By;
 
 public class HomePageLocators{
 
-	//HomePageSections
+	//Shopify Test Cases Locators
+
+	public static By PLP_PRODUCT_CARD = 	By.xpath("./ancestor::*[.//button[@aria-label='Next slide']][1]");
+	public static By PLP_THIRD_MEDIA_VIDEO = By.xpath(".//div[@role='region' and contains(@aria-label,'Product media 3 of')]//video");
+	public static By PLP_ACTIVE_VIDEO = By.xpath(".//div[@role='region' and contains(@aria-label,'Product media 3 of')]//video");
+	public static By PLP_PRODUCT_MEDIA = By.xpath(".//div[@role='region' and starts-with(@aria-label,'Product media')]");
+	public static By INLINE_SUCCESS_MESSAGE = By.xpath("//div[contains(@class,'text-functional-sale') and normalize-space()='Test Inline Message: Free Shipping off']");
 	public static final By UGC_MODUL_1 = By.xpath("//*[@data-cs-override-id='hp-four-sixty-ugc']");
 	public static final By FIRST_UGC_MODUL_1 = By.xpath("//*[@data-cs-override-id='hp-four-sixty-ugc']" + "//div[contains(@class,'fs-timeline-entry')" + " and @aria-hidden='false']");
 	public static final By SEE_DETAILS_CTA = By.xpath(".//div[contains(@class,'fs-has-links')]");
 	public static final By UGC_HOVER_PRODUCT_NAMES = By.xpath(".//div[contains(@class,'fs-hover-products')]" + "//div[contains(@class,'fs-hover-product-name')]");
 	public static final By UGC_HOVER_PRODUCT_PRICES = By.xpath(".//div[contains(@class,'fs-hover-products')]" + "//div[contains(@class,'fs-hover-product-price')]");
+	public static By FIRST_PLP_PRODUCT_TILE = By.xpath("(//a[@data-cy='productTileLink'])[1]");
+	public static By PLP_NEXT_SLIDE_BUTTON = By.xpath("(//a[@data-cy='productTileLink'])[1]/ancestor::*[.//button[@aria-label='Next slide']][1]//button[@aria-label='Next slide']");
+	public static By PLP_PRODUCT_VIDEO = By.xpath(".//video");
+	public static By PDP_PRODUCT_VIDEO = By.xpath("//video[.//source[contains(@src,'.mp4')]]");
 	// Modal locators
 	public static final By UGC_POPUP = By.xpath("//*[contains(@class,'fs-lightbox')" + " or contains(@class,'fs-detail-container')]");
 	public static final By UGC_MODAL_TITLE = By.xpath("//*[contains(@class,'fs-detail-title')]");

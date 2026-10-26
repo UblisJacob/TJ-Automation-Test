@@ -500,26 +500,26 @@ public class ListenerClass extends ExtentReport
 		/*
 		 * Send the same final counts to Slack.
 		 */
-		try {
-
-			sendSlackNotificationReg(
-					String.valueOf(Fpassed),
-					String.valueOf(Ffailed),
-					String.valueOf(Fskipped),
-					reportLink
-			);
-
-			System.out.println(
-					"Slack notification completed."
-			);
-
-		} catch (Exception e) {
-
-			System.err.println(
-					"Slack notification failed."
-			);
-
-			e.printStackTrace();
-		}
+//		try {
+//
+//			sendSlackNotificationReg(
+//					String.valueOf(Fpassed),
+//					String.valueOf(Ffailed),
+//					String.valueOf(Fskipped),
+//					reportLink
+//			);
+//
+//			System.out.println(
+//					"Slack notification completed."
+//			);
+//
+//		} catch (Exception e) {
+//
+//			System.err.println(
+//					"Slack notification failed."
+//			);
+//
+//			e.printStackTrace();
+//		}
 	}
 }
