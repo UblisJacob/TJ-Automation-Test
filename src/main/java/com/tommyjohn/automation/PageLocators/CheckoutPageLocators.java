@@ -95,7 +95,7 @@ public class CheckoutPageLocators {
 	//public static By APPLY_DISCOUNT_BUTTON = By.cssSelector(".field__input-btn");
 	public static By APPLY_DISCOUNT_BUTTON = By.xpath("(//button[@type='submit'])[4]"); //(//button[@type='submit'])[4]
 	public static By SUBTOTAL = By.xpath("//span[contains(text(),'Subtotal')]");
-	public static By SHIPPING = By.xpath("(//span[contains(text(),'Shipping')])[2]"); //(//span[contains(text(),'Shipping')])[2]
+	public static By SHIPPING = By.xpath("//span[contains(text(),'Shipping')]"); //(//span[contains(text(),'Shipping')])[2]
 	public static By APPLIED_PROMO_CODE = By.xpath("(//span[@class='_14brw3']//span)[2]");
 	public static By PROMO_CODE_ERROR = By.xpath("//div[@class='go06b0']//span"); ////div[@class='go06b0']//span
 	public static By INCORRECT_PROMO_CODE_ERROR_MESSAGE = By.xpath("//div[contains(text(),'Enter a valid discount code or gift card')]");

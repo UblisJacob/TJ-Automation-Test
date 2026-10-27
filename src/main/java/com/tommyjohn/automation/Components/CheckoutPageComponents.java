@@ -3271,6 +3271,7 @@ public class CheckoutPageComponents extends CheckoutPageLocators {
 		softAssert.assertTrue(driver.findElement(DISCOUNT_CODE_TEXTBOX).isDisplayed(), "DISCOUNT CODE TEXTBOX is not displayed");
 		softAssert.assertTrue(driver.findElement(APPLY_DISCOUNT_BUTTON).isDisplayed(), "APPLY DISCOUNT BUTTON is not displayed");
 		softAssert.assertTrue(driver.findElement(SUBTOTAL).isDisplayed(), "Subtotal is not displayed");
+		Thread.sleep(5000);
 		softAssert.assertTrue(driver.findElement(SHIPPING).isDisplayed(), "Shipping is not displayed");
 		Thread.sleep(2000);
 		softAssert.assertTrue(driver.findElement(TOTAL).isDisplayed(), "total price is not displayed");
