@@ -13,9 +13,7 @@ import java.util.List;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.WheelInput;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.asserts.SoftAssert;
@@ -27,6 +25,7 @@ import com.tommyjohn.automation.PageLocators.FlyCartPageLocator;
 import com.tommyjohn.automation.PageLocators.ProductDetailsPageLocators;
 import com.tommyjohn.automation.commonMethods.GeneralMethods;
 
+import static com.tommyjohn.automation.Components.CheckoutPageComponents.*;
 import static com.tommyjohn.automation.PageLocators.ProductDetailsPageLocators.INLINE_CART_CLOSE;
 import static com.tommyjohn.automation.PageLocators.ProductDetailsPageLocators.INLINE_CART_TITLE;
 
@@ -51,6 +50,51 @@ public class CollectionPageComponent extends CollectionPageLocator {
 	int Count;
 
 
+	public void validateProductColor() throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		Actions action = new Actions(driver);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		driver.findElement(SEARCH_ICON).click();
+		waitAndEnterValue(SEARCH_INPUT, "Polo");
+		action.sendKeys(Keys.ENTER).perform();
+		Thread.sleep(THREAD_SLEEP_5_SEC);
+		js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(PRODUCT_TILE));
+		wait.until(ExpectedConditions.elementToBeClickable(PRODUCT_COLOR_SELECTOR));
+		String colorName = driver.findElement(PRODUCT_COLOR_SELECTOR).getAttribute("aria-label");
+		System.out.println("Color selected in PLP: " + colorName);
+		waitAndClick(PRODUCT_COLOR_SELECTOR, true);
+		Reporter.log("Color selected in PLP: " + colorName);
+		ExtentReport.getExtentTest().pass("Color selected in PLP: " + colorName);
+		js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(PRODUCT_TILE));
+		waitAndClick(PRODUCT_TILE, false);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(PRODUCT_COLOR_PDP));
+		String colorNamePDP = driver.findElement(PRODUCT_COLOR_PDP).getText();
+		System.out.println("Color selected in PDP: " + colorNamePDP);
+		Reporter.log("Color selected in PDP: " + colorNamePDP);
+		ExtentReport.getExtentTest().pass("Color selected in PDP: " + colorNamePDP);
+		softAssert.assertEquals(colorName, colorNamePDP, "Color name mismatch between PLP and PDP");
+		Reporter.log("No mismatch between the Color selected in PLP and the color displayed in the PDP");
+		ExtentReport.getExtentTest().pass("No mismatch between the Color selected in PLP and the color displayed in the PDP");
+		softAssert.assertAll();
+		Reporter.log("Validated product color on PLP and PDP.");
+	}
+	public void waitAndEnterValue(By locator, String value) {
+		Wait<WebDriver> wait = new FluentWait<>(driver).pollingEvery(Duration.ofMillis(DEFAULT_POLLING_MILLI_SECONDS))
+				.withTimeout(Duration.ofSeconds(DEFAULT_PAGE_LOAD_TIMEOUT_SECONDS))
+				.ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
+		driver.findElement(locator).sendKeys(value);
+	}
+
+	public void waitAndClick(By locator, boolean isSleepNeeded) throws InterruptedException {
+		Wait<WebDriver> wait = new FluentWait<>(driver).pollingEvery(Duration.ofMillis(DEFAULT_POLLING_MILLI_SECONDS))
+				.withTimeout(Duration.ofSeconds(DEFAULT_PAGE_LOAD_TIMEOUT_SECONDS))
+				.ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+		if (isSleepNeeded) {
+			Thread.sleep(THREAD_SLEEP_5_SEC);
+		}
+	}
 
 	public void clickFirstBundleOfferProduct() throws Exception {
 		// Navigate directly to the Women's Underwear collection page
@@ -63,10 +107,6 @@ public class CollectionPageComponent extends CollectionPageLocator {
 		js.executeScript("arguments[0].scrollIntoView(true);", offerProduct);
 		js.executeScript("arguments[0].click();", offerProduct);
 	}
-
-
-
-
 
 	public void ValidateFilterDropdownScroll() throws Exception {
 
