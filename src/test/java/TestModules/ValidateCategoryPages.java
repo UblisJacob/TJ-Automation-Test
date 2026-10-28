@@ -30,6 +30,10 @@ public class ValidateCategoryPages {
 			CollectionPage(driver).ValidateFilterDropdownScroll(); }
 
 	@Test
+	public void ValidatePriceDisplayed() throws Exception { new
+			CollectionPage(driver).validatePriceDisplayed(); }
+
+	@Test
 	public void ValidateProductColor() throws Exception { new
 			CollectionPage(driver).validateProductColor(); }
 
