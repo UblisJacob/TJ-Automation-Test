@@ -5,6 +5,15 @@ import org.openqa.selenium.By;
 public class CollectionPageLocator {
 
 
+
+		public static By MEN_TOOLBAR_BUTTON = By.xpath("//a[text()='Men']");
+		public static By SALE_OPTION = By.xpath("//a[@href='https://www.tommyjohn.com/collections/sale-mens' and text()='Sale']");
+		public static By ACTUAL_PRICE_TAG = By.xpath("(//span[text()='Compare at']/following-sibling::span)[1]");
+		public static By DISCOUNTED_PRICE_TAG = By.xpath("(//span[text()='Sale price']/following-sibling::span)[1]");
+		public static By PLP_FIRST_PRODUCT_TILE = By.xpath("(//article[@data-target=\"product-tile\"])[1]");
+
+
+
 	// Finds the '5 For $60' text element and moves up to the clickable product container/link
 	public static final By FIRST_PRODUCT_WITH_BUNDLE_OFFER = By.xpath("(//*[contains(text(),'5 For $60') or contains(text(),'5 for $60')]/following::a[contains(@href,'/products/')])[1]");
 

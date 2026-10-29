@@ -50,6 +50,44 @@ public class CollectionPageComponent extends CollectionPageLocator {
 	int Count;
 
 
+
+	public void validatePriceDisplayed() throws InterruptedException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		Actions action = new Actions(driver);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		wait.until(ExpectedConditions.elementToBeClickable(MEN_TOOLBAR_BUTTON));
+		action.moveToElement(driver.findElement(MEN_TOOLBAR_BUTTON)).perform();
+		waitAndClick(SALE_OPTION, false);
+		/* Scroll and get the actual and discounted price of the first product tile */
+		wait.until(ExpectedConditions.elementToBeClickable(PLP_FIRST_PRODUCT_TILE));
+		js.executeScript("arguments[0].scrollIntoView(true);", driver.findElement(PLP_FIRST_PRODUCT_TILE));
+		String actualPrice = driver.findElement(ACTUAL_PRICE_TAG).getText();
+		String discountedPrice = driver.findElement(DISCOUNTED_PRICE_TAG).getText();
+		System.out.println("Actual Price on PLP: " + actualPrice + " | Discounted Price on PLP: " + discountedPrice);
+		Reporter.log("Actual Price on PLP: " + actualPrice + " | Discounted Price on PLP: " + discountedPrice);
+		ExtentReport.getExtentTest().pass("Actual Price on PLP: " + actualPrice + " | Discounted Price on PLP: " + discountedPrice);
+		waitAndClick(PLP_FIRST_PRODUCT_TILE, true);
+		wait.until(ExpectedConditions.elementToBeClickable(ACTUAL_PRICE_TAG));
+		String actualPricePDP = driver.findElement(ACTUAL_PRICE_TAG).getText();
+		String discountedPricePDP = driver.findElement(DISCOUNTED_PRICE_TAG).getText();
+		System.out.println(
+				"Actual Price on PDP: " + actualPricePDP + " | Discounted Price on PDP: " + discountedPricePDP);
+		Reporter.log("Actual Price on PDP: " + actualPricePDP + " | Discounted Price on PDP: " + discountedPricePDP);
+		ExtentReport.getExtentTest().pass("Actual Price on PDP: " + actualPricePDP + " | Discounted Price on PDP: " + discountedPricePDP);
+		boolean isPlpAndPdpPriceMatch = actualPrice.equals(actualPricePDP) && discountedPrice.equals(discountedPricePDP)
+				&& driver.findElement(ACTUAL_PRICE_TAG).getAttribute("class").contains("line-through");
+		softAssert.assertTrue(isPlpAndPdpPriceMatch, "The actual and discounted price on the PLP and PDP do not match");
+		Reporter.log("The Price displayed on the PLP is matching withe the Price displayed in PDP");
+		ExtentReport.getExtentTest().pass("The Price displayed on the PLP is matching withe the Price displayed in PDP");
+		softAssert.assertAll();
+		Reporter.log("Validated price display on PLP and PDP.");
+	}
+
+
+
+
+
 	public void validateProductColor() throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		Actions action = new Actions(driver);
