@@ -28,6 +28,32 @@ public class ShoppingCartLocators {
 
 
 
+
+	public static By COUPON_CODE_BUTTON_XPATH = By.xpath("//button[text='COZY30']");
+	public static By COUPON_DETAILS = By.xpath("(//span[@class='mx-xs hidden text-center lg:inline'])[1]");
+	public static By NEXT_BUTTON_XPATH = By.xpath("//button[@id='CustomSwiperNext-promotion-bar' and @type='button']");
+	public static By COUPON_CODE_PRODUCT_XPATH = By.xpath("//a[@href='/collections/sale-mens' and text()=\"Shop Men's\"]");
+	public static By FIRST_PRODUCT_XPATH = By.xpath("(//div[@class='relative size-full' and @role='region'])[1]");
+	public static By TOP_SIZE_XPATH = By.xpath("//label[@for='ProductForm-top-sizeOption-s' and @aria-label=\"S\"]");
+	public static By BOTTOM_SIZE_XPATH = By.xpath("//label[@for='ProductForm-bottom-sizeOption-s' and @aria-label=\"S\"]");
+	public static By ACTUAL_PRODUCT_PRICE_XPATH = By.xpath("//span[@data-cy='priceFinal']");
+	public static By ADD_TO_CART_BUTTON_XPATH = By.xpath("//button[@id='ProductForm-Add' and @name='add']");
+	public static By CHECKOUT_BUTTON_XPATH = By.xpath("//button[@id='MiniCart-Form' and @name='checkout']");
+	public static By TOTAL_ACTUAL_PRICE_OF_PRODUCT_AT_CHECKOUT_XPATH = By.xpath("(//div[@class='_1qy6ue68' and @role='cell'])[1]");
+	public static By PROTECTION_CHARGE_XPATH = By.xpath("(//span[text()='$2.95'])[2]");
+	public static By COUPON_CODE_INPUT_XPATH = By.xpath("//input[contains(@id,'ReductionsInput') and @name='reductions']");
+	public static By APPLY_BUTTON_XPATH = By.xpath("//button[@data-event-name=\"apply_discount\" and @type=\"submit\"]");
+	public static By FINAL_TOTAL_PRICE_XPATH = By.xpath("(//span[@class='_3XbdQ' and @style='--total: 6;'])[2]");
+
+
+
+
+
+
+
+
+
+
 	public static By CART_TITLE = By.xpath("//h1[contains(text(),'Your Cart')]");
 	public static By EMPTY_CART_MESSAGE = By.xpath("//p[contains(text(),'Your cart is currently empty.')]");
 	public static By START_SHOPPING_BUTTON = By.xpath("//a[@class='button mt-6']");
