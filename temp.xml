@@ -11,9 +11,9 @@
     <test name="Tests">
         <parameter name="browser" value="chrome"/>
         <classes>
-                <class name="TestModules.ValidateShopifyTests">
+                <class name="TestModules.ValidateCheckoutPage">
                 <methods>
-                    <include name="ValidateClickingTheUGCModule"/>
+                    <include name="VerifySplitBundleProductUsingQuickShop"/>
                 </methods>
             </class>
         </classes>

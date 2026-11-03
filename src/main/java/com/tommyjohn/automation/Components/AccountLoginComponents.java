@@ -24,6 +24,9 @@ import com.tommyjohn.automation.PageLocators.HomePageLocators;
 
 import com.tommyjohn.automation.utils.CustomUtilities;
 
+import static com.tommyjohn.automation.Components.CheckoutPageComponents.*;
+import static com.tommyjohn.automation.PageLocators.HomePageLocators.*;
+
 public class AccountLoginComponents extends AccountLoginLocators {
 
 	public WebDriver driver;
@@ -51,6 +54,107 @@ public class AccountLoginComponents extends AccountLoginLocators {
 	 * @parampassword
 	 * @throws InterruptedException 
 	 */
+
+	public void checkLoginPanel() throws InterruptedException {
+		waitAndClick(PROFILE_ICON, true);
+		waitAndClick(FOR_YOU_TAB_BUTTON, true);
+		boolean isForYouMainTextEqual = isElementTextEqual(FOR_YOU_MAIN_TEXT, FOR_YOU_EXPECTED_TEXT);
+		System.out.println("For You main text: " + driver.findElement(FOR_YOU_MAIN_TEXT).getText());
+		boolean isRecentlyViewedLabelEqual = isElementTextEqual(RECENTLY_VIEWED_LABEL, RECENTLY_VIEWED_EXPECTED_TEXT);
+		System.out.println("Recently viewed label: " + driver.findElement(RECENTLY_VIEWED_LABEL).getText());
+		boolean isPopularTodayLabelEqual = isElementTextEqual(POPULAR_TODAY_LABEL, POPULAR_TODAY_EXPECTED_TEXT);
+		System.out.println("Popular today label: " + driver.findElement(POPULAR_TODAY_LABEL).getText());
+		boolean isNewArrivalLabelEqual = isElementTextEqual(NEW_ARRIVAL_LABEL, NEW_ARRIVAL_EXPECTED_TEXT);
+		System.out.println("New arrival label: " + driver.findElement(NEW_ARRIVAL_LABEL).getText());
+		boolean isBestSellersLabelEqual = isElementTextEqual(BEST_SELLERS_LABEL, BEST_SELLERS_EXPECTED_TEXT);
+		System.out.println("Best sellers label: " + driver.findElement(BEST_SELLERS_LABEL).getText());
+		boolean isContactLabelEqual = isElementTextEqual(CONTACT_LABEL, CONTACT_EXPECTED_TEXT);
+		System.out.println("Contact label: " + driver.findElement(CONTACT_LABEL).getText());
+		WebElement signInButton = driver.findElement(SIGN_IN_OR_SIGN_UP_BUTTON);
+		boolean isSignInButtonDisplayed = signInButton.isDisplayed();
+		/*
+		 * Click on Sign in or Sign up button and check whether it navigates to the
+		 * login page
+		 */
+		signInButton.click();
+		String currentUrl = driver.getCurrentUrl();
+		boolean isAuthenticationUrl = currentUrl.contains("https://shopify.com/authentication");
+		System.out.println("Current URL: " + currentUrl);
+		driver.navigate().back();
+		wait.until(ExpectedConditions.elementToBeClickable(SIGN_IN_WITH_SHOP_BUTTON));
+		boolean isSignInWithShopButtonDisplayed = driver.findElement(SIGN_IN_WITH_SHOP_BUTTON).isDisplayed();
+		boolean isForYouTabComponentsDisplayed = isForYouMainTextEqual && isRecentlyViewedLabelEqual
+				&& isPopularTodayLabelEqual && isNewArrivalLabelEqual && isBestSellersLabelEqual && isContactLabelEqual
+				&& isSignInButtonDisplayed && isAuthenticationUrl && isSignInWithShopButtonDisplayed;
+		Assert.assertTrue(isForYouTabComponentsDisplayed, "For You tab components are not displayed correctly");
+		if (isForYouTabComponentsDisplayed) {
+			ExtentReport.getExtentTest().info("\"For You\" tab components are displayed correctly");
+		}
+		/* Click Orders Tab and Check its components */
+		waitAndClick(ORDERS_TAB_BUTTON, true);
+		boolean isOrdersTabMainTextEqual = isElementTextEqual(ORDERS_TAB_MAIN_TEXT, ORDERS_TAB_EXPECTED_TEXT);
+		System.out.println("Orders tab main text: " + driver.findElement(ORDERS_TAB_MAIN_TEXT).getText());
+		boolean isSignInButtonDisplayedInOrdersTab = driver.findElement(SIGN_IN_OR_SIGN_UP_BUTTON).isDisplayed();
+		boolean isSignInWithShopButtonDisplayedInOrdersTab = driver.findElement(SIGN_IN_WITH_SHOP_BUTTON).isDisplayed();
+		boolean isOrdersTabComponentsDisplayed = isOrdersTabMainTextEqual && isSignInButtonDisplayedInOrdersTab
+				&& isSignInWithShopButtonDisplayedInOrdersTab;
+		Assert.assertTrue(isOrdersTabMainTextEqual, "Orders tab components are not displayed correctly");
+		if (isOrdersTabMainTextEqual) {
+			ExtentReport.getExtentTest().info("\"Orders\" tab components are displayed correctly");
+		}
+		/* Click Profile Tab and Check its components */
+		waitAndClick(PROFILE_TAB_BUTTON, true);
+		boolean isProfileTabMainTextEqual = isElementTextEqual(PROFILE_TAB_MAIN_TEXT, PROFILE_TAB_EXPECTED_TEXT);
+		System.out.println("Profile tab main text: " + driver.findElement(PROFILE_TAB_MAIN_TEXT).getText());
+		boolean isSignInButtonDisplayedInProfileTab = driver.findElement(SIGN_IN_OR_SIGN_UP_BUTTON).isDisplayed();
+		boolean isSignInWithShopButtonDisplayedInProfileTab = driver.findElement(SIGN_IN_WITH_SHOP_BUTTON)
+				.isDisplayed();
+		boolean isProfileTabComponentsDisplayed = isProfileTabMainTextEqual && isSignInButtonDisplayedInProfileTab
+				&& isSignInWithShopButtonDisplayedInProfileTab;
+		Assert.assertTrue(isProfileTabComponentsDisplayed, "Profile tab components are not displayed correctly");
+		if (isProfileTabComponentsDisplayed) {
+			ExtentReport.getExtentTest().info("\"Profile\" tab components are displayed correctly");
+		}
+
+		if (isForYouTabComponentsDisplayed && isOrdersTabComponentsDisplayed && isProfileTabComponentsDisplayed) {
+			Reporter.log("Login panel components are displayed correctly");
+			ExtentReport.getExtentTest().pass("Login panel components are displayed correctly");
+		} else {
+			Reporter.log("Login panel components are not displayed correctly");
+			ExtentReport.getExtentTest().fail("Login panel components are not displayed correctly");
+
+		}
+	}
+
+	public void waitAndClick(By locator, boolean isSleepNeeded) throws InterruptedException {
+		Wait<WebDriver> wait = new FluentWait<>(driver).pollingEvery(Duration.ofMillis(DEFAULT_POLLING_MILLI_SECONDS))
+				.withTimeout(Duration.ofSeconds(DEFAULT_PAGE_LOAD_TIMEOUT_SECONDS))
+				.ignoring(NoSuchElementException.class);
+		wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+		if (isSleepNeeded) {
+			Thread.sleep(THREAD_SLEEP_5_SEC);
+		}
+	}
+
+	public boolean isElementTextEqual(By actualTextXpath, String expectedText) throws InterruptedException {
+		String actualText = driver.findElement(actualTextXpath).getText();
+		System.out.println("Actual Text: " + actualText + " | Expected Text: " + expectedText);
+		Thread.sleep(THREAD_SLEEP_2_SEC);
+		return actualText.equals(expectedText);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public void ErrorForTermsAndConditionsInLoginPage() throws InterruptedException {
 		softly = new SoftAssert();

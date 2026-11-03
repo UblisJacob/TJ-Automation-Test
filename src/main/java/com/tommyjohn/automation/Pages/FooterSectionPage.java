@@ -19,6 +19,10 @@ public class FooterSectionPage extends FooterSectionComponents {
 		validateFooterCompanySection();
 	}
 
+	public void ValidateCustomerHelpCode() throws Exception {
+		checkCustomerHelpCode();
+	}
+
 	public void verifyFooterSocialLinks() throws Exception {
 		validateFooterSocialLinks();
 	}

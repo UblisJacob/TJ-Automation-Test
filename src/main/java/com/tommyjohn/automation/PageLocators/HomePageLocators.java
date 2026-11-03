@@ -5,6 +5,33 @@ import org.openqa.selenium.By;
 
 public class HomePageLocators{
 
+
+	//Account
+
+	public static By PROFILE_ICON = By.xpath("//a[@aria-label='Login']");
+	public static By FOR_YOU_TAB_BUTTON = By.xpath("//div[@class='rivo-footer-nav-text' and text()='For You']");
+	public static By FOR_YOU_MAIN_TEXT = By.xpath("//h2[@class='rivo-aw-title' and text()='Sign in to your account']");
+	public static String FOR_YOU_EXPECTED_TEXT = "Sign in to your account";
+	public static By SIGN_IN_OR_SIGN_UP_BUTTON = By.xpath("//a[text()='Sign in or Sign up']");
+	public static By SIGN_IN_WITH_SHOP_BUTTON = By.xpath("//button[@class='rivo-shop-pay-login-button rivo-login-button button-secondary']");
+	public static By RECENTLY_VIEWED_LABEL = By.xpath("//div[@aria-label='Recently Viewed carousel']//h2");
+	public static String RECENTLY_VIEWED_EXPECTED_TEXT = "Recently Viewed";
+	public static By POPULAR_TODAY_LABEL = By.xpath("//div[@aria-label='Popular Today carousel']//h2");
+	public static String POPULAR_TODAY_EXPECTED_TEXT = "Popular Today";
+	public static By NEW_ARRIVAL_LABEL = By.xpath("//span[@class='rivo-profile-list-item-title' and text()='New Arrivals']");
+	public static String NEW_ARRIVAL_EXPECTED_TEXT = "New Arrivals";
+	public static By BEST_SELLERS_LABEL = By.xpath("//span[@class='rivo-profile-list-item-title' and text()='Best Sellers']");
+	public static String BEST_SELLERS_EXPECTED_TEXT = "Best Sellers";
+	public static By CONTACT_LABEL = By.xpath("//span[@class='rivo-profile-list-item-title' and text()='Contact & FAQ']");
+	public static String CONTACT_EXPECTED_TEXT = "Contact & FAQ";
+	public static By ORDERS_TAB_BUTTON = By.xpath("//div[@class='rivo-footer-nav-text' and text()='Orders']");
+	public static By ORDERS_TAB_MAIN_TEXT = By.xpath("//div[@class='rivo-login-email-container']//h2");
+	public static String ORDERS_TAB_EXPECTED_TEXT = "Manage orders, track shipments, and easily start a return";
+	public static By PROFILE_TAB_BUTTON = By.xpath("//div[@class='rivo-footer-nav-text' and text()='Profile']");
+	public static By PROFILE_TAB_MAIN_TEXT = By.xpath("//div[@class='rivo-login-email-container']//h2");
+	public static String PROFILE_TAB_EXPECTED_TEXT = "Manage addresses, contact info, and personal preferences";
+
+
 	//Shopify Test Cases Locators
 
 	public static By PLP_PRODUCT_CARD = 	By.xpath("./ancestor::*[.//button[@aria-label='Next slide']][1]");

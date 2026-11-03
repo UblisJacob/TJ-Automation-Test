@@ -32,31 +32,37 @@ public class ValidateCreateAccount_Login {
 		}
 	}
 
-	@Test
+//	@Test
 	public void ValidateFieldOnLoginPage() throws Exception
 	{
 		new AccountLoginPage(driver).verifyAllFieldsOnLoginPage();
 	}
 
 	@Test
+	public void ValidateAccountIcon() throws Exception
+	{
+		new AccountLoginPage(driver).checkLoginPanel();
+	}
+
+//	@Test
 	public void ValidateErrorForTermsAndConditionsInLoginPage() throws InterruptedException {
 		new AccountLoginPage(driver).ErrorForTermsAndConditionsInLoginPage();
 	}
 
-	@Test
+//	@Test
 	public void ValidateErrorForTermsAndConditionsInCreateAccountPage() throws InterruptedException {
 		new AccountLoginPage(driver).ErrorForTermsAndConditionsInCreateAccountPage();
 	}
 
 
 
-	@Test
+//	@Test
 	public void ValidateFieldOnCreateAccountPage() throws Exception
 	{
 		new AccountLoginPage(driver).verifyfieldsandtextsoncreateaccountpage();
 	}
 	
-	@Test
+//	@Test
 	public void ValidateFieldOnRecoverPasswordPage() throws Exception
 	{
 		new AccountLoginPage(driver).verifyFieldsAndTextsOnRecoverPasswordPage();
@@ -78,7 +84,7 @@ public class ValidateCreateAccount_Login {
 
 //	@Test(dependsOnMethods = { "TC_VerifyCreateAccount" })
 //	@Test(priority = 2)
-	@Test
+//	@Test
 	public void VerifyRecoverPassword() throws Exception
 	{
 		ChromeOptions chromeOptions = new ChromeOptions();

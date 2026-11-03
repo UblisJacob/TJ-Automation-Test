@@ -24,6 +24,14 @@ public class ValidateFooterSection {
 		}
 	}
 
+//	@Test
+	public void ValidateCustomerHelpCode() throws Exception {
+		new FooterSectionPage(driver).VerifyCustomerHelpCode();
+	}
+
+
+
+
 	@Test
 	public void VerifyFooterSectionLinks() throws Exception {
 		new FooterSectionPage(driver).verifyFooterSectionLinks();
