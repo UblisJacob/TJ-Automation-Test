@@ -59,6 +59,30 @@ public class FooterSectionComponents extends FooterSectionLocators {
 
 	}
 
+	public void checkCustomerHelpCode() throws InterruptedException {
+		softassert = new SoftAssert();
+		Thread.sleep(5000);
+		Actions actions = new Actions(driver);
+		actions.sendKeys(Keys.END).perform();
+		List<WebElement> footerOptionList = driver.findElements(CUSTOMER_HELP_TEXT);
+		WebElement custHelpCode = footerOptionList.get(footerOptionList.size() - 1);
+		String text = custHelpCode.getText();
+		boolean isCustomerHelpTextDisplayed = custHelpCode.isDisplayed();
+		System.out.println("Customer Care Text: " + text);
+		Reporter.log("Customer Care Text: " + text);
+		ExtentReport.getExtentTest().info("Customer Care Text: " + text);
+	//	generalMethods.printReport("Customer Care Text: " + text, driver);
+		softassert.assertTrue(isCustomerHelpTextDisplayed, "Customer Help Code is not displayed in the Footer");
+	}
+
+
+
+
+
+
+
+
+
 	public void validateFooterShopSection() throws Exception {
 		softassert = new SoftAssert();
 

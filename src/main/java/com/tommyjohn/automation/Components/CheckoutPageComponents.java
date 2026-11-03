@@ -181,26 +181,99 @@ public class CheckoutPageComponents extends CheckoutPageLocators {
 		}
 	}
 
-
-
-
-
-
 	public void ValidateSplitBundleProductUsingQuickShop() throws InterruptedException {
-		jse = (JavascriptExecutor)driver;
+
+		jse = (JavascriptExecutor) driver;
+
 		SoftAssert softAssert = new SoftAssert();
+
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-//		driver.findElement(HomePageLocators.CART_ICON).click();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(CHECKOUT_BUTTON));
-//		driver.findElement(FlyCartPageLocator.VIEW_CART_LINK).click();
-		Thread.sleep(5000);
-		jse.executeScript("arguments[0].click();", driver.findElement(CHECKOUT_BUTTON));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(CONTACTINFO_TEXT));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(SPLIT_BUNDLE));
-		softAssert.assertTrue(driver.findElement(SPLIT_BUNDLE).isDisplayed(),"Bundle Product Is Not Splitting");
-		Reporter.log("Bundle Product Is Splitting");
-		ExtentReport.getExtentTest().info("Bundle Product Is Splitting");
+
+		try {
+
+			// Wait for Checkout button
+			wait.until(
+					ExpectedConditions.visibilityOfElementLocated(CHECKOUT_BUTTON)
+			);
+
+			Thread.sleep(5000);
+
+			// Click Checkout
+			jse.executeScript(
+					"arguments[0].click();",
+					driver.findElement(CHECKOUT_BUTTON)
+			);
+
+			// Wait for Checkout page
+			wait.until(
+					ExpectedConditions.visibilityOfElementLocated(CONTACTINFO_TEXT)
+			);
+
+			// Wait for split bundle products
+			wait.until(
+					ExpectedConditions.visibilityOfAllElementsLocatedBy(SPLIT_BUNDLE_ITEMS)
+			);
+
+			// Locate all product items
+			List<WebElement> bundleProducts =
+					driver.findElements(SPLIT_BUNDLE_ITEMS);
+
+			// Count only displayed products
+			long actualBundleCount = bundleProducts.stream()
+					.filter(WebElement::isDisplayed)
+					.count();
+
+			int expectedBundleCount = 4;
+
+			System.out.println("Expected Bundle Products: " + expectedBundleCount);
+			System.out.println("Actual Displayed Bundle Products: " + actualBundleCount);
+
+			Reporter.log("Expected Bundle Products: " + expectedBundleCount);
+			Reporter.log("Actual Displayed Bundle Products: " + actualBundleCount);
+
+			// Validate exact product count
+			softAssert.assertEquals(
+					actualBundleCount,
+					expectedBundleCount,
+					"Bundle splitting failed! Expected 4 displayed products but found "
+							+ actualBundleCount
+			);
+
+			if (actualBundleCount == expectedBundleCount) {
+
+				String message =
+						"PASS: All 4 bundle products are split and displayed successfully.";
+
+				System.out.println(message);
+				Reporter.log(message);
+				ExtentReport.getExtentTest().pass(message);
+
+			} else {
+
+				String message =
+						"FAIL: Expected 4 displayed bundle products but found "
+								+ actualBundleCount;
+
+				System.out.println(message);
+				Reporter.log(message);
+				ExtentReport.getExtentTest().fail(message);
+			}
+
+		} catch (Exception e) {
+
+			String message =
+					"FAIL: Split bundle validation failed. " + e.getMessage();
+
+			System.out.println(message);
+			Reporter.log(message);
+			ExtentReport.getExtentTest().fail(message);
+
+			softAssert.fail(message);
+		}
+
+		softAssert.assertAll();
 	}
+
 
 
 

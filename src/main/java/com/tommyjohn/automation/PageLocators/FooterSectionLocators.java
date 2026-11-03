@@ -27,6 +27,7 @@ public class FooterSectionLocators {
 //	FOOTER ACCOUNT SECTION
 	public static By SIGN_IN_FOOTER_LINK = By.xpath("//a[contains(text(),'Sign In')]");
 	public static By ORDER_HISTORY = By.xpath("//a[contains(text(),'Order History')]");
+	public static By CUSTOMER_HELP_TEXT = By.xpath("(//ul[contains(@class,'lg:justify-end') and contains(@class,'max-lg:flex-col')]//li)");
 	
 //	FOOTER SUPPORT SECTION
 	public static By CONTACT_US_LINK = By.xpath("//a[contains(text(),'Contact & FAQ')]");

@@ -45,6 +45,7 @@ public class ValidateCheckoutPage extends ExtentReport {
 	public void VerifySplitBundleProductUsingQuickShop() throws Exception
 	{
 		new AddToCartComponents(driver).AddBundleProductFromPLP("womens-second-skin-sleep-pocket-tee-pant-set-9");
+		new AddToCartComponents(driver).AddBundleProductFromPLP("second-skin-sleep-pocket-tee-and-short-set");
 		new CheckoutPage(driver).ValidateSplitBundleProductUsingQuickShop();
 	}
 

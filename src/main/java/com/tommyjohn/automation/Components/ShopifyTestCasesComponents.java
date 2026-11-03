@@ -235,6 +235,7 @@ public class ShopifyTestCasesComponents {
 
 
 
+
     public void ValidateClickingTheUGCModule() throws InterruptedException {
 
         SoftAssert softAssert = new SoftAssert();
@@ -245,14 +246,30 @@ public class ShopifyTestCasesComponents {
 
         try {
 
-            // Scroll to the UGC module
-            js.executeScript("window.scrollBy(0,15000)");
+            // ==========================================
+            // SCROLL TO THE BOTTOM OF THE PAGE
+            // ==========================================
 
-            wait.until(
+            js.executeScript(
+                    "window.scrollTo(0, document.documentElement.scrollHeight);"
+            );
+
+            // Allow dynamically loaded content to initialize
+            Thread.sleep(1500);
+
+            // Scroll slightly upward to locate the UGC module
+            js.executeScript("window.scrollBy(0, -1000);");
+
+            // Wait for UGC module visibility
+            WebElement ugcModule = wait.until(
                     ExpectedConditions.visibilityOfElementLocated(UGC_MODUL_1)
             );
 
-            WebElement ugcModule = driver.findElement(UGC_MODUL_1);
+            // Scroll UGC module into view
+            js.executeScript(
+                    "arguments[0].scrollIntoView({block:'center'});",
+                    ugcModule
+            );
 
             softAssert.assertTrue(
                     ugcModule.isDisplayed(),
@@ -261,9 +278,12 @@ public class ShopifyTestCasesComponents {
 
             System.out.println("UGC module is available");
             Reporter.log("UGC module is available");
-            ExtentReport.getExtentTest().info("UGC module is available");
+            ExtentReport.getExtentTest().pass("UGC module is available");
 
-            // Locate the first visible UGC post
+            // ==========================================
+            // LOCATE FIRST VISIBLE UGC POST
+            // ==========================================
+
             WebElement ugcPost = wait.until(
                     ExpectedConditions.visibilityOfElementLocated(
                             FIRST_UGC_MODUL_1
@@ -275,10 +295,19 @@ public class ShopifyTestCasesComponents {
                     ugcPost
             );
 
-            // Hover over the UGC post
+            // ==========================================
+            // HOVER OVER UGC POST
+            // ==========================================
+
             action.moveToElement(ugcPost).perform();
 
-            // Validate See Details CTA
+            System.out.println("Hovered over the first UGC post");
+            Reporter.log("Hovered over the first UGC post");
+
+            // ==========================================
+            // VALIDATE SEE DETAILS CTA
+            // ==========================================
+
             WebElement seeDetails = ugcPost.findElement(
                     SEE_DETAILS_CTA
             );
@@ -290,7 +319,7 @@ public class ShopifyTestCasesComponents {
 
             softAssert.assertTrue(
                     ctaText != null && ctaText.contains("See Details"),
-                    "See Details CTA is not available on hover"
+                    "See Details CTA is not available on hover. Actual text: " + ctaText
             );
 
             System.out.println("See Details CTA is available on hover");
@@ -310,9 +339,11 @@ public class ShopifyTestCasesComponents {
             softAssert.fail(errorMessage);
 
         } finally {
+
             softAssert.assertAll();
         }
     }
+
 
 
 
