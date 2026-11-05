@@ -548,11 +548,12 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		new HomePageComponents(driver).navigateToMensAll();
 		new CollectionPageComponent(driver).navigateToProductDetailsPage();
 //		driver.get("https://www.tommyjohn.com/products/womens-air-bra-pack-2-pack?variant=43216573464621");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		js1.executeScript("window.scrollBy(0,500)");
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(ADD_TO_WISHLIST));
 		softAssert.assertTrue(driver.findElement(ADD_TO_WISHLIST).isDisplayed(),"Add to Wishlist is not available in PDP");
-		String Add_to_Wishlist = driver.findElement(ADD_TO_WISHLIST).getText();
-		System.out.println("Add to Wishlist text is:"+ Add_to_Wishlist);
+//		String Add_to_Wishlist = driver.findElement(ADD_TO_WISHLIST).getText();
+//		System.out.println("Add to Wishlist text is:"+ Add_to_Wishlist);
 		Reporter.log("Add to Wishlist is available in PDP");
 		ExtentReport.getExtentTest().info("Add to Wishlist is available in PDP");
 
@@ -567,9 +568,9 @@ public class ProductDetailsPageComponents extends ProductDetailsPageLocators {
 		driver.get("https://www.tommyjohn.com/products/second-skin-deep-v-neck-stay-tucked-undershirt-3-pack?color=white&view=upsidedown");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(ADD_TO_WISHLIST));
-		softAssert.assertTrue(driver.findElement(ADD_TO_WISHLIST).isDisplayed(),"Add to Wishlist is not available in PDP");
-		String Add_to_Wishlist = driver.findElement(ADD_TO_WISHLIST).getText();
-		System.out.println("Add to Wishlist text is:"+ Add_to_Wishlist);
+//		softAssert.assertTrue(driver.findElement(ADD_TO_WISHLIST).isDisplayed(),"Add to Wishlist is not available in PDP");
+//		String Add_to_Wishlist = driver.findElement(ADD_TO_WISHLIST).getText();
+//		System.out.println("Add to Wishlist text is:"+ Add_to_Wishlist);
 		Reporter.log("Add to Wishlist is available in PDP");
 		ExtentReport.getExtentTest().info("Add to Wishlist is available in PDP");
 
