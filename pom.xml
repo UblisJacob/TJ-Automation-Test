@@ -167,10 +167,11 @@
         <!--  https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java  -->
         <!--  https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java  -->
         <!-- Source: https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <!-- Source: https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.48.0</version>
+            <version>4.52.0</version>
             <scope>compile</scope>
         </dependency>
         <!--  https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v130  -->
@@ -179,8 +180,9 @@
         <!--  https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-devtools-v142  -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-devtools-v152</artifactId>
-            <version>4.48.0</version>
+            <artifactId>selenium-devtools-latest</artifactId>
+            <version>4.52.0</version>
+            <scope>compile</scope>
         </dependency>
         <!--  https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver  -->
         <!--  https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver  -->
