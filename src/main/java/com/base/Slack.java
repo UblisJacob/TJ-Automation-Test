@@ -64,7 +64,7 @@ public class Slack {
 
 
         System.out.println("========== INSIDE SLACK METHOD ==========");
-        System.out.println("TJ_QA_WEBHOOK_URL: " + TJ_QA_WEBHOOK_URL);
+        System.out.println("TJ_QA_WEBHOOK_URL: " + Test_WEBHOOK_URL);
         System.out.println("Passed: " + passed);
         System.out.println("Failed: " + failed);
         System.out.println("Skipped: " + skipped);
@@ -78,7 +78,7 @@ public class Slack {
 
 //              String payload = "{\"text\":\"*Regression Results*\n*Time:* " + Date + " \n*Passed:* " + 198 + "\n*Failed:* "+ 6 + "\n*Skipped:* " + skipped + "\n*Report Link:* <" + ReportLINK + "|Click> \",\"type\": \"mrkdwn\"}";
 
-            URL url = new URL(TJ_QA_WEBHOOK_URL);
+            URL url = new URL(Test_WEBHOOK_URL);
 
             HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
 
