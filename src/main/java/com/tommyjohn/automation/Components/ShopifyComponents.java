@@ -7,7 +7,7 @@ import com.tommyjohn.automation.utils.CustomUtilities;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.v152.network.Network;
+import org.openqa.selenium.devtools.v156.network.Network;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
@@ -65,7 +65,7 @@ public class ShopifyComponents extends ShopifyLocators {
 
             devTools.createSession();
 
-            devTools.send(org.openqa.selenium.devtools.v152.network.Network.enable(
+            devTools.send(org.openqa.selenium.devtools.v156.network.Network.enable(
                     Optional.empty(),
                     Optional.empty(),
                     Optional.empty(),
